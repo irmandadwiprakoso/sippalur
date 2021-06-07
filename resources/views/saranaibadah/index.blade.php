@@ -14,18 +14,11 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin") 
                     <a href="/ibadah/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportibadah" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "user") 
                     <a href="/ibadah/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "kessos") 
                     <a href="/ibadah/create" class="btn btn-primary my-2">Insert Data</a>
-                    @endif
-                   
-
-                    @if (auth()->user()->role == "superadmin") 
-                    <a href="/exportibadah" class="btn btn-success">Export Data</a>
-                    @elseif (auth()->user()->role == "user") 
-                    <a href="/exportibadah" class="btn btn-success">Export Data</a>
-                    @elseif (auth()->user()->role == "kessos") 
                     <a href="/exportibadah" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
@@ -43,12 +36,13 @@
                     <thead>
                         <tr>                             
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Tipe</th>
+                            <th>Nama Sarana Peribadatan</th>
+                            <th>Jenis Sarana Peribadatan</th>
                             <th>Alamat</th>
                             <th>RT</th>
                             <th>RW</th>
-                            <th>Nama Pimpinan</th>
+                            <th>Ketua DKM/Pengurus/Pendeta</th>
+                            <th>Status Lahan</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -63,6 +57,7 @@
                             <td class=" ">{{ $ibadah->rt->rt}}</td>
                             <td class=" ">{{ $ibadah->rw->rw}}</td>
                             <td class=" ">{{ $ibadah->nama_pimpinan}}</td>
+                            <td class=" ">{{ $ibadah->status_lahan}}</td>
 
                             @if (auth()->user()->role == "superadmin")  
                             <td class=" ">

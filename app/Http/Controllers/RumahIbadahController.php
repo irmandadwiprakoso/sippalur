@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\IbadahExport;
 use Illuminate\Http\Request;
+use App\Exports\IbadahExport;
 use Maatwebsite\Excel\Facades\Excel;
-//use App\Htpp\Controllers\Controller;
 use App\Ibadah;
 use App\Tipeibadah;
 use App\Rt;
@@ -166,7 +165,8 @@ class RumahIbadahController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         Ibadah::create($request->all());
@@ -216,7 +216,8 @@ class RumahIbadahController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         Ibadah::where('id', $ibadah->id)
@@ -226,7 +227,8 @@ class RumahIbadahController extends Controller
             'alamat' => $request->alamat,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            'nama_pimpinan' => $request->nama_pimpinan
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan
         ]);
 
         return redirect('/ibadah')->with('success', 'Data Sarana Ibadah Berhasil di Update!');
@@ -246,11 +248,10 @@ class RumahIbadahController extends Controller
     //     return redirect('/ibadah');
     //     //return "delete";
     // }
-    public function destroy($id)
+    public function destroy(Ibadah $ibadah)
     {
-        Ibadah::destroy($id);
+        Ibadah::destroy($ibadah->id);
         //return redirect('/ibadah')->with('info', 'Data Sarana Ibadah Berhasil Dihapus!');
-        //return redirect('/ibadah');
         return redirect()->back();
     }
 }

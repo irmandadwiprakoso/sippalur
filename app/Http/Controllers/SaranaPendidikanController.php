@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PendidikanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Pendidikan;
 use App\Tipependidikan;
 use App\Rt;
@@ -129,9 +130,13 @@ class SaranaPendidikanController extends Controller
         // }else{
         //     $pendidikan = Pendidikan::all();
         // }
-
         return view('saranapendidikan.pendidikan', ['sarana_pendidikan' => $pendidikan]);
     }
+
+    public function pendidikanexport(){
+        return Excel::download(new PendidikanExport, 'sarana-pendidikan.xlsx');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -160,7 +165,8 @@ class SaranaPendidikanController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         // ],[
@@ -213,7 +219,8 @@ class SaranaPendidikanController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         Pendidikan::where('id', $pendidikan->id)
@@ -223,7 +230,8 @@ class SaranaPendidikanController extends Controller
             'alamat' => $request->alamat,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            'nama_pimpinan' => $request->nama_pimpinan
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan 
         ]);
 
         return redirect('/pendidikan')->with('success', 'Data Sarana Pendidikan Berhasil di Update!');
@@ -236,11 +244,10 @@ class SaranaPendidikanController extends Controller
      * @param \App\Pendidikan $pendidikan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pendidikan $pendidikan)
     {
-        Pendidikan::destroy($id);
+        Pendidikan::destroy($pendidikan->id);
         //return redirect('/pendidikan')->with('info', 'Data Sarana Pendidikan Berhasil Dihapus!');
-        //return redirect('/pendidikan');
         return redirect()->back();
     }
 }

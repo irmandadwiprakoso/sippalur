@@ -36,7 +36,7 @@
 </style>
 
 </head>
-<body class="hold-transition skin-yellow sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -199,8 +199,8 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li>
-            <li><a href="/covid"><i class="fa  fa-table"></i> COVID-19 </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -215,8 +215,8 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li>
-            <li><a href="/covid"><i class="fa  fa-table"></i> COVID-19 </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -231,8 +231,8 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li>
-            <li><a href="/covid"><i class="fa  fa-table"></i> COVID-19 </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "kessos")
@@ -247,8 +247,8 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li>
-            <li><a href="/covid"><i class="fa  fa-table"></i> COVID-19 </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @endif
@@ -263,9 +263,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Satlinmas </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+            <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -277,9 +277,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Satlinmas </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -291,9 +291,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Satlinmas </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "pemtibum")
@@ -305,12 +305,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Satlinmas </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
         @endif
+
 
 <!-- MENU PERMASBANG -->
         @if (auth()->user()->role == "superadmin")
@@ -322,8 +323,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> SPPT PBB </a></li>
+            <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -335,8 +335,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> SPPT PBB </a></li>
+          <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -348,8 +347,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> SPPT PBB </a></li>
+          <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "permasbang")
@@ -361,8 +359,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> SPPT PBB </a></li>
+          <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
           </ul>
         </li>
         @endif
@@ -383,10 +380,10 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.18
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-    reserved.
+    <!-- <strong>Copyrigsht &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights -->
+    <strong>Copyright &copy; 2021 <a href="#">Hasil Iseng x SambilJalan</a>. </strong>
   </footer>
 
 <!-- ./wrapper -->
@@ -405,6 +402,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
+
 
 <script>
   $(document).ready(function () {
@@ -429,12 +427,10 @@
                 $(`#delete${id}`).submit();
               }
             });
-       });
-      
-
+       });  
 </script>
 
 @include('sweetalert::alert')
-
+@yield('footer')
 </body>
 </html>

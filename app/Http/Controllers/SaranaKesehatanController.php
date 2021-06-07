@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KesehatanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Kesehatan;
 use App\Tipekesehatan;
 use App\Rt;
@@ -133,6 +134,10 @@ class SaranaKesehatanController extends Controller
         return view('saranakesehatan.kesehatan', ['sarana_kesehatan' => $kesehatan]);
     }
 
+    public function kesehatanexport(){
+        return Excel::download(new KesehatanExport, 'sarana-kesehatan.xlsx');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -160,7 +165,8 @@ class SaranaKesehatanController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         Kesehatan::create($request->all());
@@ -210,7 +216,8 @@ class SaranaKesehatanController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
-            'nama_pimpinan' => 'required'
+            'nama_pimpinan' => 'required',
+            'status_lahan' => 'required'
         ]);
 
         Kesehatan::where('id', $kesehatan->id)
@@ -220,7 +227,8 @@ class SaranaKesehatanController extends Controller
             'alamat' => $request->alamat,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            'nama_pimpinan' => $request->nama_pimpinan
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan
         ]);
 
         return redirect('/kesehatan')->with('success', 'Data Sarana Kesehatan Berhasil di Update!');
@@ -233,9 +241,9 @@ class SaranaKesehatanController extends Controller
      * @param \App\Kesehatan $kesehatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kesehatan $kesehatan)
     {
-        Kesehatan::destroy($id);
+        Kesehatan::destroy($kesehatan->id);
         //return redirect('/kesehatan')->with('info', 'Data Sarana Kesehatan Berhasil Dihapus!');
         return redirect()->back();
     }

@@ -17,4 +17,8 @@ class Statuskawin extends Model
     {
         return $this->hasMany(Asn::class);
     }
+    public function warga()
+    {
+        return $this->hasMany(Warga::class);
+    }
 }

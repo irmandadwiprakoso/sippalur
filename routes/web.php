@@ -27,7 +27,6 @@ Route::group(['middleware' => ['auth','checkrole:superadmin']],function(){
     Route::get('/user', 'AuthController@user');
     Route::get('/user/{user}/changepassword', 'AuthController@changepassword');
     Route::patch('/user/{user}', 'AuthController@updatepassword');
-
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,sekret']],function(){
@@ -35,7 +34,6 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,sekret']],func
     Route::resource('tkk', 'TkkController');
     Route::resource('tkk/{tkk}/profile', 'TkkController@view');
 });
-
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,kessos,permasbang,pemtibum']],function(){
     Route::get('/dashboard', 'AdminController@dashboard');
@@ -48,7 +46,22 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos']]
     Route::get('/exportibadah', 'RumahIbadahController@ibadahexport');
     Route::resource('ibadah', 'RumahIbadahController');
     Route::resource('pendidikan','SaranaPendidikanController');
+    Route::get('/exportpendidikan', 'SaranaPendidikanController@pendidikanexport');
     Route::resource('kesehatan','SaranaKesehatanController');
+    Route::get('/exportkesehatan','SaranaKesehatanController@kesehatanexport');
+    Route::resource('covid19','Covid19Controller');
+    Route::get('/exportcovid19', 'Covid19Controller@covid19export');
+});
+
+Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum']],function(){
+    Route::resource('warga','WargaController');
+    Route::resource('kependudukan','KependudukanController');
+    Route::resource('rtrw','RtrwController');
+    Route::get('/exportrtrw', 'RtrwController@rtrwexport');
+});
+Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,permasbang']],function(){
+    Route::resource('fasosfasum','FasosfasumController');
+    Route::get('/exportfasosfasum', 'FasosfasumController@fasosfasumexport');
 });
 
 

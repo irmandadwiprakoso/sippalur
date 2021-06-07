@@ -173,7 +173,7 @@
 
         <div class="box-footer">
             <button type="submit" class="btn btn-success">Update Data</button>
-            <a class="btn btn-default" href="/asn" role="button">Close</a>
+            <a class="btn btn-default" href="/asn" role="button">Cancel</a>
         </div>
 
 </form>

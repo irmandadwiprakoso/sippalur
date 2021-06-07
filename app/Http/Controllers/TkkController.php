@@ -23,15 +23,15 @@ class TkkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
 
-        if ($request->has('search')){
-            $tkk = Tkk::where('nama', 'LIKE', '%'.$request->search.'%')->get();
-        }else{
-            $tkk = Tkk::all();
-        }
-      
+        // if ($request->has('search')){
+        //     $tkk = Tkk::where('nama', 'LIKE', '%'.$request->search.'%')->get();
+        // }else{
+        //     $tkk = Tkk::all();
+        // }
+        $tkk = Tkk::all();
         return view('tkk.index', ['tkk' => $tkk]);
     }
 
@@ -185,7 +185,6 @@ class TkkController extends Controller
             $tkk->save();
         }
         return redirect('/tkk')->with('success', 'Data TKK Berhasil Di Update!');
-
     }
 
     /**

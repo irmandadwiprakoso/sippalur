@@ -14,10 +14,12 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")  
                     <a href="/pendidikan/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportpendidikan" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "user")  
                     <a href="/pendidikan/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "kessos")  
                     <a href="/pendidikan/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportpendidikan" class="btn btn-success">Export Data</a>
                     @endif
             <hr>
                 <div class="table-responsive">
@@ -39,7 +41,8 @@
                             <th>Alamat</th>
                             <th>RT</th>
                             <th>RW</th>
-                            <th>Nama Pimpinan</th>
+                            <th>Nama Kepsek/Pimpinan</th>
+                            <th>Status Lahan</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -54,6 +57,7 @@
                             <td class=" ">{{ $pendidikan->rt->rt}}</td>
                             <td class=" ">{{ $pendidikan->rw->rw}}</td>
                             <td class=" ">{{ $pendidikan->nama_pimpinan}}</td>
+                            <td class=" ">{{ $pendidikan->status_lahan}}</td>
 
                             @if (auth()->user()->role == "superadmin")  
                             <td class=" ">

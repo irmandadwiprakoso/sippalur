@@ -9,7 +9,7 @@
 <section class="content">	
     <div class="box box-primary">
 
-<form action="/tkk" method="post">
+<form action="/tkk" method="post" enctype="multipart/form-data">
     @csrf 
     <div class="box-body">
         <div class="mb-3">

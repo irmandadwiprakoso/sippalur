@@ -63,7 +63,18 @@
             <input type="text" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Pendidikan" name="nama_pimpinan" value="{{ $pendidikan->nama_pimpinan }}">
             @error ('nama_pimpinan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
-        
+
+        <div class="mb-3">
+            <label for="status_lahan" class="form-label">Status Lahan</label>
+            <select class="form-control @error('status_lahan') is-invalid @enderror" aria-label="Default select example" id="status_lahan" name="status_lahan" value="{{ $pendidikan->status_lahan }}"> 
+                <option selected value="{{ $pendidikan->status_lahan }}">{{ $pendidikan->status_lahan}}</option>
+                <option value="SHM">SHM</option>
+                <option value="FASOS/FASUM">FASOS/FASUM</option>
+                <option value="WAKAF">WAKAF</option>
+            </select>
+            @error ('status_lahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
         <div class="box-footer">
                 <button type="submit" class="btn btn-success">Update Data</button>
                 <a class="btn btn-default" href="/pendidikan" role="button">Close</a>

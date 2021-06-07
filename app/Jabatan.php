@@ -17,4 +17,8 @@ class Jabatan extends Model
     {
         return $this->hasMany(Asn::class);
     }
+    public function rtrw()
+    {
+        return $this->hasMany(Rtrw::class);
+    }
 }

@@ -21,4 +21,20 @@ class Rt extends Model
     {
         return $this->hasMany(Kesehatan::class);
     }
+    public function warga()
+    {
+        return $this->hasMany(Warga::class);
+    }
+    public function kependudukan()
+    {
+        return $this->hasMany(Kependudukan::class);
+    }
+    public function rtrw()
+    {
+        return $this->hasMany(Rtrw::class);
+    }
+    public function fasosfasum()
+    {
+        return $this->hasMany(Fasosfasum::class);
+    }
 }
