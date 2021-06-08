@@ -25,7 +25,7 @@
 
         <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
-            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <datalist id="nik_warga">
                 @foreach ($warga as $penduduk)
                     <option value="{{$penduduk->id}}">{{$penduduk->NIK}}-{{$penduduk->nama}}</option>
@@ -36,7 +36,7 @@
 
         <div class="mb-3">
             <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
-            <input type="date" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Konfirmasi" name="domisili" value="{{ old('domisili') }}">
+            <input type="text" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Domisili Tempat Tinggal" name="domisili" value="{{ old('domisili') }}">
             @error ('domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 

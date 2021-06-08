@@ -55,8 +55,8 @@
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $covid->warga->NIK}}</td>
                             <td class=" ">{{ $covid->warga->nama}}</td>
-                            <td class=" ">{{ $covid->warga->rt->rt}}</td>
-                            <td class=" ">{{ $covid->warga->rw->rw}}</td>
+                            <td class=" ">{{ $covid->rt->rt}}</td>
+                            <td class=" ">{{ $covid->rw->rw}}</td>
                             <td class=" ">{{ $covid->status_pasien}}</td>
                             <td class=" ">{{ $covid->tanggal_status}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>

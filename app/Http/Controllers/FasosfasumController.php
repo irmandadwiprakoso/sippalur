@@ -229,7 +229,7 @@ class FasosfasumController extends Controller
             'pemanfaatan' => 'required',
             'nama_pengembang' => 'required',
             'nama_perumahan' => 'required',
-            'foto' => 'required',       
+            // 'foto' => 'required',       
         ]);
 
         Fasosfasum::where('id', $fasosfasum->id)

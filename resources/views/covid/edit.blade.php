@@ -26,7 +26,7 @@
 
         <div class="mb-3">
             <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
-            <input type="date" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Lahir Anda" name="domisili" value="{{ $covid19->domisili }}">
+            <input type="text" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Lahir Anda" name="domisili" value="{{ $covid19->domisili }}">
             @error ('domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 

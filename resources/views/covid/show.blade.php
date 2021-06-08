@@ -24,7 +24,7 @@
                   <b>NIK</b> <a class="pull-right">{{ $covid19->warga->NIK}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $covid19->warga->alamat_domisili}}</a>
+                  <b>Alamat</b> <a class="pull-right">{{ $covid19->warga->alamat_KTP}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>RT</b> <a class="pull-right">{{ $covid19->warga->rt->rt}}</a>
@@ -32,6 +32,14 @@
                 <li class="list-group-item">
                   <b>RW</b> <a class="pull-right">{{ $covid19->warga->rw->rw}}</a>
                 </li>
+                <li class="list-group-item">
+                  <b>Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->domisili}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>RT Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->rt->rt}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>RW Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->rw->rw}}</a>
                 <li class="list-group-item">
                   <b>Tanggal Konfirmasi</b> <a class="pull-right">{{ $covid19->konfirmasi}}</a>
                 </li>
