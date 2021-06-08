@@ -42,6 +42,8 @@
                             <th>Nama</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
+                            <th>RT</th>
+                            <th>RW</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -55,6 +57,8 @@
                             <td class=" ">{{ $masyarakat-> nama}}</td>
                             <td class=" ">{{ $masyarakat-> tempat_lahir}}</td>
                             <td class=" ">{{ $masyarakat-> tanggal_lahir}}</td>
+                            <td class=" ">{{ $masyarakat-> rt->rt}}</td>
+                            <td class=" ">{{ $masyarakat-> rw->rw}}</td>
                             
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

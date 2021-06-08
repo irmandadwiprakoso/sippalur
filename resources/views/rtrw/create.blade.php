@@ -12,7 +12,7 @@
 <form action="/rtrw" method="post">
     @csrf 
     <div class="box-body">
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
             <select class="form-control @error('warga_id') is-invalid @enderror" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <option selected disabled>- Pilih -</option>
@@ -21,7 +21,19 @@
                 @endforeach
             </select>
             @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div> -->
+
+        <div class="mb-3">
+            <label for="warga_id" class="form-label">NIK Warga</label>
+            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+                <datalist id="nik_warga">
+                @foreach ($warga as $penduduk)
+                    <option value="{{$penduduk->id}}">{{$penduduk->NIK}} - {{$penduduk->nama}}</option>
+                @endforeach
+                </datalist>
+            @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
+
 
         <div class="mb-3">
             <label for="jabatan_id" class="form-label">Jabatan</label>

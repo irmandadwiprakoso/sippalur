@@ -25,14 +25,24 @@
                 <li class="list-group-item">
                   <b>Alamat KTP</b> <a class="pull-right">{{ $warga-> alamat_KTP}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Alamat Domisili</b> <a class="pull-right">{{ $warga-> alamat_domisili}}</a>
-                </li>
+
                 <li class="list-group-item">
                   <b>RT</b> <a class="pull-right">{{ $warga->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>RW</b> <a class="pull-right">{{ $warga->rw->rw}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kelurahan</b> <a class="pull-right">{{ $warga-> kelurahan}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kecamatan</b> <a class="pull-right">{{ $warga-> kecamatan}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kota / Kabupaten</b> <a class="pull-right">{{ $warga-> kota_kab}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Propinsi</b> <a class="pull-right">{{ $warga-> propinsi}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Agama</b> <a class="pull-right">{{ $warga->Agama->agama}}</a>

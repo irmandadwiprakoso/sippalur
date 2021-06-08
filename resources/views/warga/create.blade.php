@@ -12,16 +12,17 @@
 <form action="/warga" method="post">
     @csrf 
     <div class="box-body">
+    
+    <div class="mb-3">
+            <label for="nik" class="form-label">NIK</label>
+            <input type="number" class="form-control @error('NIK') is-invalid @enderror" id="nik" placeholder="NIK Anda" name="NIK" value="{{ old('NIK') }}">
+            @error ('NIK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
         <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Anda" name="nama" value="{{ old('nama') }}">
             @error('nama') <div class="invalid-feedback">{{ $message }} </div>@enderror       
-        </div>
-
-        <div class="mb-3">
-            <label for="nik" class="form-label">NIK</label>
-            <input type="number" class="form-control @error('NIK') is-invalid @enderror" id="nik" placeholder="NIK Anda" name="NIK" value="{{ old('NIK') }}">
-            @error ('NIK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -41,12 +42,6 @@
             <label for="alamat_KTP" class="form-label">Alamat KTP</label>
             <input type="text" class="form-control @error('alamat_KTP') is-invalid @enderror" id="alamat_KTP" placeholder="Alamat Anda" name="alamat_KTP" value="{{ old('alamat_KTP') }}">
             @error ('alamat_KTP') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="alamat_domisili" class="form-label">Alamat Domisili</label>
-            <input type="text" class="form-control @error('alamat_domisili') is-invalid @enderror" id="alamat_domisili" placeholder="Alamat Anda" name="alamat_domisili" value="{{ old('alamat_domisili') }}">
-            @error ('alamat_domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -70,6 +65,32 @@
             </select>
             @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
+
+        <div class="mb-3">
+            <label for="kelurahan" class="form-label">Kelurahan</label>
+            <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" placeholder="Alamat Anda" name="kelurahan" value="{{ old('kelurahan') }}">
+            @error ('kelurahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="kecamatan" class="form-label">Kecamatan</label>
+            <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" placeholder="Alamat Anda" name="kecamatan" value="{{ old('kecamatan') }}">
+            @error ('kecamatan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="kota_kab" class="form-label">Kota / Kabupaten </label>
+            <input type="text" class="form-control @error('kota_kab') is-invalid @enderror" id="kota_kab" placeholder="Alamat Anda" name="kota_kab" value="{{ old('kota_kab') }}">
+            @error ('kota_kab') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="propinsi" class="form-label">Propinsi</label>
+            <input type="text" class="form-control @error('propinsi') is-invalid @enderror" id="propinsi" placeholder="Alamat Anda" name="propinsi" value="{{ old('propinsi') }}">
+            @error ('propinsi') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+
 
         <div class="mb-3">
             <label for="agama_id" class="form-label">Agama</label>

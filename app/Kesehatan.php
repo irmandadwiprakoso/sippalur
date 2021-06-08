@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kesehatan extends Model
 {
     protected $table = 'sarana_kesehatan';
-    protected $fillable = ['nama_sarana_kesehatan', 'tipekesehatan_id', 'alamat', 'rt_id', 'rw_id', 'nama_pimpinan'];
+    protected $fillable = ['nama_sarana_kesehatan', 'tipekesehatan_id', 'alamat', 'rt_id', 'rw_id', 'nama_pimpinan','status_lahan'];
 
     public function tipekesehatan()
     {

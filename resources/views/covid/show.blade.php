@@ -27,10 +27,10 @@
                   <b>Alamat</b> <a class="pull-right">{{ $covid19->warga->alamat_domisili}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $covid19->warga->rt_id}}</a>
+                  <b>RT</b> <a class="pull-right">{{ $covid19->warga->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $covid19->warga->rw_id}}</a>
+                  <b>RW</b> <a class="pull-right">{{ $covid19->warga->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Tanggal Konfirmasi</b> <a class="pull-right">{{ $covid19->konfirmasi}}</a>

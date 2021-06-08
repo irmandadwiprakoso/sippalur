@@ -12,7 +12,7 @@
 <form action="/covid19" method="post" enctype="multipart/form-data">
     @csrf 
     <div class="box-body">
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
             <select class="form-control @error('warga_id') is-invalid @enderror" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <option selected disabled>- Pilih -</option>
@@ -21,17 +21,45 @@
                 @endforeach
             </select>
             @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
-            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK"list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <datalist id="nik_warga">
                 @foreach ($warga as $penduduk)
-                <option value="{{$penduduk->id}}" {{old('warga_id') == $penduduk->id ? 'selected' : null }}>{{$penduduk->NIK}}</option>
+                    <option value="{{$penduduk->id}}">{{$penduduk->NIK}}-{{$penduduk->nama}}</option>
                 @endforeach
                 </datalist>
             @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
+            <input type="date" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Konfirmasi" name="domisili" value="{{ old('domisili') }}">
+            @error ('domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="rt_id" class="form-label">RT</label>
+            <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id" value="{{ old('rt_id') }}"> 
+                <option selected disabled>- Pilih -</option>
+                @foreach ($rt as $erte)
+                <option value="{{$erte->id}}" {{old('rt_id') == $erte->id ? 'selected' : null }}>{{$erte->rt}}</option>
+                @endforeach
+            </select>
+            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="rw_id" class="form-label">RW</label>
+            <select class="form-control @error('rw_id') is-invalid @enderror" id="rw_id" name="rw_id" value="{{ old('rw_id') }}"> 
+                <option selected disabled>- Pilih -</option>
+                @foreach ($rw as $erwe)
+                <option value="{{$erwe->id}}" {{old('rw_id') == $erwe->id ? 'selected' : null }}>{{$erwe->rw}}</option>
+                @endforeach
+            </select>
+            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">

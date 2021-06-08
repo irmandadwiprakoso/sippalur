@@ -20,9 +20,12 @@ class CreateWargaTable extends Migration
             $table->String('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->String('alamat KTP');
-            $table->String('alamat_domisili');
-            $table->integer('rt_id');
-            $table->integer('rw_id');
+            $table->String('rt_id');
+            $table->String('rw_id');
+            $table->String('kelurahan');
+            $table->string('kecamatan');
+            $table->string('kota/kab');
+            $table->string('propinsi');
             $table->integer('agama_id');
             $table->integer('statuskawin_id');
             $table->integer('jeniskelamin_id');

@@ -16,6 +16,9 @@ class CreateCovid19Table extends Migration
         Schema::create('covid19', function (Blueprint $table) {
             $table->id();
             $table->integer('warga_id');
+            $table->string('domisili');
+            $table->integer('rt_id');
+            $table->integer('rw_id');
             $table->date('konfirmasi');
             $table->string('status_pasien');
             $table->string('lokasi_pasien');

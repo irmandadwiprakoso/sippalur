@@ -25,6 +25,34 @@
         </div>
 
         <div class="mb-3">
+            <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
+            <input type="date" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Lahir Anda" name="domisili" value="{{ $covid19->domisili }}">
+            @error ('domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="rt_id" class="form-label">RT</label>
+            <select class="form-control @error('rt_id') is-invalid @enderror" aria-label="Default select example" id="rt_id" name="rt_id" value="{{ $covid19->rt_id }}"> 
+                <option selected value="{{ $covid19->rt_id }}">{{ $covid19->rt->rt}}</option>
+                @foreach ($rt as $erte)
+                <option value="{{$erte->id}}">{{$erte->rt}}</option>
+                @endforeach
+            </select>
+            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="rw_id" class="form-label">RW</label>
+            <select class="form-control @error('rw_id') is-invalid @enderror" aria-label="Default select example" id="rw_id" name="rw_id" value="{{ $covid19->rw_id }}"> 
+                <option selected value="{{ $covid19->rw_id }}">{{ $covid19->rw->rw}}</option>
+                @foreach ($rw as $erwe)
+                <option value="{{$erwe->id}}">{{$erwe->rw}}</option>
+                @endforeach
+            </select>
+            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
             <label for="konfirmasi" class="form-label">Tanggal Konfirmasi</label>
             <input type="date" class="form-control @error('konfirmasi') is-invalid @enderror" id="konfirmasi" placeholder="Tanggal Lahir Anda" name="konfirmasi" value="{{ $covid19->konfirmasi }}">
             @error ('konfirmasi') <div class="invalid-feedback">{{ $message }} </div>@enderror 

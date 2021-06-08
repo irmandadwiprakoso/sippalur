@@ -44,12 +44,6 @@
         </div>
 
         <div class="mb-3">
-            <label for="alamat_domisili" class="form-label">Alamat Domisili</label>
-            <input type="text" class="form-control @error('alamat_domisili') is-invalid @enderror" id="alamat_domisili" placeholder="Alamat Anda" name="alamat_domisili" value="{{ $warga->alamat_domisili }}">
-            @error ('alamat_domisili') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
             <label for="rt_id" class="form-label">RT</label>
             <select class="form-control @error('rt_id') is-invalid @enderror" aria-label="Default select example" id="rt_id" name="rt_id" value="{{ $warga->rt_id }}"> 
                 <option selected value="{{ $warga->rt_id }}">{{ $warga->rt->rt}}</option>
@@ -69,6 +63,31 @@
                 @endforeach
             </select>
             @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+
+        <div class="mb-3">
+            <label for="kelurahan" class="form-label">Kelurahan</label>
+            <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" placeholder="Kelurahan" name="kelurahan" value="{{ $warga->kelurahan }}">
+            @error ('kelurahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        
+        <div class="mb-3">
+            <label for="kecamatan" class="form-label">Kecamatan</label>
+            <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" placeholder="Kecamatan" name="kecamatan" value="{{ $warga->kecamatan }}">
+            @error ('kecamatan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        
+        <div class="mb-3">
+            <label for="kota_kab" class="form-label">Kota / Kabupaten</label>
+            <input type="text" class="form-control @error('kota_kab') is-invalid @enderror" id="kota_kab" placeholder="Kota / Kabupaten" name="kota_kab" value="{{ $warga->kota_kab }}">
+            @error ('kota_kab') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        
+        <div class="mb-3">
+            <label for="propinsi" class="form-label">Propinsi</label>
+            <input type="text" class="form-control @error('propinsi') is-invalid @enderror" id="propinsi" placeholder="Propinsi" name="propinsi" value="{{ $warga->propinsi }}">
+            @error ('propinsi') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">

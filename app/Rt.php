@@ -37,4 +37,8 @@ class Rt extends Model
     {
         return $this->hasMany(Fasosfasum::class);
     }
+    public function covid19()
+    {
+        return $this->hasMany(Covid19::class);
+    }
 }

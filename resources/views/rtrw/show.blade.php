@@ -24,13 +24,13 @@
                   <b>NIK</b> <a class="pull-right">{{ $rtrw->warga->NIK}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $rtrw->warga->alamat_domisili}}</a>
+                  <b>Alamat</b> <a class="pull-right">{{ $rtrw->warga->alamat_KTP}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $rtrw->warga->rt_id}}</a>
+                  <b>RT</b> <a class="pull-right">{{ $rtrw->warga->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $rtrw->warga->rw_id}}</a>
+                  <b>RW</b> <a class="pull-right">{{ $rtrw->warga->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Jabatan</b> <a class="pull-right">{{ $rtrw->jabatan->jabatan}}</a>
