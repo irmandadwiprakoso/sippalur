@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,ke
     // Route::get('/profile', 'TkkController@profile');
     Route::get('/password/reset', 'PasswordController@reset');
     Route::patch('/password/update', 'PasswordController@update');
+    Route::resource('pamor', 'PamorController');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos']],function(){

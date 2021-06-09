@@ -41,4 +41,8 @@ class Rt extends Model
     {
         return $this->hasMany(Covid19::class);
     }
+    public function pamor()
+    {
+        return $this->hasMany(Pamor::class);
+    }
 }

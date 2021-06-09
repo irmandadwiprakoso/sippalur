@@ -364,6 +364,10 @@
         </li>
         @endif
     
+        <li><a href="/pamor"><i class="fa  fa-user"></i> Laporan Harian </a></li>
+            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        
         <li><a href="/password/reset"><i class="fa  fa-user"></i> Change Password </a></li>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
