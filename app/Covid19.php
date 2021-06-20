@@ -35,7 +35,7 @@ class Covid19 extends Model
     }
     public function rt()
     {
-        return $this->belongsTo(RT::class);
+        return $this->belongsTo(Rt::class);
     }
     public function rw()
     {
