@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Pamor;
-use App\RT;
-use App\RW;
+use App\Rt;
+use App\Rw;
 use Illuminate\Http\Request;
+use App\Exports\PamorExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PamorController extends Controller
 {
@@ -23,6 +25,22 @@ class PamorController extends Controller
         if(auth()->user()->role == 'admin')
         {
             $pamor = Pamor::all();
+        }
+        if(auth()->user()->role == 'sekret')
+        {
+            $pamor = Pamor::all();
+        }
+        if(auth()->user()->role == 'kessos')
+        {
+            $pamor = Pamor::where('bidang', '=', 'kessos')->get();
+        }
+        if(auth()->user()->role == 'permasbang')
+        {
+            $pamor = Pamor::where('bidang', '=', 'permasbang')->get();
+        }
+        if(auth()->user()->role == 'pemtibum')
+        {
+            $pamor = Pamor::where('bidang', '=', 'pemtibum')->get();
         }
         if (auth()->user()->username == 'pamor1')
         {
@@ -120,6 +138,11 @@ class PamorController extends Controller
         return view('pamor.index', ['pamor' => $pamor]);
     }
 
+    public function exportpamor()
+    {
+        return Excel::download(new PamorExport, 'laporanpamor.xlsx');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -147,13 +170,14 @@ class PamorController extends Controller
             'jumlah' => 'required',
             'bidang' => 'required',
             'keterangan' => 'required',
+            'tinjut' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
             'foto' => 'required',       
         ]);
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto->extension();
-        $request->foto->move('images/',$imgName);
+        $request->foto->move('images/LaporanHarian/',$imgName);
         
         //Pamor::create($request->all());
         Pamor::create([
@@ -162,6 +186,7 @@ class PamorController extends Controller
             'jumlah' => $request->jumlah,
             'bidang' => $request->bidang,
             'keterangan' => $request->keterangan,
+            'tinjut' => $request->tinjut,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'foto' => $imgName,
@@ -211,6 +236,7 @@ class PamorController extends Controller
             'jumlah' => 'required',
             'bidang' => 'required',
             'keterangan' => 'required',
+            'tinjut' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',         
             'foto' => 'required',         
@@ -223,12 +249,13 @@ class PamorController extends Controller
             'jumlah' => $request->jumlah,
             'bidang' => $request->bidang,
             'keterangan' => $request->keterangan,
+            'tinjut' => $request->tinjut,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'foto' => $request->foto,
         ]);
         if ($request->hasFile('foto')){
-            $request->file('foto')->move('images/',$request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/LaporanHarian/',$request->file('foto')->getClientOriginalName());
             $pamor->foto = $request->file('foto')->getClientOriginalName();
             $pamor->save();
         }

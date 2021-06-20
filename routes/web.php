@@ -27,20 +27,26 @@ Route::group(['middleware' => ['auth','checkrole:superadmin']],function(){
     Route::get('/user', 'AuthController@user');
     Route::get('/user/{user}/changepassword', 'AuthController@changepassword');
     Route::patch('/user/{user}', 'AuthController@updatepassword');
+    Route::delete('/user/{user}', 'AuthController@deleteuser');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,sekret']],function(){
     Route::resource('asn', 'AsnController');
     Route::resource('tkk', 'TkkController');
-    Route::resource('tkk/{tkk}/profile', 'TkkController@view');
+    // Route::resource('tkk/{tkk}/profile', 'TkkController@view');
+});
+
+Route::group(['middleware' => ['auth','checkrole:user']],function(){
+    // Route::resource('tkk/{tkk}/profile', 'TkkController@view');
+    Route::get('/profile', 'TkkController@profile');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,kessos,permasbang,pemtibum']],function(){
     Route::get('/dashboard', 'AdminController@dashboard');
-    // Route::get('/profile', 'TkkController@profile');
     Route::get('/password/reset', 'PasswordController@reset');
     Route::patch('/password/update', 'PasswordController@update');
     Route::resource('pamor', 'PamorController');
+    Route::get('/exportpamor', 'PamorController@exportpamor');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos']],function(){
@@ -60,6 +66,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum'
     Route::resource('rtrw','RtrwController');
     Route::get('/exportrtrw', 'RtrwController@rtrwexport');
 });
+
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,permasbang']],function(){
     Route::resource('fasosfasum','FasosfasumController');
     Route::get('/exportfasosfasum', 'FasosfasumController@fasosfasumexport');

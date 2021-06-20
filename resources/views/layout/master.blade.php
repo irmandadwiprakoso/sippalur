@@ -50,18 +50,15 @@
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <!-- <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> -->
       </a>
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="
@@ -85,13 +82,11 @@
               class="img-circle" alt="User Image">
                 <p>{{auth()->user()->name}}<small></small></p>
               </li>
-              <!-- Menu Body -->
-              <!-- /.row -->
-              <!-- Menu Footer-->
               <li class="user-footer">
-                <!-- <div class="pull-left">
-                  <a href="/profile" class="btn btn-default btn-flat">Profile</a>
-                </div> -->
+              
+                <div class="pull-left">
+                  <a href="/profile" class="btn btn-default btn-flat">My Profile</a>
+                </div>
                 <div class="pull-right">
                   <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
@@ -111,7 +106,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
     
-      <!-- search form -->
       <!-- <form action="" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="search" class="form-control" placeholder="Search...">
@@ -120,7 +114,6 @@
             </span>
         </div>
       </form> -->
-      <!-- /.search form -->
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -128,6 +121,7 @@
           <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard </a></li>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
+
  <!-- MENU ADMIN -->
         @if (auth()->user()->role =="superadmin")
         <li class="treeview">
@@ -138,7 +132,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/register"><i class="fa fa-circle-o"></i> Register New User (Non Pamor)</a></li>
+            <li><a href="/register"><i class="fa fa-circle-o"></i> Register User (Non Pamor)</a></li>
             <li><a href="/user"><i class="fa fa-circle-o"></i> User </a></li>
           </ul>
         </li>
@@ -312,7 +306,6 @@
         </li>
         @endif
 
-
 <!-- MENU PERMASBANG -->
         @if (auth()->user()->role == "superadmin")
         <li class="treeview">
@@ -367,10 +360,6 @@
         <li><a href="/pamor"><i class="fa  fa-user"></i> Laporan Harian </a></li>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
-        
-        <li><a href="/password/reset"><i class="fa  fa-user"></i> Change Password </a></li>
-            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-        </li>
 
     </section>
     <!-- /.sidebar -->
@@ -384,10 +373,10 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
+      <b>Version</b> 2.0
     </div>
     <!-- <strong>Copyrigsht &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights -->
-    <strong>Copyright &copy; 2021 <a href="#">Hasil Iseng x SambilJalan</a>. </strong>
+    <strong>Copyright &copy; 2021 <a>HIxSJ</a>.</strong> All rights
   </footer>
 
 <!-- ./wrapper -->

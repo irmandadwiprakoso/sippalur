@@ -16,6 +16,8 @@ class CreateCovid19Table extends Migration
         Schema::create('covid19', function (Blueprint $table) {
             $table->id();
             $table->integer('warga_id');
+            $table->string('foto_KTP');
+            $table->string('foto_KK');
             $table->string('domisili');
             $table->integer('rt_id');
             $table->integer('rw_id');
@@ -24,10 +26,14 @@ class CreateCovid19Table extends Migration
             $table->string('lokasi_pasien');
             $table->date('tanggal_status');
             $table->string('foto_status_pasien');
+            $table->string('hasil_test');
             $table->string('status_akhir');
             $table->date('tanggal_status_akhir');
             $table->string('foto_status_akhir');
             $table->string('no_hp');
+            $table->string('tinjut');
+            $table->string('keterangan');
+            $table->string('sumbercovid');
             $table->timestamps();
         });
     }

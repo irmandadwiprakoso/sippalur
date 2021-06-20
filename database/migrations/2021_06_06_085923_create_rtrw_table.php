@@ -16,7 +16,7 @@ class CreateRtrwTable extends Migration
         Schema::create('rtrw', function (Blueprint $table) {
             $table->id();
             $table->integer('warga_id');
-            $table->string('jabatan_id');
+            $table->integer('jabatan_id');
             $table->string('rt_id');
             $table->string('rw_id');
             $table->string('no_sk');

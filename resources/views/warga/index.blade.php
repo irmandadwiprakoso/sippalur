@@ -16,12 +16,6 @@
                     <a href="/warga/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "user")
                     <a href="/warga/create" class="btn btn-primary my-2">Insert Data</a>
-                    @elseif (auth()->user()->role == "pemtibum")
-                    <a href="/warga/create" class="btn btn-primary my-2">Insert Data</a>
-                    @elseif (auth()->user()->role == "kessos")
-                    <a href="/warga/create" class="btn btn-primary my-2">Insert Data</a>
-                    @elseif (auth()->user()->role == "permasbang")
-                    <a href="/warga/create" class="btn btn-primary my-2">Insert Data</a>
                     @endif
                 <hr>
                 <div class="table-responsive">
@@ -39,6 +33,7 @@
                         <tr>                          
                             <th>No</th>
                             <th>NIK</th>
+                            <th>KK</th>
                             <th>Nama</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
@@ -54,6 +49,7 @@
 						<tr>
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $masyarakat-> NIK}}</td>
+                            <td class=" ">{{ $masyarakat-> KK}}</td>
                             <td class=" ">{{ $masyarakat-> nama}}</td>
                             <td class=" ">{{ $masyarakat-> tempat_lahir}}</td>
                             <td class=" ">{{ $masyarakat-> tanggal_lahir}}</td>
@@ -66,75 +62,27 @@
 								</a>
                             </td>
                            
-                            @if (auth()->user()->role == "superadmin")
+                            @if (auth()->user()->role == "superadmin") 
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "user")
+                            @elseif (auth()->user()->role == "user") 
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "pemtibum")
-                            <td class=" ">
-                                <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "kessos")
-                            <td class=" ">
-                                <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "permasbang")
+                            @elseif (auth()->user()->role == "pemtibum") 
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
                             @endif
-
+                            
                             @if (auth()->user()->role == "superadmin")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "user")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "kessos")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "pemtibum")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "permasbang")                            
                             <td class=" ">
                             <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
                                     <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
@@ -145,13 +93,13 @@
                             </td>
                             @endif
                         </tr>
-                    @endforeach
-                            </tbody>
-				        </table>
-                    </div>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>	
+    </div>
+</div>	
 
 @endsection

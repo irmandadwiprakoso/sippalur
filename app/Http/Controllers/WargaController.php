@@ -19,111 +19,112 @@ class WargaController extends Controller
      */
     public function index()
     {
-        // $warga = Warga::all();
-        if(auth()->user()->username == 'superadmin')
-        {
-            $warga = Warga::all();
-        }
-        if(auth()->user()->username == 'admin_pemtibum')
-        {
-            $warga = Warga::all();
-        }
-        if(auth()->user()->username == 'lurah')
-        {
-            $warga = Warga::all();
-        }
-        if (auth()->user()->username == 'pamor1')
-        {
-            $warga = Warga::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->username == 'pamor2')
-        {
-            $warga = Warga::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->username == 'pamor3')
-        {
-            $warga = Warga::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->username == 'pamor4')
-        {
-            $warga = Warga::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->username == 'pamor5')
-        {
-            $warga = Warga::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->username == 'pamor6A')
-        {
-            $warga = Warga::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->username == 'pamor6B')
-        {
-            $warga = Warga::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->username == 'pamor7')
-        {
-            $warga = Warga::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->username == 'pamor8')
-        {
-            $warga = Warga::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->username == 'pamor9')
-        {
-            $warga = Warga::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->username == 'pamor10')
-        {
-            $warga = Warga::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->username == 'pamor11')
-        {
-            $warga = Warga::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->username == 'pamor12')
-        {
-            $warga = Warga::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->username == 'pamor13')
-        {
-            $warga = Warga::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->username == 'pamor14')
-        {
-            $warga = Warga::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->username == 'pamor15')
-        {
-            $warga = Warga::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->username == 'pamor16')
-        {
-            $warga = Warga::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->username == 'pamor17')
-        {
-            $warga = Warga::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->username == 'pamor18')
-        {
-            $warga = Warga::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->username == 'pamor19')
-        {
-            $warga = Warga::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->username == 'pamor20')
-        {
-            $warga = Warga::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->username == 'pamor21')
-        {
-            $warga = Warga::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->username == 'pamor22')
-        {
-            $warga = Warga::where('rw_id', '=', '23')->get();
-        }
+        $warga = Warga::all();
+        
+        // if(auth()->user()->username == 'superadmin')
+        // {
+        //     $warga = Warga::all();
+        // }
+        // if(auth()->user()->username == 'admin_pemtibum')
+        // {
+        //     $warga = Warga::all();
+        // }
+        // if(auth()->user()->username == 'lurah')
+        // {
+        //     $warga = Warga::all();
+        // }
+        // if (auth()->user()->username == 'pamor1')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '1')->get();
+        // }
+        // if (auth()->user()->username == 'pamor2')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '2')->get();
+        // }
+        // if (auth()->user()->username == 'pamor3')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '3')->get();
+        // }
+        // if (auth()->user()->username == 'pamor4')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '4')->get();
+        // }
+        // if (auth()->user()->username == 'pamor5')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '5')->get();
+        // }
+        // if (auth()->user()->username == 'pamor6A')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '6')->get();
+        // }
+        // if (auth()->user()->username == 'pamor6B')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '7')->get();
+        // }
+        // if (auth()->user()->username == 'pamor7')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '7')->get();
+        // }
+        // if (auth()->user()->username == 'pamor8')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '9')->get();
+        // }
+        // if (auth()->user()->username == 'pamor9')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '10')->get();
+        // }
+        // if (auth()->user()->username == 'pamor10')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '11')->get();
+        // }
+        // if (auth()->user()->username == 'pamor11')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '12')->get();
+        // }
+        // if (auth()->user()->username == 'pamor12')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '13')->get();
+        // }
+        // if (auth()->user()->username == 'pamor13')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '14')->get();
+        // }
+        // if (auth()->user()->username == 'pamor14')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '15')->get();
+        // }
+        // if (auth()->user()->username == 'pamor15')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '16')->get();
+        // }
+        // if (auth()->user()->username == 'pamor16')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '17')->get();
+        // }
+        // if (auth()->user()->username == 'pamor17')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '18')->get();
+        // }
+        // if (auth()->user()->username == 'pamor18')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '19')->get();
+        // }
+        // if (auth()->user()->username == 'pamor19')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '20')->get();
+        // }
+        // if (auth()->user()->username == 'pamor20')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '21')->get();
+        // }
+        // if (auth()->user()->username == 'pamor21')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '22')->get();
+        // }
+        // if (auth()->user()->username == 'pamor22')
+        // {
+        //     $warga = Warga::where('rw_id', '=', '23')->get();
+        // }
         return view('warga.index', ['warga' => $warga]);
     }
 
@@ -154,6 +155,7 @@ class WargaController extends Controller
         $request->validate([
             'nama' => 'required',
             'NIK' => 'required|size:16',
+            'KK' => 'required|size:16',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'alamat_KTP' => 'required',
@@ -211,6 +213,7 @@ class WargaController extends Controller
                 $request->validate([
                     'nama' => 'required',
                     'NIK' => 'required|size:16',
+                    'KK' => 'required|size:16',
                     'tempat_lahir' => 'required',
                     'tanggal_lahir' => 'required',
                     'alamat_KTP' => 'required',
@@ -229,6 +232,7 @@ class WargaController extends Controller
                 Warga::where('id', $warga->id)
                 ->update([
                     'NIK' => $request->NIK,
+                    'KK' => $request->KK,
                     'nama' => $request->nama,
                     'tempat_lahir' => $request->tempat_lahir,
                     'tanggal_lahir' => $request->tanggal_lahir,

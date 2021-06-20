@@ -16,11 +16,12 @@ class CreateSaranaKesehatanTable extends Migration
         Schema::create('sarana_kesehatan', function (Blueprint $table) {
             $table->id();
             $table->String('nama_sarana_kesehatan');
-            $table->String('tipe');
+            $table->String('tipekesehatan_id');
             $table->String('alamat');
-            $table->char('RT',3);
-            $table->char('RW',3);
+            $table->integer('rt_id');
+            $table->integer('rw_id');
             $table->String('nama_pimpinan');
+            $table->String('status_lahan');
             $table->timestamps();
         });
     }

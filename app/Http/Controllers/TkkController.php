@@ -180,7 +180,7 @@ class TkkController extends Controller
             // 'foto' => $request->foto
         ]);
         if ($request->hasFile('foto')){
-            $request->file('foto')->move('images/',$request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/TKK/',$request->file('foto')->getClientOriginalName());
             $tkk->foto = $request->file('foto')->getClientOriginalName();
             $tkk->save();
         }
@@ -196,12 +196,11 @@ class TkkController extends Controller
     public function destroy(Tkk $tkk)
     {
         Tkk::destroy($tkk->id);
-        //return redirect('/tkk')->with('info', 'Data Berhasil Di Hapus!');
         return redirect()->back();
     }
 
     public function profile()
     {
-        return view('tkk.show');
+        return view('tkk.profile');
     }
 }

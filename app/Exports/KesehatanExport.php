@@ -35,7 +35,6 @@ class KesehatanExport implements FromCollection, WithMapping, WithHeadings
         return [
             'Nama Sarana Kesehatan',
             'Jenis Sarana Kesehatan',
-            'Kode',
             'Alamat',
             'RT',
             'RW',

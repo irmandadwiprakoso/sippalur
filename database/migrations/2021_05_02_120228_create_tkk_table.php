@@ -15,22 +15,27 @@ class CreateTkkTable extends Migration
     {
         Schema::create('tkk', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->char('NIK', 16);
             $table->String('nama');
             $table->String('KK', 16);
             $table->String('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->String('jenis_kelamin');
+            $table->integer('jeniskelamin_id');
             $table->String('alamat');
-            $table->String('agama');
-            $table->String('pendidikan');
-            $table->String('status_perkawinan');
+            $table->integer('agama_id');
+            $table->integer('pendidikanpeg_id');
+            $table->integer('statuskawin_id');
+            $table->integer('seksi_id');
+            $table->integer('jabatan_id');
             $table->date('SK_Tkk');
-            $table->String('no_rek', 13);
+            $table->String('no_rek');
             $table->String('npwp');
             $table->String('email');
             $table->String('no_HP');
             $table->String('foto');
+            $table->String('username');
+            $table->String('rw_id');
             $table->timestamps();
         });
     }

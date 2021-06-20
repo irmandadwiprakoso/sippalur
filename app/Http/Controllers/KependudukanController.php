@@ -219,7 +219,6 @@ class KependudukanController extends Controller
     public function destroy(Kependudukan $kependudukan)
     {
         Kependudukan::destroy($kependudukan->id);
-        //return redirect('/ibadah')->with('info', 'Data Sarana Kependudukan Berhasil Dihapus!');
         return redirect()->back();
     }
 }

@@ -59,31 +59,31 @@
 
         <div class="mb-3">
             <label for="no_sk" class="form-label">Nomor SK Lurah/Camat</label>
-            <input type="number" class="form-control @error('no_sk') is-invalid @enderror" id="no_sk" placeholder="Nomor Rekening BJB Anda" name="no_sk" value="{{ $rtrw->no_sk }}">
+            <input type="text" class="form-control @error('no_sk') is-invalid @enderror" id="no_sk" placeholder="No SK Lurah/Camat" name="no_sk" value="{{ $rtrw->no_sk }}">
             @error ('no_sk') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="tmt" class="form-label">TMT</label>
-            <input type="date" class="form-control @error('tmt') is-invalid @enderror" id="tmt" placeholder="Tanggal Lahir Anda" name="tmt" value="{{ $rtrw->tmt }}">
+            <input type="date" class="form-control @error('tmt') is-invalid @enderror" id="tmt" placeholder="TMT" name="tmt" value="{{ $rtrw->tmt }}">
             @error ('tmt') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="no_hp" class="form-label">Nomor HP</label>
-            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="Nomor Rekening BJB Anda" name="no_hp" value="{{ $rtrw->no_hp }}">
+            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP" name="no_hp" value="{{ $rtrw->no_hp }}">
             @error ('no_hp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="no_rek" class="form-label">Nomor Rekening BJB</label>
-            <input type="number" class="form-control @error('no_rek') is-invalid @enderror" id="no_rek" placeholder="Nomor Rekening BJB Anda" name="no_rek" value="{{ $rtrw->no_rek }}">
+            <input type="number" class="form-control @error('no_rek') is-invalid @enderror" id="no_rek" placeholder="Rekening BJB" name="no_rek" value="{{ $rtrw->no_rek }}">
             @error ('no_rek') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="npwp" class="form-label">NPWP</label>
-            <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" placeholder="NPWP Anda" name="npwp" value="{{ $rtrw->npwp }}">
+            <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" placeholder="NPWP" name="npwp" value="{{ $rtrw->npwp }}">
             @error ('npwp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 

@@ -16,8 +16,10 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <h3 class="profile-username text-center">{{ $fasosfasum->nama}}</h3>
               <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Nama</b> <a class="pull-right">{{ $fasosfasum->nama}}</a>
+                </li>
                 <li class="list-group-item">
                   <b>Alamat</b> <a class="pull-right">{{ $fasosfasum->alamat}}</a>
                 </li>
@@ -44,7 +46,7 @@
                 </li>
                 <li class="list-group-item">
                   <b>Foto</b>
-                  <a href="{{asset('images/'. $fasosfasum->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
                 </li>
               </ul>
               

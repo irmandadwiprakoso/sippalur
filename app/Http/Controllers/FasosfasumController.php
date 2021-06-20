@@ -159,15 +159,16 @@ class FasosfasumController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
+            // 'koordinat' => 'required',
             'luas' => 'required',
             'pemanfaatan' => 'required',
-            'nama_pengembang' => 'required',
-            'nama_perumahan' => 'required',
+            // 'nama_pengembang' => 'required',
+            // 'nama_perumahan' => 'required',
             'foto' => 'required',       
         ]);
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto->extension();
-        $request->foto->move('images/',$imgName);
+        $request->foto->move('images/FasosFasum/',$imgName);
         
         //Fasosfasum::create($request->all());
         Fasosfasum::create([
@@ -175,6 +176,7 @@ class FasosfasumController extends Controller
             'alamat' => $request->alamat,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
+            'koordinat' => $request->koordinat,
             'luas' => $request->luas,
             'pemanfaatan' => $request->pemanfaatan,
             'nama_pengembang' => $request->nama_pengembang,
@@ -225,10 +227,11 @@ class FasosfasumController extends Controller
             'alamat' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
+            // 'koordinat' => 'required',
             'luas' => 'required',
             'pemanfaatan' => 'required',
-            'nama_pengembang' => 'required',
-            'nama_perumahan' => 'required',
+            // 'nama_pengembang' => 'required',
+            // 'nama_perumahan' => 'required',
             // 'foto' => 'required',       
         ]);
 
@@ -238,14 +241,15 @@ class FasosfasumController extends Controller
             'alamat' => $request->alamat,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
+            'koordinat' => $request->koordinat,
             'luas' => $request->luas,
             'pemanfaatan' => $request->pemanfaatan,
             'nama_pengembang' => $request->nama_pengembang,
             'nama_perumahan' => $request->nama_perumahan,
-            'foto' => $request->foto,
+            // 'foto' => $request->foto,
         ]);
         if ($request->hasFile('foto')){
-            $request->file('foto')->move('images/',$request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/FasosFasum/',$request->file('foto')->getClientOriginalName());
             $fasosfasum->foto = $request->file('foto')->getClientOriginalName();
             $fasosfasum->save();
         }

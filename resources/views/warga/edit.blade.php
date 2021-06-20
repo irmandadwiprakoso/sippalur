@@ -24,22 +24,28 @@
             <input type="number" class="form-control @error('NIK') is-invalid @enderror" id="NIK" placeholder="NIK Anda" name="NIK" value="{{ $warga->NIK }}">
             @error ('NIK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
+
+        <div class="mb-3">
+            <label for="KK" class="form-label">KK</label>
+            <input type="number" class="form-control @error('KK') is-invalid @enderror" id="KK" placeholder="KK Anda" name="KK" value="{{ $warga->KK }}">
+            @error ('KK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
        
         <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir Anda" name="tempat_lahir" value="{{ $warga->tempat_lahir }}">
+            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir" value="{{ $warga->tempat_lahir }}">
             @error ('tempat_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-            <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" placeholder="Tanggal Lahir Anda" name="tanggal_lahir" value="{{ $warga->tanggal_lahir }}">
+            <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" placeholder="Tanggal Lahir" name="tanggal_lahir" value="{{ $warga->tanggal_lahir }}">
             @error ('tanggal_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="alamat_KTP" class="form-label">Alamat KTP</label>
-            <input type="text" class="form-control @error('alamat_KTP') is-invalid @enderror" id="alamat_KTP" placeholder="Alamat Anda" name="alamat_KTP" value="{{ $warga->alamat_KTP }}">
+            <input type="text" class="form-control @error('alamat_KTP') is-invalid @enderror" id="alamat_KTP" placeholder="Alamat" name="alamat_KTP" value="{{ $warga->alamat_KTP }}">
             @error ('alamat_KTP') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -125,13 +131,13 @@
 
         <div class="mb-3">
                 <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="Nama Anda" name="pekerjaan" value="{{ $warga->pekerjaan }}">
+                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="Pekerjaan" name="pekerjaan" value="{{ $warga->pekerjaan }}">
             @error('pekerjaan') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="box-footer">
             <button type="submit" class="btn btn-success">Update Data</button>
-            <a class="btn btn-default" href="/tkk" role="button">Close</a>
+            <a class="btn btn-default" href="/warga" role="button">Close</a>
         </div>
 </form>
         </div>

@@ -76,6 +76,12 @@ class AuthController extends Controller
             'password' => bcrypt (request('password')),
         ]);
         return redirect('/user')->with('success', 'Password User Berhasil Direset!');
+    }
 
+    public function deleteuser(User $user)
+    {
+        User::destroy($user->id);
+        // return redirect('/user')->with('success', 'User Berhasil dihapus!');
+        return redirect()->back();
     }
 }

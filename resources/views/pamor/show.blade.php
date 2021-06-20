@@ -34,6 +34,9 @@
                   <b>Keterangan</b> <a class="pull-right">{{ $pamor->keterangan}}</a>
                 </li>
                 <li class="list-group-item">
+                  <b>Tindak Lanjut</b> <a class="pull-right">{{ $pamor->tinjut}}</a>
+                </li>
+                <li class="list-group-item">
                   <b>RT</b> <a class="pull-right">{{ $pamor->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
@@ -41,7 +44,7 @@
                 </li>
                 <li class="list-group-item">
                   <b>Foto</b>
-                  <a href="{{asset('images/'. $pamor->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
                 </li>
                 </ul>
                   <a href="/pamor/" class="btn btn-default">Close</a>

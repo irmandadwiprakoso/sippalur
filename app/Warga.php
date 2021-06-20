@@ -9,6 +9,7 @@ class Warga extends Model
     protected $table = 'warga';
     protected $fillable = [
         'NIK',
+        'KK',
         'nama',
         'tempat_lahir',
         'tanggal_lahir',

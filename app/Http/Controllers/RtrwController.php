@@ -20,7 +20,111 @@ class RtrwController extends Controller
      */
     public function index()
     {
-        $rtrw = Rtrw::all();
+        //$rtrw = Rtrw::all();
+        if(auth()->user()->username == 'superadmin')
+        {
+            $rtrw = Rtrw::all();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
+        {
+            $rtrw = Rtrw::all();
+        }
+        if(auth()->user()->username == 'lurah')
+        {
+            $rtrw = Rtrw::all();
+        }
+        if (auth()->user()->username == 'pamor1')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '1')->get();
+        }
+        if (auth()->user()->username == 'pamor2')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '2')->get();
+        }
+        if (auth()->user()->username == 'pamor3')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '3')->get();
+        }
+        if (auth()->user()->username == 'pamor4')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '4')->get();
+        }
+        if (auth()->user()->username == 'pamor5')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '5')->get();
+        }
+        if (auth()->user()->username == 'pamor6A')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '6')->get();
+        }
+        if (auth()->user()->username == 'pamor6B')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '7')->get();
+        }
+        if (auth()->user()->username == 'pamor7')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '7')->get();
+        }
+        if (auth()->user()->username == 'pamor8')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '9')->get();
+        }
+        if (auth()->user()->username == 'pamor9')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '10')->get();
+        }
+        if (auth()->user()->username == 'pamor10')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '11')->get();
+        }
+        if (auth()->user()->username == 'pamor11')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '12')->get();
+        }
+        if (auth()->user()->username == 'pamor12')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '13')->get();
+        }
+        if (auth()->user()->username == 'pamor13')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '14')->get();
+        }
+        if (auth()->user()->username == 'pamor14')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '15')->get();
+        }
+        if (auth()->user()->username == 'pamor15')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '16')->get();
+        }
+        if (auth()->user()->username == 'pamor16')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '17')->get();
+        }
+        if (auth()->user()->username == 'pamor17')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '18')->get();
+        }
+        if (auth()->user()->username == 'pamor18')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '19')->get();
+        }
+        if (auth()->user()->username == 'pamor19')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '20')->get();
+        }
+        if (auth()->user()->username == 'pamor20')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '21')->get();
+        }
+        if (auth()->user()->username == 'pamor21')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '22')->get();
+        }
+        if (auth()->user()->username == 'pamor22')
+        {
+            $rtrw = Rtrw::where('rw_id', '=', '23')->get();
+        }
         return view('rtrw.index', ['rtrw' => $rtrw]);
     }
     public function rtrwexport()
@@ -62,7 +166,7 @@ class RtrwController extends Controller
             // 'npwp' => 'required',        
         ]);
         Rtrw::create($request->all());
-        return redirect('/rtrw')->with('success', 'Data RTRW Berhasil Ditambahkan!');
+        return redirect('/rtrw')->with('success', 'Data RT/RW Berhasil Ditambahkan!');
     }
 
     /**
@@ -88,7 +192,7 @@ class RtrwController extends Controller
         $rt = Rt::all();
         $rw = Rw::all();
         $jabatan = Jabatan::all();
-        return view ('rtrw.edit', compact('rtrw', 'warga','jabatan','rt','rw'));
+        return view ('rtrw.edit', compact('rtrw', 'warga', 'jabatan','rt','rw'));
     }
 
     /**

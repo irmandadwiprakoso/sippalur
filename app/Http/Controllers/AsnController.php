@@ -173,7 +173,7 @@ class AsnController extends Controller
             // 'foto' => $request->foto
         ]);     
         if ($request->hasFile('foto')){
-            $request->file('foto')->move('images/',$request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('images/ASN/',$request->file('foto')->getClientOriginalName());
             $asn->foto = $request->file('foto')->getClientOriginalName();
             $asn->save();
         }

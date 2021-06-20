@@ -13,6 +13,7 @@ class Pamor extends Model
         'jumlah',
         'bidang',
         'keterangan',
+        'tinjut',
         'rt_id',
         'rw_id',
         'foto',

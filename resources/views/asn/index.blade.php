@@ -14,8 +14,10 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
                     <a href="/asn/create" class="btn btn-primary my-2">Insert Data</a>
+                    @elseif (auth()->user()->role == "sekret")
+                    <a href="/asn/create" class="btn btn-primary my-2">Insert Data</a>
                     @endif
-            <hr>
+                <hr>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -24,21 +26,21 @@
                                     </div>
                                 </div>
                             </div>
-                        <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
                     <table id="Datatables" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>                         
-                            <th>No</th>
-                            <th>NIP</th>
-                            <th>Nama</th>
-                            <th>Pangkat</th>
-                            <th>Golongan</th>
-                            <th>View</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
+                        <thead>
+                            <tr>                         
+                                <th>No</th>
+                                <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Pangkat</th>
+                                <th>Golongan</th>
+                                <th>View</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
                             <tbody>	
                                 @foreach ($asn as $pns)
                                     <tr>
@@ -47,7 +49,6 @@
                                         <td class=" ">{{ $pns->nama}}</td>
                                         <td class=" ">{{ $pns->pangkat->pangkat}}</td>
                                         <td class=" ">{{ $pns->golongan->golongan}}</td>
-
                                         
                                         <td class=" ">
                                             <a href="/asn/{{ $pns->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
@@ -55,8 +56,13 @@
                                             </a>
                                         </td>
                                         
-                                        
                                         @if (auth()->user()->role == "superadmin")
+                                        <td class=" ">
+                                            <a href="/asn/{{ $pns->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="glyphicon glyphicon-pencil"></i>
+                                            </a>
+                                        </td>
+                                        @elseif (auth()->user()->role == "sekret")
                                         <td class=" ">
                                             <a href="/asn/{{ $pns->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="glyphicon glyphicon-pencil"></i>
@@ -65,6 +71,15 @@
                                         @endif
 
                                         @if (auth()->user()->role == "superadmin")
+                                        <td class=" ">
+                                            <a href="#" data-id="{{ $pns->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
+                                                <form action="{{ url('asn', $pns->id) }}" id="delete{{ $pns->id }}" method="post" >
+                                                    @method('delete')
+                                                    @csrf
+                                                </form>
+                                            </a>
+                                        </td>
+                                        @elseif (auth()->user()->role == "sekret")
                                         <td class=" ">
                                             <a href="#" data-id="{{ $pns->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
                                                 <form action="{{ url('asn', $pns->id) }}" id="delete{{ $pns->id }}" method="post" >

@@ -18,7 +18,7 @@
                     @elseif (auth()->user()->role == "user") 
                     <a href="/fasosfasum/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "permasbang") 
-                    <a href="/fasosfasum/create" class="btn btn-primary my-2">Insert Data</a>
+                    <!-- <a href="/fasosfasum/create" class="btn btn-primary my-2">Insert Data</a> -->
                     <a href="/exportfasosfasum" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
@@ -103,7 +103,7 @@
                             @elseif (auth()->user()->role == "permasbang")  
                             <td class="">
                                 <a href="#" data-id="{{ $psu->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('psu', $psu->id) }}" id="delete{{ $penduduk->id }}" method="post" >
+                                    <form action="{{ url('psu', $psu->id) }}" id="delete{{ $psu->id }}" method="post" >
                                     @method('delete')
                                     @csrf
                                     </form>

@@ -38,8 +38,8 @@
                             <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
-                            <th>RT</th>
-                            <th>RW</th>
+                            <th>RT Domisili</th>
+                            <th>RW Domisili</th>
                             <th>Status Pasien</th>
                             <th>Tanggal Status</th>
                             <th>Status Akhir</th>
@@ -117,7 +117,7 @@
                             </td>
                             @endif
                         </tr>
-                    @endforeach
+                        @endforeach
                             </tbody>
 				        </table>
                     </div>

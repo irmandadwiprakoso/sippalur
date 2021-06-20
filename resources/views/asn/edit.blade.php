@@ -168,7 +168,7 @@
         </div>
 
         <div class="input-group mb-3">
-                <img src="{{asset('images/'.$asn->foto)}}" height="20%" width="20%"></img>
+                <img src="{{asset('images/ASN/'.$asn->foto)}}" height="20%" width="20%"></img>
         </div>
 
         <div class="box-footer">

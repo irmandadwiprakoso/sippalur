@@ -10,7 +10,7 @@
 		<div class="row">
             <div class="col-xs-12">
                 <div class="panel panel-success">
-                <div class="panel-heading">Detail Warga</div>
+                <div class="panel-heading">Detail Data Warga</div>
                     <div class="panel-body">
 
           <!-- Profile Image -->
@@ -21,6 +21,9 @@
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <b>NIK</b> <a class="pull-right">{{ $warga-> NIK}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>KK</b> <a class="pull-right">{{ $warga-> KK}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Alamat KTP</b> <a class="pull-right">{{ $warga-> alamat_KTP}}</a>

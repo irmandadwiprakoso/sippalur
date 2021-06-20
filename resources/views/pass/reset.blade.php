@@ -33,6 +33,7 @@
       <!-- <div class="row">
         <div class="col-xs-12"> -->
           <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
+          <a class="btn btn-default btn-block btn-flat" href="/user" role="button"><b>Cancel</b></a>
         <!-- </div> -->
         <!-- /.col -->
       <!-- </div> -->

@@ -62,8 +62,8 @@
             <label for="status_pasien" class="form-label">Status Pasien</label>
             <select class="form-control @error('status_pasien') is-invalid @enderror" aria-label="Default select example" id="status_pasien" name="status_pasien" value="{{ $covid19->status_pasien }}"> 
                 <option selected value="{{ $covid19->status_pasien }}">{{ $covid19->status_pasien}}</option>
-                <option value="ISOMAN">ISOMAN</option>
-                <option value="DIRAWAT">DIRAWAT</option>
+                <option value="ISOMAN">ISOLASI MANDIRI</option>
+                <option value="RAWAT">DIRAWAT</option>
             </select>
             @error ('status_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
@@ -81,11 +81,25 @@
         </div>
 
         <div class="mb-3">
+            <label for="hasil_test" class="form-label">Status Akhir Pasien</label>
+            <select class="form-control @error('hasil_test') is-invalid @enderror" aria-label="Default select example" id="hasil_test" name="hasil_test" value="{{ $covid19->hasil_test }}"> 
+                <option selected value="{{ $covid19->hasil_test }}">{{ $covid19->hasil_test}}</option>
+                <option value="TCM">TCM</option>
+                <option value="PCR">PCR</option>
+                <option value="Rapid Antibodi">Rapid Antibodi</option>
+                <option value="Swab Antigen">Swab Antigen</option>
+                <option value="GeNose">GeNose</option>
+            </select>
+            @error ('hasil_test') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
             <label for="status_akhir" class="form-label">Status Akhir Pasien</label>
             <select class="form-control @error('status_akhir') is-invalid @enderror" aria-label="Default select example" id="status_akhir" name="status_akhir" value="{{ $covid19->status_akhir }}"> 
                 <option selected value="{{ $covid19->status_akhir }}">{{ $covid19->status_akhir}}</option>
                 <option value="Positif">POSITIF</option>
                 <option value="Negatif">NEGATIF</option>
+                <option value="Meninggal">MENINGGAL</option>
             </select>
             @error ('status_akhir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
@@ -102,14 +116,58 @@
             @error ('no_hp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
+        <div class="mb-3">
+            <label for="tinjut" class="form-label">Tindak Lanjut Kelurahan</label>
+            <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut Kelurahan" name="tinjut" value="{{ $covid19->tinjut }}">
+            @error ('tinjut') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="mb-3">
+            <label for="keterangan" class="form-label">Hasil Tindak Lanjut</label>
+            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Hasil Tindak Lanjut" name="keterangan" value="{{ $covid19->keterangan }}">
+            @error ('keterangan') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="mb-3">
+            <label for="sumbercovid" class="form-label">Sumber Pasien Terpapar Covid</label>
+            <input type="text" class="form-control @error('sumbercovid') is-invalid @enderror" id="sumbercovid" placeholder="Sumber Pasien Terpapar Covid" name="sumbercovid" value="{{ $covid19->sumbercovid }}">
+            @error ('sumbercovid') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="input-group mb-3">
+        <label for="foto_KTP">Foto KTP Pasien</label>
+            <input type="file" class="form-control @error('foto_KTP') is-invalid @enderror" id="foto_KTP" name="foto_KTP" value="{{ $covid19->foto_KTP }}">
+            @error ('foto_KTP') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/KTP/'.$covid19->foto_KTP)}}" height="20%" width="20%"></img>
+        </div>
+
+        <div class="input-group mb-3">
+        <label for="foto_KK">Foto KK Pasien</label>
+            <input type="file" class="form-control @error('foto_KK') is-invalid @enderror" id="foto_KK" name="foto_KK" value="{{ $covid19->foto_KK }}">
+            @error ('foto_KK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/KK/'.$covid19->foto_KK)}}" height="20%" width="20%"></img>
+        </div>
+
         <div class="input-group mb-3">
         <label for="foto_status_pasien">Foto Status Pasien</label>
             <input type="file" class="form-control @error('foto_status_pasien') is-invalid @enderror" id="foto_status_pasien" name="foto_status_pasien" value="{{ $covid19->foto_status_pasien }}">
             @error ('foto_status_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/StatusAwalPasien/'.$covid19->foto_status_pasien)}}" height="20%" width="20%"></img>
+        </div>
 
         <div class="input-group mb-3">
-                <img src="{{asset('images/'.$covid19->foto_status_pasien)}}" height="20%" width="20%"></img>
+        <label for="foto_status_akhir">Foto Status Akhir Pasien</label>
+            <input type="file" class="form-control @error('foto_status_akhir') is-invalid @enderror" id="foto_status_akhir" name="foto_status_akhir" value="{{ $covid19->foto_status_akhir }}">
+            @error ('foto_status_akhir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/StatusAkhirPasien/'.$covid19->foto_status_akhir)}}" height="20%" width="20%"></img>
         </div>
 
         <div class="box-footer">

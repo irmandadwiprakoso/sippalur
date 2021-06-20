@@ -157,6 +157,8 @@ class Covid19Controller extends Controller
         //dd($request->all());
         $request->validate([
             'warga_id' => 'required',
+            'foto_KTP' => 'required',
+            'foto_KK' => 'required',
             'domisili' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
@@ -165,18 +167,37 @@ class Covid19Controller extends Controller
             'lokasi_pasien' => 'required',
             'tanggal_status' => 'required',
             'foto_status_pasien' => 'required',
+            'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
+            'foto_status_akhir' => 'required',
             'no_hp' => 'required',        
+            'tinjut' => 'required',        
+            'keterangan' => 'required',        
+            'sumbercovid' => 'required',        
         ]);
         
-        $imgName = $request->foto_status_pasien->getClientOriginalName() . '-' . time() 
+        $imgName1 = $request->foto_KTP->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto_KTP->extension();
+        $request->foto_KTP->move('images/Covid19/KTP/',$imgName1);
+
+        $imgName2 = $request->foto_KK->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto_KK->extension();
+        $request->foto_KK->move('images/Covid19/KK/',$imgName2);
+
+        $imgName3 = $request->foto_status_pasien->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto_status_pasien->extension();
-        $request->foto_status_pasien->move('images/',$imgName);
+        $request->foto_status_pasien->move('images/Covid19/StatusAwalPasien/',$imgName3);
+
+        $imgName4 = $request->foto_status_akhir->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto_status_akhir->extension();
+        $request->foto_status_akhir->move('images/Covid19/StatusAkhirPasien/',$imgName4);
         
         // Covid19::create($request->all());
         Covid19::create([
             'warga_id' => $request->warga_id,
+            'foto_KTP' => $imgName1,
+            'foto_KK' => $imgName2,
             'domisili' => $request->domisili,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
@@ -184,10 +205,15 @@ class Covid19Controller extends Controller
             'status_pasien' => $request->status_pasien,
             'lokasi_pasien' => $request->lokasi_pasien,
             'tanggal_status' => $request->tanggal_status,
-            'foto_status_pasien' => $imgName,
+            'foto_status_pasien' => $imgName3,
+            'hasil_test' => $request->hasil_test,
             'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
+            'foto_status_akhir' => $imgName4,
             'no_hp' => $request->no_hp,
+            'tinjut' => $request->tinjut,
+            'keterangan' => $request->keterangan,
+            'sumbercovid' => $request->sumbercovid,
         ]);
         return redirect('/covid19')->with('success', 'Data Covid-19 Berhasil Ditambahkan!');
     }
@@ -229,6 +255,8 @@ class Covid19Controller extends Controller
     {
         $request->validate([
             'warga_id' => 'required',
+            // 'foto_KTP' => 'required',
+            // 'foto_KK' => 'required',
             'domisili' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
@@ -236,15 +264,22 @@ class Covid19Controller extends Controller
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
             'tanggal_status' => 'required',
-            'foto_status_pasien' => 'required',
+            // 'foto_status_pasien' => 'required',
+            'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
-            'no_hp' => 'required',         
+            // 'foto_status_akhir' => 'required',
+            'no_hp' => 'required',        
+            'tinjut' => 'required',        
+            'keterangan' => 'required',        
+            'sumbercovid' => 'required',           
         ]);
 
         Covid19::where('id', $covid19->id)
         ->update([
             'warga_id' => $request->warga_id,
+            // 'foto_KTP' => $request->foto_KTP,
+            // 'foto_KK' => $request->foto_KK,
             'domisili' => $request->domisili,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
@@ -252,14 +287,34 @@ class Covid19Controller extends Controller
             'status_pasien' => $request->status_pasien,
             'lokasi_pasien' => $request->lokasi_pasien,
             'tanggal_status' => $request->tanggal_status,
-            'foto_status_pasien' => $request->foto_status_pasien,
+            // 'foto_status_pasien' => $request->foto_status_pasien,
+            'hasil_test' => $request->hasil_test,
             'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
+            // 'foto_status_akhir' => $request->foto_status_akhir,
             'no_hp' => $request->no_hp,
+            'tinjut' => $request->tinjut,
+            'keterangan' => $request->keterangan,
+            'sumbercovid' => $request->sumbercovid,
         ]);
+        if ($request->hasFile('foto_KTP')){
+            $request->file('foto_KTP')->move('images/Covid19/KTP/',$request->file('foto_KTP')->getClientOriginalName());
+            $covid19->foto_KTP = $request->file('foto_KTP')->getClientOriginalName();
+            $covid19->save();
+        }
+        if ($request->hasFile('foto_KK')){
+            $request->file('foto_KK')->move('images/Covid19/KK/',$request->file('foto_KK')->getClientOriginalName());
+            $covid19->foto_KK = $request->file('foto_KK')->getClientOriginalName();
+            $covid19->save();
+        }
         if ($request->hasFile('foto_status_pasien')){
-            $request->file('foto_status_pasien')->move('images/',$request->file('foto_status_pasien')->getClientOriginalName());
+            $request->file('foto_status_pasien')->move('images/Covid19/StatusAwalPasien/',$request->file('foto_status_pasien')->getClientOriginalName());
             $covid19->foto_status_pasien = $request->file('foto_status_pasien')->getClientOriginalName();
+            $covid19->save();
+        }
+        if ($request->hasFile('foto_status_akhir')){
+            $request->file('foto_status_akhir')->move('images/Covid19/StatusAkhirPasien/',$request->file('foto_status_akhir')->getClientOriginalName());
+            $covid19->foto_status_akhir = $request->file('foto_status_akhir')->getClientOriginalName();
             $covid19->save();
         }
         return redirect('/covid19')->with('success', 'Data TKK Berhasil Di Update!');

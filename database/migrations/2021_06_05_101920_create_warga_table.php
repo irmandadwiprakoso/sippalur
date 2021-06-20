@@ -16,15 +16,16 @@ class CreateWargaTable extends Migration
         Schema::create('warga', function (Blueprint $table) {
             $table->id();
             $table->char('NIK', 16);
+            $table->char('KK', 16);
             $table->String('nama');
             $table->String('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->String('alamat KTP');
+            $table->String('alamat_KTP');
             $table->String('rt_id');
             $table->String('rw_id');
             $table->String('kelurahan');
             $table->string('kecamatan');
-            $table->string('kota/kab');
+            $table->string('kota_kab');
             $table->string('propinsi');
             $table->integer('agama_id');
             $table->integer('statuskawin_id');

@@ -16,8 +16,6 @@
                     <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "user") 
                     <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
-                    @elseif (auth()->user()->role == "pemtibum") 
-                    <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
                     @endif
             <hr>
                 <div class="table-responsive">

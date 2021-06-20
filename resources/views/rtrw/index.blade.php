@@ -18,7 +18,7 @@
                     @elseif (auth()->user()->role == "user")
                     <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "pemtibum")
-                    <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a>
+                    <!-- <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a> -->
                     <a href="/exportrtrw" class="btn btn-success">Export Data</a>
                     @endif
             <hr>

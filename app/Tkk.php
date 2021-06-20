@@ -19,9 +19,9 @@ class Tkk extends Model
     public function getFoto()
     {
         if(!$this->foto){
-            return asset('images/default.jpg');
+            return asset('images/TKK/default.jpg');
         }
-        return asset('images/'.$this->foto);
+        return asset('images/TKK/'.$this->foto);
     }
 
     public function agama()

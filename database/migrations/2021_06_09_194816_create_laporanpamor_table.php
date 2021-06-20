@@ -20,6 +20,7 @@ class CreateLaporanpamorTable extends Migration
             $table->string('jumlah');
             $table->string('bidang');
             $table->string('keterangan');
+            $table->string('tinjut');
             $table->integer('rt_id');
             $table->integer('rw_id');
             $table->string('foto');

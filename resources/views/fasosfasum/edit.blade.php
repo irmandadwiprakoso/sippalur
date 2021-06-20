@@ -16,13 +16,13 @@
 
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Tanggal Lahir Anda" name="nama" value="{{ $fasosfasum->nama }}">
+            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" name="nama" value="{{ $fasosfasum->nama }}">
             @error ('nama') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Tanggal Lahir Anda" name="alamat" value="{{ $fasosfasum->alamat }}">
+            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ $fasosfasum->alamat }}">
             @error ('alamat') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -50,31 +50,31 @@
 
         <div class="mb-3">
             <label for="koordinat" class="form-label">Koordinat Lokasi</label>
-            <input type="text" class="form-control @error('koordinat') is-invalid @enderror" id="koordinat" placeholder="Tanggal Lahir Anda" name="koordinat" value="{{ $fasosfasum->koordinat }}">
+            <input type="text" class="form-control @error('koordinat') is-invalid @enderror" id="koordinat" placeholder="Koordinat Lokasi" name="koordinat" value="{{ $fasosfasum->koordinat }}">
             @error ('koordinat') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="luas" class="form-label">Luas Lokasi</label>
-            <input type="number" class="form-control @error('luas') is-invalid @enderror" id="luas" placeholder="Tanggal Lahir Anda" name="luas" value="{{ $fasosfasum->luas }}">
+            <input type="number" class="form-control @error('luas') is-invalid @enderror" id="luas" placeholder="Luas Lokasi (m2)" name="luas" value="{{ $fasosfasum->luas }}">
             @error ('luas') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="pemanfaatan" class="form-label">Pemanfaatan Lokasi</label>
-            <input type="text" class="form-control @error('pemanfaatan') is-invalid @enderror" id="pemanfaatan" placeholder="Tanggal Lahir Anda" name="pemanfaatan" value="{{ $fasosfasum->pemanfaatan }}">
+            <input type="text" class="form-control @error('pemanfaatan') is-invalid @enderror" id="pemanfaatan" placeholder="Pemanfaatan Lokasi" name="pemanfaatan" value="{{ $fasosfasum->pemanfaatan }}">
             @error ('pemanfaatan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_pengembang" class="form-label">Nama Pengembang</label>
-            <input type="text" class="form-control @error('nama_pengembang') is-invalid @enderror" id="nama_pengembang" placeholder="Tanggal Lahir Anda" name="nama_pengembang" value="{{ $fasosfasum->nama_pengembang }}">
+            <input type="text" class="form-control @error('nama_pengembang') is-invalid @enderror" id="nama_pengembang" placeholder="Nama Pengembang" name="nama_pengembang" value="{{ $fasosfasum->nama_pengembang }}">
             @error ('nama_pengembang') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_perumahan" class="form-label">Nama Perumahan</label>
-            <input type="text" class="form-control @error('nama_perumahan') is-invalid @enderror" id="nama_perumahan" placeholder="Tanggal Lahir Anda" name="nama_perumahan" value="{{ $fasosfasum->nama_perumahan }}">
+            <input type="text" class="form-control @error('nama_perumahan') is-invalid @enderror" id="nama_perumahan" placeholder="Nama Perumahan" name="nama_perumahan" value="{{ $fasosfasum->nama_perumahan }}">
             @error ('nama_perumahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 

@@ -38,12 +38,12 @@
         @error('password_confirmation') <div class="invalid-feedback">{{ $message }} </div>@enderror  
       </div>
 
-      <!-- <div class="row">
-        <div class="col-xs-12"> -->
+      <div class="row">
+        <div class="col-xs-12">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
-        <!-- </div> -->
-        <!-- /.col -->
-      <!-- </div> -->
+          <a class="btn btn-default btn-block btn-flat" href="/profile" role="button"><b>Cancel</b></a>
+        </div>
+      </div>
     </form>
     </div>
     </div>

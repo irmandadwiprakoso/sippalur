@@ -14,12 +14,12 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin") 
                     <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
-                    <!-- <a href="/exportfasosfasum" class="btn btn-success">Export Data</a> -->
+                    <a href="/exportpamor" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "user") 
                     <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
-                    @elseif (auth()->user()->role == "admin") 
-                    <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
-                    <!-- <a href="/exportfasosfasum" class="btn btn-success">Export Data</a> -->
+                    @elseif (auth()->user()->role == "sekret") 
+                    <!-- <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a> -->
+                    <a href="/exportpamor" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
                 <div class="table-responsive">
@@ -38,6 +38,7 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>Kegiatan</th>
+                            <th>Bidang</th>
                             <th>RT</th>
                             <th>RW</th>
                             <th>View</th>
@@ -51,6 +52,7 @@
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $pamor->tanggal}}</td>
                             <td class=" ">{{ $pamor->kegiatan}}</td>
+                            <td class=" ">{{ $pamor->bidang}}</td>
                             <td class=" ">{{ $pamor->rt->rt}}</td>
                             <td class=" ">{{ $pamor->rw->rw}}</td>
 
@@ -72,7 +74,7 @@
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "admin")  
+                            @elseif (auth()->user()->role == "sekret")  
                             <td class=" ">
                                 <a href="/pamor/{{ $pamor->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
@@ -98,10 +100,10 @@
                                     </form>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "admin")  
+                            @elseif (auth()->user()->role == "sekret")  
                             <td class="">
                                 <a href="#" data-id="{{ $pamor->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('pamor', $pamor->id) }}" id="delete{{ $penduduk->id }}" method="post" >
+                                    <form action="{{ url('pamor', $pamor->id) }}" id="delete{{ $pamor->id }}" method="post" >
                                     @method('delete')
                                     @csrf
                                     </form>
