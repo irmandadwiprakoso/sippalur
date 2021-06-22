@@ -8,6 +8,8 @@ use App\Jeniskelamin;
 use App\Statuskawin;
 use App\RT;
 use App\RW;
+use App\Imports\WargaImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class WargaController extends Controller
@@ -126,6 +128,17 @@ class WargaController extends Controller
         //     $warga = Warga::where('rw_id', '=', '23')->get();
         // }
         return view('warga.index', ['warga' => $warga]);
+    }
+
+    public function importwargai(Request $request) 
+    {
+        $file = $request->file('file');
+        $namafile = $file->getClientOriginalName();
+        $file->move('Warga',$namafile);
+
+        Excel::import(new WargaImport, public_path('/Warga'.$namafile));
+        
+        return redirect('/warga')->with('success', 'All good!');
     }
 
     /**

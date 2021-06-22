@@ -14,19 +14,19 @@
     <div class="box-body">
         <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Anda" name="nama" value="{{ old('nama') }}">
+                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama " name="nama" value="{{ old('nama') }}">
             @error('nama') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="NIP" class="form-label">NIP</label>
-            <input type="number" class="form-control @error('NIP') is-invalid @enderror" id="NIP" placeholder="NIP Anda" name="NIP" value="{{ old('NIP') }}">
+            <input type="number" class="form-control @error('NIP') is-invalid @enderror" id="NIP" placeholder="NIP " name="NIP" value="{{ old('NIP') }}">
             @error ('NIP') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="NIK" class="form-label">NIK</label>
-            <input type="number" class="form-control @error('NIK') is-invalid @enderror" id="NIK" placeholder="NIK Anda" name="NIK" value="{{ old('NIK') }}">
+            <input type="number" class="form-control @error('NIK') is-invalid @enderror" id="NIK" placeholder="NIK " name="NIK" value="{{ old('NIK') }}">
             @error ('NIK') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -65,13 +65,13 @@
 
         <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir Anda" name="tempat_lahir" value="{{ old('tempat_lahir') }}">
+            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir " name="tempat_lahir" value="{{ old('tempat_lahir') }}">
             @error ('tempat_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-            <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" placeholder="Tanggal Lahir Anda" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
+            <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" placeholder="Tanggal Lahir " name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
             @error ('tanggal_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -88,7 +88,7 @@
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat Anda" value="{{ old('alamat') }}">
+            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat " value="{{ old('alamat') }}">
             @error ('alamat') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -133,25 +133,25 @@
 
         <div class="mb-3">
             <label for="no_rek" class="form-label">Nomor Rekening BJB</label>
-            <input type="number" class="form-control @error('no_rek') is-invalid @enderror" id="no_rek" placeholder="Nomor Rekening BJB Anda" name="no_rek" value="{{ old('no_rek') }}">
+            <input type="number" class="form-control @error('no_rek') is-invalid @enderror" id="no_rek" placeholder="Nomor Rekening BJB " name="no_rek" value="{{ old('no_rek') }}">
             @error ('no_rek') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="npwp" class="form-label">NPWP</label>
-            <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" placeholder="NPWP Anda" name="npwp" value="{{ old('npwp') }}">
+            <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" placeholder="NPWP " name="npwp" value="{{ old('npwp') }}">
             @error ('npwp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email Anda" name="email" value="{{ old('email') }}">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email " name="email" value="{{ old('email') }}">
             @error ('email') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="no_HP" class="form-label">Nomor Handphone</label>
-            <input type="number" class="form-control @error('no_HP') is-invalid @enderror" id="no_HP" placeholder="Nomor HP Anda" name="no_HP" value="{{ old('no_HP') }}">
+            <input type="number" class="form-control @error('no_HP') is-invalid @enderror" id="no_HP" placeholder="Nomor HP " name="no_HP" value="{{ old('no_HP') }}">
             @error ('no_HP') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 

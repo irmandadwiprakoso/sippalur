@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Kependudukan;
-use App\RT;
-use App\RW;
+use App\Rt;
+use App\Rw;
 use Illuminate\Http\Request;
 
 class KependudukanController extends Controller

@@ -63,9 +63,9 @@
                   <b>No HP</b> <a class="pull-right">{{ $tkk-> no_HP}}</a>
                 </li>
               </ul>
-              <div class="box-footer">
+            
                   <a href="/tkk/" class="btn btn-default">Close</a>
-             </div>
+             
             </div>
       </div>
 </section>

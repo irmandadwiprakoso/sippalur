@@ -89,12 +89,39 @@ class TkkController extends Controller
             'email' => 'required',
             'no_HP' => 'required',
             'username' => 'required',
-            'rw_id' => 'required',
-            
+            'rw_id' => 'required', 
         ]);
 
         $request->request->add ( ['user_id'=> $user->id] );
-        Tkk::create($request->all());
+        // Tkk::create($request->all());
+
+        $imgName = $request->foto->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto->extension();
+        $request->foto->move('images/TKK/',$imgName);
+
+        Tkk::create([
+            'nama' => $request->nama,
+            'NIK' => $request->NIK,
+            'KK' => $request->KK,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jeniskelamin_id' => $request->jeniskelamin_id,
+            'alamat' => $request->alamat,
+            'agama_id' => $request->agama_id,
+            'pendidikanpeg_id' => $request->pendidikanpeg_id,
+            'statuskawin_id' => $request->statuskawin_id,
+            'seksi_id' => $request->seksi_id,
+            'jabatan_id' => $request->jabatan_id,
+            'SK_Tkk' => $request->SK_Tkk,
+            'no_rek' => $request->no_rek,
+            'npwp' => $request->npwp,
+            'email' => $request->email,
+            'no_HP' => $request->no_HP,
+            'username' => $request->username,
+            'rw_id' => $request->rw_id,
+            'foto' => $imgName,
+        ]);
+
         return redirect('/tkk')->with('success', 'Data TKK Berhasil Ditambahkan!');
     }
 

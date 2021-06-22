@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,ke
     Route::patch('/password/update', 'PasswordController@update');
     Route::resource('pamor', 'PamorController');
     Route::get('/exportpamor', 'PamorController@exportpamor');
+    Route::post('/importwarga', 'WargaController@importwarga');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos']],function(){

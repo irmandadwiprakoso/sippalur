@@ -82,8 +82,33 @@ class AsnController extends Controller
             'email' => 'required',
             'no_HP' => 'required',
         ]);
+        $imgName = $request->foto->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto->extension();
+        $request->foto->move('images/ASN/',$imgName);
 
-        Asn::create($request->all());
+        Asn::create([
+            'NIP' => $request->NIP,
+            'NIK' => $request->NIK,
+            'nama' => $request->nama,
+            'pangkat_id' => $request->pangkat_id,
+            'golongan_id' => $request->golongan_id,
+            'jabatan_id' => $request->jabatan_id,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jeniskelamin_id' => $request->jeniskelamin_id,
+            'alamat' => $request->alamat,
+            'agama_id' => $request->agama_id,
+            'pendidikanpeg_id' => $request->pendidikanpeg_id,
+            'statuskawin_id' => $request->statuskawin_id,
+            'SK_Jabatan' => $request->SK_Jabatan,
+            'no_rek' => $request->no_rek,
+            'npwp' => $request->npwp,
+            'email' => $request->email,
+            'no_HP' => $request->no_HP,
+            'foto' => $imgName,
+        ]);
+
+        //Asn::create($request->all());
         return redirect('/asn')->with('success', 'Data PNS Berhasil Ditambahkan!');
     }
 

@@ -68,7 +68,11 @@
             <label for="status_lahan" class="form-label">Status Lahan</label>
             <select class="form-control @error('status_lahan') is-invalid @enderror" id="status_lahan" name="status_lahan" value="{{ old('status_lahan') }}"> 
                 <option selected disabled>- Pilih -</option>
-                <option value="SHM">SHM</option>
+                <option value="SHM">SERTIPIKAT HAK MILIK</option>
+                <option value="SHGB">SERTIPIKAT HAK GUNA BANGUNAN</option>
+                <option value="AJB">AKTA JUAL BELI</option>
+                <option value="GIRIK">GIRIK</option>
+                <option value="HIBAH">HIBAH</option>
                 <option value="FASOS/FASUM">FASOS/FASUM</option>
                 <option value="WAKAF">WAKAF</option>
             </select>
