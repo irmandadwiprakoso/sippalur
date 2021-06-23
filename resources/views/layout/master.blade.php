@@ -373,10 +373,10 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.0
+      <b>Version</b> 2.1  | HI Tech
     </div>
     <!-- <strong>Copyrigsht &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights -->
-    <strong>Copyright &copy; 2021 <a>HIxSJ</a>.</strong> All rights
+    <strong>Copyright &copy; 2021 <a>Kelurahan Jakasampurna</a>.</strong> All rights
   </footer>
 
 <!-- ./wrapper -->

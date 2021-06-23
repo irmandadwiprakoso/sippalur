@@ -62,21 +62,21 @@
             <label for="status_pasien" class="form-label">Status Pasien</label>
             <select class="form-control @error('status_pasien') is-invalid @enderror" aria-label="Default select example" id="status_pasien" name="status_pasien" value="{{ $covid19->status_pasien }}"> 
                 <option selected value="{{ $covid19->status_pasien }}">{{ $covid19->status_pasien}}</option>
-                <option value="ISOMAN">ISOLASI MANDIRI</option>
-                <option value="RAWAT">DIRAWAT</option>
+                <option value="Isoman">ISOLASI MANDIRI</option>
+                <option value="Perawatan">DIRAWAT</option>
             </select>
             @error ('status_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="lokasi_pasien" class="form-label">Lokasi Pasien</label>
-            <input type="text" class="form-control @error('lokasi_pasien') is-invalid @enderror" id="lokasi_pasien" placeholder="Nomor HP Anda" name="lokasi_pasien" value="{{ $covid19->lokasi_pasien }}">
+            <input type="text" class="form-control @error('lokasi_pasien') is-invalid @enderror" id="lokasi_pasien" placeholder="Nama Rumah Sakit/Tempat Pasien dirawat" name="lokasi_pasien" value="{{ $covid19->lokasi_pasien }}">
             @error ('lokasi_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="tanggal_status" class="form-label">Tanggal Status</label>
-            <input type="date" class="form-control @error('tanggal_status') is-invalid @enderror" id="tanggal_status" placeholder="Tanggal Lahir Anda" name="tanggal_status" value="{{ $covid19->tanggal_status }}">
+            <input type="date" class="form-control @error('tanggal_status') is-invalid @enderror" id="tanggal_status" placeholder="Tanggal Status" name="tanggal_status" value="{{ $covid19->tanggal_status }}">
             @error ('tanggal_status') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
@@ -87,7 +87,7 @@
                 <option value="TCM">TCM</option>
                 <option value="PCR">PCR</option>
                 <option value="Rapid Antibodi">Rapid Antibodi</option>
-                <option value="Swab Antigen">Swab Antigen</option>
+                <option value="Rapid Antigen">Rapid Antigen</option>
                 <option value="GeNose">GeNose</option>
             </select>
             @error ('hasil_test') <div class="invalid-feedback">{{ $message }} </div>@enderror 
@@ -112,7 +112,7 @@
 
         <div class="mb-3">
             <label for="no_hp" class="form-label">Nomor HP Pasien/Penanggungjawab</label>
-            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="Nomor HP Anda" name="no_hp" value="{{ $covid19->no_hp }}">
+            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP Pasien/Penanggung Jawab" name="no_hp" value="{{ $covid19->no_hp }}">
             @error ('no_hp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 

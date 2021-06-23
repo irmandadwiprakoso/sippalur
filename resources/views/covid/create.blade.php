@@ -25,7 +25,7 @@
 
         <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
-            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama Warga Anda" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <datalist id="nik_warga">
                 @foreach ($warga as $penduduk)
                     <option value="{{$penduduk->id}}">{{$penduduk->NIK}}-{{$penduduk->nama}}</option>
@@ -84,8 +84,8 @@
             <label for="status_pasien" class="form-label">Status Pasien Saat Ini</label>
             <select class="form-control @error('status_pasien') is-invalid @enderror" id="status_pasien" name="status_pasien" value="{{ old('status_pasien') }}"> 
                 <option selected disabled>- Pilih -</option>
-                <option value="ISOMAN">ISOLASI MANDIRI</option>
-                <option value="RAWAT">DIRAWAT</option>
+                <option value="Isoman">ISOLASI MANDIRI</option>
+                <option value="Perawatan">DIRAWAT</option>
             </select>
             @error ('status_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
@@ -115,7 +115,7 @@
                 <option value="TCM">TCM</option>
                 <option value="PCR">PCR</option>
                 <option value="Rapid Antibodi">Rapid Antibodi</option>
-                <option value="Swab Antigen">Swab Antigen</option>
+                <option value="Rapid Antigen">Rapid Antigen</option>
                 <option value="GeNose">GeNose</option>
             </select>
             @error ('hasil_test') <div class="invalid-feedback">{{ $message }} </div>@enderror 
