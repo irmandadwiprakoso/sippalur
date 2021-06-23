@@ -16,7 +16,7 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="{{asset('images/Asn/'.$asn->foto)}}" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="{{asset('images/ASN/'.$asn->foto)}}" alt="User profile picture">
               <h3 class="profile-username text-center">{{ $asn-> nama}}</h3>
               <p class="text-muted text-center">{{ $asn-> tempat_lahir}} - {{ $asn-> tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">

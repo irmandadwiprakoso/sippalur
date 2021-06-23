@@ -105,7 +105,7 @@
                             @elseif (auth()->user()->role == "user")  
                             <td class="">
                                 <a href="#" data-id="{{ $pamor->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('kependudukan', $pamor->id) }}" id="delete{{ $pamor->id }}" method="post" >
+                                    <form action="{{ url('pamor', $pamor->id) }}" id="delete{{ $pamor->id }}" method="post" >
                                     @method('delete')
                                     @csrf
                                     </form>
