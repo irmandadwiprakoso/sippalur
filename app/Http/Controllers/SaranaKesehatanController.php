@@ -28,7 +28,23 @@ class SaranaKesehatanController extends Controller
         {
             $kesehatan = Kesehatan::all();
         }
+        if(auth()->user()->username == 'sekel')
+        {
+            $kesehatan = Kesehatan::all();
+        }
         if(auth()->user()->username == 'admin_kessos')
+        {
+            $kesehatan = Kesehatan::all();
+        }
+        if(auth()->user()->username == 'admin_permasbang')
+        {
+            $kesehatan = Kesehatan::all();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
+        {
+            $kesehatan = Kesehatan::all();
+        }
+        if(auth()->user()->username == 'admin_sekret')
         {
             $kesehatan = Kesehatan::all();
         }
@@ -52,17 +68,17 @@ class SaranaKesehatanController extends Controller
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $kesehatan = Kesehatan::where('rw_id', '=', '7')->get();
+            $kesehatan = Kesehatan::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

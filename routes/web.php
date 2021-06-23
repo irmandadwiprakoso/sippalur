@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,ke
     Route::post('/importwarga', 'WargaController@importwarga');
 });
 
-Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos']],function(){
+Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos,pemtibum,permasbang,sekret']],function(){
     Route::get('/exportibadah', 'RumahIbadahController@ibadahexport');
     Route::resource('ibadah', 'RumahIbadahController');
     Route::resource('pendidikan','SaranaPendidikanController');

@@ -27,6 +27,10 @@ class FasosfasumController extends Controller
         {
             $fasosfasum = Fasosfasum::all();
         }
+        if(auth()->user()->username == 'sekel')
+        {
+            $fasosfasum = Fasosfasum::all();
+        }
         if(auth()->user()->username == 'lurah')
         {
             $fasosfasum = Fasosfasum::all();
@@ -51,17 +55,17 @@ class FasosfasumController extends Controller
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->get();
+            $fasosfasum = Fasosfasum::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

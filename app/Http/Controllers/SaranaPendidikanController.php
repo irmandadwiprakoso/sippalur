@@ -28,7 +28,23 @@ class SaranaPendidikanController extends Controller
         {
             $pendidikan = Pendidikan::all();
         }
+        if(auth()->user()->username == 'sekel')
+        {
+            $pendidikan = Pendidikan::all();
+        }
         if(auth()->user()->username == 'admin_kessos')
+        {
+            $pendidikan = Pendidikan::all();
+        }
+        if(auth()->user()->username == 'admin_permasbang')
+        {
+            $pendidikan = Pendidikan::all();
+        }
+        if(auth()->user()->username == 'admin_sekret')
+        {
+            $pendidikan = Pendidikan::all();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
         {
             $pendidikan = Pendidikan::all();
         }
@@ -52,17 +68,17 @@ class SaranaPendidikanController extends Controller
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $pendidikan = Pendidikan::where('rw_id', '=', '7')->get();
+            $pendidikan = Pendidikan::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

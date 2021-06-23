@@ -30,7 +30,23 @@ class Covid19Controller extends Controller
         {
             $covid19 = Covid19::all();
         }
+        if(auth()->user()->username == 'admin_permasbang')
+        {
+            $covid19 = Covid19::all();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
+        {
+            $covid19 = Covid19::all();
+        }
+        if(auth()->user()->username == 'admin_sekret')
+        {
+            $covid19 = Covid19::all();
+        }
         if(auth()->user()->username == 'lurah')
+        {
+            $covid19 = Covid19::all();
+        }
+        if(auth()->user()->username == 'sekel')
         {
             $covid19 = Covid19::all();
         }
@@ -54,17 +70,17 @@ class Covid19Controller extends Controller
         {
             $covid19 = Covid19::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $covid19 = Covid19::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $covid19 = Covid19::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $covid19 = Covid19::where('rw_id', '=', '7')->get();
+            $covid19 = Covid19::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {
@@ -317,7 +333,7 @@ class Covid19Controller extends Controller
             $covid19->foto_status_akhir = $request->file('foto_status_akhir')->getClientOriginalName();
             $covid19->save();
         }
-        return redirect('/covid19')->with('success', 'Data TKK Berhasil Di Update!');
+        return redirect('/covid19')->with('success', 'Data Covid-19 Berhasil Di Update!');
     }
 
     /**

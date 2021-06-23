@@ -33,6 +33,10 @@ class RtrwController extends Controller
         {
             $rtrw = Rtrw::all();
         }
+        if(auth()->user()->username == 'sekel')
+        {
+            $rtrw = Rtrw::all();
+        }
         if (auth()->user()->username == 'pamor1')
         {
             $rtrw = Rtrw::where('rw_id', '=', '1')->get();
@@ -53,17 +57,17 @@ class RtrwController extends Controller
         {
             $rtrw = Rtrw::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $rtrw = Rtrw::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $rtrw = Rtrw::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $rtrw = Rtrw::where('rw_id', '=', '7')->get();
+            $rtrw = Rtrw::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

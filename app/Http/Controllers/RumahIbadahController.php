@@ -28,7 +28,23 @@ class RumahIbadahController extends Controller
         {
             $ibadah = Ibadah::all();
         }
+        if(auth()->user()->username == 'admin_permasbang')
+        {
+            $ibadah = Ibadah::all();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
+        {
+            $ibadah = Ibadah::all();
+        }
+        if(auth()->user()->username == 'admin_sekret')
+        {
+            $ibadah = Ibadah::all();
+        }
         if(auth()->user()->username == 'lurah')
+        {
+            $ibadah = Ibadah::all();
+        }
+        if(auth()->user()->username == 'sekel')
         {
             $ibadah = Ibadah::all();
         }
@@ -52,17 +68,17 @@ class RumahIbadahController extends Controller
         {
             $ibadah = Ibadah::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $ibadah = Ibadah::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $ibadah = Ibadah::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $ibadah = Ibadah::where('rw_id', '=', '7')->get();
+            $ibadah = Ibadah::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

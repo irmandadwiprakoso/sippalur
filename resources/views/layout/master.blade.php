@@ -245,6 +245,54 @@
             <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
+        @elseif (auth()->user()->role == "pemtibum")
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Kessos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
+            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
+            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
+          </ul>
+        </li>
+        @elseif (auth()->user()->role == "permasbang")
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Kessos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
+            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
+            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
+          </ul>
+        </li>
+        @elseif (auth()->user()->role == "sekret")
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Kessos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
+            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
+            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
+            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
+            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
+          </ul>
+        </li>
         @endif
 
 <!-- MENU PEMTRANTIBUM -->

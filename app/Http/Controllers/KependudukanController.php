@@ -29,6 +29,10 @@ class KependudukanController extends Controller
         {
             $kependudukan = Kependudukan::all();
         }
+        if(auth()->user()->username == 'sekel')
+        {
+            $kependudukan = Kependudukan::all();
+        }
         if (auth()->user()->username == 'pamor1')
         {
             $kependudukan = Kependudukan::where('rw_id', '=', '1')->get();
@@ -49,17 +53,17 @@ class KependudukanController extends Controller
         {
             $kependudukan = Kependudukan::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6A')
+        if (auth()->user()->username == 'pamor6a')
         {
             $kependudukan = Kependudukan::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6B')
+        if (auth()->user()->username == 'pamor6b')
         {
             $kependudukan = Kependudukan::where('rw_id', '=', '7')->get();
         }
         if (auth()->user()->username == 'pamor7')
         {
-            $kependudukan = Kependudukan::where('rw_id', '=', '7')->get();
+            $kependudukan = Kependudukan::where('rw_id', '=', '8')->get();
         }
         if (auth()->user()->username == 'pamor8')
         {

@@ -91,7 +91,6 @@
                                     </form>
 								</a>
                             </td>
-                           
                             @elseif (auth()->user()->role == "permasbang")  
                             <td class="">
                                 <a href="#" data-id="{{ $psu->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
