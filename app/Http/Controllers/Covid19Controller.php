@@ -148,7 +148,7 @@ class Covid19Controller extends Controller
 
     public function covid19export()
     {
-        return Excel::download(new Covid19Export,'covid19-jakasampurna.xlsx');
+        return Excel::download(new Covid19Export,'covid19-jakasampurna.csv');
     }
     /**
      * Show the form for creating a new resource.
@@ -181,7 +181,6 @@ class Covid19Controller extends Controller
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            'tanggal_status' => 'required',
             'foto_status_pasien' => 'required',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
@@ -220,7 +219,6 @@ class Covid19Controller extends Controller
             'konfirmasi' => $request->konfirmasi,
             'status_pasien' => $request->status_pasien,
             'lokasi_pasien' => $request->lokasi_pasien,
-            'tanggal_status' => $request->tanggal_status,
             'foto_status_pasien' => $imgName3,
             'hasil_test' => $request->hasil_test,
             'status_akhir' => $request->status_akhir,
@@ -279,7 +277,6 @@ class Covid19Controller extends Controller
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            'tanggal_status' => 'required',
             // 'foto_status_pasien' => 'required',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
@@ -302,7 +299,6 @@ class Covid19Controller extends Controller
             'konfirmasi' => $request->konfirmasi,
             'status_pasien' => $request->status_pasien,
             'lokasi_pasien' => $request->lokasi_pasien,
-            'tanggal_status' => $request->tanggal_status,
             // 'foto_status_pasien' => $request->foto_status_pasien,
             'hasil_test' => $request->hasil_test,
             'status_akhir' => $request->status_akhir,

@@ -32,6 +32,24 @@
         </div>
 
         <div class="mb-3">
+            <label for="hub_keluarga" class="form-label">Status Hubungan Keluarga</label>
+            <select class="form-control @error('hub_keluarga') is-invalid @enderror" id="hub_keluarga" name="hub_keluarga" value="{{ old('hub_keluarga') }}"> 
+                <option selected disabled>- Pilih -</option>
+                <option value="Kepala Keluarga">Kepala Keluarga</option>
+                <option value="Suami">Suami</option>
+                <option value="Istri">Istri</option>
+                <option value="Anak">Anak</option>
+                <option value="Menantu">Menantu</option>
+                <option value="Cucu">Cucu</option>
+                <option value="Orang Tua">Orang Tua</option>
+                <option value="Mertua">Mertua</option>
+                <option value="Famili Lain">Famili Lain</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+            @error ('hub_keluarga') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
             <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir" value="{{ old('tempat_lahir') }}">
             @error ('tempat_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 
@@ -95,8 +113,6 @@
             <input type="text" class="form-control @error('propinsi') is-invalid @enderror" id="propinsi" placeholder="propinsi" name="propinsi" value="{{ old('propinsi') }}">
             @error ('propinsi') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
-
-
 
         <div class="mb-3">
             <label for="agama_id" class="form-label">Agama</label>

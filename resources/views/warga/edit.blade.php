@@ -32,6 +32,24 @@
         </div>
        
         <div class="mb-3">
+            <label for="hub_keluarga" class="form-label">Status Hubungan Keluarga</label>
+            <select class="form-control @error('hub_keluarga') is-invalid @enderror" aria-label="Default select example" id="hub_keluarga" name="hub_keluarga" value="{{ $warga->hub_keluarga }}"> 
+                <option selected value="{{ $warga->hub_keluarga }}">{{ $warga->hub_keluarga}}</option>
+                <option value="Kepala Keluarga">Kepala Keluarga</option>
+                <option value="Suami">Suami</option>
+                <option value="Istri">Istri</option>
+                <option value="Anak">Anak</option>
+                <option value="Menantu">Menantu</option>
+                <option value="Cucu">Cucu</option>
+                <option value="Orang Tua">Orang Tua</option>
+                <option value="Mertua">Mertua</option>
+                <option value="Famili Lain">Famili Lain</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+            @error ('hub_keluarga') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
             <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir" value="{{ $warga->tempat_lahir }}">
             @error ('tempat_lahir') <div class="invalid-feedback">{{ $message }} </div>@enderror 

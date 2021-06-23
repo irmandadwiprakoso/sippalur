@@ -10,7 +10,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 
-class PamorExport implements FromCollection, WithMapping, WithHeadings, WithColumnFormatting
+class PamorExport implements FromCollection, WithMapping, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -48,10 +48,4 @@ class PamorExport implements FromCollection, WithMapping, WithHeadings, WithColu
         ];
     }
 
-    public function columnFormats(): array
-    {
-        return [
-            'A' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-        ];
-    }
 }

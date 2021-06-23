@@ -133,7 +133,7 @@ class RtrwController extends Controller
     }
     public function rtrwexport()
     {
-        return Excel::download(new rtrwexport,'rtrw-jakasampurna.xlsx');
+        return Excel::download(new rtrwexport,'rtrw-jakasampurna.csv');
     }
     /**
      * Show the form for creating a new resource.

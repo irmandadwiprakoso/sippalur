@@ -32,7 +32,9 @@ Route::group(['middleware' => ['auth','checkrole:superadmin']],function(){
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,sekret']],function(){
     Route::resource('asn', 'AsnController');
+    Route::get('/exportasn', 'AsnController@exportasn');
     Route::resource('tkk', 'TkkController');
+    Route::get('/exporttkk', 'TkkController@exporttkk');
     // Route::resource('tkk/{tkk}/profile', 'TkkController@view');
 });
 
@@ -64,6 +66,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos,pe
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum']],function(){
     Route::resource('warga','WargaController');
     Route::resource('kependudukan','KependudukanController');
+    Route::get('/exportkependudukan', 'KependudukanController@exportkependudukan');
     Route::resource('rtrw','RtrwController');
     Route::get('/exportrtrw', 'RtrwController@rtrwexport');
 });

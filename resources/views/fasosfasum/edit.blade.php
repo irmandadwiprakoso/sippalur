@@ -87,7 +87,7 @@
         </div>
 
         <div class="input-group mb-3">
-                <img src="{{asset('images/'.$fasosfasum->foto)}}" height="20%" width="20%"></img>
+                <img src="{{asset('images/FasosFasum/'.$fasosfasum->foto)}}" height="20%" width="20%"></img>
         </div>
 
         <div class="box-footer">

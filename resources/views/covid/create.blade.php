@@ -96,11 +96,11 @@
             @error ('lokasi_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="tanggal_status" class="form-label">Tanggal Status Pasien Saat Ini</label>
             <input type="date" class="form-control @error('tanggal_status') is-invalid @enderror" id="tanggal_status" placeholder="Tanggal Status" name="tanggal_status" value="{{ old('tanggal_status') }}">
             @error ('tanggal_status') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
+        </div> -->
 
         <div class="input-group mb-3">
             <label for="foto_status_pasien" value="{{ old('foto_status_pasien') }}">Hasil Test Pasien</label>

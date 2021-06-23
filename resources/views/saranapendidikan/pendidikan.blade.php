@@ -20,6 +20,9 @@
                     @elseif (auth()->user()->role == "kessos")  
                     <a href="/pendidikan/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportpendidikan" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin")  
+                    <a href="/pendidikan/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportpendidikan" class="btn btn-success">Export Data</a>
                     @endif
             <hr>
                 <div class="table-responsive">
@@ -43,8 +46,15 @@
                             <th>RW</th>
                             <th>Nama Kepsek/Pimpinan</th>
                             <th>Status Lahan</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "kessos")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	
@@ -88,7 +98,6 @@
                                     </form>
 								</a>
                             </td>
-                           
                             @elseif (auth()->user()->role == "kessos")  
                             <td class=" ">
                                 <a href="#" data-id="{{ $pendidikan->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>

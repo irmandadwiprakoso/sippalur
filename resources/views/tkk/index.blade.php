@@ -14,8 +14,13 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
                     <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "sekret")
                     <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin")
+                    <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
                     @endif
                 <hr>
                 <div class="table-responsive">
@@ -37,8 +42,13 @@
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
                             <th>View</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "sekret")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	

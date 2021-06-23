@@ -15,6 +15,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
+use App\Exports\TkkExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TkkController extends Controller
 {
@@ -34,7 +36,10 @@ class TkkController extends Controller
         $tkk = Tkk::all();
         return view('tkk.index', ['tkk' => $tkk]);
     }
-
+    public function exporttkk() 
+    {
+        return Excel::download(new TkkExport, 'tkk-jakasampurna.csv');
+    }
     /**
      * Show the form for creating a new resource.
      *

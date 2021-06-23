@@ -239,7 +239,7 @@ class PamorController extends Controller
             'tinjut' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',         
-            'foto' => 'required',         
+            // 'foto' => 'required',         
         ]);
 
         Pamor::where('id', $pamor->id)
@@ -252,7 +252,7 @@ class PamorController extends Controller
             'tinjut' => $request->tinjut,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            'foto' => $request->foto,
+            // 'foto' => $request->foto,
         ]);
         if ($request->hasFile('foto')){
             $request->file('foto')->move('images/LaporanHarian/',$request->file('foto')->getClientOriginalName());

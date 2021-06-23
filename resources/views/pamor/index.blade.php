@@ -18,7 +18,10 @@
                     @elseif (auth()->user()->role == "user") 
                     <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "sekret") 
-                    <!-- <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a> -->
+                    <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportpamor" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin") 
+                    <a href="/pamor/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportpamor" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
@@ -42,8 +45,16 @@
                             <th>RT</th>
                             <th>RW</th>
                             <th>View</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "sekret")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	

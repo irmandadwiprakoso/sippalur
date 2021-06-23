@@ -20,6 +20,9 @@
                     @elseif (auth()->user()->role == "kessos") 
                     <a href="/ibadah/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportibadah" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin") 
+                    <a href="/ibadah/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportibadah" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
                 <div class="table-responsive">
@@ -43,8 +46,15 @@
                             <th>RW</th>
                             <th>Ketua DKM/Pengurus/Pendeta</th>
                             <th>Status Lahan</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "kessos")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	
@@ -87,8 +97,7 @@
                                     @csrf
                                     </form>
 								</a>
-                            </td>
-                      
+                            </td>                  
                             @elseif (auth()->user()->role == "kessos")  
                             <td class="">
                                 <a href="#" data-id="{{ $ibadah->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>

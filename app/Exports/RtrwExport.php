@@ -16,6 +16,7 @@ class RtrwExport implements FromCollection, WithMapping, WithHeadings
     {
         return Rtrw::all();
     }
+
     public function map($rtrw): array
     {
         return [

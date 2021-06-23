@@ -74,11 +74,11 @@
             @error ('lokasi_pasien') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="tanggal_status" class="form-label">Tanggal Status</label>
             <input type="date" class="form-control @error('tanggal_status') is-invalid @enderror" id="tanggal_status" placeholder="Tanggal Status" name="tanggal_status" value="{{ $covid19->tanggal_status }}">
             @error ('tanggal_status') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <label for="hasil_test" class="form-label">Status Akhir Pasien</label>

@@ -17,7 +17,6 @@ class Covid19 extends Model
         'konfirmasi',
         'status_pasien',
         'lokasi_pasien',
-        'tanggal_status',
         'foto_status_pasien',
         'hasil_test',
         'status_akhir',

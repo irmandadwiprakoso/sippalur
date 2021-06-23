@@ -11,6 +11,7 @@ class Warga extends Model
         'NIK',
         'KK',
         'nama',
+        'hub_keluarga',
         'tempat_lahir',
         'tanggal_lahir',
         'alamat_KTP',

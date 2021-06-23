@@ -46,6 +46,7 @@
             <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut " name="tinjut" value="{{ old('tinjut') }}">
             @error ('tinjut') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
+        
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
             <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Keterangan" name="keterangan" value="{{ old('keterangan') }}">

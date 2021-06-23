@@ -18,7 +18,10 @@
                     @elseif (auth()->user()->role == "user")
                     <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "pemtibum")
-                    <!-- <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a> -->
+                    <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportrtrw" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin")
+                    <a href="/rtrw/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportrtrw" class="btn btn-success">Export Data</a>
                     @endif
             <hr>
@@ -43,8 +46,15 @@
                             <th>RW</th>
                             <th>TMT</th>
                             <th>View</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "pemtibum")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	
@@ -93,7 +103,6 @@
                                     </form>
 								</a>
                             </td>
-                         
                             @elseif (auth()->user()->role == "pemtibum")                            
                             <td class=" ">
                             <a href="#" data-id="{{ $ksb->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
@@ -113,5 +122,4 @@
         </div>
     </div>
 </div>	
-
 @endsection

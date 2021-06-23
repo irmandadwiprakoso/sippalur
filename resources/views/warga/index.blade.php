@@ -40,8 +40,15 @@
                             <th>RT</th>
                             <th>RW</th>
                             <th>View</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "pemtibum")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	
@@ -68,13 +75,13 @@
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "user") 
+                            @elseif (auth()->user()->role == "pemtibum") 
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "pemtibum") 
+                            @elseif (auth()->user()->role == "user") 
                             <td class=" ">
                                 <a href="/warga/{{ $masyarakat->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
 								    <i class="glyphicon glyphicon-pencil"></i>
@@ -83,6 +90,15 @@
                             @endif
                             
                             @if (auth()->user()->role == "superadmin")                            
+                            <td class=" ">
+                            <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
+                                    <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >
+                                    @method('delete')
+                                    @csrf
+                                    </form>
+								</a>
+                            </td>
+                            @elseif (auth()->user()->role == "pemtibum")                            
                             <td class=" ">
                             <a href="#" data-id="{{ $masyarakat->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
                                     <form action="{{ url('warga', $masyarakat->id) }}" id="delete{{ $masyarakat->id }}" method="post" >

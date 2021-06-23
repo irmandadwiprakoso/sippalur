@@ -20,6 +20,9 @@
                     @elseif (auth()->user()->role == "kessos")
                     <a href="/covid19/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportcovid19" class="btn btn-success">Export Data</a>
+                    @elseif (auth()->user()->role == "admin")
+                    <a href="/covid19/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/exportcovid19" class="btn btn-success">Export Data</a>
                     @endif
             <hr>
                 <div class="table-responsive">
@@ -41,12 +44,18 @@
                             <th>RT Domisili</th>
                             <th>RW Domisili</th>
                             <th>Status Pasien</th>
-                            <th>Tanggal Status</th>
                             <th>Status Akhir</th>
                             <th>Tanggal Status Akhir</th>
                             <th>View</th>
+                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
+                            @elseif (auth()->user()->role == "kessos")
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            @elseif (auth()->user()->role == "user")
+                            <th>Edit</th>
+                            @endif
                         </tr>
                     </thead>
 					<tbody>	
@@ -58,7 +67,6 @@
                             <td class=" ">{{ $covid->rt->rt}}</td>
                             <td class=" ">{{ $covid->rw->rw}}</td>
                             <td class=" ">{{ $covid->status_pasien}}</td>
-                            <td class=" ">{{ $covid->tanggal_status}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>
                             <td class=" ">{{ $covid->tanggal_status_akhir}}</td>
                             
@@ -97,7 +105,6 @@
                                     </form>
 								</a>
                             </td>
-                        
                             @elseif (auth()->user()->role == "kessos")                            
                             <td class=" ">
                             <a href="#" data-id="{{ $covid->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
@@ -109,7 +116,7 @@
                             </td>
                             @endif
                         </tr>
-                        @endforeach
+                            @endforeach
                             </tbody>
 				        </table>
                     </div>

@@ -6,6 +6,8 @@ use App\Kependudukan;
 use App\Rt;
 use App\Rw;
 use Illuminate\Http\Request;
+use App\Exports\KependudukanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KependudukanController extends Controller
 {
@@ -128,7 +130,10 @@ class KependudukanController extends Controller
 
         return view('kependudukan.index', ['kependudukan' => $kependudukan]);
     }
-
+    public function exportkependudukan() 
+    {
+        return Excel::download(new KependudukanExport, 'penduduk-jakasampurna.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

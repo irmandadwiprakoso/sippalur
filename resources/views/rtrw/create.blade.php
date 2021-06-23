@@ -25,10 +25,11 @@
 
         <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
-            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK / Nama" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama, pilih sesuai yang di inginkan" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
                 <datalist id="nik_warga">
                 @foreach ($warga as $penduduk)
                     <option value="{{$penduduk->id}}">{{$penduduk->NIK}} - {{$penduduk->nama}}</option>
+                    <!-- <option value="{{$penduduk->id}}" {{old('warga_id') == $penduduk->id ? 'selected' : null }}>{{$penduduk->NIK}}</option> -->
                 @endforeach
                 </datalist>
             @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 

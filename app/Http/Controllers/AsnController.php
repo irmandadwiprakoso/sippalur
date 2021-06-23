@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Asn;
 use App\Agama;
+use App\Exports\AsnExport;
 use App\Jeniskelamin;
 use App\Pendidikanpeg;
 use App\Statuskawin;
 use App\Jabatan;
 use App\Pangkat;
 use App\Golongan;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AsnController extends Controller
 {
@@ -23,18 +25,23 @@ class AsnController extends Controller
     public function index(Request $request)
     {
 
-        if ($request->has('search')){
-            $asn = Asn::where('nama', 'LIKE', '%'.$request->search.'%')->get();
-        }else{
+        // if ($request->has('search')){
+        //     $asn = Asn::where('nama', 'LIKE', '%'.$request->search.'%')->get();
+        // }else{
             // menampilkan semua data
             $asn = Asn::all();
             // menampilkan semua data termasuk deleted at ter isi di table
             // $asn = Asn::withTrashed()->get();
             // menampilkan data yang deleted at ter isi saja
             // $asn = Asn::onlyTrashed()->get();
-        }
+        // }
         //$asn = Asn::all();
         return view('asn.index', ['asn' => $asn]);
+    }
+
+    public function exportasn() 
+    {
+        return Excel::download(new AsnExport, 'asn-jakasampurna.csv');
     }
 
     /**
