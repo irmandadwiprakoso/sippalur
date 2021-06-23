@@ -70,11 +70,11 @@ class Covid19Controller extends Controller
         {
             $covid19 = Covid19::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6a')
+        if (auth()->user()->username == 'pamor6')
         {
             $covid19 = Covid19::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6b')
+        if (auth()->user()->username == 'pamor23')
         {
             $covid19 = Covid19::where('rw_id', '=', '7')->get();
         }

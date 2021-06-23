@@ -62,11 +62,11 @@ class PamorController extends Controller
         {
             $pamor = Pamor::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6a')
+        if (auth()->user()->username == 'pamor6')
         {
             $pamor = Pamor::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6b')
+        if (auth()->user()->username == 'pamor23')
         {
             $pamor = Pamor::where('rw_id', '=', '7')->get();
         }

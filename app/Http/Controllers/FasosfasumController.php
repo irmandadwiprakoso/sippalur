@@ -55,11 +55,11 @@ class FasosfasumController extends Controller
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6a')
+        if (auth()->user()->username == 'pamor6')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor6b')
+        if (auth()->user()->username == 'pamor23')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->get();
         }
