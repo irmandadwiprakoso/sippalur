@@ -93,15 +93,7 @@
                                     </form>
 								</a>
                             </td>
-                            @elseif (auth()->user()->role == "user")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $ksb->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('rtrw', $ksb->id) }}" id="delete{{ $ksb->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
+                         
                             @elseif (auth()->user()->role == "pemtibum")                            
                             <td class=" ">
                             <a href="#" data-id="{{ $ksb->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>

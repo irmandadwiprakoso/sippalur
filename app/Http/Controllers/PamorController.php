@@ -32,15 +32,15 @@ class PamorController extends Controller
         }
         if(auth()->user()->role == 'kessos')
         {
-            $pamor = Pamor::where('bidang', '=', 'kessos')->get();
+            $pamor = Pamor::all();
         }
         if(auth()->user()->role == 'permasbang')
         {
-            $pamor = Pamor::where('bidang', '=', 'permasbang')->get();
+            $pamor = Pamor::all();
         }
         if(auth()->user()->role == 'pemtibum')
         {
-            $pamor = Pamor::where('bidang', '=', 'pemtibum')->get();
+            $pamor = Pamor::all();
         }
         if (auth()->user()->username == 'pamor1')
         {
