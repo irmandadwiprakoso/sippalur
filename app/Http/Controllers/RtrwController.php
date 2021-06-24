@@ -33,7 +33,7 @@ class RtrwController extends Controller
         {
             $rtrw = Rtrw::all();
         }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $rtrw = Rtrw::all();
         }
