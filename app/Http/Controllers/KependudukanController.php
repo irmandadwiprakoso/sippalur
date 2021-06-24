@@ -31,7 +31,7 @@ class KependudukanController extends Controller
         {
             $kependudukan = Kependudukan::all();
         }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $kependudukan = Kependudukan::all();
         }

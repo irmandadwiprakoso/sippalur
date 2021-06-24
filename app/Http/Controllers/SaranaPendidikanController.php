@@ -28,7 +28,7 @@ class SaranaPendidikanController extends Controller
         {
             $pendidikan = Pendidikan::all();
         }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $pendidikan = Pendidikan::all();
         }

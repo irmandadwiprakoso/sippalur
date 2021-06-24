@@ -27,7 +27,7 @@ class FasosfasumController extends Controller
         {
             $fasosfasum = Fasosfasum::all();
         }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $fasosfasum = Fasosfasum::all();
         }

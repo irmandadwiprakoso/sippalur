@@ -46,7 +46,7 @@ class Covid19Controller extends Controller
         {
             $covid19 = Covid19::all();
         }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $covid19 = Covid19::all();
         }

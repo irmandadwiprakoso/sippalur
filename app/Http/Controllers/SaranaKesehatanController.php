@@ -24,7 +24,7 @@ class SaranaKesehatanController extends Controller
         {
             $kesehatan = Kesehatan::all();
         }
-        if(auth()->user()->username == 'lurah')
+        if(auth()->user()->role == 'admin')
         {
             $kesehatan = Kesehatan::all();
         }

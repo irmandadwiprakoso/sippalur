@@ -40,11 +40,7 @@ class RumahIbadahController extends Controller
         {
             $ibadah = Ibadah::all();
         }
-        if(auth()->user()->username == 'lurah')
-        {
-            $ibadah = Ibadah::all();
-        }
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'admin')
         {
             $ibadah = Ibadah::all();
         }
