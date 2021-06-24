@@ -83,13 +83,16 @@
                 <p>{{auth()->user()->name}}<small></small></p>
               </li>
               <li class="user-footer">
-              
+
+                @if (auth()->user()->role =="user")
                 <div class="pull-left">
                   <a href="/profile" class="btn btn-default btn-flat">My Profile</a>
                 </div>
+                @endif
                 <div class="pull-right">
                   <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
+
               </li>
             </ul>
           </li>
@@ -193,8 +196,6 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -209,8 +210,6 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -225,8 +224,6 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "kessos")
@@ -241,56 +238,6 @@
             <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
             <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
             <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
-          </ul>
-        </li>
-        @elseif (auth()->user()->role == "pemtibum")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Kessos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
-            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
-            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
-          </ul>
-        </li>
-        @elseif (auth()->user()->role == "permasbang")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Kessos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
-            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
-            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
-          </ul>
-        </li>
-        @elseif (auth()->user()->role == "sekret")
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Kessos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/ibadah"><i class="fa  fa-table"></i> Sarana Ibadah </a></li>
-            <li><a href="/kesehatan"><i class="fa  fa-table"></i> Sarana Kesehatan </a></li>
-            <li><a href="/pendidikan"><i class="fa  fa-table"></i> Sarana Pendidikan </a></li>
-            <!-- <li><a href="/dtks"><i class="fa  fa-table"></i> DTKS </a></li> -->
-            <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
           </ul>
         </li>
         @endif
@@ -306,7 +253,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
@@ -320,7 +267,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
@@ -334,7 +281,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
@@ -348,7 +295,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> Warga </a></li>
+            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
           </ul>
         </li>
@@ -405,9 +352,35 @@
         </li>
         @endif
     
-        <li><a href="/pamor"><i class="fa  fa-user"></i> Laporan Harian </a></li>
+        <li><a href="/pamor"><i class="fa  fa-user"></i> Laporan Harian</a></li>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
+
+        <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+
+        @if (auth()->user()->role == "superadmin")
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        @elseif (auth()->user()->role == "admin")
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        @elseif (auth()->user()->role == "kessos")
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        @elseif (auth()->user()->role == "pemtibum")
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        @elseif (auth()->user()->role == "permasbang")
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </li>
+        @endif
 
     </section>
     <!-- /.sidebar -->

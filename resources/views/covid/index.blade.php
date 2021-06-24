@@ -43,7 +43,7 @@
                             <th>Nama</th>
                             <th>RT Domisili</th>
                             <th>RW Domisili</th>
-                            <th>Konfirmasi</th>
+                            <th>Tanggal Konfirmasi</th>
                             <th>Status Pasien</th>
                             <th>Hasil Test</th>
                             <th>Status Akhir</th>
