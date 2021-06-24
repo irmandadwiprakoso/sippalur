@@ -185,7 +185,7 @@ class Covid19Controller extends Controller
             'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
-            'foto_status_akhir' => 'required',
+            // 'foto_status_akhir' => 'required',
             'no_hp' => 'required',        
             'tinjut' => 'required',        
             'keterangan' => 'required',        
@@ -208,17 +208,17 @@ class Covid19Controller extends Controller
         . '.' . $request->foto_status_akhir->extension();
         $request->foto_status_akhir->move('images/Covid19/StatusAkhirPasien/',$imgName4);
         
-        $imgName5 = $request->fotomonitoring1->getClientOriginalName() . '-' . time() 
-        . '.' . $request->fotomonitoring1->extension();
-        $request->fotomonitoring1->move('images/Covid19/Monitoring1/',$imgName5);
+        // $imgName5 = $request->fotomonitoring1->getClientOriginalName() . '-' . time() 
+        // . '.' . $request->fotomonitoring1->extension();
+        // $request->fotomonitoring1->move('images/Covid19/Monitoring1/',$imgName5);
         
-        $imgName6 = $request->fotomonitoring2->getClientOriginalName() . '-' . time() 
-        . '.' . $request->fotomonitoring2->extension();
-        $request->fotomonitoring2->move('images/Covid19/Monitoring2/',$imgName6);
+        // $imgName6 = $request->fotomonitoring2->getClientOriginalName() . '-' . time() 
+        // . '.' . $request->fotomonitoring2->extension();
+        // $request->fotomonitoring2->move('images/Covid19/Monitoring2/',$imgName6);
         
-        $imgName7 = $request->fotomonitoring3->getClientOriginalName() . '-' . time() 
-        . '.' . $request->fotomonitoring3->extension();
-        $request->fotomonitoring3->move('images/Covid19/Monitoring3/',$imgName7);
+        // $imgName7 = $request->fotomonitoring3->getClientOriginalName() . '-' . time() 
+        // . '.' . $request->fotomonitoring3->extension();
+        // $request->fotomonitoring3->move('images/Covid19/Monitoring3/',$imgName7);
         
         // Covid19::create($request->all());
         Covid19::create([
@@ -235,13 +235,13 @@ class Covid19Controller extends Controller
             'hasil_test' => $request->hasil_test,
             'tglmonitoring1' => $request->tglmonitoring1,
             'monitoring1' => $request->monitoring1,
-            'fotomonitoring1' => $imgName5,
+            // 'fotomonitoring1' => $imgName5,
             'tglmonitoring2' => $request->tglmonitoring2,
             'monitoring2' => $request->monitoring2,
-            'fotomonitoring2' => $imgName6,
+            // 'fotomonitoring2' => $imgName6,
             'tglmonitoring3' => $request->tglmonitoring3,
             'monitoring3' => $request->monitoring3,
-            'fotomonitoring3' => $imgName7,
+            // 'fotomonitoring3' => $imgName7,
             'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
             'foto_status_akhir' => $imgName4,
