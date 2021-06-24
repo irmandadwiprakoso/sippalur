@@ -81,7 +81,7 @@
         </div> -->
 
         <div class="mb-3">
-            <label for="hasil_test" class="form-label">Status Akhir Pasien</label>
+            <label for="hasil_test" class="form-label">Hasil Test</label>
             <select class="form-control @error('hasil_test') is-invalid @enderror" aria-label="Default select example" id="hasil_test" name="hasil_test" value="{{ $covid19->hasil_test }}"> 
                 <option selected value="{{ $covid19->hasil_test }}">{{ $covid19->hasil_test}}</option>
                 <option value="TCM">TCM</option>

@@ -49,9 +49,6 @@
                   <b>Lokasi Pasien</b> <a class="pull-right">{{ $covid19->lokasi_pasien}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Status</b> <a class="pull-right">{{ $covid19->tanggal_status}}</a>
-                </li>
-                <li class="list-group-item">
                   <b>hasil Test</b> <a class="pull-right">{{ $covid19->hasil_test}}</a>
                 </li>
                 <li class="list-group-item">
