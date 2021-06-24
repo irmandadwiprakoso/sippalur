@@ -44,6 +44,7 @@
                             <th>RT Domisili</th>
                             <th>RW Domisili</th>
                             <th>Status Pasien</th>
+                            <th>Hasil Test</th>
                             <th>Status Akhir</th>
                             <th>Tanggal Status Akhir</th>
                             <th>View</th>
@@ -67,6 +68,7 @@
                             <td class=" ">{{ $covid->rt->rt}}</td>
                             <td class=" ">{{ $covid->rw->rw}}</td>
                             <td class=" ">{{ $covid->status_pasien}}</td>
+                            <td class=" ">{{ $covid->hasil_test}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>
                             <td class=" ">{{ $covid->tanggal_status_akhir}}</td>
                             
