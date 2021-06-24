@@ -122,6 +122,54 @@
         </div>
 
         <div class="mb-3">
+            <label for="tglmonitoring1" class="form-label">Tanggal Monitoring 1</label>
+            <input type="date" class="form-control @error('tglmonitoring1') is-invalid @enderror" id="tglmonitoring1" placeholder="Monitoring pertama yang dilakukan" name="tglmonitoring1" value="{{ old('tglmonitoring1') }}">
+            @error ('tglmonitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring1" class="form-label">Monitoring 1</label>
+            <input type="text" class="form-control @error('monitoring1') is-invalid @enderror" id="monitoring1" placeholder="Monitoring 1" name="monitoring1" value="{{ old('monitoring1') }}">
+            @error ('monitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+            <label for="fotomonitoring1" value="{{ old('fotomonitoring1') }}">Foto Monitoring 1</label>
+            <input type="file" class="form-control @error('fotomonitoring1') is-invalid @enderror" id="fotomonitoring1" name="fotomonitoring1">
+            @error ('fotomonitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="tglmonitoring2" class="form-label">Tanggal Monitoring 2</label>
+            <input type="date" class="form-control @error('tglmonitoring2') is-invalid @enderror" id="tglmonitoring2" placeholder="Monitoring pertama yang dilakukan" name="tglmonitoring2" value="{{ old('tglmonitoring2') }}">
+            @error ('tglmonitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring2" class="form-label">Monitoring 2</label>
+            <input type="text" class="form-control @error('monitoring2') is-invalid @enderror" id="monitoring2" placeholder="Monitoring 2" name="monitoring2" value="{{ old('monitoring2') }}">
+            @error ('monitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+            <label for="fotomonitoring2" value="{{ old('fotomonitoring2') }}">Foto Monitoring 2</label>
+            <input type="file" class="form-control @error('fotomonitoring2') is-invalid @enderror" id="fotomonitoring2" name="fotomonitoring2">
+            @error ('fotomonitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="tglmonitoring3" class="form-label">Tanggal Monitoring 3</label>
+            <input type="date" class="form-control @error('tglmonitoring3') is-invalid @enderror" id="tglmonitoring3" placeholder="Monitoring pertama yang dilakukan" name="tglmonitoring3" value="{{ old('tglmonitoring3') }}">
+            @error ('tglmonitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring3" class="form-label">Monitoring 3</label>
+            <input type="text" class="form-control @error('monitoring3') is-invalid @enderror" id="monitoring3" placeholder="Monitoring 3" name="monitoring3" value="{{ old('monitoring3') }}">
+            @error ('monitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+            <label for="fotomonitoring3" value="{{ old('fotomonitoring3') }}">Foto Monitoring 3</label>
+            <input type="file" class="form-control @error('fotomonitoring3') is-invalid @enderror" id="fotomonitoring3" name="fotomonitoring3">
+            @error ('fotomonitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
             <label for="status_akhir" class="form-label">Status Akhir Pasien Saat Ini</label>
             <select class="form-control @error('status_akhir') is-invalid @enderror" id="status_akhir" name="status_akhir" value="{{ old('status_akhir') }}"> 
                 <option selected disabled>- Pilih -</option>

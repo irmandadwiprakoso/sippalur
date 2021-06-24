@@ -43,6 +43,7 @@
                             <th>Nama</th>
                             <th>RT Domisili</th>
                             <th>RW Domisili</th>
+                            <th>Konfirmasi</th>
                             <th>Status Pasien</th>
                             <th>Hasil Test</th>
                             <th>Status Akhir</th>
@@ -67,6 +68,7 @@
                             <td class=" ">{{ $covid->warga->nama}}</td>
                             <td class=" ">{{ $covid->rt->rt}}</td>
                             <td class=" ">{{ $covid->rw->rw}}</td>
+                            <td class=" ">{{ $covid->konfirmasi}}</td>
                             <td class=" ">{{ $covid->status_pasien}}</td>
                             <td class=" ">{{ $covid->hasil_test}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>

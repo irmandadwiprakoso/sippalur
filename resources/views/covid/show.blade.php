@@ -52,6 +52,24 @@
                   <b>Hasil Test</b> <a class="pull-right">{{ $covid19->hasil_test}}</a>
                 </li>
                 <li class="list-group-item">
+                  <b>Tanggal Monitoring 1</b> <a class="pull-right">{{ $covid19->tglmonitoring1}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kegiatan Monitoring 1</b> <a class="pull-right">{{ $covid19->monitoring1}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Tanggal Monitoring 2</b> <a class="pull-right">{{ $covid19->tglmonitoring2}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kegiatan Monitoring 2</b> <a class="pull-right">{{ $covid19->monitoring2}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Tanggal Monitoring 3</b> <a class="pull-right">{{ $covid19->tglmonitoring3}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Kegiatan Monitoring 3</b> <a class="pull-right">{{ $covid19->monitoring3}}</a>
+                </li>
+                <li class="list-group-item">
                   <b>Status Akhir</b> <a class="pull-right">{{ $covid19->status_akhir}}</a>
                 </li>
                 <li class="list-group-item">
@@ -84,6 +102,18 @@
                 <li class="list-group-item">
                   <b>Foto Status Akhir Pasien</b>
                   <a href="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Foto Monitoring 1</b>
+                  <a href="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Foto Monitoring 2</b>
+                  <a href="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Foto Monitoring 3</b>
+                  <a href="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" target="_blank" class="pull-right">Lihat Foto</a>
                 </li>
               </ul>
                   <a href="/covid19" class="btn btn-default">Close</a>

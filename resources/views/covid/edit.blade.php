@@ -94,6 +94,39 @@
         </div>
 
         <div class="mb-3">
+            <label for="tglmonitoring1" class="form-label">Tanggal Monitoring 1</label>
+            <input type="date" class="form-control @error('tglmonitoring1') is-invalid @enderror" id="tglmonitoring1"  name="tglmonitoring1" value="{{ $covid19->tglmonitoring1 }}">
+            @error ('tglmonitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring1" class="form-label">Monitoring 1</label>
+            <input type="text" class="form-control @error('monitoring1') is-invalid @enderror" id="monitoring1" placeholder="Kegiatan Monitoring" name="monitoring1" value="{{ $covid19->monitoring1 }}">
+            @error ('monitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="mb-3">
+            <label for="tglmonitoring2" class="form-label">Tanggal Monitoring 2</label>
+            <input type="date" class="form-control @error('tglmonitoring2') is-invalid @enderror" id="tglmonitoring2"  name="tglmonitoring2" value="{{ $covid19->tglmonitoring2 }}">
+            @error ('tglmonitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring2" class="form-label">Monitoring 1</label>
+            <input type="text" class="form-control @error('monitoring2') is-invalid @enderror" id="monitoring2" placeholder="Kegiatan Monitoring" name="monitoring2" value="{{ $covid19->monitoring2 }}">
+            @error ('monitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="mb-3">
+            <label for="tglmonitoring3" class="form-label">Tanggal Monitoring 1</label>
+            <input type="date" class="form-control @error('tglmonitoring3') is-invalid @enderror" id="tglmonitoring3"  name="tglmonitoring3" value="{{ $covid19->tglmonitoring3 }}">
+            @error ('tglmonitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="mb-3">
+            <label for="monitoring3" class="form-label">Monitoring 3</label>
+            <input type="text" class="form-control @error('monitoring3') is-invalid @enderror" id="monitoring3" placeholder="Kegiatan Monitoring" name="monitoring3" value="{{ $covid19->monitoring3 }}">
+            @error ('monitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+        </div>
+
+        <div class="mb-3">
             <label for="status_akhir" class="form-label">Status Akhir Pasien</label>
             <select class="form-control @error('status_akhir') is-invalid @enderror" aria-label="Default select example" id="status_akhir" name="status_akhir" value="{{ $covid19->status_akhir }}"> 
                 <option selected value="{{ $covid19->status_akhir }}">{{ $covid19->status_akhir}}</option>
@@ -168,6 +201,33 @@
         </div>
         <div class="input-group mb-3">
                 <img src="{{asset('images/Covid19/StatusAkhirPasien/'.$covid19->foto_status_akhir)}}" height="20%" width="20%"></img>
+        </div>
+
+        <div class="input-group mb-3">
+        <label for="fotomonitoring1">Foto Monitoring 1</label>
+            <input type="file" class="form-control @error('fotomonitoring1') is-invalid @enderror" id="fotomonitoring1" name="fotomonitoring1" value="{{ $covid19->fotomonitoring1 }}">
+            @error ('fotomonitoring1') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/Monitoring1/'.$covid19->fotomonitoring1)}}" height="20%" width="20%"></img>
+        </div>
+
+        <div class="input-group mb-3">
+        <label for="fotomonitoring2">Foto Monitoring 2</label>
+            <input type="file" class="form-control @error('fotomonitoring2') is-invalid @enderror" id="fotomonitoring2" name="fotomonitoring2" value="{{ $covid19->fotomonitoring2 }}">
+            @error ('fotomonitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/Monitoring2/'.$covid19->fotomonitoring2)}}" height="20%" width="20%"></img>
+        </div>
+
+        <div class="input-group mb-3">
+        <label for="fotomonitoring3">Foto Monitoring 3</label>
+            <input type="file" class="form-control @error('fotomonitoring3') is-invalid @enderror" id="fotomonitoring3" name="fotomonitoring3" value="{{ $covid19->fotomonitoring3 }}">
+            @error ('fotomonitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+        </div>
+        <div class="input-group mb-3">
+                <img src="{{asset('images/Covid19/Monitoring3/'.$covid19->fotomonitoring3)}}" height="20%" width="20%"></img>
         </div>
 
         <div class="box-footer">
