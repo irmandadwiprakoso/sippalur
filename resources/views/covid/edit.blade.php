@@ -110,13 +110,13 @@
             @error ('tglmonitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
         <div class="mb-3">
-            <label for="monitoring2" class="form-label">Monitoring 1</label>
+            <label for="monitoring2" class="form-label">Monitoring 2</label>
             <input type="text" class="form-control @error('monitoring2') is-invalid @enderror" id="monitoring2" placeholder="Kegiatan Monitoring" name="monitoring2" value="{{ $covid19->monitoring2 }}">
             @error ('monitoring2') <div class="invalid-feedback">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
-            <label for="tglmonitoring3" class="form-label">Tanggal Monitoring 1</label>
+            <label for="tglmonitoring3" class="form-label">Tanggal Monitoring 3</label>
             <input type="date" class="form-control @error('tglmonitoring3') is-invalid @enderror" id="tglmonitoring3"  name="tglmonitoring3" value="{{ $covid19->tglmonitoring3 }}">
             @error ('tglmonitoring3') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
