@@ -3,7 +3,7 @@
 @section('title')
 
 <section class="content-header">
-      <h1>Edit Data Fasos FAsum <small> Kelurahan Jakasampurna </small></h1>
+      <h1>Edit Data Fasos Fasum <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
 <section class="content">	
