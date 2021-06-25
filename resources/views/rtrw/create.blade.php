@@ -95,7 +95,7 @@
 
         <div class="mb-3">
             <label for="npwp" class="form-label">NPWP</label>
-            <input type="number" class="form-control @error('npwp') is-invalid @enderror" id="npwp" name="npwp" placeholder="NPWP" value="{{ old('npwp') }}">
+            <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" name="npwp" placeholder="NPWP" value="{{ old('npwp') }}">
             @error ('npwp') <div class="invalid-feedback">{{ $message }} </div>@enderror 
         </div>
 
