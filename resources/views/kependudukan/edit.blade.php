@@ -2,8 +2,8 @@
 
 @section('title')
 
-<<section class="content-header">
-      <h1>Edit Data Sarana Ibadah <small> Kelurahan Jakasampurna </small></h1>
+<section class="content-header">
+      <h1>Edit Data Kependudukan <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
 <section class="content">	
