@@ -322,13 +322,15 @@ class Covid19Controller extends Controller
             'lokasi_pasien' => $request->lokasi_pasien,
             // 'foto_status_pasien' => $request->foto_status_pasien,
             'hasil_test' => $request->hasil_test,
-            'status_akhir' => $request->status_akhir,
+
             'tglmonitoring1' => $request->tglmonitoring1,
             'monitoring1' => $request->monitoring1,
             'tglmonitoring2' => $request->tglmonitoring2,
             'monitoring2' => $request->monitoring2,
             'tglmonitoring3' => $request->tglmonitoring3,
             'monitoring3' => $request->monitoring3,
+            
+            'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
             // 'foto_status_akhir' => $request->foto_status_akhir,
             'no_hp' => $request->no_hp,
