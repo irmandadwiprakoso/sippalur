@@ -121,7 +121,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-          <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard </a></li>
+          <li><a href="/dashboard"><i class="fa fa-dashboard"></i><span> Dashboard </a></span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
 
@@ -352,32 +352,33 @@
         </li>
         @endif
     
-        <li><a href="/pamor"><i class="fa  fa-user"></i> Laporan Harian</a></li>
+        <li>
+        <a href="/pamor"><i class="fa  fa-user"></i> <span>Laporan Harian</a></span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
 
-        <li><a href="/covid19"><i class="fa  fa-table"></i> COVID-19 </a></li>
+        <li><a href="/covid19"><i class="fa  fa-table"></i><span> COVID-19 </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
 
         @if (auth()->user()->role == "superadmin")
-        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i><span> Reset Password </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
         @elseif (auth()->user()->role == "admin")
-        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i><span> Reset Password </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
         @elseif (auth()->user()->role == "kessos")
-        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i><span> Reset Password </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
         @elseif (auth()->user()->role == "pemtibum")
-        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i><span> Reset Password </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
         @elseif (auth()->user()->role == "permasbang")
-        <li><a href="/password/reset" ><i class="fa  fa-table"></i> Reset Password </a></li>
+        <li><a href="/password/reset" ><i class="fa  fa-table"></i><span> Reset Password </a></span>
         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
         @endif
