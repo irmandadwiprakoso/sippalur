@@ -18,35 +18,35 @@
             <div class="box-body box-profile">
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Nama</b> <a class="pull-right">{{ $fasosfasum->nama}}</a>
+                  <b>Nama</b> <br> <a class="">{{ $fasosfasum->nama}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $fasosfasum->alamat}}</a>
+                  <b>Alamat</b> <br> <a class="">{{ $fasosfasum->alamat}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $fasosfasum->rt->rt}}</a>
+                  <b>RT</b> <br> <a class="">{{ $fasosfasum->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $fasosfasum->rw->rw}}</a>
+                  <b>RW</b> <br> <a class="">{{ $fasosfasum->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Koordinat Lokasi</b> <a class="pull-right">{{ $fasosfasum->koordinat}}</a>
+                  <b>Koordinat Lokasi</b> <br> <a class="">{{ $fasosfasum->koordinat}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Luas Lokasi</b> <a class="pull-right">{{ $fasosfasum->luas}}</a>
+                  <b>Luas Lokasi</b> <br> <a class="">{{ $fasosfasum->luas}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Pemanfaatan Lahan</b> <a class="pull-right">{{ $fasosfasum->pemanfaatan}}</a>
+                  <b>Pemanfaatan Lahan</b> <br> <a class="">{{ $fasosfasum->pemanfaatan}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Nama Pengembang</b> <a class="pull-right">{{ $fasosfasum->nama_pengembang}}</a>
+                  <b>Nama Pengembang</b> <br> <a class="">{{ $fasosfasum->nama_pengembang}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Nama Perumahan</b> <a class="pull-right">{{ $fasosfasum->nama_perumahan}}</a>
+                  <b>Nama Perumahan</b> <br> <a class="">{{ $fasosfasum->nama_perumahan}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto</b>
-                  <a href="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
               </ul>
               
