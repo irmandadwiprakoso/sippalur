@@ -254,7 +254,7 @@
           <ul class="treeview-menu">
             <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
             <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
-            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -268,7 +268,7 @@
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
             <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
-            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -282,7 +282,7 @@
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
             <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
-            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "pemtibum")
@@ -296,7 +296,7 @@
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
             <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
-            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Data Kependudukan </a></li>
+            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
         @endif

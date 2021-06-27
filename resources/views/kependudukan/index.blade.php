@@ -45,7 +45,7 @@
                             <th>KK</th>
                             <th>Laki-Laki</th>
                             <th>Perempuan</th>
-                            <th>Total (L+P)</th>
+                            <th>Total Jiwa (L+P)</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
