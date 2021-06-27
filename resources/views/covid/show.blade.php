@@ -19,101 +19,101 @@
               <p class="text-muted text-center">{{ $covid19->warga->tempat_lahir}} - {{ $covid19->warga->tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>NIK</b> <a class="pull-right">{{ $covid19->warga->NIK}}</a>
+                  <b>NIK</b> <br> <a class="">{{ $covid19->warga->NIK}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $covid19->warga->alamat_KTP}}</a>
+                  <b>Alamat</b> <br> <a class="">{{ $covid19->warga->alamat_KTP}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $covid19->warga->rt->rt}}</a>
+                  <b>RT</b> <br> <a class="">{{ $covid19->warga->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $covid19->warga->rw->rw}}</a>
+                  <b>RW</b> <br> <a class="">{{ $covid19->warga->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->domisili}}</a>
+                  <b>Domisili Tempat Tinggal</b> <br> <a class="">{{ $covid19->domisili}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->rt->rt}}</a>
+                  <b>RT Domisili Tempat Tinggal</b> <br> <a class="">{{ $covid19->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW Domisili Tempat Tinggal</b> <a class="pull-right">{{ $covid19->rw->rw}}</a>
+                  <b>RW Domisili Tempat Tinggal</b> <br> <a class="">{{ $covid19->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Konfirmasi</b> <a class="pull-right">{{ $covid19->konfirmasi}}</a>
+                  <b>Tanggal Konfirmasi</b> <br> <a class="">{{ $covid19->konfirmasi}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Status Pasien</b> <a class="pull-right">{{ $covid19->status_pasien}}</a>
+                  <b>Status Pasien</b> <br> <a class="">{{ $covid19->status_pasien}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Lokasi Pasien</b> <a class="pull-right">{{ $covid19->lokasi_pasien}}</a>
+                  <b>Lokasi Pasien</b> <br> <a class="">{{ $covid19->lokasi_pasien}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Hasil Test</b> <a class="pull-right">{{ $covid19->hasil_test}}</a>
+                  <b>Hasil Test</b> <br> <a class="">{{ $covid19->hasil_test}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Monitoring 1</b> <a class="pull-right">{{ $covid19->tglmonitoring1}}</a>
+                  <b>Tanggal Monitoring 1</b> <br> <a class="">{{ $covid19->tglmonitoring1}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Kegiatan Monitoring 1</b> <a class="pull-right">{{ $covid19->monitoring1}}</a>
+                  <b>Kegiatan Monitoring 1</b> <br> <a class="">{{ $covid19->monitoring1}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Monitoring 2</b> <a class="pull-right">{{ $covid19->tglmonitoring2}}</a>
+                  <b>Tanggal Monitoring 2</b> <br> <a class="">{{ $covid19->tglmonitoring2}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Kegiatan Monitoring 2</b> <a class="pull-right">{{ $covid19->monitoring2}}</a>
+                  <b>Kegiatan Monitoring 2</b> <br> <a class="">{{ $covid19->monitoring2}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Monitoring 3</b> <a class="pull-right">{{ $covid19->tglmonitoring3}}</a>
+                  <b>Tanggal Monitoring 3</b> <br> <a class="">{{ $covid19->tglmonitoring3}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Kegiatan Monitoring 3</b> <a class="pull-right">{{ $covid19->monitoring3}}</a>
+                  <b>Kegiatan Monitoring 3</b> <br> <a class="">{{ $covid19->monitoring3}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Status Akhir</b> <a class="pull-right">{{ $covid19->status_akhir}}</a>
+                  <b>Status Akhir</b> <br> <a class="">{{ $covid19->status_akhir}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tanggal Status Akhir</b> <a class="pull-right">{{ $covid19->tanggal_status_akhir}}</a>
+                  <b>Tanggal Status Akhir</b> <br> <a class="">{{ $covid19->tanggal_status_akhir}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>No HP</b> <a class="pull-right">{{ $covid19->no_hp}}</a>
+                  <b>No HP</b> <br> <a class="">{{ $covid19->no_hp}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tindak Lanjut Kelurahan</b> <a class="pull-right">{{ $covid19->tinjut}}</a>
+                  <b>Tindak Lanjut Kelurahan</b> <br> <a class="">{{ $covid19->tinjut}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Hasil Tindak Lanjut</b> <a class="pull-right">{{ $covid19->keterangan}}</a>
+                  <b>Hasil Tindak Lanjut</b> <br> <a class="">{{ $covid19->keterangan}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Sumber Pasien Terpapar Covid</b> <a class="pull-right">{{ $covid19->sumbercovid}}</a>
+                  <b>Sumber Pasien Terpapar Covid</b> <br> <a class="">{{ $covid19->sumbercovid}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto KTP Pasien</b>
-                  <a href="{{asset('images/Covid19/KTP/'. $covid19->foto_KTP)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/KTP/'. $covid19->foto_KTP)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto KK Pasien</b>
-                  <a href="{{asset('images/Covid19/KK/'. $covid19->foto_KK)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/KK/'. $covid19->foto_KK)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Status Pasien</b>
-                  <a href="{{asset('images/Covid19/StatusAwalPasien/'. $covid19->foto_status_pasien)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/StatusAwalPasien/'. $covid19->foto_status_pasien)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Status Akhir Pasien</b>
-                  <a href="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 1</b>
-                  <a href="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 2</b>
-                  <a href="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 3</b>
-                  <a href="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" target="_blank" class=""><br>Lihat Foto</a>
                 </li>
               </ul>
                   <a href="/covid19" class="btn btn-default">Close</a>
