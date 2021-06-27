@@ -3,7 +3,7 @@
 @section('title')
 
 <section class="content-header">
-      <h1>Input Data Warga <small> Kelurahan Jakasampurna </small></h1>
+      <h1>Input Data KTP <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
 <section class="content">	
