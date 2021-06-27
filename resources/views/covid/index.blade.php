@@ -62,7 +62,8 @@
                     </thead>
 					<tbody>	
                     @foreach ($covid19 as $covid)
-						<tr>
+						<!-- <tr style="background: red" > -->
+                        <tr>
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $covid->warga->NIK}}</td>
                             <td class=" ">{{ $covid->warga->nama}}</td>
