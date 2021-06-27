@@ -429,9 +429,8 @@
 
 
 <script>
-let status_akhir = $('#filter_status_akhir').val()
   $(document).ready(function () {
-  
+ 
 
     $('#Datatables').DataTable();
   });
@@ -456,11 +455,11 @@ let status_akhir = $('#filter_status_akhir').val()
             });
        });
        
-    $(".filter").on('change',function(){
-    let status_akhir = $('#filter_status_akhir').val()
-    console.log([status_akhir])
-})
 </script>
+ .redClass{
+                background : #aa0000 !important;
+                color : #fff !important;
+            }
 
 @include('sweetalert::alert')
 @yield('footer')
