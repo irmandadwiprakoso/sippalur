@@ -20,47 +20,47 @@
               <h3 class="profile-username text-center">{{ $asn-> nama}}</h3>
               <p class="text-muted text-center">{{ $asn-> tempat_lahir}} - {{ $asn-> tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>NIK</b> <a class="pull-right">{{ $asn-> NIK}}</a>
+                <li class="list-group-item text-center">
+                  <b>NIK</b> <br> <a class="">{{ $asn-> NIK}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Pangkat</b> <a class="pull-right">{{ $asn->pangkat->pangkat}}</a>
+                <li class="list-group-item text-center">
+                  <b>Pangkat</b> <br> <a class="">{{ $asn->pangkat->pangkat}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Golongan</b> <a class="pull-right">{{ $asn->golongan->golongan}}</a>
+                <li class="list-group-item text-center">
+                  <b>Golongan</b> <br> <a class="">{{ $asn->golongan->golongan}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Jabatan</b> <a class="pull-right">{{ $asn->jabatan->jabatan}}</a>
+                <li class="list-group-item text-center">
+                  <b>Jabatan</b> <br> <a class="">{{ $asn->jabatan->jabatan}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Jenis Kelamin</b> <a class="pull-right">{{ $asn->Jeniskelamin->jeniskelamin}}</a>
+                <li class="list-group-item text-center">
+                  <b>Jenis Kelamin</b> <br> <a class="">{{ $asn->Jeniskelamin->jeniskelamin}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $asn-> alamat}}</a>
+                <li class="list-group-item text-center">
+                  <b>Alamat</b> <br> <a class="">{{ $asn-> alamat}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Agama</b> <a class="pull-right">{{ $asn->agama->agama}}</a>
+                <li class="list-group-item text-center">
+                  <b>Agama</b> <br> <a class="">{{ $asn->agama->agama}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Pendidikan</b> <a class="pull-right">{{ $asn->pendidikanpeg->pendidikanpeg}}</a>
+                <li class="list-group-item text-center">
+                  <b>Pendidikan</b> <br> <a class="">{{ $asn->pendidikanpeg->pendidikanpeg}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Status Perkawinan</b> <a class="pull-right">{{ $asn->statuskawin->statuskawin}}</a>
+                <li class="list-group-item text-center">
+                  <b>Status Perkawinan</b> <br> <a class="">{{ $asn->statuskawin->statuskawin}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>SK Jabatan</b> <a class="pull-right">{{ $asn->SK_Jabatan}}</a>
+                <li class="list-group-item text-center">
+                  <b>SK Jabatan</b> <br> <a class="">{{ $asn->SK_Jabatan}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>No Rek BJB</b> <a class="pull-right">{{ $asn-> no_rek}}</a>
+                <li class="list-group-item text-center">
+                  <b>No Rek BJB</b> <br> <a class="">{{ $asn-> no_rek}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>NPWP</b> <a class="pull-right">{{ $asn-> npwp}}</a>
+                <li class="list-group-item text-center">
+                  <b>NPWP</b> <br> <a class="">{{ $asn-> npwp}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Email</b> <a class="pull-right">{{ $asn-> email}}</a>
+                <li class="list-group-item text-center">
+                  <b>Email</b> <br> <a class="">{{ $asn-> email}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>No HP</b> <a class="pull-right">{{ $asn-> no_HP}}</a>
+                <li class="list-group-item text-center">
+                  <b>No HP</b> <br> <a class="">{{ $asn-> no_HP}}</a>
                 </li>
               </ul>
 
