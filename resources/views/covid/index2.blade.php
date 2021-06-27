@@ -28,15 +28,6 @@
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
-                        <!-- <div class="col-md-4">
-                        <label for="">Filter Status Akhir</label>
-                            <select name="status_akhir" id="filter_status_akhir" class="form-control filter">
-                                <option value="">Pilih Status Akhir</option>
-                                <option value="Positif">POSITIF</option>
-                                <option value="Negatif">NEGATIF</option>
-                                <option value="Meniggal">MENINGGAL</option>                 
-                            </select>
-                        </div> -->
                             <div class="col-sm-6">
                                 <div class="dataTables_length" id="tabel_length"> 
                                     </div>
@@ -44,8 +35,6 @@
                             </div>
                         <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
                     </div>
-                    
-                    <div class="divider"></div>
                     <table id="Datatables" class="table table-bordered table-striped">
                     <thead>
                         <tr>                          
@@ -73,7 +62,8 @@
                     </thead>
 					<tbody>	
                     @foreach ($covid19 as $covid)
-                        <tr style="background-color:red">
+						<tr style="background: red" >
+                        <!-- <tr> -->
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $covid->warga->NIK}}</td>
                             <td class=" ">{{ $covid->warga->nama}}</td>
@@ -139,7 +129,5 @@
             </div>
         </div>
     </div>	
-<!-- $(".filter").on('change',function(){
-    console.log("FILTER")
-}) -->
+
 @endsection

@@ -34,6 +34,15 @@
   font-size: 1.2rem !important;
 }
 </style>
+<style type="text/css">
+  .divider{
+    width: 100%;
+    height: 1px;
+    background: #BBB;
+    margin: 1rem 0;
+  }
+</style>
+
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -420,7 +429,10 @@
 
 
 <script>
+let status_akhir = $('#filter_status_akhir').val()
   $(document).ready(function () {
+  
+
     $('#Datatables').DataTable();
   });
 
@@ -442,7 +454,12 @@
                 $(`#delete${id}`).submit();
               }
             });
-       });  
+       });
+       
+    $(".filter").on('change',function(){
+    let status_akhir = $('#filter_status_akhir').val()
+    console.log([status_akhir])
+})
 </script>
 
 @include('sweetalert::alert')
