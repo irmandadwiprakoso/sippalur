@@ -18,33 +18,33 @@
             <!-- <div class="box-body box-profile">
               <h3 class="profile-username text-center">{{ $pamor->nama}}</h3> -->
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Tanggal</b> <a class="pull-right">{{ $pamor->tanggal}}</a>
+                <li class="list-group-item ">
+                  <b>Tanggal</b> <br> <a class="">{{ $pamor->tanggal}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Kegiatan</b> <a class="pull-right">{{ $pamor->kegiatan}}</a>
+                  <b>Kegiatan</b> <br> <a class="">{{ $pamor->kegiatan}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Jumlah</b> <a class="pull-right">{{ $pamor->jumlah}}</a>
+                  <b>Jumlah</b> <br> <a class="">{{ $pamor->jumlah}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Bidang</b> <a class="pull-right">{{ $pamor->bidang}}</a>
+                  <b>Bidang</b> <br> <a class="">{{ $pamor->bidang}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Keterangan</b> <a class="pull-right">{{ $pamor->keterangan}}</a>
+                  <b>Keterangan</b> <br> <a class="">{{ $pamor->keterangan}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Tindak Lanjut</b> <a class="pull-right">{{ $pamor->tinjut}}</a>
+                  <b>Tindak Lanjut</b> <br> <a class="">{{ $pamor->tinjut}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $pamor->rt->rt}}</a>
+                  <b>RT</b> <br> <a class="">{{ $pamor->rt->rt}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $pamor->rw->rw}}</a>
+                  <b>RW</b> <br> <a class="">{{ $pamor->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto</b>
-                  <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class="pull-right">Lihat Foto</a>
+                  <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class=""> <br> Lihat Foto</a>
                 </li>
                 </ul>
                   <a href="/pamor/" class="btn btn-default">Close</a>
