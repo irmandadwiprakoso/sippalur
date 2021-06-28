@@ -73,8 +73,11 @@
                     </thead>
 					<tbody>	
                     @foreach ($covid19 as $covid)
-                        <!-- <tr> -->
-                        <tr style="background-color:<?php echo $covid->status_akhir == 'Meninggal' ? '#FF0000' : '#FFFFFF' ?>">
+                        @if($covid->status_akhir == 'Meninggal')
+                        <tr style="background-color:red">
+                        @elseif($covid->status_akhir == 'Negatif')
+                        <tr style="background-color:darkorange">
+                        @endif
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $covid->warga->NIK}}</td>
                             <td class=" ">{{ $covid->warga->nama}}</td>
