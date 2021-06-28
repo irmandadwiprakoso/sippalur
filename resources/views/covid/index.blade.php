@@ -76,7 +76,9 @@
                         @if($covid->status_akhir == 'Meninggal')
                         <tr style="background-color:red">
                         @elseif($covid->status_akhir == 'Negatif')
-                        <tr style="background-color:darkorange">
+                        <tr style="background-color:deepskyblue">
+                        @elseif($covid->status_akhir == 'Positif')
+                        <tr style="background-color:orange">
                         @endif
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $covid->warga->NIK}}</td>
