@@ -22,7 +22,7 @@
             </select>
             @error ('warga_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div> -->
-
+        
         <div class="mb-3">
             <label for="warga_id" class="form-label">NIK Warga</label>
             <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama Warga Anda" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
@@ -36,8 +36,9 @@
 
         <div class="input-group mb-3">
             <label for="foto_KTP" value="{{ old('foto_KTP') }}">Foto KTP Pasien</label>
-            <input type="file" class="form-control @error('foto_KTP') is-invalid @enderror" id="foto_KTP" name="foto_KTP">
+            <input type="file" class="form-control @error('foto_KTP') is-invalid @enderror" id="foto_KTP" name="foto_KTP" value="{{ old('foto_KTP') }}">
             @error ('foto_KTP') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+            
         </div>
 
         <div class="input-group mb-3">
@@ -82,8 +83,8 @@
 
         <div class="mb-3">
             <label for="status_pasien" class="form-label">Status Pasien Saat Ini</label>
-            <select class="form-control @error('status_pasien') is-invalid @enderror" id="status_pasien" name="status_pasien" value="{{ old('status_pasien') }}"> 
-                <option selected disabled>- Pilih -</option>
+            <select class="form-control @error('status_pasien') is-invalid @enderror" id="status_pasien" name="status_pasien" > 
+                <option selected>{{ old('status_pasien') }}</option>
                 <option value="Isoman">ISOLASI MANDIRI</option>
                 <option value="Perawatan">DIRAWAT</option>
             </select>
@@ -96,12 +97,6 @@
             @error ('lokasi_pasien') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
-        <!-- <div class="mb-3">
-            <label for="tanggal_status" class="form-label">Tanggal Status Pasien Saat Ini</label>
-            <input type="date" class="form-control @error('tanggal_status') is-invalid @enderror" id="tanggal_status" placeholder="Tanggal Status" name="tanggal_status" value="{{ old('tanggal_status') }}">
-            @error ('tanggal_status') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div> -->
-
         <div class="input-group mb-3">
             <label for="foto_status_pasien" value="{{ old('foto_status_pasien') }}">Hasil Test Pasien</label>
             <input type="file" class="form-control @error('foto_status_pasien') is-invalid @enderror" id="foto_status_pasien" name="foto_status_pasien">
@@ -110,8 +105,8 @@
 
         <div class="mb-3">
             <label for="hasil_test" class="form-label">Sumber Hasil Test Pasien</label>
-            <select class="form-control @error('hasil_test') is-invalid @enderror" id="hasil_test" name="hasil_test" value="{{ old('hasil_test') }}"> 
-                <option selected disabled>- Pilih -</option>
+            <select class="form-control @error('hasil_test') is-invalid @enderror" id="hasil_test" name="hasil_test" placeholder="Hasil Test"> 
+                <option selected >{{ old('hasil_test') }}</option>
                 <option value="TCM">TCM</option>
                 <option value="PCR">PCR</option>
                 <option value="Rapid Antibodi">Rapid Antibodi</option>
@@ -121,6 +116,54 @@
             @error ('hasil_test') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
+        <div class="mb-3">
+            <label for="status_akhir" class="form-label">Status Akhir Pasien Saat Ini</label>
+            <select class="form-control @error('status_akhir') is-invalid @enderror" id="status_akhir" name="status_akhir" value=""> 
+                <!-- <option selected disabled>- Pilih -</option> -->
+                <option selected>{{ old('status_akhir') }}</option>
+                <option value="Positif">POSITIF</option>
+                <option value="Negatif">NEGATIF</option>
+                <option value="Meniggal">MENINGGAL</option>
+            </select>
+            @error ('status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="tanggal_status_akhir" class="form-label">Tanggal Status Akhir Pasien Saat Ini</label>
+            <input type="date" class="form-control @error('tanggal_status_akhir') is-invalid @enderror" id="tanggal_status_akhir" name="tanggal_status_akhir" value="{{ old('tanggal_status_akhir') }}">
+            @error ('tanggal_status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="input-group mb-3">
+            <label for="foto_status_akhir" value="{{ old('foto_status_akhir') }}">Hasil Test Akhir Pasien</label>
+            <input type="file" class="form-control @error('foto_status_akhir') is-invalid @enderror" id="foto_status_akhir" name="foto_status_akhir">
+            @error ('foto_status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="no_hp" class="form-label">No HP Pasien/Penanggung Jawab</label>
+            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP Pasien/Penanggung Jawab" name="no_hp" value="{{ old('no_hp') }}">
+            @error ('no_hp') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="tinjut" class="form-label">Tindak Lanjut Kelurahan</label>
+            <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut Kelurahan" name="tinjut" value="{{ old('tinjut') }}">
+            @error ('tinjut') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="keterangan" class="form-label">Keterangan</label>
+            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Hasil Tindak Lanjut Kelurahan" name="keterangan" value="{{ old('keterangan') }}">
+            @error ('keterangan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="sumbercovid" class="form-label">Sumber Pasien Terpapar Covid</label>
+            <input type="text" class="form-control @error('sumbercovid') is-invalid @enderror" id="sumbercovid" placeholder="Sumber Pasien Bisa Terpapar Covid-19" name="sumbercovid" value="{{ old('sumbercovid') }}">
+            @error ('sumbercovid') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+<!-- 
         <div class="mb-3">
             <label for="tglmonitoring1" class="form-label">Tanggal Monitoring 1</label>
             <input type="date" class="form-control @error('tglmonitoring1') is-invalid @enderror" id="tglmonitoring1" placeholder="Monitoring pertama yang dilakukan" name="tglmonitoring1" value="{{ old('tglmonitoring1') }}">
@@ -168,53 +211,7 @@
             <input type="file" class="form-control @error('fotomonitoring3') is-invalid @enderror" id="fotomonitoring3" name="fotomonitoring3">
             @error ('fotomonitoring3') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
-
-        <div class="mb-3">
-            <label for="status_akhir" class="form-label">Status Akhir Pasien Saat Ini</label>
-            <select class="form-control @error('status_akhir') is-invalid @enderror" id="status_akhir" name="status_akhir" value="{{ old('status_akhir') }}"> 
-                <option selected disabled>- Pilih -</option>
-                <option value="Positif">POSITIF</option>
-                <option value="Negatif">NEGATIF</option>
-                <option value="Meniggal">MENINGGAL</option>
-            </select>
-            @error ('status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="tanggal_status_akhir" class="form-label">Tanggal Status Akhir Pasien Saat Ini</label>
-            <input type="date" class="form-control @error('tanggal_status_akhir') is-invalid @enderror" id="tanggal_status_akhir" name="tanggal_status_akhir" value="{{ old('tanggal_status_akhir') }}">
-            @error ('tanggal_status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="input-group mb-3">
-            <label for="foto_status_akhir" value="{{ old('foto_status_akhir') }}">Hasil Test Akhir Pasien</label>
-            <input type="file" class="form-control @error('foto_status_akhir') is-invalid @enderror" id="foto_status_akhir" name="foto_status_akhir">
-            @error ('foto_status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="no_hp" class="form-label">No HP Pasien/Penanggung Jawab</label>
-            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP Pasien/Penanggung Jawab" name="no_hp" value="{{ old('no_hp') }}">
-            @error ('no_hp') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="tinjut" class="form-label">Tindak Lanjut Kelurahan</label>
-            <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut Kelurahan" name="tinjut" value="{{ old('tinjut') }}">
-            @error ('tinjut') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="keterangan" class="form-label">Keterangan</label>
-            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Hasil Tindak Lanjut" name="keterangan" value="{{ old('keterangan') }}">
-            @error ('keterangan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
-            <label for="sumbercovid" class="form-label">Sumber Pasien Terpapar Covid</label>
-            <input type="text" class="form-control @error('sumbercovid') is-invalid @enderror" id="sumbercovid" placeholder="Sumber Pasien Terpapar Covid-19" name="sumbercovid" value="{{ old('sumbercovid') }}">
-            @error ('sumbercovid') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
+ -->
 
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Add Data</button>

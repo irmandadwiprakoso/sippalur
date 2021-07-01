@@ -173,19 +173,19 @@ class Covid19Controller extends Controller
         //dd($request->all());
         $request->validate([
             'warga_id' => 'required',
-            'foto_KTP' => 'required',
-            'foto_KK' => 'required',
+            'foto_KTP' => 'required | size:512',
+            'foto_KK' => 'required | size:512',
             'domisili' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            'foto_status_pasien' => 'required',
+            'foto_status_pasien' => 'required | size:512',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
-            // 'foto_status_akhir' => 'required',
+            // 'foto_status_akhir' => ''required | size:512',
             'no_hp' => 'required',        
             'tinjut' => 'required',        
             'keterangan' => 'required',        
@@ -204,9 +204,9 @@ class Covid19Controller extends Controller
         . '.' . $request->foto_status_pasien->extension();
         $request->foto_status_pasien->move('images/Covid19/StatusAwalPasien/',$imgName3);
 
-        $imgName4 = $request->foto_status_akhir->getClientOriginalName() . '-' . time() 
-        . '.' . $request->foto_status_akhir->extension();
-        $request->foto_status_akhir->move('images/Covid19/StatusAkhirPasien/',$imgName4);
+        // $imgName4 = $request->foto_status_akhir->getClientOriginalName() . '-' . time() 
+        // . '.' . $request->foto_status_akhir->extension();
+        // $request->foto_status_akhir->move('images/Covid19/StatusAkhirPasien/',$imgName4);
         
         // $imgName5 = $request->fotomonitoring1->getClientOriginalName() . '-' . time() 
         // . '.' . $request->fotomonitoring1->extension();
@@ -244,7 +244,7 @@ class Covid19Controller extends Controller
             // 'fotomonitoring3' => $imgName7,
             'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
-            'foto_status_akhir' => $imgName4,
+            // 'foto_status_akhir' => $imgName4,
             'no_hp' => $request->no_hp,
             'tinjut' => $request->tinjut,
             'keterangan' => $request->keterangan,
