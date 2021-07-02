@@ -173,15 +173,15 @@ class Covid19Controller extends Controller
         //dd($request->all());
         $request->validate([
             'warga_id' => 'required',
-            'foto_KTP' => 'required | size:1024',
-            'foto_KK' => 'required | size:1024',
+            'foto_KTP' => 'required',
+            'foto_KK' => 'required',
             'domisili' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            'foto_status_pasien' => 'required | size:1024',
+            'foto_status_pasien' => 'required',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
