@@ -123,7 +123,7 @@
                 <option selected>{{ old('status_akhir') }}</option>
                 <option value="Positif">POSITIF</option>
                 <option value="Negatif">NEGATIF</option>
-                <option value="Meniggal">MENINGGAL</option>
+                <option value="Meninggal">MENINGGAL</option>
             </select>
             @error ('status_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
