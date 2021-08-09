@@ -16,13 +16,13 @@
         <div class="form-group has-feedback">
           <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Full name" name="name">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          @error('name') <div class="invalid-feedback">{{ $message }} </div>@enderror   
+          @error('name') <div class="alert alert-danger">{{ $message }} </div>@enderror   
         </div>
 
         <div class="form-group has-feedback">
           <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          @error('username') <div class="invalid-feedback">{{ $message }} </div>@enderror   
+          @error('username') <div class="alert alert-danger">{{ $message }} </div>@enderror   
         </div>
 
         <div class="form-group has-feedback">
@@ -34,13 +34,13 @@
                   <option value="pemtibum">Admin_Pemtibum</option>
                   <option value="sekret">Admin_Sekret</option>
               </select>
-              @error('role') <div class="invalid-feedback">{{ $message }} </div>@enderror   
+              @error('role') <div class="alert alert-danger">{{ $message }} </div>@enderror   
           </div>
 
         <div class="form-group has-feedback">
           <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          @error('email') <div class="invalid-feedback">{{ $message }} </div>@enderror   
+          @error('email') <div class="alert alert-danger">{{ $message }} </div>@enderror   
         </div>
 
         <div class="row">

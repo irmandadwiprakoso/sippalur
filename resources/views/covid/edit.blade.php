@@ -14,19 +14,9 @@
     @csrf 
     <div class="box-body">
     <div class="mb-3">
-            <label for="warga_id" class="form-label">NIK</label>
-            <select class="form-control @error('warga_id') is-invalid @enderror" aria-label="Default select example" id="warga_id" name="warga_id"> 
-                <option selected value="{{ $covid19->warga_id }}">{{ $covid19->warga->NIK}}</option>
-                @foreach ($warga as $penduduk)
-                <option value="{{$penduduk->id}}">{{$penduduk->NIK}}</option>
-                @endforeach
-            </select>
-            @error ('warga_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div>
-
-        <div class="mb-3">
+         <div class="mb-3">
             <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
-            <input type="text" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Tanggal Lahir Anda" name="domisili" value="{{ $covid19->domisili }}">
+            <input type="text" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Domisili Tempat Tinggal" name="domisili" value="{{ $covid19->domisili }}">
             @error ('domisili') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -234,9 +224,11 @@
             <button type="submit" class="btn btn-success">Update Data</button>
             <a class="btn btn-default" href="/covid19" role="button">Cancel</a>
         </div>
-</form>
-        </div>
+        </form>
     </div>
+    </div>
+  
+</div>
 
 
 @endsection

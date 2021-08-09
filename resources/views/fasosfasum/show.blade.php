@@ -45,10 +45,11 @@
                   <b>Nama Perumahan</b> <br> <a class="">{{ $fasosfasum->nama_perumahan}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Foto</b>
-                  <a href="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <b>Foto Lokasi</b>
+                  <a href="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/FasosFasum/'. $fasosfasum->foto)}}" height="50%" width="50%"></img></a>
                 </li>
-              </ul>
+                </ul>
               
                   <a href="/fasosfasum/" class="btn btn-default">Close</a>
              

@@ -13,6 +13,7 @@ class Kependudukan extends Model
         'KK',
         'Laki_laki',
         'Perempuan',
+        'user_id',
     ];
     
     public function rt()
@@ -22,6 +23,10 @@ class Kependudukan extends Model
     public function rw()
     {
         return $this->belongsTo(Rw::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

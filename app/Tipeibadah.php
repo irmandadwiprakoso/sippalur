@@ -13,4 +13,5 @@ class Tipeibadah extends Model
     {
         return $this->hasMany(Ibadah::class);
     }
+
 }

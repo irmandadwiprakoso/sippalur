@@ -18,6 +18,7 @@ class Fasosfasum extends Model
         'nama_pengembang',
         'nama_perumahan',
         'foto',
+        'user_id',
     ];
     
     public function rt()
@@ -27,5 +28,9 @@ class Fasosfasum extends Model
     public function rw()
     {
         return $this->belongsTo(Rw::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

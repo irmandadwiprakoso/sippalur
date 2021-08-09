@@ -8,7 +8,7 @@ class Rtrw extends Model
 {
     protected $table = 'rtrw';
     protected $fillable = [
-        'warga_id',
+        'ktp_id',
         'jabatan_id',
         'rt_id',
         'rw_id',
@@ -17,6 +17,7 @@ class Rtrw extends Model
         'no_hp',
         'no_rek',
         'npwp',
+        'user_id',
     ];
 
     public function warga()
@@ -34,5 +35,10 @@ class Rtrw extends Model
     public function jabatan()
     {
         return $this->belongsTo(Jabatan::class);
+    }
+    public function ktp()
+    {
+        return $this->belongsTo(Ktp::class);
+        // return $this->belongsTo('App\Ktp','NIK');
     }
 }

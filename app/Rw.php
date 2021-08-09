@@ -29,6 +29,11 @@ class Rw extends Model
     {
         return $this->hasMany(Warga::class);
     }
+    public function ktp()
+    {
+        return $this->hasMany(Ktp::class);
+        // return $this->hasMany('App\Ktp','NIK');
+    }
     public function tkk()
     {
         return $this->hasMany(Tkk::class);
@@ -52,5 +57,9 @@ class Rw extends Model
     public function pamor()
     {
         return $this->hasMany(Pamor::class);
+    }
+    public function user()
+    {
+        return $this->hasMany(User::class);
     }
 }

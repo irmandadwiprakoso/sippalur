@@ -42,6 +42,7 @@
                             <td class=" ">{{ $user->name}}</td>
                             <td class=" ">{{ $user->username}}</td>
                             <td class=" ">{{ $user->role}}</td>
+                           
                             <td class=" ">{{ $user->email}}</td>
                             <td class=" ">
                             <center>

@@ -17,19 +17,19 @@
         <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal Kegiatan</label>
             <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" placeholder="Tanggal Kegiatan" name="tanggal" value="{{ $pamor->tanggal }}">
-            @error ('tanggal') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('tanggal') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="kegiatan" class="form-label">Kegiatan</label>
             <input type="text" class="form-control @error('kegiatan') is-invalid @enderror" id="kegiatan" placeholder="Kegiatan Anda" name="kegiatan" value="{{ $pamor->kegiatan }}">
-            @error ('kegiatan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('kegiatan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="jumlah" class="form-label">Jumlah Kegiatan</label>
             <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" placeholder="Jumlah Laporan Anda" name="jumlah" value="{{ $pamor->jumlah }}">
-            @error ('jumlah') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('jumlah') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -40,19 +40,19 @@
                 <option value="Permasbang">Permasbang</option>
                 <option value="Pem & Trantibum">Pem & Trantibum</option>
             </select>
-            @error ('bidang') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('bidang') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="tinjut" class="form-label">Tindak Lanjut</label>
             <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Keterangan Laporan Anda" name="tinjut" value="{{ $pamor->tinjut }}">
-            @error ('tinjut') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('tinjut') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan Kegiatan</label>
             <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Keterangan Laporan Anda" name="keterangan" value="{{ $pamor->keterangan }}">
-            @error ('keterangan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('keterangan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -63,7 +63,7 @@
                 <option value="{{$erte->id}}">{{$erte->rt}}</option>
                 @endforeach
             </select>
-            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -74,17 +74,17 @@
                 <option value="{{$erwe->id}}">{{$erwe->rw}}</option>
                 @endforeach
             </select>
-            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rw_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="input-group mb-3">
         <label for="foto">Foto Kegiatan</label>
             <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" value="{{ $pamor->foto }}">
-            @error ('foto') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('foto') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="input-group mb-3">
-                <img src="{{asset('images/LaporanHarian/'.$pamor->foto)}}" height="20%" width="20%"></img>
+                <img src="{{asset('images/LaporanHarian/'.$pamor->foto)}}" height="50%" width="50%"></img>
         </div>
 
         <div class="box-footer">

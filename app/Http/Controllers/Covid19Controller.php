@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Covid19;
 use App\Rt;
 use App\Rw;
-use App\Warga;
+use App\Ktp;
 use Illuminate\Http\Request;
 use App\Exports\Covid19Export;
 use Maatwebsite\Excel\Facades\Excel;
@@ -20,6 +20,8 @@ class Covid19Controller extends Controller
      */
     public function index()
     {
+       
+        // $covid19 = Covid19::with('warga','rt','rw');
         // $covid19 = Covid19::all();
         // return view('covid.index', ['covid19' => $covid19]);
         if(auth()->user()->username == 'superadmin')
@@ -50,95 +52,96 @@ class Covid19Controller extends Controller
         {
             $covid19 = Covid19::all();
         }
-        if (auth()->user()->username == 'pamor1')
+
+        if (auth()->user()->rw_id == '1')
         {
             $covid19 = Covid19::where('rw_id', '=', '1')->get();
         }
-        if (auth()->user()->username == 'pamor2')
+        if (auth()->user()->rw_id == '2')
         {
             $covid19 = Covid19::where('rw_id', '=', '2')->get();
         }
-        if (auth()->user()->username == 'pamor3')
+        if (auth()->user()->rw_id == '3')
         {
             $covid19 = Covid19::where('rw_id', '=', '3')->get();
         }
-        if (auth()->user()->username == 'pamor4')
+        if (auth()->user()->rw_id == '4')
         {
             $covid19 = Covid19::where('rw_id', '=', '4')->get();
         }
-        if (auth()->user()->username == 'pamor5')
+        if (auth()->user()->rw_id == '5')
         {
             $covid19 = Covid19::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6')
+        if (auth()->user()->rw_id == '6')
         {
             $covid19 = Covid19::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor23')
+        if (auth()->user()->rw_id == '7')
         {
             $covid19 = Covid19::where('rw_id', '=', '7')->get();
         }
-        if (auth()->user()->username == 'pamor7')
+        if (auth()->user()->rw_id == '8')
         {
             $covid19 = Covid19::where('rw_id', '=', '8')->get();
         }
-        if (auth()->user()->username == 'pamor8')
+        if (auth()->user()->rw_id == '9')
         {
             $covid19 = Covid19::where('rw_id', '=', '9')->get();
         }
-        if (auth()->user()->username == 'pamor9')
+        if (auth()->user()->rw_id == '10')
         {
             $covid19 = Covid19::where('rw_id', '=', '10')->get();
         }
-        if (auth()->user()->username == 'pamor10')
+        if (auth()->user()->rw_id == '11')
         {
             $covid19 = Covid19::where('rw_id', '=', '11')->get();
         }
-        if (auth()->user()->username == 'pamor11')
+        if (auth()->user()->rw_id == '12')
         {
             $covid19 = Covid19::where('rw_id', '=', '12')->get();
         }
-        if (auth()->user()->username == 'pamor12')
+        if (auth()->user()->rw_id == '13')
         {
             $covid19 = Covid19::where('rw_id', '=', '13')->get();
         }
-        if (auth()->user()->username == 'pamor13')
+        if (auth()->user()->rw_id == '14')
         {
             $covid19 = Covid19::where('rw_id', '=', '14')->get();
         }
-        if (auth()->user()->username == 'pamor14')
+        if (auth()->user()->rw_id == '15')
         {
             $covid19 = Covid19::where('rw_id', '=', '15')->get();
         }
-        if (auth()->user()->username == 'pamor15')
+        if (auth()->user()->rw_id == '16')
         {
             $covid19 = Covid19::where('rw_id', '=', '16')->get();
         }
-        if (auth()->user()->username == 'pamor16')
+        if (auth()->user()->rw_id == '17')
         {
             $covid19 = Covid19::where('rw_id', '=', '17')->get();
         }
-        if (auth()->user()->username == 'pamor17')
+        if (auth()->user()->rw_id == '18')
         {
             $covid19 = Covid19::where('rw_id', '=', '18')->get();
         }
-        if (auth()->user()->username == 'pamor18')
+        if (auth()->user()->rw_id == '19')
         {
             $covid19 = Covid19::where('rw_id', '=', '19')->get();
         }
-        if (auth()->user()->username == 'pamor19')
+        if (auth()->user()->rw_id == '20')
         {
             $covid19 = Covid19::where('rw_id', '=', '20')->get();
         }
-        if (auth()->user()->username == 'pamor20')
+        if (auth()->user()->rw_id == '21')
         {
             $covid19 = Covid19::where('rw_id', '=', '21')->get();
         }
-        if (auth()->user()->username == 'pamor21')
+        if (auth()->user()->rw_id == '22')
         {
             $covid19 = Covid19::where('rw_id', '=', '22')->get();
         }
-        if (auth()->user()->username == 'pamor22')
+        if (auth()->user()->rw_id == '23')
         {
             $covid19 = Covid19::where('rw_id', '=', '23')->get();
         }
@@ -157,10 +160,10 @@ class Covid19Controller extends Controller
      */
     public function create()
     {
-        $warga = Warga::all();
+        $ktp = Ktp::all();
         $rt = Rt::all();
         $rw = Rw::all();
-        return view ('covid.create', compact('warga','rt','rw'));
+        return view ('covid.create', compact('ktp','rt','rw'));
     }
     /**
      * Store a newly created resource in storage.
@@ -170,9 +173,9 @@ class Covid19Controller extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $request->validate([
-            'warga_id' => 'required',
+            'ktp_id' => 'required|unique:covid19,ktp_id',
             'foto_KTP' => 'required',
             'foto_KK' => 'required',
             'domisili' => 'required',
@@ -190,7 +193,28 @@ class Covid19Controller extends Controller
             'tinjut' => 'required',        
             'keterangan' => 'required',        
             'sumbercovid' => 'required',        
-        ]);
+        ],
+        [
+            'ktp_id.required' => 'Pilih Yang Bener ya NIK nya',
+            'ktp_id.unique' => 'Sudah Di Pilih NIK ini',
+            'foto_KTP.required' => 'Di Upload Foto KTP nya',
+            'foto_KK.required' => 'Di Upload Foto KK nya',
+            'domisili.required' => 'Harus Di Isi Yaa',
+            'rt_id.required' => 'Harus Di Isi Yaa',
+            'rw_id.required' => 'Harus Di Isi Yaa',
+            'konfirmasi.required' => 'Harus Di Isi Yaa',
+            'status_pasien.required' => 'Harus Di Isi Yaa',
+            'lokasi_pasien.required' => 'Harus Di Isi Yaa',
+            'foto_status_pasien.required' => 'Harus Di Isi Yaa',
+            'hasil_test.required' => 'Harus Di Isi Yaa',
+            'status_akhir.required' => 'Harus Di Isi Yaa',
+            'tanggal_status_akhir.required' => 'Harus Di Isi Yaa',
+            'no_hp.required' => 'Harus Di Isi Yaa',
+            'tinjut.required' => 'Harus Di Isi Yaa',
+            'keterangan.required' => 'Harus Di Isi Yaa',
+            'sumbercovid.required' => 'Harus Di Isi Yaa',
+        ]
+    );
         
         $imgName1 = $request->foto_KTP->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto_KTP->extension();
@@ -222,7 +246,7 @@ class Covid19Controller extends Controller
         
         // Covid19::create($request->all());
         Covid19::create([
-            'warga_id' => $request->warga_id,
+            'ktp_id' => $request->ktp_id,
             'foto_KTP' => $imgName1,
             'foto_KK' => $imgName2,
             'domisili' => $request->domisili,
@@ -259,9 +283,8 @@ class Covid19Controller extends Controller
      * @param  \App\Covid19  $covid19
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Covid19 $covid19)
     {
-        $covid19 = Covid19::find($id);
         return view('covid.show', ['covid19' => $covid19]);
     }
 
@@ -273,10 +296,10 @@ class Covid19Controller extends Controller
      */
     public function edit(Covid19 $covid19)
     {
-        $warga = Warga::all();
+        $ktp = Ktp::all();
         $rt = Rt::all();
         $rw = Rw::all();
-        return view ('covid.edit', compact('covid19', 'warga','rt','rw'));
+        return view ('covid.edit', compact('covid19','ktp','rt','rw'));
     }
 
     /**
@@ -288,8 +311,9 @@ class Covid19Controller extends Controller
      */
     public function update(Request $request, Covid19 $covid19)
     {
+        // dd($request->all());
         $request->validate([
-            'warga_id' => 'required',
+            // 'ktp_id' => 'required|unique:covid19,ktp_id',
             // 'foto_KTP' => 'required',
             // 'foto_KK' => 'required',
             'domisili' => 'required',
@@ -307,11 +331,29 @@ class Covid19Controller extends Controller
             'tinjut' => 'required',        
             'keterangan' => 'required',        
             'sumbercovid' => 'required',           
-        ]);
+        ],
+        [
+            // 'ktp_id.required' => 'Pilih Yang Bener ya NIK nya',
+            // 'ktp_id.unique' => 'Jangan Double ya NIK nya',
+            'domisili.required' => 'Harus Di Isi Yaa',
+            'rt_id.required' => 'Harus Di Isi Yaa',
+            'rw_id.required' => 'Harus Di Isi Yaa',
+            'konfirmasi.required' => 'Harus Di Isi Yaa',
+            'status_pasien.required' => 'Harus Di Isi Yaa',
+            'lokasi_pasien.required' => 'Harus Di Isi Yaa',
+            'hasil_test.required' => 'Harus Di Isi Yaa',
+            'status_akhir.required' => 'Harus Di Isi Yaa',
+            'tanggal_status_akhir.required' => 'Harus Di Isi Yaa',
+            'no_hp.required' => 'Harus Di Isi Yaa',
+            'tinjut.required' => 'Harus Di Isi Yaa',
+            'keterangan.required' => 'Harus Di Isi Yaa',
+            'sumbercovid.required' => 'Harus Di Isi Yaa',
+        ]
+    );
 
         Covid19::where('id', $covid19->id)
         ->update([
-            'warga_id' => $request->warga_id,
+            // 'ktp_id' => $request->ktp_id,
             // 'foto_KTP' => $request->foto_KTP,
             // 'foto_KK' => $request->foto_KK,
             'domisili' => $request->domisili,

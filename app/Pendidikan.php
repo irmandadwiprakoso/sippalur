@@ -24,4 +24,8 @@ class Pendidikan extends Model
         return $this->belongsTo(Rw::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

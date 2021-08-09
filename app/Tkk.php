@@ -9,11 +9,12 @@ class Tkk extends Model
 {
     use SoftDeletes;
     protected $table = 'tkk';
-    protected $fillable = ['NIK', 'nama', 'KK', 'tempat_lahir', 'tanggal_lahir', 'jeniskelamin_id', 'alamat', 'agama_id', 'pendidikanpeg_id', 'statuskawin_id', 'seksi_id', 'jabatan_id','SK_Tkk', 'no_rek', 'npwp', 'email', 'no_HP', 'foto', 'user_id', 'username', 'rw_id'];
+    protected $fillable = ['id', 'nama', 'KK', 'tempat_lahir', 'tanggal_lahir', 'jeniskelamin_id', 'alamat', 'agama_id', 'pendidikanpeg_id', 'statuskawin_id', 'seksi_id', 'jabatan_id','SK_Tkk', 'no_rek', 'npwp', 'email', 'no_HP', 'foto', 'user_id', 'username', 'rw_id'];
 
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault(['foto' => 'default.jpg']);
+        
     }
 
     public function getFoto()
@@ -48,4 +49,9 @@ class Tkk extends Model
     {
         return $this->belongsTo(Jabatan::class);
     }
+    public function rw()
+    {
+        return $this->belongsTo(Rw::class);
+    }
+
 }

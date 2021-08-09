@@ -25,6 +25,35 @@
                     <a href="/exportrtrw" class="btn btn-success">Export Data</a>
                     @endif
             <hr>
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah RW</p>
+              <!-- <h3> {{ $rtrw->where('jabatan_id', '=', '13' && 'rt_id', '=', '14', )->count() }}</h3> -->
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+       
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah RT</p>
+              <!-- <h3>{{$rtrw->where('rt_id')->count()}}</h3> -->
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+<hr>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -61,8 +90,8 @@
                     @foreach ($rtrw as $ksb)
 						<tr>
                             <td class=" ">{{ $loop->iteration}}</td>
-                            <td class=" ">{{ $ksb->warga->NIK}}</td>
-                            <td class=" ">{{ $ksb->warga->nama}}</td>
+                            <td class=" ">{{ $ksb->ktp->id}}</td>
+                            <td class=" ">{{ $ksb->ktp->nama}}</td>
                             <td class=" ">{{ $ksb->jabatan->jabatan}}</td>
                             <td class=" ">{{ $ksb->rt->rt}}</td>
                             <td class=" ">{{ $ksb->rw->rw}}</td>

@@ -17,13 +17,13 @@
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
             <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" name="nama" value="{{ $fasosfasum->nama }}">
-            @error ('nama') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('nama') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ $fasosfasum->alamat }}">
-            @error ('alamat') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -34,7 +34,7 @@
                 <option value="{{$erte->id}}">{{$erte->rt}}</option>
                 @endforeach
             </select>
-            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -45,37 +45,37 @@
                 <option value="{{$erwe->id}}">{{$erwe->rw}}</option>
                 @endforeach
             </select>
-            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rw_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="koordinat" class="form-label">Koordinat Lokasi</label>
             <input type="text" class="form-control @error('koordinat') is-invalid @enderror" id="koordinat" placeholder="Koordinat Lokasi" name="koordinat" value="{{ $fasosfasum->koordinat }}">
-            @error ('koordinat') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('koordinat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="luas" class="form-label">Luas Lokasi</label>
             <input type="number" class="form-control @error('luas') is-invalid @enderror" id="luas" placeholder="Luas Lokasi (m2)" name="luas" value="{{ $fasosfasum->luas }}">
-            @error ('luas') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('luas') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="pemanfaatan" class="form-label">Pemanfaatan Lokasi</label>
             <input type="text" class="form-control @error('pemanfaatan') is-invalid @enderror" id="pemanfaatan" placeholder="Pemanfaatan Lokasi" name="pemanfaatan" value="{{ $fasosfasum->pemanfaatan }}">
-            @error ('pemanfaatan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('pemanfaatan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_pengembang" class="form-label">Nama Pengembang</label>
             <input type="text" class="form-control @error('nama_pengembang') is-invalid @enderror" id="nama_pengembang" placeholder="Nama Pengembang" name="nama_pengembang" value="{{ $fasosfasum->nama_pengembang }}">
-            @error ('nama_pengembang') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('nama_pengembang') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_perumahan" class="form-label">Nama Perumahan</label>
             <input type="text" class="form-control @error('nama_perumahan') is-invalid @enderror" id="nama_perumahan" placeholder="Nama Perumahan" name="nama_perumahan" value="{{ $fasosfasum->nama_perumahan }}">
-            @error ('nama_perumahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('nama_perumahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
        
@@ -83,7 +83,7 @@
         <div class="input-group mb-3">
         <label for="foto">Foto Lokasi</label>
             <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" value="{{ $fasosfasum->foto }}">
-            @error ('foto') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('foto') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="input-group mb-3">

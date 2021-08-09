@@ -10,26 +10,15 @@
 		<div class="row">
             <div class="col-xs-12">
                 <div class="panel panel-success">
-                <div class="panel-heading">Data Detail Covid-19</div>
+                <div class="panel-heading">Data Detail Pasien Covid-19</div>
                     <div class="panel-body">
 
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <h3 class="profile-username text-center">{{ $covid19->warga->nama}}</h3>
-              <p class="text-muted text-center">{{ $covid19->warga->tempat_lahir}} - {{ $covid19->warga->tanggal_lahir}}</p>
+              <h1 class="profile-username text-center">{{ $covid19->ktp->nama}}</h3>
+              <h3 class="profile-username text-center">{{ $covid19->ktp->id}}</h3>
+              <p class="text-muted text-center">{{ $covid19->ktp->tempat_lahir}} - {{ $covid19->ktp->tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>NIK</b> <br> <a class="">{{ $covid19->warga->NIK}}</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Alamat</b> <br> <a class="">{{ $covid19->warga->alamat_KTP}}</a>
-                </li>
-                <li class="list-group-item">
-                  <b>RT</b> <br> <a class="">{{ $covid19->warga->rt->rt}}</a>
-                </li>
-                <li class="list-group-item">
-                  <b>RW</b> <br> <a class="">{{ $covid19->warga->rw->rw}}</a>
-                </li>
                 <li class="list-group-item">
                   <b>Domisili Tempat Tinggal</b> <br> <a class="">{{ $covid19->domisili}}</a>
                 </li>
@@ -89,31 +78,38 @@
                 </li>
                 <li class="list-group-item">
                   <b>Foto KTP Pasien</b>
-                  <a href="{{asset('images/Covid19/KTP/'. $covid19->foto_KTP)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/KTP/'. $covid19->foto_KTP)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/KTP/'. $covid19->foto_KTP)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto KK Pasien</b>
-                  <a href="{{asset('images/Covid19/KK/'. $covid19->foto_KK)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/KK/'. $covid19->foto_KK)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/KK/'. $covid19->foto_KK)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Status Pasien</b>
-                  <a href="{{asset('images/Covid19/StatusAwalPasien/'. $covid19->foto_status_pasien)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/StatusAwalPasien/'. $covid19->foto_status_pasien)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/StatusAwalPasien/'. $covid19->foto_status_pasien)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Status Akhir Pasien</b>
-                  <a href="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/StatusAkhirPasien/'. $covid19->foto_status_akhir)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 1</b>
-                  <a href="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/Monitoring1/'. $covid19->fotomonitoring1)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 2</b>
-                  <a href="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/Monitoring2/'. $covid19->fotomonitoring2)}}" height="50%" width="50%"></img></a>
                 </li>
                 <li class="list-group-item">
                   <b>Foto Monitoring 3</b>
-                  <a href="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" target="_blank" class=""><br>Lihat Foto</a>
+                  <a href="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" height="50%" width="50%"></img></a>
                 </li>
               </ul>
                   <a href="/covid19" class="btn btn-default">Close</a>

@@ -23,6 +23,35 @@
                     <a href="/exporttkk" class="btn btn-success">Export Data</a>
                     @endif
                 <hr>
+        <div class="row">
+        <div class="col-lg-5 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah TKK</p>
+              <h3>{{$tkk->count()}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-5 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah Pamor</p>
+              <h3> {{ $tkk->where('jabatan_id', '=', '11')->count() }}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -39,8 +68,8 @@
                             <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
+                            <th>Jabatan</th>
+                            <th>RW</th>
                             <th>View</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
@@ -55,10 +84,10 @@
                         @foreach ($tkk as $nonasn)
                             <tr>
                                 <td class=" ">{{ $loop->iteration}}</td>
-                                <td class=" ">{{ $nonasn-> NIK}}</td>
+                                <td class=" ">{{ $nonasn-> id}}</td>
                                 <td class=" ">{{ $nonasn-> nama}}</td>
-                                <td class=" ">{{ $nonasn-> tempat_lahir}}</td>
-                                <td class=" ">{{ $nonasn-> tanggal_lahir}}</td>
+                                <td class=" ">{{ $nonasn-> jabatan -> jabatan}}</td>
+                                <td class=" ">{{ $nonasn-> rw -> rw}}</td>
                                 
                                 <td class=" ">
                                     <a href="/tkk/{{ $nonasn->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

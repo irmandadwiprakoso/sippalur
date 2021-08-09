@@ -27,13 +27,8 @@ class TkkController extends Controller
      */
     public function index()
     {
-
-        // if ($request->has('search')){
-        //     $tkk = Tkk::where('nama', 'LIKE', '%'.$request->search.'%')->get();
-        // }else{
-        //     $tkk = Tkk::all();
-        // }
-        $tkk = Tkk::all();
+        // $tkk = Tkk::all();
+        $tkk = Tkk::orderbyRaw('rw_id', 'DESC')->get();
         return view('tkk.index', ['tkk' => $tkk]);
     }
     public function exporttkk() 
@@ -70,14 +65,15 @@ class TkkController extends Controller
         $user-> name = $request->nama;
         $user-> email = $request->email;
         $user-> username = $request->username;
+        $user-> rw_id = $request->rw_id;
         $user-> role = 'user';
         $user-> password = bcrypt('jakasampurna');
         $user-> remember_token = Str::random(60);
         $user-> save();
 
         $request->validate([
+            'id' => 'required|size:16|unique:tkk,id',
             'nama' => 'required',
-            'NIK' => 'required|size:16',
             'KK' => 'required|size:16',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -95,7 +91,31 @@ class TkkController extends Controller
             'no_HP' => 'required',
             'username' => 'required',
             'rw_id' => 'required', 
-        ]);
+        ],
+        [
+            'id.required' => 'Harus di Isi Yaa',
+            'id.unique' => 'NIK Sudah Digunakan Yaa',
+            'KK.required' => 'Harus di Isi Yaa',
+            'nama.required' => 'Harus di Isi Yaa',
+            'tempat_lahir.required' => 'Harus di Isi Yaa',
+            'tanggal_lahir.required' => 'Harus di Isi Yaa',
+            'jeniskelamin_id.required' => 'Harus di Isi Yaa',
+            'alamat.required' => 'Harus di Isi Yaa',
+            'agama_id.required' => 'Harus di Isi Yaa',
+            'pendidikanpeg_id.required' => 'Harus di Isi Yaa',
+            'statuskawin_id.required' => 'Harus di Isi Yaa',
+            'seksi_id.required' => 'Harus di Isi Yaa',
+            'jabatan_id.required' => 'Harus di Isi Yaa',
+            'SK_Tkk.required' => 'Harus di Isi Yaa',
+            'no_rek.required' => 'Harus di Isi Yaa',
+            'no_HP.required' => 'Harus di Isi Yaa',
+            'npwp.required' => 'Harus di Isi Yaa',
+            'email.required' => 'Harus di Isi Yaa',
+            'email.required' => 'Harus di Isi Yaa',
+            'username.required' => 'Harus di Isi Yaa',
+            'rw_id.required' => 'Harus di Isi Yaa',
+        ]
+    );
 
         $request->request->add ( ['user_id'=> $user->id] );
         // Tkk::create($request->all());
@@ -106,7 +126,8 @@ class TkkController extends Controller
 
         Tkk::create([
             'nama' => $request->nama,
-            'NIK' => $request->NIK,
+            'id' => $request->id,
+            'user_id' => $request->user_id,
             'KK' => $request->KK,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
@@ -157,7 +178,9 @@ class TkkController extends Controller
         $statuskawin = Statuskawin::all();
         $seksi = Seksi::all();
         $jabatan = Jabatan::all();
-        return view ('tkk.edit', compact('tkk', 'agama', 'jeniskelamin', 'pendidikanpeg', 'statuskawin', 'seksi', 'jabatan'));
+        $rw = Rw::all();
+        $user = User::all();
+        return view ('tkk.edit', compact('tkk', 'user', 'rw', 'agama', 'jeniskelamin', 'pendidikanpeg', 'statuskawin', 'seksi', 'jabatan'));
     }
 
     /**
@@ -169,10 +192,11 @@ class TkkController extends Controller
      */
     public function update(Request $request, Tkk $tkk)
     {
+        
         //dd($request->all());
         $request->validate([
+            // 'id' => 'required|size:16|unique:tkk,id',
             'nama' => 'required',
-            'NIK' => 'required|size:16',
             'KK' => 'required|size:16',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -187,12 +211,38 @@ class TkkController extends Controller
             'no_rek' => 'required',
             'npwp' => 'required',
             'email' => 'required',
-            'no_HP' => 'required'
-        ]);
+            'no_HP' => 'required',
+            'rw_id' => 'required'
+        ],
+        [
+            // 'id.required' => 'Wajib 16 Digit NIK e-KTP',
+            'id.unique' => 'NIK Sudah Digunakan yaa',
+            'KK.required' => 'Harus di Isi Yaa',
+            'nama.required' => 'Harus di Isi Yaa',
+            'tempat_lahir.required' => 'Harus di Isi Yaa',
+            'tanggal_lahir.required' => 'Harus di Isi Yaa',
+            'jeniskelamin_id.required' => 'Harus di Isi Yaa',
+            'alamat.required' => 'Harus di Isi Yaa',
+            'agama_id.required' => 'Harus di Isi Yaa',
+            'pendidikanpeg_id.required' => 'Harus di Isi Yaa',
+            'statuskawin_id.required' => 'Harus di Isi Yaa',
+            'seksi_id.required' => 'Harus di Isi Yaa',
+            'jabatan_id.required' => 'Harus di Isi Yaa',
+            'SK_Tkk.required' => 'Harus di Isi Yaa',
+            'no_rek.required' => 'Harus di Isi Yaa',
+            'no_HP.required' => 'Harus di Isi Yaa',
+            'npwp.required' => 'Harus di Isi Yaa',
+            'email.required' => 'Harus di Isi Yaa',
+            'email.required' => 'Harus di Isi Yaa', 
+            'rw_id.required' => 'Harus di Isi Yaa', 
+        ]
+    );
+
+        
 
         Tkk::where('id', $tkk->id)
         ->update([
-            'NIK' => $request->NIK,
+            // 'id' => $request->id,
             'KK' => $request->KK,
             'nama' => $request->nama,
             'tempat_lahir' => $request->tempat_lahir,
@@ -209,6 +259,8 @@ class TkkController extends Controller
             'npwp' => $request->npwp,
             'email' => $request->email,
             'no_HP' => $request->no_HP,
+            'rw_id' => $request->rw_id,
+            
             // 'foto' => $request->foto
         ]);
         if ($request->hasFile('foto')){

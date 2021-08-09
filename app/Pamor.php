@@ -17,6 +17,7 @@ class Pamor extends Model
         'rt_id',
         'rw_id',
         'foto',
+        'user_id',
     ];
     
     public function rt()

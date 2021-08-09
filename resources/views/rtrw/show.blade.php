@@ -16,44 +16,44 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <h3 class="profile-username text-center">{{ $rtrw->warga->nama}}</h3>
-              <p class="text-muted text-center">{{ $rtrw->warga->tempat_lahir}} - {{ $rtrw->warga->tanggal_lahir}}</p>            
+              <h3 class="profile-username text-center">{{ $rtrw->ktp->nama}}</h3>
+              <p class="text-muted text-center">{{ $rtrw->ktp->tempat_lahir}} - {{ $rtrw->ktp->tanggal_lahir}}</p>            
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>NIK</b> <a class="pull-right">{{ $rtrw->warga->NIK}}</a>
+                <li class="list-group-item text-center">
+                  <b>NIK</b> <br> <a class="">{{ $rtrw->ktp->id}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Alamat</b> <a class="pull-right">{{ $rtrw->warga->alamat_KTP}}</a>
+                <li class="list-group-item text-center">
+                  <b>Alamat</b> <br> <a class="">{{ $rtrw->ktp->alamat_KTP}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $rtrw->warga->rt->rt}}</a>
+                <li class="list-group-item text-center">
+                  <b>RT</b> <br> <a class="">{{ $rtrw->ktp->rt->rt}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $rtrw->warga->rw->rw}}</a>
+                <li class="list-group-item text-center">
+                  <b>RW</b> <br> <a class="">{{ $rtrw->ktp->rw->rw}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Jabatan</b> <a class="pull-right">{{ $rtrw->jabatan->jabatan}}</a>
+                <li class="list-group-item text-center">
+                  <b>Jabatan</b> <br> <a class="">{{ $rtrw->jabatan->jabatan}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>RT</b> <a class="pull-right">{{ $rtrw->rt->rt}}</a>
+                <li class="list-group-item text-center">
+                  <b>RT</b> <br> <a class="">{{ $rtrw->rt->rt}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>RW</b> <a class="pull-right">{{ $rtrw->rw->rw}}</a>
+                <li class="list-group-item text-center">
+                  <b>RW</b> <br> <a class="">{{ $rtrw->rw->rw}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>NO SK</b> <a class="pull-right">{{ $rtrw->no_sk}}</a>
+                <li class="list-group-item text-center">
+                  <b>NO SK</b> <br> <a class="">{{ $rtrw->no_sk}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>TMT</b> <a class="pull-right">{{ $rtrw->tmt}}</a>
+                <li class="list-group-item text-center">
+                  <b>TMT</b> <br> <a class="">{{ $rtrw->tmt}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>No HP</b> <a class="pull-right">{{ $rtrw->no_hp}}</a>
+                <li class="list-group-item text-center">
+                  <b>No HP</b> <br> <a class="">{{ $rtrw->no_hp}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>No Rekening BJB</b> <a class="pull-right">{{ $rtrw->no_rek}}</a>
+                <li class="list-group-item text-center">
+                  <b>No Rekening BJB</b> <br> <a class="">{{ $rtrw->no_rek}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>NPWP</b> <a class="pull-right">{{ $rtrw->npwp}}</a>
+                <li class="list-group-item text-center">
+                  <b>NPWP</b> <br> <a class="">{{ $rtrw->npwp}}</a>
                 </li>
             </ul>
                 <a href="/rtrw/" class="btn btn-default">Close</a>

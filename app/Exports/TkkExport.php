@@ -20,7 +20,7 @@ class TkkExport implements FromCollection, WithMapping, WithHeadings
     public function map($tkk): array
     {
         return [
-            $tkk->NIK,
+            $tkk->id,
             $tkk->KK,
             $tkk->nama,
             $tkk->tempat_lahir,
@@ -43,7 +43,7 @@ class TkkExport implements FromCollection, WithMapping, WithHeadings
     public function headings(): array
     {
         return [
-            'NIP',
+            'NIK',
             'KK',
             'Nama',
             'Tempat Lahir',

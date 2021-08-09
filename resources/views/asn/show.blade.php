@@ -16,10 +16,15 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="{{asset('images/ASN/'.$asn->foto)}}" alt="User profile picture">
-              <h3 class="profile-username text-center">{{ $asn-> nama}}</h3>
+            <a href="{{asset('images/ASN/'. $asn->foto)}}" target="_blank" class="">
+            <img class="profile-user-img img-responsive img-circle" src="{{asset('images/ASN/'.$asn->foto)}}" alt="User profile picture">
+            </a>  
+
+              <h1 class="profile-username text-center">{{ $asn-> nama}}</h1>
+              <h2 class="profile-username text-center">{{ $asn-> id}}</h2>
               <p class="text-muted text-center">{{ $asn-> tempat_lahir}} - {{ $asn-> tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
+
                 <li class="list-group-item text-center">
                   <b>NIK</b> <br> <a class="">{{ $asn-> NIK}}</a>
                 </li>
@@ -63,10 +68,8 @@
                   <b>No HP</b> <br> <a class="">{{ $asn-> no_HP}}</a>
                 </li>
               </ul>
-
                   <a href="/asn/" class="btn btn-default">Close</a>
-						      <!-- <a href="/asn/{{$asn->id}}/edit" class="btn btn-warning">Edit</a> -->
-
+						      <a href="/asn/{{$asn->id}}/edit" class="btn btn-warning">Edit</a>
             </div>
         </div>
      </section>

@@ -11,27 +11,16 @@
 
 <form action="/covid19" method="post" enctype="multipart/form-data">
     @csrf 
-    <div class="box-body">
-        <!-- <div class="mb-3">
-            <label for="warga_id" class="form-label">NIK Warga</label>
-            <select class="form-control @error('warga_id') is-invalid @enderror" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
-                <option selected disabled>- Pilih -</option>
-                @foreach ($warga as $penduduk)
-                <option value="{{$penduduk->id}}" {{old('warga_id') == $penduduk->id ? 'selected' : null }}>{{$penduduk->NIK}}</option>
-                @endforeach
-            </select>
-            @error ('warga_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div> -->
-        
+    <div class="box-body">       
         <div class="mb-3">
-            <label for="warga_id" class="form-label">NIK Warga</label>
-            <input class="form-control @error('warga_id') is-invalid @enderror" placeholder="Ketik NIK/Nama Warga Anda" list="nik_warga" id="warga_id" name="warga_id" value="{{ old('warga_id') }}"> 
+            <label for="ktp_id" class="form-label">NIK Warga</label>
+            <input class="form-control @error('ktp_id') is-invalid @enderror" placeholder="Ketik NIK/Nama Warga Anda" list="nik_warga" id="ktp_id" name="ktp_id" value="{{ old('ktp_id') }}"> 
                 <datalist id="nik_warga">
-                @foreach ($warga as $penduduk)
-                    <option value="{{$penduduk->id}}">{{$penduduk->NIK}}-{{$penduduk->nama}}</option>
+                @foreach ($ktp as $penduduk)
+                    <option value="{{$penduduk->id}}">{{$penduduk->nama}}</option>
                 @endforeach
                 </datalist>
-            @error ('warga_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+            @error ('ktp_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="input-group mb-3">

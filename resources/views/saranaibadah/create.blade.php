@@ -15,7 +15,7 @@
         <div class="mb-3">
                 <label for="nama_sarana_ibadah" class="form-label">Nama</label>
                 <input type="text" class="form-control @error('nama_sarana_ibadah') is-invalid @enderror" id="nama_sarana_ibadah" placeholder="Nama Sarana Ibadah" name="nama_sarana_ibadah" value="{{ old('nama_sarana_ibadah') }}">
-            @error('nama_sarana_ibadah') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error('nama_sarana_ibadah') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
@@ -26,13 +26,13 @@
                 <option value="{{$tipe->id}}" {{old('tipeibadah_id') == $tipe->id ? 'selected' : null }}>{{$tipe->tipeibadah}}</option>
                 @endforeach
             </select>
-            @error ('tipeibadah_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('tipeibadah_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ old('alamat') }}">
-            @error('alamat') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
@@ -43,7 +43,7 @@
                 <option value="{{$erte->id}}" {{old('rt_id') == $erte->id ? 'selected' : null }}>{{$erte->rt}}</option>
                 @endforeach
             </select>
-            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -54,13 +54,13 @@
                 <option value="{{$erwe->id}}" {{old('rw_id') == $erwe->id ? 'selected' : null }}>{{$erwe->rw}}</option>
                 @endforeach
             </select>
-            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rw_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_pimpinan" class="form-label">Nama Pimpinan </label>
             <input type="text" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Ibadah" name="nama_pimpinan" value="{{ old('nama_pimpinan') }}">
-            @error ('nama_pimpinan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('nama_pimpinan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -75,7 +75,7 @@
                 <option value="FASOS/FASUM">FASOS/FASUM</option>
                 <option value="WAKAF">WAKAF</option>
             </select>
-            @error ('status_lahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('status_lahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="box-footer">

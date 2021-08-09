@@ -43,10 +43,13 @@
                   <b>RW</b> <br> <a class="">{{ $pamor->rw->rw}}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Foto</b>
-                  <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class=""> <br> Lihat Foto</a>
+                  <b>Foto Kegiatan</b>
+                  <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class=""><br>
+                  <img src="{{asset('images/LaporanHarian/'. $pamor->foto)}}" height="50%" width="50%"></img></a>
                 </li>
-                </ul>
+              </ul>
+
+
                   <a href="/pamor/" class="btn btn-default">Close</a>
             </div>
       </div>

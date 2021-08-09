@@ -25,6 +25,22 @@
                     <a href="/exportfasosfasum" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
+                    
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah Fasos Fasum</p>
+              <h3>{{$fasosfasum->count()}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">

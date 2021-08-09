@@ -9,6 +9,7 @@ use App\Kesehatan;
 use App\Tipekesehatan;
 use App\Rt;
 use App\Rw;
+use Illuminate\Support\Facades\Auth;
 
 class SaranaKesehatanController extends Controller
 {
@@ -22,131 +23,126 @@ class SaranaKesehatanController extends Controller
 
         if(auth()->user()->username == 'superadmin')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'sekel')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_kessos')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_permasbang')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_pemtibum')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_sekret')
         {
-            $kesehatan = Kesehatan::all();
+            $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if (auth()->user()->username == 'pamor1')
+        
+        if (auth()->user()->rw_id == '1')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '1')->get();
         }
-        if (auth()->user()->username == 'pamor2')
+        if (auth()->user()->rw_id == '2')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '2')->get();
         }
-        if (auth()->user()->username == 'pamor3')
+        if (auth()->user()->rw_id == '3')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '3')->get();
         }
-        if (auth()->user()->username == 'pamor4')
+        if (auth()->user()->rw_id == '4')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '4')->get();
         }
-        if (auth()->user()->username == 'pamor5')
+        if (auth()->user()->rw_id == '5')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6')
+        if (auth()->user()->rw_id == '6')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor23')
+        if (auth()->user()->rw_id == '7')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '7')->get();
         }
-        if (auth()->user()->username == 'pamor7')
+        if (auth()->user()->rw_id == '8')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '8')->get();
         }
-        if (auth()->user()->username == 'pamor8')
+        if (auth()->user()->rw_id == '9')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '9')->get();
         }
-        if (auth()->user()->username == 'pamor9')
+        if (auth()->user()->rw_id == '10')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '10')->get();
         }
-        if (auth()->user()->username == 'pamor10')
+        if (auth()->user()->rw_id == '11')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '11')->get();
         }
-        if (auth()->user()->username == 'pamor11')
+        if (auth()->user()->rw_id == '12')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '12')->get();
         }
-        if (auth()->user()->username == 'pamor12')
+        if (auth()->user()->rw_id == '13')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '13')->get();
         }
-        if (auth()->user()->username == 'pamor13')
+        if (auth()->user()->rw_id == '14')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '14')->get();
         }
-        if (auth()->user()->username == 'pamor14')
+        if (auth()->user()->rw_id == '15')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '15')->get();
         }
-        if (auth()->user()->username == 'pamor15')
+        if (auth()->user()->rw_id == '16')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '16')->get();
         }
-        if (auth()->user()->username == 'pamor16')
+        if (auth()->user()->rw_id == '17')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '17')->get();
         }
-        if (auth()->user()->username == 'pamor17')
+        if (auth()->user()->rw_id == '18')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '18')->get();
         }
-        if (auth()->user()->username == 'pamor18')
+        if (auth()->user()->rw_id == '19')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '19')->get();
         }
-        if (auth()->user()->username == 'pamor19')
+        if (auth()->user()->rw_id == '20')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '20')->get();
         }
-        if (auth()->user()->username == 'pamor20')
+        if (auth()->user()->rw_id == '21')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '21')->get();
         }
-        if (auth()->user()->username == 'pamor21')
+        if (auth()->user()->rw_id == '22')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '22')->get();
         }
-        if (auth()->user()->username == 'pamor22')
+        if (auth()->user()->rw_id == '23')
         {
             $kesehatan = Kesehatan::where('rw_id', '=', '23')->get();
         }
 
-        // if ($request->has('search')){
-        //     $kesehatan = Kesehatan::where('nama_sarana_kesehatan', 'LIKE', '%'.$request->search.'%')->get();
-        // }else{
-        //     $kesehatan = Kesehatan::all();
-        // }
-        // //$kesehatan = Kesehatan::all();
         return view('saranakesehatan.kesehatan', ['sarana_kesehatan' => $kesehatan]);
     }
 
@@ -183,9 +179,29 @@ class SaranaKesehatanController extends Controller
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
             'status_lahan' => 'required'
+        ],
+        [
+            'nama_sarana_kesehatan.required' => 'Harus Di isi yaa',
+            'tipekesehatan_id.required' => 'Harus Di isi yaa',
+            'alamat.required' => 'Harus Di isi yaa',
+            'rt_id.required' => 'Harus Di isi yaa',
+            'rw_id.required' => 'Harus Di isi yaa',
+            'nama_pimpinan.required' => 'Harus Di isi yaa',
+            'status_lahan.required' => 'Harus Di isi yaa',
+        ]
+    );
+        Kesehatan::create([
+            'nama_sarana_kesehatan' => $request->nama_sarana_kesehatan,
+            'tipekesehatan_id' => $request->tipekesehatan_id,
+            'alamat' => $request->alamat,
+            'rt_id' => $request->rt_id,
+            'rw_id' => $request->rw_id,
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan,
+            // 'user_id' => Auth::user()->id,
         ]);
 
-        Kesehatan::create($request->all());
+        // Kesehatan::create($request->all());
         return redirect('/kesehatan')->with('success', 'Data Sarana Kesehatan Berhasil Ditambahkan!');
     }
 

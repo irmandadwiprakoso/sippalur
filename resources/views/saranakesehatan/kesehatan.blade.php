@@ -25,6 +25,59 @@
                     <a href="/exportkesehatan" class="btn btn-success">Export Data</a>
                     @endif
                 <hr>
+
+        <div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Sarana Kesehatan</p>
+              <h3>{{$sarana_kesehatan->count()}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-plus-round"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Rumah Sakit</p>
+              <h3> {{ $sarana_kesehatan->where('tipekesehatan_id', '=', '1')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Klinik</p>
+              <h3> {{ $sarana_kesehatan->where('tipekesehatan_id', '=', '2')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Bidan</p>
+              <h3> {{ $sarana_kesehatan->where('tipekesehatan_id', '=', '3')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      </div>
+      </div>
+      </div>
+     
+      <hr>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -108,15 +161,13 @@
 								</a>
                             </td>
                             @endif
-                          
                         </tr>
-                        @endforeach
-                    </tbody>
-				</table>
-                    </div>
-					</div>
-					</div>
-				</div>
-			</div>	
-		
+                                @endforeach
+                       </tbody>
+		    	    </table>
+                </div>
+			</div>
+		</div>
+    </div>
+</div>	
 @endsection

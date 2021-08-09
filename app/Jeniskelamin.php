@@ -17,8 +17,17 @@ class Jeniskelamin extends Model
     {
         return $this->hasMany(Asn::class);
     }
+    public function pns()
+    {
+        return $this->hasMany(Pns::class);
+    }
     public function warga()
     {
         return $this->hasMany(Warga::class);
+    }
+    public function ktp()
+    {
+        return $this->hasMany(Ktp::class);
+        // return $this->hasMany('App\Ktp','NIK');
     }
 }

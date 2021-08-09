@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'username',
+        'name', 'email', 'password', 'role', 'username', 'rw_id',
     ];
 
     
@@ -41,5 +41,22 @@ class User extends Authenticatable
     public function tkk(){
         return $this->hasOne(Tkk::class);
     }
-
+    public function ibadah(){
+        return $this->belongsTo(Ibadah::class);
+    }
+    public function kesehatan(){
+        return $this->belongsTo(Kesehatan::class);
+    }
+    public function pendidikan(){
+        return $this->belongsTo(Pendidikan::class);
+    }
+    public function kependudukan(){
+        return $this->belongsTo(Kependudukan::class);
+    }
+    public function fasosfasum(){
+        return $this->belongsTo(Fasosfasum::class);
+    }
+    public function rw(){
+        return $this->belongsTo(Rw::class);
+    }
 }

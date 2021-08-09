@@ -9,6 +9,7 @@ use App\Pendidikan;
 use App\Tipependidikan;
 use App\Rt;
 use App\Rw;
+use Illuminate\Support\Facades\Auth;
 
 class SaranaPendidikanController extends Controller
 {
@@ -22,137 +23,131 @@ class SaranaPendidikanController extends Controller
     
         if(auth()->user()->username == 'superadmin')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'lurah')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_kessos')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_permasbang')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_sekret')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_pemtibum')
         {
-            $pendidikan = Pendidikan::all();
+            $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if (auth()->user()->username == 'pamor1')
+
+        if (auth()->user()->rw_id == '1')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '1')->get();
         }
-        if (auth()->user()->username == 'pamor2')
+        if (auth()->user()->rw_id == '2')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '2')->get();
         }
-        if (auth()->user()->username == 'pamor3')
+        if (auth()->user()->rw_id == '3')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '3')->get();
         }
-        if (auth()->user()->username == 'pamor4')
+        if (auth()->user()->rw_id == '4')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '4')->get();
         }
-        if (auth()->user()->username == 'pamor5')
+        if (auth()->user()->rw_id == '5')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6')
+        if (auth()->user()->rw_id == '6')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor23')
+        if (auth()->user()->rw_id == '7')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '7')->get();
         }
-        if (auth()->user()->username == 'pamor7')
+        if (auth()->user()->rw_id == '8')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '8')->get();
         }
-        if (auth()->user()->username == 'pamor8')
+        if (auth()->user()->rw_id == '9')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '9')->get();
         }
-        if (auth()->user()->username == 'pamor9')
+        if (auth()->user()->rw_id == '10')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '10')->get();
         }
-        if (auth()->user()->username == 'pamor10')
+        if (auth()->user()->rw_id == '11')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '11')->get();
         }
-        if (auth()->user()->username == 'pamor11')
+        if (auth()->user()->rw_id == '12')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '12')->get();
         }
-        if (auth()->user()->username == 'pamor12')
+        if (auth()->user()->rw_id == '13')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '13')->get();
         }
-        if (auth()->user()->username == 'pamor13')
+        if (auth()->user()->rw_id == '14')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '14')->get();
         }
-        if (auth()->user()->username == 'pamor14')
+        if (auth()->user()->rw_id == '15')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '15')->get();
         }
-        if (auth()->user()->username == 'pamor15')
+        if (auth()->user()->rw_id == '16')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '16')->get();
         }
-        if (auth()->user()->username == 'pamor16')
+        if (auth()->user()->rw_id == '17')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '17')->get();
         }
-        if (auth()->user()->username == 'pamor17')
+        if (auth()->user()->rw_id == '18')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '18')->get();
         }
-        if (auth()->user()->username == 'pamor18')
+        if (auth()->user()->rw_id == '19')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '19')->get();
         }
-        if (auth()->user()->username == 'pamor19')
+        if (auth()->user()->rw_id == '20')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '20')->get();
         }
-        if (auth()->user()->username == 'pamor20')
+        if (auth()->user()->rw_id == '21')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '21')->get();
         }
-        if (auth()->user()->username == 'pamor21')
+        if (auth()->user()->rw_id == '22')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '22')->get();
         }
-        if (auth()->user()->username == 'pamor22')
+        if (auth()->user()->rw_id == '23')
         {
             $pendidikan = Pendidikan::where('rw_id', '=', '23')->get();
         }
-             
-        // if ($request->has('search')){
-        //     $pendidikan = Pendidikan::where('nama_sarana_pendidikan', 'LIKE', '%'.$request->search.'%')->get();
-        // }else{
-        //     $pendidikan = Pendidikan::all();
-        // }
         return view('saranapendidikan.pendidikan', ['sarana_pendidikan' => $pendidikan]);
     }
 
     public function pendidikanexport(){
         return Excel::download(new PendidikanExport, 'sarana-pendidikan.xlsx');
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -183,12 +178,28 @@ class SaranaPendidikanController extends Controller
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
             'status_lahan' => 'required'
+        ],
+        [
+            'nama_sarana_pendidikan.required' => 'Harus Di isi yaa',
+            'tipependidikan_id.required' => 'Harus Di isi yaa',
+            'alamat.required' => 'Harus Di isi yaa',
+            'rt_id.required' => 'Harus Di isi yaa',
+            'rw_id.required' => 'Harus Di isi yaa',
+            'nama_pimpinan.required' => 'Harus Di isi yaa',
+            'status_lahan.required' => 'Harus Di isi yaa',
+        ]
+    );
+        Pendidikan::create([
+            'nama_sarana_pendidikan' => $request->nama_sarana_pendidikan,
+            'tipependidikan_id' => $request->tipependidikan_id,
+            'alamat' => $request->alamat,
+            'rt_id' => $request->rt_id,
+            'rw_id' => $request->rw_id,
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan,
+            // 'user_id' => Auth::user()->id,
         ]);
-
-        // ],[
-        //     'nama_sarana_pendidikan.required' => 'ISI BOS'
-        // ]);
-        Pendidikan::create($request->all());
+        // Pendidikan::create($request->all());
         return redirect('/pendidikan')->with('success', 'Data Sarana Pendidikan Berhasil Ditambahkan!');
     }
 

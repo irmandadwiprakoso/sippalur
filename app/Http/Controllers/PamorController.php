@@ -8,6 +8,7 @@ use App\Rw;
 use Illuminate\Http\Request;
 use App\Exports\PamorExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
 
 class PamorController extends Controller
 {
@@ -20,119 +21,32 @@ class PamorController extends Controller
     {
         if(auth()->user()->username == 'superadmin')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'sekret')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'kessos')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'permasbang')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'pemtibum')
         {
-            $pamor = Pamor::all();
+            $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
-        if (auth()->user()->username == 'pamor1')
+
+        if (auth()->user()->role == 'user')
         {
-            $pamor = Pamor::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->username == 'pamor2')
-        {
-            $pamor = Pamor::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->username == 'pamor3')
-        {
-            $pamor = Pamor::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->username == 'pamor4')
-        {
-            $pamor = Pamor::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->username == 'pamor5')
-        {
-            $pamor = Pamor::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->username == 'pamor6')
-        {
-            $pamor = Pamor::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->username == 'pamor23')
-        {
-            $pamor = Pamor::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->username == 'pamor7')
-        {
-            $pamor = Pamor::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->username == 'pamor8')
-        {
-            $pamor = Pamor::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->username == 'pamor9')
-        {
-            $pamor = Pamor::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->username == 'pamor10')
-        {
-            $pamor = Pamor::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->username == 'pamor11')
-        {
-            $pamor = Pamor::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->username == 'pamor12')
-        {
-            $pamor = Pamor::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->username == 'pamor13')
-        {
-            $pamor = Pamor::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->username == 'pamor14')
-        {
-            $pamor = Pamor::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->username == 'pamor15')
-        {
-            $pamor = Pamor::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->username == 'pamor16')
-        {
-            $pamor = Pamor::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->username == 'pamor17')
-        {
-            $pamor = Pamor::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->username == 'pamor18')
-        {
-            $pamor = Pamor::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->username == 'pamor19')
-        {
-            $pamor = Pamor::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->username == 'pamor20')
-        {
-            $pamor = Pamor::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->username == 'pamor21')
-        {
-            $pamor = Pamor::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->username == 'pamor22')
-        {
-            $pamor = Pamor::where('rw_id', '=', '23')->get();
+            $pamor = Pamor::where('user_id',Auth()->user()->id)->get();
         }
 
         return view('pamor.index', ['pamor' => $pamor]);
@@ -172,9 +86,19 @@ class PamorController extends Controller
             'keterangan' => 'required',
             'tinjut' => 'required',
             'rt_id' => 'required',
-            'rw_id' => 'required',
-            'foto' => 'required',       
-        ]);
+            'rw_id' => 'required',      
+        ],
+        [
+            'tanggal.required' => 'Harus di Isi',
+            'kegiatan.required' => 'Harus di Isi',
+            'jumlah.required' => 'Harus di Isi',
+            'bidang.required' => 'Harus di Isi',
+            'keterangan.required' => 'Harus di Isi',
+            'tinjut.required' => 'Harus di Isi',
+            'rt_id.required' => 'Harus di Isi',
+            'rw_id.required' => 'Harus di Isi',
+        ]
+    );
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto->extension();
         $request->foto->move('images/LaporanHarian/',$imgName);
@@ -190,6 +114,8 @@ class PamorController extends Controller
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'foto' => $imgName,
+            'user_id' => Auth::user()->id,
+            // 'user_id' => 23,
         ]);
 
         return redirect('/pamor')->with('success', 'Laporan Harian Berhasil Ditambahkan!');

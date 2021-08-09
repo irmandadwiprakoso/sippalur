@@ -16,7 +16,7 @@
         <div class="mb-3">
                 <label for="nama_sarana_kesehatan" class="form-label">Nama</label>
                 <input type="text" class="form-control @error('nama_sarana_kesehatan') is-invalid @enderror" id="nama_sarana_kesehatan" placeholder="Nama Sarana Kesehatan" name="nama_sarana_kesehatan" value="{{ $kesehatan->nama_sarana_kesehatan }}">
-            @error('nama_sarana_kesehatan') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error('nama_sarana_kesehatan') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
@@ -27,13 +27,13 @@
                 <option value="{{$tipe->id}}">{{$tipe->tipekesehatan}}</option>
                 @endforeach
             </select>
-            @error ('tipekesehatan_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('tipekesehatan_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ $kesehatan->alamat }}">
-            @error('alamat') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
@@ -44,7 +44,7 @@
                 <option value="{{$erte->id}}">{{$erte->rt}}</option>
                 @endforeach
             </select>
-            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -55,13 +55,13 @@
                 <option value="{{$erwe->id}}">{{$erwe->rw}}</option>
                 @endforeach
             </select>
-            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rw_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_pimpinan" class="form-label">Nama Pimpinan </label>
             <input type="text" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Ibadah" name="nama_pimpinan" value="{{ $kesehatan->nama_pimpinan }}">
-            @error ('nama_pimpinan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('nama_pimpinan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="mb-3">
@@ -76,7 +76,7 @@
                 <option value="FASOS/FASUM">FASOS/FASUM</option>
                 <option value="WAKAF">WAKAF</option>
             </select>
-            @error ('status_lahan') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('status_lahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="box-footer">

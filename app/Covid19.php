@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Covid19 extends Model
 {
     protected $table = 'covid19';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'warga_id',
+        'ktp_id',
         'foto_KTP',
         'foto_KK',
         'domisili',
@@ -37,9 +38,10 @@ class Covid19 extends Model
         'sumbercovid',
     ];
 
-    public function warga()
+    public function ktp()
     {
-        return $this->belongsTo(Warga::class);
+        return $this->belongsTo(Ktp::class);
+        // return $this->belongsTo('App\Ktp','NIK');
     }
     public function rt()
     {

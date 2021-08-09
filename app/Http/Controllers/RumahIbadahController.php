@@ -9,7 +9,7 @@ use App\Ibadah;
 use App\Tipeibadah;
 use App\Rt;
 use App\Rw;
-
+use Illuminate\Support\Facades\Auth;
 
 class RumahIbadahController extends Controller
 {
@@ -20,128 +20,110 @@ class RumahIbadahController extends Controller
      */
     public function index(Request $request)
     {
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
-            $ibadah = Ibadah::all();
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_kessos')
-        {
-            $ibadah = Ibadah::all();
-        }
-        if(auth()->user()->username == 'admin_permasbang')
-        {
-            $ibadah = Ibadah::all();
-        }
-        if(auth()->user()->username == 'admin_pemtibum')
-        {
-            $ibadah = Ibadah::all();
-        }
-        if(auth()->user()->username == 'admin_sekret')
-        {
-            $ibadah = Ibadah::all();
-        }
+
         if(auth()->user()->role == 'admin')
         {
-            $ibadah = Ibadah::all();
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if (auth()->user()->username == 'pamor1')
+
+        if (auth()->user()->rw_id == '1')
         {
             $ibadah = Ibadah::where('rw_id', '=', '1')->get();
         }
-        if (auth()->user()->username == 'pamor2')
+        if (auth()->user()->rw_id == '2')
         {
             $ibadah = Ibadah::where('rw_id', '=', '2')->get();
         }
-        if (auth()->user()->username == 'pamor3')
+        if (auth()->user()->rw_id == '3')
         {
             $ibadah = Ibadah::where('rw_id', '=', '3')->get();
         }
-        if (auth()->user()->username == 'pamor4')
+        if (auth()->user()->rw_id == '4')
         {
             $ibadah = Ibadah::where('rw_id', '=', '4')->get();
         }
-        if (auth()->user()->username == 'pamor5')
+        if (auth()->user()->rw_id == '5')
         {
             $ibadah = Ibadah::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6')
+        if (auth()->user()->rw_id == '6')
         {
             $ibadah = Ibadah::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor23')
+        if (auth()->user()->rw_id == '7')
         {
             $ibadah = Ibadah::where('rw_id', '=', '7')->get();
         }
-        if (auth()->user()->username == 'pamor7')
+        if (auth()->user()->rw_id == '8')
         {
             $ibadah = Ibadah::where('rw_id', '=', '8')->get();
         }
-        if (auth()->user()->username == 'pamor8')
+        if (auth()->user()->rw_id == '9')
         {
             $ibadah = Ibadah::where('rw_id', '=', '9')->get();
         }
-        if (auth()->user()->username == 'pamor9')
+        if (auth()->user()->rw_id == '10')
         {
             $ibadah = Ibadah::where('rw_id', '=', '10')->get();
         }
-        if (auth()->user()->username == 'pamor10')
+        if (auth()->user()->rw_id == '11')
         {
             $ibadah = Ibadah::where('rw_id', '=', '11')->get();
         }
-        if (auth()->user()->username == 'pamor11')
+        if (auth()->user()->rw_id == '12')
         {
             $ibadah = Ibadah::where('rw_id', '=', '12')->get();
         }
-        if (auth()->user()->username == 'pamor12')
+        if (auth()->user()->rw_id == '13')
         {
             $ibadah = Ibadah::where('rw_id', '=', '13')->get();
         }
-        if (auth()->user()->username == 'pamor13')
+        if (auth()->user()->rw_id == '14')
         {
             $ibadah = Ibadah::where('rw_id', '=', '14')->get();
         }
-        if (auth()->user()->username == 'pamor14')
+        if (auth()->user()->rw_id == '15')
         {
             $ibadah = Ibadah::where('rw_id', '=', '15')->get();
         }
-        if (auth()->user()->username == 'pamor15')
+        if (auth()->user()->rw_id == '16')
         {
             $ibadah = Ibadah::where('rw_id', '=', '16')->get();
         }
-        if (auth()->user()->username == 'pamor16')
+        if (auth()->user()->rw_id == '17')
         {
             $ibadah = Ibadah::where('rw_id', '=', '17')->get();
         }
-        if (auth()->user()->username == 'pamor17')
+        if (auth()->user()->rw_id == '18')
         {
             $ibadah = Ibadah::where('rw_id', '=', '18')->get();
         }
-        if (auth()->user()->username == 'pamor18')
+        if (auth()->user()->rw_id == '19')
         {
             $ibadah = Ibadah::where('rw_id', '=', '19')->get();
         }
-        if (auth()->user()->username == 'pamor19')
+        if (auth()->user()->rw_id == '20')
         {
             $ibadah = Ibadah::where('rw_id', '=', '20')->get();
         }
-        if (auth()->user()->username == 'pamor20')
+        if (auth()->user()->rw_id == '21')
         {
             $ibadah = Ibadah::where('rw_id', '=', '21')->get();
         }
-        if (auth()->user()->username == 'pamor21')
+        if (auth()->user()->rw_id == '22')
         {
             $ibadah = Ibadah::where('rw_id', '=', '22')->get();
         }
-        if (auth()->user()->username == 'pamor22')
+        if (auth()->user()->rw_id == '23')
         {
             $ibadah = Ibadah::where('rw_id', '=', '23')->get();
         }
 
-        // if ($request->has('search')){
-        //     $ibadah = Ibadah::where('nama_sarana_ibadah', 'LIKE', '%'.$request->search.'%')->get();
-        // }else{
-        //     $ibadah = Ibadah::all();
-        // }
+        //$ibadah = Ibadah::all();
         return view('saranaibadah.index', ['sarana_ibadah' => $ibadah]);
     }
 
@@ -178,10 +160,29 @@ class RumahIbadahController extends Controller
             'rt_id' => 'required',
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
-            'status_lahan' => 'required'
+            'status_lahan' => 'required', 
+        ],
+        [
+            'nama_sarana_ibadah.required' => 'Harus Di isi yaa',
+            'tipeibadah_id.required' => 'Harus Di isi yaa',
+            'alamat.required' => 'Harus Di isi yaa',
+            'rt_id.required' => 'Harus Di isi yaa',
+            'rw_id.required' => 'Harus Di isi yaa',
+            'nama_pimpinan.required' => 'Harus Di isi yaa',
+            'status_lahan.required' => 'Harus Di isi yaa',
+        ]
+    );
+        Ibadah::create([
+            'nama_sarana_ibadah' => $request->nama_sarana_ibadah,
+            'tipeibadah_id' => $request->tipeibadah_id,
+            'alamat' => $request->alamat,
+            'rt_id' => $request->rt_id,
+            'rw_id' => $request->rw_id,
+            'nama_pimpinan' => $request->nama_pimpinan,
+            'status_lahan' => $request->status_lahan,
+            // 'user_id' => Auth::user()->id,
         ]);
-
-        Ibadah::create($request->all());
+        // Ibadah::create($request->all());
         return redirect('/ibadah')->with('success', 'Data Sarana Ibadah Berhasil Ditambahkan!');
     }
 
@@ -230,7 +231,8 @@ class RumahIbadahController extends Controller
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
             'status_lahan' => 'required'
-        ]);
+        ]
+);
 
         Ibadah::where('id', $ibadah->id)
         ->update([

@@ -19,7 +19,7 @@ class AsnExport implements FromCollection, WithMapping, WithHeadings
     public function map($asn): array
     {
         return [
-            $asn->NIP,
+            $asn->id,
             $asn->NIK,
             $asn->nama,
             $asn->pangkat->pangkat,

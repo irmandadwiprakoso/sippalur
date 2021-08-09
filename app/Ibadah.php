@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ibadah extends Model
 {
     protected $table = 'sarana_ibadah';
-    protected $fillable = ['nama_sarana_ibadah', 'tipeibadah_id', 'alamat', 'rt_id', 'rw_id', 'nama_pimpinan','status_lahan'];
+    protected $fillable = ['nama_sarana_ibadah', 'tipeibadah_id', 'alamat', 'rt_id', 'rw_id', 'nama_pimpinan','status_lahan', 'user_id'];
 
     public function tipeibadah()
     {
@@ -22,5 +22,10 @@ class Ibadah extends Model
     public function rw()
     {
         return $this->belongsTo(Rw::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

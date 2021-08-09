@@ -24,8 +24,86 @@
                     <a href="/covid19/create" class="btn btn-primary my-2">Insert Data</a>
                     <a href="/exportcovid19" class="btn btn-success">Export Data</a>
                     @endif
-            <hr>
-                <div class="table-responsive">
+                    <hr>
+
+            <div class="row">
+            <div class="col-lg-2 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <p>Terkonfirmasi</p>
+                        <h3> {{ $covid19->count() }}</h3>
+                    </div>
+                        <div class="icon">
+                        <i class="ion ion-person"></i>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+            <div class="col-lg-2 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <p>Jumlah Positif</p>
+                        <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->count() }}</h3>
+                    </div>
+                        <div class="icon">
+                        <i class="ion ion-person"></i>
+                        </div>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+            <div class="col-lg-1 col-xs-12">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <p> Isoman </p>
+                        <h3> {{ $covid19->where('status_pasien', '=', 'Isoman')->count() }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-1 col-xs-12">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <p> RS </p>
+                        <h3> {{ $covid19->where('status_pasien', '=', 'Perawatan')->count() }}</h3>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="row">
+            <div class="col-lg-2 col-xs-6">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <p>Jumlah Negatif</p>
+                        <h3> {{ $covid19->where('status_akhir', '=', 'Negatif')->count() }}</h3>
+                    </div>
+                        <div class="icon">
+                        <i class="ion ion-person"></i>
+                        </div>
+                </div>
+            </div>
+        
+            <div class="row">
+            <div class="col-lg-2 col-xs-6">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <p>Jumlah Meninggal</p>
+                        <h3> {{ $covid19->where('status_akhir', '=', 'Meninggal')->count() }}</h3>
+                    </div>
+                        <div class="icon">
+                        <i class="ion ion-person"></i>
+                        </div>
+                </div>
+            </div>
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- </div>
+        </div> -->
+                    <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
                         <!-- <div class="col-md-4">
@@ -58,7 +136,7 @@
                             <th>Status Pasien</th>
                             <th>Hasil Test</th>
                             <th>Status Akhir</th>
-                            <th>Tanggal Status Akhir</th>
+                            <!-- <th>Tanggal Status Akhir</th> -->
                             <th>View</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
@@ -76,20 +154,20 @@
                         @if($covid->status_akhir == 'Meninggal')
                         <tr style="background-color:red">
                         @elseif($covid->status_akhir == 'Negatif')
-                        <tr style="background-color:deepskyblue">
+                        <tr style="background-color:green">
                         @elseif($covid->status_akhir == 'Positif')
                         <tr style="background-color:orange">
                         @endif
-                            <td class=" ">{{ $loop->iteration}}</td>
-                            <td class=" ">{{ $covid->warga->NIK}}</td>
-                            <td class=" ">{{ $covid->warga->nama}}</td>
+                            <td class=" ">{{ $loop->iteration}}</td>                          
+                            <td class=" ">{{ $covid->ktp->id}}</td>
+                            <td class=" ">{{ $covid->ktp->nama}}</td>
                             <td class=" ">{{ $covid->rt->rt}}</td>
                             <td class=" ">{{ $covid->rw->rw}}</td>
                             <td class=" ">{{ $covid->konfirmasi}}</td>
                             <td class=" ">{{ $covid->status_pasien}}</td>
                             <td class=" ">{{ $covid->hasil_test}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>
-                            <td class=" ">{{ $covid->tanggal_status_akhir}}</td>
+                            <!-- <td class=" ">{{ $covid->tanggal_status_akhir}}</td> -->
                             
                             <td class=" ">
                                 <a href="/covid19/{{ $covid->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

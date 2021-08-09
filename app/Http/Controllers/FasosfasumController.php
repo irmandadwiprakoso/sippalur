@@ -8,6 +8,7 @@ use App\Rw;
 use Illuminate\Http\Request;
 use App\Exports\FasosfasumExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
 
 class FasosfasumController extends Controller
 {
@@ -21,109 +22,106 @@ class FasosfasumController extends Controller
         // $fasosfasum = Fasosfasum::all();
         if(auth()->user()->username == 'superadmin')
         {
-            $fasosfasum = Fasosfasum::all();
+            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->username == 'admin_permasbang')
         {
-            $fasosfasum = Fasosfasum::all();
+            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
         {
-            $fasosfasum = Fasosfasum::all();
+            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'lurah')
-        {
-            $fasosfasum = Fasosfasum::all();
-        }
-        if (auth()->user()->username == 'pamor1')
+
+        if (auth()->user()->rw_id == '1')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '1')->get();
         }
-        if (auth()->user()->username == 'pamor2')
+        if (auth()->user()->rw_id == '2')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '2')->get();
         }
-        if (auth()->user()->username == 'pamor3')
+        if (auth()->user()->rw_id == '3')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '3')->get();
         }
-        if (auth()->user()->username == 'pamor4')
+        if (auth()->user()->rw_id == '4')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '4')->get();
         }
-        if (auth()->user()->username == 'pamor5')
+        if (auth()->user()->rw_id == '5')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->get();
         }
-        if (auth()->user()->username == 'pamor6')
+        if (auth()->user()->rw_id == '6')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->get();
         }
-        if (auth()->user()->username == 'pamor23')
+        if (auth()->user()->rw_id == '7')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->get();
         }
-        if (auth()->user()->username == 'pamor7')
+        if (auth()->user()->rw_id == '8')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '8')->get();
         }
-        if (auth()->user()->username == 'pamor8')
+        if (auth()->user()->rw_id == '9')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '9')->get();
         }
-        if (auth()->user()->username == 'pamor9')
+        if (auth()->user()->rw_id == '10')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '10')->get();
         }
-        if (auth()->user()->username == 'pamor10')
+        if (auth()->user()->rw_id == '11')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '11')->get();
         }
-        if (auth()->user()->username == 'pamor11')
+        if (auth()->user()->rw_id == '12')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '12')->get();
         }
-        if (auth()->user()->username == 'pamor12')
+        if (auth()->user()->rw_id == '13')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '13')->get();
         }
-        if (auth()->user()->username == 'pamor13')
+        if (auth()->user()->rw_id == '14')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '14')->get();
         }
-        if (auth()->user()->username == 'pamor14')
+        if (auth()->user()->rw_id == '15')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '15')->get();
         }
-        if (auth()->user()->username == 'pamor15')
+        if (auth()->user()->rw_id == '16')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '16')->get();
         }
-        if (auth()->user()->username == 'pamor16')
+        if (auth()->user()->rw_id == '17')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '17')->get();
         }
-        if (auth()->user()->username == 'pamor17')
+        if (auth()->user()->rw_id == '18')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '18')->get();
         }
-        if (auth()->user()->username == 'pamor18')
+        if (auth()->user()->rw_id == '19')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '19')->get();
         }
-        if (auth()->user()->username == 'pamor19')
+        if (auth()->user()->rw_id == '20')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '20')->get();
         }
-        if (auth()->user()->username == 'pamor20')
+        if (auth()->user()->rw_id == '21')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '21')->get();
         }
-        if (auth()->user()->username == 'pamor21')
+        if (auth()->user()->rw_id == '22')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '22')->get();
         }
-        if (auth()->user()->username == 'pamor22')
+        if (auth()->user()->rw_id == '23')
         {
             $fasosfasum = Fasosfasum::where('rw_id', '=', '23')->get();
         }
@@ -169,7 +167,16 @@ class FasosfasumController extends Controller
             // 'nama_pengembang' => 'required',
             // 'nama_perumahan' => 'required',
             'foto' => 'required',       
-        ]);
+        ],
+    [
+        'nama.required' => 'Harus di Isi Yaa',
+        'alamat.required' => 'Harus di Isi Yaa',
+        'rt_id.required' => 'Harus di Isi Yaa',
+        'rw_id.required' => 'Harus di Isi Yaa',
+        'luas.required' => 'Harus di Isi Yaa',
+        'pemanfaatan.required' => 'Harus di Isi Yaa',
+        'foto.required' => 'Harus di Isi Yaa',
+    ]);
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto->extension();
         $request->foto->move('images/FasosFasum/',$imgName);

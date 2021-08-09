@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\User;
 
+
 class AuthController extends Controller
 {
     public function login()
     {
-        return view ('admin.login');
+        return view ('admin.login3');
     } 
 
     public function postlogin(Request $request)
@@ -40,7 +41,14 @@ class AuthController extends Controller
             'username' => 'required',
             'role' => 'required',
             'email' => 'required',
-        ]);
+        ],
+        [
+            'name.required' => 'Harus Di Isi Yaa',
+            'username.required' => 'Harus Di Isi Yaa',
+            'role.required' => 'Harus Di Isi Yaa',
+            'email.required' => 'Harus Di Isi Yaa',
+        ]
+    );
 
         User::create([
             'name' => $request->name,

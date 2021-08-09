@@ -25,6 +25,94 @@
                     <a href="/exportibadah" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
+
+        <div class="row">
+        <div class="col-lg-2 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Sarana Ibadah</p>
+              <h3>{{$sarana_ibadah->count()}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-home"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Masjid</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '1')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Mushollah</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '2')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Gereja</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '3')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Pura</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '4')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Klenteng</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '5')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-1 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p> Vihara</p>
+              <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '6')->count() }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <hr>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">

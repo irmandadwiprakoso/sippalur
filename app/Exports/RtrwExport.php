@@ -20,8 +20,8 @@ class RtrwExport implements FromCollection, WithMapping, WithHeadings
     public function map($rtrw): array
     {
         return [
-            $rtrw->warga->NIK,
-            $rtrw->warga->nama,
+            $rtrw->ktp->id,
+            $rtrw->ktp->nama,
             $rtrw->jabatan->jabatan,
             $rtrw->rt->rt,
             $rtrw->rw->rw,

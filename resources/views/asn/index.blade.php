@@ -23,6 +23,21 @@
                     <a href="/exportasn" class="btn btn-success">Export Data</a>
                     @endif
                 <hr>
+                
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah ASN</p>
+              <h3>{{$asn->count()}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -41,6 +56,7 @@
                                 <th>Nama</th>
                                 <th>Pangkat</th>
                                 <th>Golongan</th>
+                                <th>Jabatan</th>
                                 <th>View</th>
                                 @if (auth()->user()->role == "superadmin")
                                 <th>Edit</th>
@@ -52,13 +68,14 @@
                             </tr>
                         </thead>
                             <tbody>	
-                                @foreach ($asn as $pns)
+                            @foreach ($asn as $pns)
                                     <tr>
                                         <td class=" ">{{ $loop->iteration}}</td>
-                                        <td class=" ">{{ $pns->NIP}}</td>
+                                        <td class=" ">{{ $pns->id}}</td>
                                         <td class=" ">{{ $pns->nama}}</td>
                                         <td class=" ">{{ $pns->pangkat->pangkat}}</td>
                                         <td class=" ">{{ $pns->golongan->golongan}}</td>
+                                        <td class=" ">{{ $pns->jabatan->jabatan}}</td>
                                         
                                         <td class=" ">
                                             <a href="/asn/{{ $pns->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

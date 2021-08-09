@@ -29,7 +29,7 @@ class Covid19Export implements FromQuery, WithHeadings, WithMapping
     {
         return [
             'updated_at',
-            'NIK',
+            'id',
             'KK',
             'Nama Pasien',
             'Status Hubungan Keluarga',
@@ -39,7 +39,6 @@ class Covid19Export implements FromQuery, WithHeadings, WithMapping
             'Tanggal Konfirmasi',
             'Status Pasien',
             'Lokasi Pasien',
-            'Tanggal Status',
             'Hasil Test',
             'Status Akhir',
             'Tanggal Status Akhir',
@@ -54,17 +53,16 @@ class Covid19Export implements FromQuery, WithHeadings, WithMapping
     {
         return [
             $covid19->updated_at,
-            $covid19->warga->NIK,
-            $covid19->warga->KK,
-            $covid19->warga->nama,
-            $covid19->warga->hub_keluarga,
+            $covid19->ktp->id,
+            $covid19->ktp->KK,
+            $covid19->ktp->nama,
+            $covid19->ktp->hub_keluarga,
             $covid19->domisili,
             $covid19->rt->rt,
             $covid19->rw->rw,
             $covid19->konfirmasi,
             $covid19->status_pasien,
             $covid19->lokasi_pasien,
-            $covid19->tanggal_status,
             $covid19->hasil_test,
             $covid19->status_akhir,
             $covid19->tanggal_status_akhir,

@@ -8,6 +8,7 @@ class Rt extends Model
 {
     protected $table = 'rt';
     protected $fillable = ['kode', 'rt'];
+    
 
     public function ibadah()
     {
@@ -24,6 +25,11 @@ class Rt extends Model
     public function warga()
     {
         return $this->hasMany(Warga::class);
+    }
+    public function ktp()
+    {
+        // return $this->hasMany(Ktp::class);
+        return $this->hasMany('App\Ktp','NIK');
     }
     public function kependudukan()
     {

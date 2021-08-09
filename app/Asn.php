@@ -9,7 +9,7 @@ class Asn extends Model
 {
     use SoftDeletes;
     protected $table = 'asn';
-    protected $fillable = ['NIP', 
+    protected $fillable = ['id', 
     'NIK', 'nama', 'pangkat_id', 
     'golongan_id', 'jabatan_id' , 'tempat_lahir', 
     'tanggal_lahir', 'jeniskelamin_id', 

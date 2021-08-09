@@ -144,7 +144,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/register"><i class="fa fa-circle-o"></i> Register User (Non Pamor)</a></li>
+            <li><a href="/register"><i class="fa fa-circle-o"></i> Register User</a></li>
             <li><a href="/user"><i class="fa fa-circle-o"></i> User </a></li>
           </ul>
         </li>
@@ -262,7 +262,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
+            <!-- <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li> -->
+            <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
@@ -276,7 +277,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
+            <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
@@ -290,7 +291,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
+            <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
@@ -304,7 +305,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li>
+            <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
@@ -456,11 +457,6 @@
        });
        
 </script>
- .redClass{
-                background : #aa0000 !important;
-                color : #fff !important;
-            }
-
 @include('sweetalert::alert')
 @yield('footer')
 </body>

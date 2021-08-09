@@ -17,4 +17,8 @@ class Pendidikanpeg extends Model
     {
         return $this->hasMany(Asn::class);
     }
+    public function pns()
+    {
+        return $this->hasMany(Pns::class);
+    }
 }

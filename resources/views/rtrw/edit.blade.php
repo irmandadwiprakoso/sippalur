@@ -13,16 +13,16 @@
     @method('patch')
     @csrf 
     <div class="box-body">
-    <div class="mb-3">
-            <label for="warga_id" class="form-label">NIK</label>
-            <select class="form-control @error('warga_id') is-invalid @enderror" aria-label="Default select example" id="warga_id" name="warga_id"> 
-                <option selected value="{{ $rtrw->warga_id }}">{{ $rtrw->warga->NIK}}</option>
-                @foreach ($warga as $penduduk)
-                <option value="{{$penduduk->id}}">{{$penduduk->NIK}}</option>
+    <!-- <div class="mb-3">
+            <label for="ktp_id" class="form-label">NIK</label>
+            <select class="form-control @error('ktp_id') is-invalid @enderror" aria-label="Default select example" id="ktp_id" name="ktp_id"> 
+                <option selected value="{{ $rtrw->ktp_id }}">{{ $rtrw->ktp->id}}</option>
+                @foreach ($ktp as $penduduk)
+                <option value="{{$penduduk->id}}">{{$penduduk->id}}</option>
                 @endforeach
             </select>
-            @error ('warga_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
-        </div>
+            @error ('ktp_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div> -->
 
         <div class="mb-3">
             <label for="jabatan_id" class="form-label">Jabatan</label>
@@ -32,7 +32,7 @@
                 <option value="{{$jab->id}}">{{$jab->jabatan}}</option>
                 @endforeach
             </select>
-            @error ('jabatan_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('jabatan_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="mb-3">
@@ -43,7 +43,7 @@
                 <option value="{{$erte->id}}">{{$erte->rt}}</option>
                 @endforeach
             </select>
-            @error ('rt_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
@@ -54,37 +54,37 @@
                 <option value="{{$erwe->id}}">{{$erwe->rw}}</option>
                 @endforeach
             </select>
-            @error ('rw_id') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('rw_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="no_sk" class="form-label">Nomor SK Lurah/Camat</label>
             <input type="text" class="form-control @error('no_sk') is-invalid @enderror" id="no_sk" placeholder="No SK Lurah/Camat" name="no_sk" value="{{ $rtrw->no_sk }}">
-            @error ('no_sk') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error ('no_sk') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="tmt" class="form-label">TMT</label>
             <input type="date" class="form-control @error('tmt') is-invalid @enderror" id="tmt" placeholder="TMT" name="tmt" value="{{ $rtrw->tmt }}">
-            @error ('tmt') <div class="invalid-feedback">{{ $message }} </div>@enderror 
+            @error ('tmt') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="no_hp" class="form-label">Nomor HP</label>
             <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP" name="no_hp" value="{{ $rtrw->no_hp }}">
-            @error ('no_hp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error ('no_hp') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="no_rek" class="form-label">Nomor Rekening BJB</label>
             <input type="number" class="form-control @error('no_rek') is-invalid @enderror" id="no_rek" placeholder="Rekening BJB" name="no_rek" value="{{ $rtrw->no_rek }}">
-            @error ('no_rek') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error ('no_rek') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="npwp" class="form-label">NPWP</label>
             <input type="text" class="form-control @error('npwp') is-invalid @enderror" id="npwp" placeholder="NPWP" name="npwp" value="{{ $rtrw->npwp }}">
-            @error ('npwp') <div class="invalid-feedback">{{ $message }} </div>@enderror       
+            @error ('npwp') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="box-footer">
