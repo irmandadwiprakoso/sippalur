@@ -54,7 +54,7 @@
         <div class="col-lg-1 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <p>Mushollah</p>
+              <p> Gereja </p>
               <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '2')->count() }}</h3>
             </div>
 
@@ -65,7 +65,7 @@
         <div class="col-lg-1 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <p> Gereja</p>
+              <p> Musholla </p>
               <h3> {{ $sarana_ibadah->where('tipeibadah_id', '=', '3')->count() }}</h3>
             </div>
 
