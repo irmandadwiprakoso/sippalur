@@ -24,11 +24,33 @@ class RumahIbadahController extends Controller
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-
         if(auth()->user()->role == 'admin')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
+
+        if(auth()->user()->username == 'sekel')
+        {
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+        }
+
+        if(auth()->user()->username == 'admin_kessos')
+        {
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+        }
+        if(auth()->user()->username == 'admin_permasbang')
+        {
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+        }
+        if(auth()->user()->username == 'admin_pemtibum')
+        {
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+        }
+        if(auth()->user()->username == 'admin_sekret')
+        {
+            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+        }
+
 
         if (auth()->user()->rw_id == '1')
         {
