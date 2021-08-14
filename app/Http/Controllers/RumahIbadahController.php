@@ -23,6 +23,7 @@ class RumahIbadahController extends Controller
         if(auth()->user()->role == 'superadmin')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+            // $ibadah = Ibadah::sortby('rw_id')->all();
         }
         if(auth()->user()->role == 'admin')
         {

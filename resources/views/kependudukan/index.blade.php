@@ -29,10 +29,10 @@
 
         <div class="row">
         <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-default">
             <div class="inner">
               <p>Jumlah KK</p>
-              <!-- <h3>{{$kependudukan->count()}}</h3> -->
+              <h3>{{$kependudukan->sum('KK')}}</h3>
             </div>
             <div class="icon">
               <i class="ion ion-person"></i>
@@ -40,6 +40,33 @@
           </div>
         </div>
 
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Jumlah Laki-laki</p>
+              <h3>{{$kependudukan->sum('Laki_laki')}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner">
+              <p>Jumlah Perempuan</p>
+              <h3>{{$kependudukan->sum('Perempuan')}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
       </div>
 
                 <div class="table-responsive">
