@@ -26,4 +26,12 @@ class Jabatan extends Model
     {
         return $this->hasMany(Rtrw::class);
     }
+    public function ksbrt()
+    {
+        return $this->hasMany(Ksbrt::class);
+    }
+    public function ksbrw()
+    {
+        return $this->hasMany(Ksbrw::class);
+    }
 }

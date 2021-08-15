@@ -136,7 +136,7 @@
                             <th>Status Pasien</th>
                             <th>Hasil Test</th>
                             <th>Status Akhir</th>
-                            <!-- <th>Tanggal Status Akhir</th> -->
+                            <th>Tanggal Status Akhir</th>
                             <th>View</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
@@ -154,7 +154,7 @@
                         @if($covid->status_akhir == 'Meninggal')
                         <tr style="background-color:red">
                         @elseif($covid->status_akhir == 'Negatif')
-                        <tr style="background-color:green">
+                        <tr style="background-color:lightgreen">
                         @elseif($covid->status_akhir == 'Positif')
                         <tr style="background-color:orange">
                         @endif
@@ -167,7 +167,7 @@
                             <td class=" ">{{ $covid->status_pasien}}</td>
                             <td class=" ">{{ $covid->hasil_test}}</td>
                             <td class=" ">{{ $covid->status_akhir}}</td>
-                            <!-- <td class=" ">{{ $covid->tanggal_status_akhir}}</td> -->
+                            <td class=" ">{{ $covid->tanggal_status_akhir}}</td>
                             
                             <td class=" ">
                                 <a href="/covid19/{{ $covid->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

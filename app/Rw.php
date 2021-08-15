@@ -46,6 +46,14 @@ class Rw extends Model
     {
         return $this->hasMany(Rtrw::class);
     }
+    public function ksbrt()
+    {
+        return $this->hasMany(Ksbrt::class);
+    }
+    public function ksbrw()
+    {
+        return $this->hasMany(Ksbrw::class);
+    }
     public function fasosfasum()
     {
         return $this->hasMany(Fasosfasum::class);

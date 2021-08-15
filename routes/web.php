@@ -71,6 +71,8 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum'
     Route::resource('kependudukan','KependudukanController');
     Route::get('/exportkependudukan', 'KependudukanController@exportkependudukan');
     Route::resource('rtrw','RtrwController');
+    Route::resource('ksbrt','ksbrtController');
+    Route::resource('ksbrw','ksbrwController');
     Route::get('/exportrtrw', 'RtrwController@rtrwexport');
 });
 

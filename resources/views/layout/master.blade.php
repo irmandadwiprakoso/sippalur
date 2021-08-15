@@ -261,8 +261,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <!-- <li><a href="/warga"><i class="fa  fa-table"></i> KTP </a></li> -->
+            <!-- <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li> -->
+            <li><a href="/ksbrt"><i class="fa  fa-table"></i> RT </a></li>
+            <li><a href="/ksbrw"><i class="fa  fa-table"></i> RW </a></li>
             <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
@@ -276,9 +277,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
-            <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
-            <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
+          <!-- <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li> -->
+          <li><a href="/ksbrt"><i class="fa  fa-table"></i> RT </a></li>
+          <li><a href="/ksbrw"><i class="fa  fa-table"></i> RW </a></li>
+          <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
+          <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -290,7 +293,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+          <!-- <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li> -->
+          <li><a href="/ksbrt"><i class="fa  fa-table"></i> RT </a></li>
+            <li><a href="/ksbrw"><i class="fa  fa-table"></i> RW </a></li>
             <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>
@@ -304,7 +309,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li>
+          <!-- <li><a href="/rtrw"><i class="fa  fa-table"></i> RT RW </a></li> -->
+          <li><a href="/ksbrt"><i class="fa  fa-table"></i> RT </a></li>
+            <li><a href="/ksbrw"><i class="fa  fa-table"></i> RW </a></li>
             <li><a href="/ktp"><i class="fa  fa-table"></i> KTP </a></li>
             <li><a href="/kependudukan"><i class="fa  fa-table"></i> Jumlah Penduduk </a></li>
           </ul>

@@ -53,5 +53,12 @@ class Ktp extends Model
     {
         return $this->belongsTo(Rtrw::class);
     }
-
+    public function ksbrt()
+    {
+        return $this->belongsTo(Ksbrt::class);
+    }
+    public function ksbrw()
+    {
+        return $this->belongsTo(Ksbrw::class);
+    }
 }
