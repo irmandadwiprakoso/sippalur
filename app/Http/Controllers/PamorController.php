@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pamor;
 use App\Rt;
 use App\Rw;
+use App\User;
 use Illuminate\Http\Request;
 use App\Exports\PamorExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -65,6 +66,7 @@ class PamorController extends Controller
     public function create()
     {
         $rt = Rt::all();
+        $user = User::all();
         $rw = Rw::all();
         return view ('pamor.create', compact('rt', 'rw'));
     }
@@ -142,6 +144,7 @@ class PamorController extends Controller
     public function edit(Pamor $pamor)
     {
         $rt = Rt::all();
+        $user = User::all();
         $rw = Rw::all();
         return view ('pamor.edit', compact('pamor', 'rt', 'rw'));
     }

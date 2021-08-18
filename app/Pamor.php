@@ -28,4 +28,5 @@ class Pamor extends Model
     {
         return $this->belongsTo(Rw::class);
     }
+
 }

@@ -44,6 +44,7 @@
                             <th>Bidang</th>
                             <th>RT</th>
                             <th>RW</th>
+                            <th>Nama Pamor</th>
                             <th>View</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
@@ -65,8 +66,8 @@
                             <td class=" ">{{ $pamor->kegiatan}}</td>
                             <td class=" ">{{ $pamor->bidang}}</td>
                             <td class=" ">{{ $pamor->rt->rt}}</td>
-                            <td class=" ">{{ $pamor->rw->rw}}</td>
-
+                            <td class=" ">{{ $pamor->rw->rw}}</td>                           
+                            <td class=" ">{{ $pamor->user_id}}</td>                           
                             <td class=" ">
                                 <a href="/pamor/{{ $pamor->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
                                     <i class="glyphicon glyphicon-search"></i>

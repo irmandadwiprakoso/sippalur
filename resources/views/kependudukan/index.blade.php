@@ -28,7 +28,7 @@
             <hr>
 
         <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-3">
           <div class="small-box bg-default">
             <div class="inner">
               <p>Jumlah KK</p>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-3">
           <div class="small-box bg-aqua">
             <div class="inner">
               <p>Jumlah Laki-laki</p>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-3">
           <div class="small-box bg-red">
             <div class="inner">
               <p>Jumlah Perempuan</p>
@@ -66,6 +66,21 @@
           </div>
         </div>
 
+        <div class="row">
+        <div class="col-lg-2 col-xs-3">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <p>Jumlah Jiwa</p>
+              <h3>{{$kependudukan->sum('Perempuan')+$kependudukan->sum('Laki_laki')}}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
       </div>
       </div>
 
