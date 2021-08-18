@@ -171,7 +171,7 @@ class KependudukanController extends Controller
             'KK' => $request->KK,
             'Laki_laki' => $request->Laki_laki,
             'Perempuan' => $request->Perempuan,
-           
+            
         ]);
         // Kependudukan::create($request->all());
         return redirect('/kependudukan')->with('success', 'Data Kependudukan Berhasil Ditambahkan!');
