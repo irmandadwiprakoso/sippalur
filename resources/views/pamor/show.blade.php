@@ -42,7 +42,9 @@
                 <li class="list-group-item">
                   <b>RW</b> <br> <a class="">{{ $pamor->rw->rw}}</a>
                 </li>
-              
+                <li class="list-group-item">
+                  <b>Nama Pamor</b> <br> <a class="">{{ $pamor->user->name}}</a>
+                </li>
                 <li class="list-group-item">
                   <b>Foto Kegiatan</b>
                   <a href="{{asset('images/LaporanHarian/'. $pamor->foto)}}" target="_blank" class=""><br>
