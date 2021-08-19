@@ -47,17 +47,6 @@
             @error ('jabatan_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
-        <!-- <div class="mb-3">
-            <label for="rt_id" class="form-label">RT</label>
-            <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id" value="{{ old('rt_id') }}"> 
-                <option selected disabled>- Pilih -</option>
-                @foreach ($rt as $erte)
-                <option value="{{$erte->id}}" {{old('rt_id') == $erte->id ? 'selected' : null }}>{{$erte->rt}}</option>
-                @endforeach
-            </select>
-            @error ('rt_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
-        </div> -->
-
         <div class="mb-3">
             <label for="rw_id" class="form-label">RW</label>
             <select class="form-control @error('rw_id') is-invalid @enderror" id="rw_id" name="rw_id" value="{{ old('rw_id') }}"> 
