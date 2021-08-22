@@ -40,7 +40,7 @@
                         <tr>                             
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Pamor</th>
+                            
                             <th>Kegiatan</th>
                             <th>Bidang</th>
                             <th>RT</th>
@@ -63,7 +63,7 @@
 						<tr>
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $pamor->tanggal}}</td>
-                            <td class=" ">{{ $pamor->user['name']}}</td>                           
+                                                      
                             <td class=" ">{{ $pamor->kegiatan}}</td>
                             <td class=" ">{{ $pamor->bidang}}</td>
                             <td class=" ">{{ $pamor->rt->rt}}</td>
