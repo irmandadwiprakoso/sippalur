@@ -59,7 +59,7 @@ class User extends Authenticatable
     public function rw(){
         return $this->belongsTo(Rw::class);
     }
-    // public function pamor(){
-    //     return $this->hasOne(Pamor::class);
-    // }
+    public function pamor(){
+        return $this->hasMany(Pamor::class);
+    }
 }

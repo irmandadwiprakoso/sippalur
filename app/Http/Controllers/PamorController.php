@@ -22,6 +22,7 @@ class PamorController extends Controller
     {
         if(auth()->user()->username == 'superadmin')
         {
+           
             $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
@@ -117,7 +118,6 @@ class PamorController extends Controller
             'rw_id' => $request->rw_id,
             'foto' => $imgName,
             'user_id' => Auth::user()->id,
-            // 'user_id' => 23,
         ]);
 
         return redirect('/pamor')->with('success', 'Laporan Harian Berhasil Ditambahkan!');
