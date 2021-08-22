@@ -63,7 +63,7 @@
 						<tr>
                             <td class=" ">{{ $loop->iteration}}</td>
                             <td class=" ">{{ $pamor->tanggal}}</td>
-                            <td class=" ">{{ $pamor->user['name']}}</td>                           
+                            <td class=" ">{{ $pamor->user->name}}</td>                           
                             <td class=" ">{{ $pamor->kegiatan}}</td>
                             <td class=" ">{{ $pamor->bidang}}</td>
                             <td class=" ">{{ $pamor->rt->rt}}</td>
