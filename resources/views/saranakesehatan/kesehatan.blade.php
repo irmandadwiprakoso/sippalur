@@ -99,6 +99,7 @@
                             <th>RW</th>
                             <th>Dokter/Pimpinan</th>
                             <th>Status Lahan</th>
+                            <th>No HP</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
@@ -121,6 +122,7 @@
                             <td class=" ">{{ $kesehatan->rw->rw}}</td>
                             <td class=" ">{{ $kesehatan->nama_pimpinan}}</td>
                             <td class=" ">{{ $kesehatan->status_lahan}}</td>
+                            <td class=" ">{{ $kesehatan->no_hp}}</td>
 
                             @if (auth()->user()->role == "superadmin")  
                             <td class=" ">

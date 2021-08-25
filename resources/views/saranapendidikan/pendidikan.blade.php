@@ -61,6 +61,7 @@
                             <th>RW</th>
                             <th>Nama Kepsek/Pimpinan</th>
                             <th>Status Lahan</th>
+                            <th>No HP</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
@@ -83,6 +84,7 @@
                             <td class=" ">{{ $pendidikan->rw->rw}}</td>
                             <td class=" ">{{ $pendidikan->nama_pimpinan}}</td>
                             <td class=" ">{{ $pendidikan->status_lahan}}</td>
+                            <td class=" ">{{ $pendidikan->no_hp}}</td>
 
                             @if (auth()->user()->role == "superadmin")  
                             <td class=" ">

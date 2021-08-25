@@ -134,6 +134,7 @@
                             <th>RW</th>
                             <th>Ketua DKM/Pengurus/Pendeta</th>
                             <th>Status Lahan</th>
+                            <th>No HP</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
@@ -156,6 +157,7 @@
                             <td class=" ">{{ $ibadah->rw->rw}}</td>
                             <td class=" ">{{ $ibadah->nama_pimpinan}}</td>
                             <td class=" ">{{ $ibadah->status_lahan}}</td>
+                            <td class=" ">{{ $ibadah->no_hp}}</td>
 
                             @if (auth()->user()->role == "superadmin")  
                             <td class=" ">

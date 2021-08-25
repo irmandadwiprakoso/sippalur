@@ -77,6 +77,12 @@
             </select>
             @error ('status_lahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
+        
+        <div class="mb-3">
+            <label for="no_hp" class="form-label">No HP</label>
+            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="No HP" name="no_hp" value="{{ old('no_hp') }}">
+            @error ('no_hp') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
 
         <div class="box-footer">
           <button type="submit" class="btn btn-primary">Add Data</button>

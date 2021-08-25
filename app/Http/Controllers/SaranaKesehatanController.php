@@ -178,7 +178,7 @@ class SaranaKesehatanController extends Controller
             'rt_id' => 'required',
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
-            'status_lahan' => 'required'
+          
         ],
         [
             'nama_sarana_kesehatan.required' => 'Harus Di isi yaa',
@@ -187,7 +187,7 @@ class SaranaKesehatanController extends Controller
             'rt_id.required' => 'Harus Di isi yaa',
             'rw_id.required' => 'Harus Di isi yaa',
             'nama_pimpinan.required' => 'Harus Di isi yaa',
-            'status_lahan.required' => 'Harus Di isi yaa',
+           
         ]
     );
         Kesehatan::create([
@@ -198,6 +198,7 @@ class SaranaKesehatanController extends Controller
             'rw_id' => $request->rw_id,
             'nama_pimpinan' => $request->nama_pimpinan,
             'status_lahan' => $request->status_lahan,
+            'no_hp' => $request->no_hp,
             // 'user_id' => Auth::user()->id,
         ]);
 
@@ -249,7 +250,7 @@ class SaranaKesehatanController extends Controller
             'rt_id' => 'required',
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
-            'status_lahan' => 'required'
+           
         ]);
 
         Kesehatan::where('id', $kesehatan->id)
@@ -260,7 +261,8 @@ class SaranaKesehatanController extends Controller
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'nama_pimpinan' => $request->nama_pimpinan,
-            'status_lahan' => $request->status_lahan
+            'status_lahan' => $request->status_lahan,
+            'no_hp' => $request->no_hp,
         ]);
 
         return redirect('/kesehatan')->with('success', 'Data Sarana Kesehatan Berhasil di Update!');
