@@ -167,7 +167,7 @@ return [
          */
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
+       
         /*
          * Application Service Providers...
          */
@@ -230,9 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        // 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-        'DataTables' => Yajra\DataTables\DataTablesServiceProvider::class,
-        
+       
     ],
 
 ];
