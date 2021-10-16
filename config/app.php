@@ -231,7 +231,8 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-        'Datatables' => Yajra\Datatables\DatatablesServiceProvider::class
+        'DataTables' => Yajra\DataTables\DataTablesServiceProvider::class,
+        
     ],
 
 ];
