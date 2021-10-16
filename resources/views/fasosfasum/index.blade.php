@@ -51,7 +51,7 @@
                             </div>
                         <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
                     </div>
-                    <table id="Datatables" class="table table-bordered table-striped">
+                    <table id="fasosfasum" class="table table-bordered table-striped">
                     <thead>
                         <tr>                             
                             <th>No</th>

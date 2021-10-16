@@ -62,6 +62,10 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos,pe
     Route::get('/exportkesehatan','SaranaKesehatanController@kesehatanexport');
     Route::resource('covid19','Covid19Controller');
     Route::get('/exportcovid19', 'Covid19Controller@covid19export');
+    
+    Route::get('getdatacovid19', [
+        'uses' => 'Covid19Controller@getdatacovid19',
+        'as' => 'ajax.get.data.siswa',]);
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum']],function(){

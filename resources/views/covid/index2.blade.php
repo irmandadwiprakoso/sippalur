@@ -124,33 +124,98 @@
                     </div>
                     
                     <div class="divider"></div>
-                    <table id="covid" class="table table-bordered table-striped">
+                    <table id="Datatables" class="table table-bordered table-striped">
                     <thead>
                         <tr>                          
                             <th>No</th>
                             <th>NIK</th>
-                            <th>NAMA</th>
-                            <th>RT</th>
-                            <th>RW</th>
-                            <th>TANGGAL KONFIRMASI</th>
-                            <th>STATUS PASIEN</th>
-                            <th>HASIL TEST PASIEN</th>
-                            <th>STATUS AKHIR PASIEN</th>
-                            <th>TANGGAL STATUS AKHIR</th>
-                            <th>VIEW</th>
+                            <th>Nama</th>
+                            <th>RT Domisili</th>
+                            <th>RW Domisili</th>
+                            <th>Tanggal Konfirmasi</th>
+                            <th>Status Pasien</th>
+                            <th>Hasil Test</th>
+                            <th>Status Akhir</th>
+                            <th>Tanggal Status Akhir</th>
+                            <th>View</th>
                             @if (auth()->user()->role == "superadmin")
-                            <th>EDIT</th>
-                            <th>DELETE</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                             @elseif (auth()->user()->role == "kessos")
-                            <th>EDIT</th>
-                            <th>DELETE</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                             @elseif (auth()->user()->role == "user")
-                            <th>EDIT</th>
+                            <th>Edit</th>
                             @endif
                         </tr>
                     </thead>
 					<tbody>	
-                    
+                    @foreach ($covid19 as $covid)
+                        @if($covid->status_akhir == 'Meninggal')
+                        <tr style="background-color:red">
+                        @elseif($covid->status_akhir == 'Negatif')
+                        <tr style="background-color:lightgreen">
+                        @elseif($covid->status_akhir == 'Positif')
+                        <tr style="background-color:orange">
+                        @endif
+                            <td class=" ">{{ $loop->iteration}}</td>                          
+                            <td class=" ">{{ $covid->ktp->id}}</td>
+                            <td class=" ">{{ $covid->ktp->nama}}</td>
+                            <td class=" ">{{ $covid->rt->rt}}</td>
+                            <td class=" ">{{ $covid->rw->rw}}</td>
+                            <td class=" ">{{ $covid->konfirmasi}}</td>
+                            <td class=" ">{{ $covid->status_pasien}}</td>
+                            <td class=" ">{{ $covid->hasil_test}}</td>
+                            <td class=" ">{{ $covid->status_akhir}}</td>
+                            <td class=" ">{{ $covid->tanggal_status_akhir}}</td>
+                            
+                            <td class=" ">
+                                <a href="/covid19/{{ $covid->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
+                                    <i class="glyphicon glyphicon-search"></i>
+								</a>
+                            </td>
+                           
+                            @if (auth()->user()->role == "superadmin")
+                            <td class=" ">
+                                <a href="/covid19/{{ $covid->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+								    <i class="glyphicon glyphicon-pencil"></i>
+								</a>
+                            </td>
+                            @elseif (auth()->user()->role == "user")
+                            <td class=" ">
+                                <a href="/covid19/{{ $covid->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+								    <i class="glyphicon glyphicon-pencil"></i>
+								</a>
+                            </td>
+                            @elseif (auth()->user()->role == "kessos")
+                            <td class=" ">
+                                <a href="/covid19/{{ $covid->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+								    <i class="glyphicon glyphicon-pencil"></i>
+								</a>
+                            </td>
+                           @endif
+
+                            @if (auth()->user()->role == "superadmin")                            
+                            <td class=" ">
+                            <a href="#" data-id="{{ $covid->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
+                                    <form action="{{ url('covid19', $covid->id) }}" id="delete{{ $covid->id }}" method="post" >
+                                    @method('delete')
+                                    @csrf
+                                    </form>
+								</a>
+                            </td>
+                            @elseif (auth()->user()->role == "kessos")                            
+                            <td class=" ">
+                            <a href="#" data-id="{{ $covid->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
+                                    <form action="{{ url('covid19', $covid->id) }}" id="delete{{ $covid->id }}" method="post" >
+                                    @method('delete')
+                                    @csrf
+                                    </form>
+								</a>
+                            </td>
+                            @endif
+                        </tr>
+                            @endforeach
                             </tbody>
 				        </table>
                     </div>

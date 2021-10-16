@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Exports\Covid19Export;
 use Maatwebsite\Excel\Facades\Excel;
 use phpDocumentor\Reflection\DocBlock\Tags\Covers;
+use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\Facades\DataTables;
 
 class Covid19Controller extends Controller
 {
@@ -429,4 +431,5 @@ class Covid19Controller extends Controller
         Covid19::destroy($covid19->id);
         return redirect()->back();
     }
+
 }

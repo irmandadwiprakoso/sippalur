@@ -64,9 +64,15 @@
         </div>
 
         <div class="mb-3">
-            <label for="tmt" class="form-label">TMT</label>
-            <input type="date" class="form-control @error('tmt') is-invalid @enderror" id="tmt" placeholder="TMT" name="tmt" value="{{ $ksbrt->tmt }}">
-            @error ('tmt') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+            <label for="tmt_mulai" class="form-label">Masa Bhakti : Mulai</label>
+            <input type="date" class="form-control @error('tmt_mulai') is-invalid @enderror" id="tmt_mulai" placeholder="TMT" name="tmt_mulai" value="{{ $ksbrt->tmt_mulai }}">
+            @error ('tmt_mulai') <div class="alert alert-danger">{{ $message }} </div>@enderror 
+        </div>
+
+        <div class="mb-3">
+            <label for="tmt_akhir" class="form-label">Masa Bhakti : Berakhir</label>
+            <input type="date" class="form-control @error('tmt_akhir') is-invalid @enderror" id="tmt_akhir" placeholder="TMT" name="tmt_akhir" value="{{ $ksbrt->tmt_akhir }}">
+            @error ('tmt_akhir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">

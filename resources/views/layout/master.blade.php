@@ -438,17 +438,13 @@
 
 <script>
   $(document).ready(function () {
- 
-
     $('#Datatables').DataTable();
-  });
-
     $('.sidebar-menu').tree();
       $(".swal-confirm").click(function(e) {
       id = e.target.dataset.id;
         Swal.fire({
         title: 'Yakin Mau Di Hapus?',
-        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi deh :) ",
+        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -462,7 +458,7 @@
               }
             });
        });
-       
+      });
 </script>
 @include('sweetalert::alert')
 @yield('footer')

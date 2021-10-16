@@ -87,7 +87,8 @@
                             <th>Jabatan</th>
                             <th>RT</th>
                             <th>RW</th>
-                            <th>TMT</th>
+                            <th>Masa Bhakti : Mulai</th>
+                            <th>Masa Bhakti : Berakhir</th>
                             <th>View</th>
                             @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
@@ -109,7 +110,8 @@
                             <td class=" ">{{ $ksb->jabatan->jabatan}}</td>
                             <td class=" ">{{ $ksb->rt->rt}}</td>
                             <td class=" ">{{ $ksb->rw->rw}}</td>
-                            <td class=" ">{{ $ksb->tmt}}</td>
+                            <td class=" ">{{ $ksb->tmt_mulai}}</td>
+                            <td class=" ">{{ $ksb->tmt_akhir}}</td>
                             
                             <td class=" ">
                                 <a href="/ksbrt/{{ $ksb->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  

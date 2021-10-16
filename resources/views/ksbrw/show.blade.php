@@ -41,7 +41,10 @@
                   <b>NO SK</b> <br> <a class="">{{ $ksbrw->no_sk}}</a>
                 </li>
                 <li class="list-group-item text-center">
-                  <b>TMT</b> <br> <a class="">{{ $ksbrw->tmt}}</a>
+                  <b>Masa Bhakti : Mulai</b> <br> <a class="">{{ $ksbrw->tmt_mulai}}</a>
+                </li>
+                <li class="list-group-item text-center">
+                  <b>Masa Bhakti : Berakhir</b> <br> <a class="">{{ $ksbrw->tmt_akhir}}</a>
                 </li>
                 <li class="list-group-item text-center">
                   <b>No HP</b> <br> <a class="">{{ $ksbrw->no_hp}}</a>
