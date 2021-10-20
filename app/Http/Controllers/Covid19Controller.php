@@ -148,7 +148,7 @@ class Covid19Controller extends Controller
             $covid19 = Covid19::where('rw_id', '=', '23')->get();
         }
 
-        return view('covid.index', ['covid19' => $covid19]);
+        return view('covid.index2', ['covid19' => $covid19]);
     }
 
     public function covid19export()

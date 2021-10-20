@@ -14,15 +14,15 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
                     <a href="/ksbrt/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportrtrw" class="btn btn-success">Export Data</a>
+                    <a href="/exportksbrt" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "user")
                     <a href="/ksbrt/create" class="btn btn-primary my-2">Insert Data</a>
                     @elseif (auth()->user()->role == "pemtibum")
                     <a href="/ksbrt/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportrtrw" class="btn btn-success">Export Data</a>
+                    <a href="/exportksbrt" class="btn btn-success">Export Data</a>
                     @elseif (auth()->user()->role == "admin")
                     <a href="/ksbrt/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportrtrw" class="btn btn-success">Export Data</a>
+                    <a href="/exportksbrt" class="btn btn-success">Export Data</a>
                     @endif
                     <hr>
         <div class="row">

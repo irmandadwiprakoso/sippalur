@@ -129,6 +129,12 @@ class ksbrtController extends Controller
 
         return view('ksbrt.index', ['ksbrt' => $ksbrt]);
     }
+
+    public function ksbrtexport()
+    {
+        return Excel::download(new ksbrtexport,'ksbrt-jakasampurna.csv');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

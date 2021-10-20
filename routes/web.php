@@ -73,7 +73,8 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum'
     Route::resource('rtrw','RtrwController');
     Route::resource('ksbrt','ksbrtController');
     Route::resource('ksbrw','ksbrwController');
-    Route::get('/exportrtrw', 'RtrwController@rtrwexport');
+    Route::get('/exportksbrt', 'ksbrtController@ksbrtexport');
+    Route::get('/exportksbrw', 'ksbrwController@ksbrwexport');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,permasbang']],function(){

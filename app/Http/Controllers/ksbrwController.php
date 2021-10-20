@@ -6,6 +6,7 @@ use App\Ksbrw;
 use App\Ktp;
 use App\Rw;
 use App\Jabatan;
+use App\Exports\ksbrwExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -126,6 +127,11 @@ class ksbrwController extends Controller
         }
 
         return view('ksbrw.index', ['ksbrw' => $ksbrw]);
+    }
+
+    public function ksbrwexport()
+    {
+        return Excel::download(new ksbrwexport,'ksbrw-jakasampurna.csv');
     }
 
     /**
