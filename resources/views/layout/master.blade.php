@@ -439,6 +439,7 @@
 <script>
   $(document).ready(function () {
     $('#Datatables').DataTable();
+    });
     $('.sidebar-menu').tree();
       $(".swal-confirm").click(function(e) {
       id = e.target.dataset.id;
@@ -458,7 +459,7 @@
               }
             });
        });
-      });
+      
 </script>
 @include('sweetalert::alert')
 @yield('footer')
