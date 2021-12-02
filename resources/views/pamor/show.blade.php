@@ -15,8 +15,8 @@
 
           <!-- Profile Image -->
           <div class="box box-primary">
-            <!-- <div class="box-body box-profile">
-              <h3 class="profile-username text-center">{{ $pamor->nama}}</h3> -->
+            <div class="box-body box-profile">
+              <h3 class="profile-username text-center">{{ $pamor->user['name']}}</h3>
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item ">
                   <b>Tanggal</b> <br> <a class="">{{ $pamor->tanggal}}</a>

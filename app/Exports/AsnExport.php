@@ -59,6 +59,7 @@ class AsnExport implements FromCollection, WithMapping, WithHeadings
             'SK Jabatan',
             'Rekening BJB',
             'NPWP',
+            'EMAIL',
             'No HP',
         ];
     }

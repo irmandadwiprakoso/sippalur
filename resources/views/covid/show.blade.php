@@ -112,8 +112,13 @@
                   <img src="{{asset('images/Covid19/Monitoring3/'. $covid19->fotomonitoring3)}}" height="50%" width="50%"></img></a>
                 </li>
               </ul>
-                  <a href="/covid19" class="btn btn-default">Close</a>
+                  <a href="/covid19" class="btn btn-default">Back</a>
+            </div>
+            </div>
+            </div>
             </div>
       </div>
+      </div>
+      
 </section>
 @endsection

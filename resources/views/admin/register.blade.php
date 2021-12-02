@@ -29,10 +29,10 @@
               <select class="form-control @error('role') is-invalid @enderror" id="role" name="role"> 
                   <option selected disabled>- Role -</option>
                   <option value="admin">Admin</option>
-                  <option value="kessos">Admin_Kessos</option>
-                  <option value="permasbang">Admin_Permasbang</option>
-                  <option value="pemtibum">Admin_Pemtibum</option>
-                  <option value="sekret">Admin_Sekret</option>
+                  <option value="kessos">Kessos</option>
+                  <option value="permasbang">Permasbang</option>
+                  <option value="pemtibum">Pemtibum</option>
+                  <option value="sekret">Sekret</option>
               </select>
               @error('role') <div class="alert alert-danger">{{ $message }} </div>@enderror   
           </div>
@@ -48,9 +48,18 @@
             <button type="submit" class="btn btn-primary btn-block btn-flat">Register User</button>
           </div>
         </div>
-      </form>
-
     </div>
+
   </div>
+</div>
+
+<div class="box box-primary">
+<div class="register-box-body">
+    <p class="login-box-msg">Role : admin -> Pejabat </p>
+    <p class="login-box-msg">Role : kessos -> Sub Operator Bidang Kessos </p>
+    <p class="login-box-msg">Role : permasbang -> Sub Operator Bidang Permasbang  </p>
+    <p class="login-box-msg">Role : pemtibum -> Sub Operator Bidang PemTrantibum  </p>
+    <p class="login-box-msg">Role : sekret -> Sub Operator Bidang Sekretariat  </p>
+</div>
 </div>
 @endsection

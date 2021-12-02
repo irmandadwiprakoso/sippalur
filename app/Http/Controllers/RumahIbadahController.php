@@ -10,6 +10,7 @@ use App\Tipeibadah;
 use App\Rt;
 use App\Rw;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class RumahIbadahController extends Controller
 {
@@ -19,7 +20,7 @@ class RumahIbadahController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    { 
         if(auth()->user()->role == 'superadmin')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
@@ -30,24 +31,24 @@ class RumahIbadahController extends Controller
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
 
-        if(auth()->user()->username == 'sekel')
+        if(auth()->user()->role == 'sekel')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
 
-        if(auth()->user()->username == 'admin_kessos')
+        if(auth()->user()->role == 'admin_kessos')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_permasbang')
+        if(auth()->user()->role == 'admin_permasbang')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_pemtibum')
+        if(auth()->user()->role == 'admin_pemtibum')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_sekret')
+        if(auth()->user()->role == 'admin_sekret')
         {
             $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
         }
@@ -152,7 +153,7 @@ class RumahIbadahController extends Controller
 
     public function ibadahexport()
     {
-        return Excel::download(new IbadahExport,'saranaibadah.xlsx');
+        return Excel::download(new IbadahExport,'sarana_ibadah.xlsx');
     }
 
     /**
@@ -183,16 +184,14 @@ class RumahIbadahController extends Controller
             'rt_id' => 'required',
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
-           
         ],
         [
-            'nama_sarana_ibadah.required' => 'Harus Di isi yaa',
+            'nama_sarana_sarana_ibadah.required' => 'Harus Di isi yaa',
             'tipeibadah_id.required' => 'Harus Di isi yaa',
             'alamat.required' => 'Harus Di isi yaa',
             'rt_id.required' => 'Harus Di isi yaa',
             'rw_id.required' => 'Harus Di isi yaa',
-            'nama_pimpinan.required' => 'Harus Di isi yaa',
-            
+            'nama_pimpinan.required' => 'Harus Di isi yaa', 
         ]
     );
         Ibadah::create([
@@ -219,7 +218,7 @@ class RumahIbadahController extends Controller
      */
     public function show(Ibadah $ibadah)
     {
-        return view ('ibadah.show', compact('ibadah'));
+        return view ('saranaibadah.show', compact('ibadah'));
     }
 
     /**
@@ -254,9 +253,8 @@ class RumahIbadahController extends Controller
             'rt_id' => 'required',
             'rw_id' => 'required',
             'nama_pimpinan' => 'required',
-            
         ]
-);
+        );
 
         Ibadah::where('id', $ibadah->id)
         ->update([
@@ -269,7 +267,6 @@ class RumahIbadahController extends Controller
             'status_lahan' => $request->status_lahan,
             'no_hp' => $request->no_hp,
         ]);
-
         return redirect('/ibadah')->with('success', 'Data Sarana Ibadah Berhasil di Update!');
     }
 
@@ -287,10 +284,133 @@ class RumahIbadahController extends Controller
     //     return redirect('/ibadah');
     //     //return "delete";
     // }
-    public function destroy(Ibadah $ibadah)
+    // public function destroy(Ibadah $ibadah)
+    // {
+    //     Ibadah::destroy($ibadah->id);
+    //     //return redirect('/ibadah')->with('info', 'Data Sarana Ibadah Berhasil Dihapus!');
+    //     return redirect()->back();
+    // }
+    public function hapusibadah(Request $request)
     {
-        Ibadah::destroy($ibadah->id);
-        //return redirect('/ibadah')->with('info', 'Data Sarana Ibadah Berhasil Dihapus!');
+        $id = $request->id;
+        $ibadah = Ibadah::find($id);
+        $ibadah->delete();
         return redirect()->back();
     }
+
+    public function getdataibadah()
+    {
+        ////////////////////////// AKUN ADMIN /////////////////////////////
+        if(auth()->user()->role == 'superadmin'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        ///////////// AKUN PAMOR //////////////////////////////////
+        if (auth()->user()->rw_id == '1'){
+        $ibadah = Ibadah::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '2'){
+        $ibadah = Ibadah::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '3'){
+        $ibadah = Ibadah::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '4'){
+        $ibadah = Ibadah::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '5'){
+        $ibadah = Ibadah::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '6'){
+        $ibadah = Ibadah::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '7'){
+        $ibadah = Ibadah::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '8'){
+        $ibadah = Ibadah::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '10'){
+        $ibadah = Ibadah::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '11'){
+        $ibadah = Ibadah::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '12'){
+        $ibadah = Ibadah::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '13'){
+        $ibadah = Ibadah::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '14'){
+        $ibadah = Ibadah::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '15'){
+        $ibadah = Ibadah::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '16'){
+        $ibadah = Ibadah::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '17'){
+        $ibadah = Ibadah::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '18'){
+        $ibadah = Ibadah::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '19'){
+        $ibadah = Ibadah::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '20'){
+        $ibadah = Ibadah::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '21'){
+        $ibadah = Ibadah::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '22'){
+        $ibadah = Ibadah::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '23'){
+        $ibadah = Ibadah::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }
+
+        // $ibadah = Ibadah::select('sarana_ibadah.*');
+        return DataTables::eloquent($ibadah)
+        ->addIndexColumn()
+        ->addColumn('tipeibadah', function($ibadah){
+            return $ibadah->tipeibadah->tipeibadah;    
+            })
+        ->addColumn('rt', function($ibadah){
+            return $ibadah->rt->rt;    
+            })
+        ->addColumn('rw', function($ibadah){
+            return $ibadah->rw->rw;    
+            })
+        ->addColumn('edit', function($ibadah){
+                return '<a href="ibadah/'.$ibadah->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($ibadah){
+                $button = "<button class='hapus btn btn-danger' title='Hapus'  id='".$ibadah->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+        })
+        
+        ->rawColumns(['tipeibadah','rt','rw','edit', 'hapus'])
+        ->toJson();
+        
+        }
 }

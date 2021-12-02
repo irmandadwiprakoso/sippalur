@@ -13,23 +13,26 @@
                     <div class="panel-heading">Data Kependudukan</div>
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin") 
-                    <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportkependudukan" class="btn btn-success">Export Data</a>
-                    @elseif (auth()->user()->role == "user") 
-                    <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportkependudukan" class="btn btn-success">Export Data</a>
-                    @elseif (auth()->user()->role == "pemtibum") 
-                    <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportkependudukan" class="btn btn-success">Export Data</a>
-                    @elseif (auth()->user()->role == "admin") 
-                    <a href="/kependudukan/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportkependudukan" class="btn btn-success">Export Data</a>
-                    @endif
-            <hr>
+                    <a href="/kependudukan/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportkependudukan" class="btn btn-success">Download Data</a>
 
-        <div class="row">
-        <div class="col-lg-2 col-xs-3">
-          <div class="small-box bg-default">
+                    @elseif (auth()->user()->role == "user") 
+                    <a href="/kependudukan/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportkependudukan" class="btn btn-success">Download Data</a>
+
+                    @elseif (auth()->user()->role == "pemtibum") 
+                    <a href="/kependudukan/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportkependudukan" class="btn btn-success">Download Data</a>
+
+                    @elseif (auth()->user()->role == "admin") 
+                    <a href="/kependudukan/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportkependudukan" class="btn btn-success">Download Data</a>
+                    @endif
+                    <hr>
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
             <div class="inner">
               <p>Jumlah KK</p>
               <h3>{{$kependudukan->sum('KK')}}</h3>
@@ -40,9 +43,8 @@
           </div>
         </div>
 
-        <div class="row">
-        <div class="col-lg-2 col-xs-3">
-          <div class="small-box bg-aqua">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
             <div class="inner">
               <p>Jumlah Laki-laki</p>
               <h3>{{$kependudukan->sum('Laki_laki')}}</h3>
@@ -53,8 +55,7 @@
           </div>
         </div>
 
-        <div class="row">
-        <div class="col-lg-2 col-xs-3">
+        <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
               <p>Jumlah Perempuan</p>
@@ -66,9 +67,8 @@
           </div>
         </div>
 
-        <div class="row">
-        <div class="col-lg-2 col-xs-3">
-          <div class="small-box bg-info">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
             <div class="inner">
               <p>Jumlah Jiwa</p>
               <h3>{{$kependudukan->sum('Perempuan')+$kependudukan->sum('Laki_laki')}}</h3>
@@ -78,13 +78,8 @@
             </div>
           </div>
         </div>
-
       </div>
-      </div>
-      </div>
-      </div>
-
-                <div class="table-responsive">
+                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
                             <div class="col-sm-6">
@@ -92,86 +87,103 @@
                                     </div>
                                 </div>
                             </div>
-                        <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
-                    <table id="Datatables" class="table table-bordered table-striped">
+                    <table id="kependudukan" class="table table-bordered table-striped">
                     <thead>
                         <tr>                             
-                            <th>No</th>
+                            <th>NO</th>
                             <th>RT</th>
                             <th>RW</th>
                             <th>KK</th>
-                            <th>Laki-Laki</th>
-                            <th>Perempuan</th>
-                            <th>Total Jiwa (L+P)</th>
-                            @if (auth()->user()->role == "superadmin")
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            @elseif (auth()->user()->role == "pemtibum")
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            @elseif (auth()->user()->role == "user")
-                            <th>Edit</th>
-                            @endif
+                            <th>LAKI-LAKI</th>
+                            <th>PEREMPUAN</th>
+                            <th>TOTAL JIWA(L+P)</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
                         </tr>
                     </thead>
-					<tbody>	
-                    @foreach ($kependudukan as $penduduk)
-						<tr>
-                            <td class=" ">{{ $loop->iteration}}</td>
-                            <td class=" ">{{ $penduduk->rt->rt}}</td>
-                            <td class=" ">{{ $penduduk->rw->rw}}</td>
-                            <td class=" ">{{ $penduduk->KK}}</td>
-                            <td class=" ">{{ $penduduk->Laki_laki}}</td>
-                            <td class=" ">{{ $penduduk->Perempuan}}</td>
-                            <td class=" ">{{ $penduduk->Perempuan+$penduduk->Laki_laki}}</td>
+	            			</table>
+                </div>
+		          </div>
+	          </div>
+          </div>
+        </div>	
+        
+<!-- jQuery 3 -->
+<script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
-                            @if (auth()->user()->role == "superadmin")  
-                            <td class=" ">
-                                <a href="/kependudukan/{{ $penduduk->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "user")  
-                            <td class=" ">
-                                <a href="/kependudukan/{{ $penduduk->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "pemtibum")  
-                            <td class=" ">
-                                <a href="/kependudukan/{{ $penduduk->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @endif
+<script>
+  $(document).ready(function () {
+    $('#kependudukan').DataTable({
+      processing:true,
+      serverside:true,
+      ajax:"{{route('ajax.get.data.kependudukan')}}",
+      // order: [[ 2, "asc" ]],
+      columns:[
+        {data:'DT_RowIndex', name:'DT_RowIndex'},
+        {data:'rt', name:'rt'},
+        {data:'rw', name:'rw'},
+        {data:'KK', name:'KK'},
+        {data:'Laki_laki', name:'Laki_laki'},
+        {data:'Perempuan', name:'Perempuan'},
+        {data:'total', name:'total'},
+        {data:'edit', name:'edit', orderable: false, searchable: false},
+        {data:'hapus', name:'hapus', orderable: false, searchable: false},
+      ]
+     })
+  })
 
-                            @if (auth()->user()->role == "superadmin")  
-                            <td class="">
-                                <a href="#" data-id="{{ $penduduk->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('kependudukan', $penduduk->id) }}" id="delete{{ $penduduk->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "pemtibum")  
-                            <td class="">
-                                <a href="#" data-id="{{ $penduduk->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('penduduk', $penduduk->id) }}" id="delete{{ $penduduk->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @endif
-                        </tr>
-                        @endforeach
-                    </tbody>
-				</table>
-            </div>
-		</div>
-	</div>
-</div>
-</div>	
+//HAPUS DATA
+ $(document).on('click', '.hapus', function() {
+      let id = $(this).attr('id')
+        Swal.fire({
+        title: 'Yakin Data Ini Mau Dihapus? ' +id,
+        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Gajadi',
+        confirmButtonText: 'Iyaaa, Hapus Aja'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                  url: "{{ route('hapuskependudukan') }}",
+                  type: 'post',
+                  data: { 
+                      id: id,
+                     _token: "{{ csrf_token() }}"
+                },
+                    success: function (res, status) {
+                    if (status = '200') {
+                      setTimeout(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data Kamu Berhasil Terhapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then((res) => {
+                            $('#kependudukan').DataTable().ajax.reload()
+                          })
+                      });
+                    }
+                  },
+                    error : function (xhr) {
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Terjadi Kesalahan!',
+                      })
+                    }
+                })
+              }
+            })
+       })
+</script>
+
+@include('sweetalert::alert')
 @endsection

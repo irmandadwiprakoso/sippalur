@@ -20,7 +20,7 @@
 
         <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama " name="nama" value="{{ old('nama') }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama " name="nama" value="{{ old('nama') }}">
             @error('nama') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -65,7 +65,7 @@
 
         <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir " name="tempat_lahir" value="{{ old('tempat_lahir') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir " name="tempat_lahir" value="{{ old('tempat_lahir') }}">
             @error ('tempat_lahir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -88,7 +88,7 @@
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat " value="{{ old('alamat') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Alamat " value="{{ old('alamat') }}">
             @error ('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -163,7 +163,7 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Add Data</button>
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
             <a class="btn btn-default" href="/asn" role="button">Cancel</a>
         </div>
             </form>

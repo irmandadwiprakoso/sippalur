@@ -20,7 +20,7 @@
               <p class="text-muted text-center">{{ $ktp-> tempat_lahir}} - {{ $ktp-> tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item text-center">
-                  <b>id</b> <br> <a class="">{{ $ktp-> id}}</a>
+                  <b>NIK</b> <br> <a class="">{{ $ktp-> id}}</a>
                 </li>
                 <li class="list-group-item text-center">
                   <b>KK</b> <br> <a class="">{{ $ktp-> KK}}</a>

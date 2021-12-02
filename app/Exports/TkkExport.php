@@ -58,6 +58,7 @@ class TkkExport implements FromCollection, WithMapping, WithHeadings
             'SK TKK',
             'Rekening BJB',
             'NPWP',
+            'EMAIL',
             'No HP',
         ];
     }

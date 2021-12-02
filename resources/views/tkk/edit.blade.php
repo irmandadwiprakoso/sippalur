@@ -15,7 +15,7 @@
     <div class="box-body">
         <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama " name="nama" value="{{ $tkk->nama }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama " name="nama" value="{{ $tkk->nama }}">
             @error('nama') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -33,7 +33,7 @@
        
         <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir " name="tempat_lahir" value="{{ $tkk->tempat_lahir }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir " name="tempat_lahir" value="{{ $tkk->tempat_lahir }}">
             @error ('tempat_lahir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -56,7 +56,7 @@
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat " name="alamat" value="{{ $tkk->alamat }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat " name="alamat" value="{{ $tkk->alamat }}">
             @error ('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -116,7 +116,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="rw_id" class="form-label">Satgas Pamor</label>
+            <label for="rw_id" class="form-label">RW</label>
             <select class="form-control @error('rw_id') is-invalid @enderror" aria-label="Default select example" id="rw_id" name="rw_id"> 
                 <option selected value="{{ $tkk->rw_id }}">{{ $tkk->rw->rw}}</option>
                 @foreach ($rw as $erwe)

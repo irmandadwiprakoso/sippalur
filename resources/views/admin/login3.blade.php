@@ -37,10 +37,7 @@
 					<span class="login100-form-title p-b-26">
 						SIP-PALUR
 					</span>
-					<!-- <span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
-					</span> -->
-				
+									
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">
 						<input class="input100" type="text" name="username">
 						<span class="focus-input100" data-placeholder="Username"></span>
@@ -63,22 +60,16 @@
 						</div>
 					</div>
 
-					<!-- <div class="text-center p-t-115">
+					<div class="text-center p-t-50">
 						<span class="txt1">
-							Don’t have an account?
+							Belum Punya Akun ? Hubungi Sekretariat yaa
 						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>
-					</div> -->
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
-
-	<div id="dropDownSelect1"></div>
+	<!-- <div id="dropDownSelect1"></div> -->
 	
 <!--===============================================================================================-->
 	<script src="/AdminLTE/Loginv2/vendor/jquery/jquery-3.2.1.min.js"></script>

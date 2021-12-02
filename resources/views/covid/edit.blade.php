@@ -16,7 +16,7 @@
     <div class="mb-3">
          <div class="mb-3">
             <label for="domisili" class="form-label">Domisili Tempat Tinggal</label>
-            <input type="text" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Domisili Tempat Tinggal" name="domisili" value="{{ $covid19->domisili }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('domisili') is-invalid @enderror" id="domisili" placeholder="Domisili Tempat Tinggal" name="domisili" value="{{ $covid19->domisili }}">
             @error ('domisili') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -60,7 +60,7 @@
 
         <div class="mb-3">
             <label for="lokasi_pasien" class="form-label">Lokasi Pasien</label>
-            <input type="text" class="form-control @error('lokasi_pasien') is-invalid @enderror" id="lokasi_pasien" placeholder="Nama Rumah Sakit/Tempat Pasien dirawat" name="lokasi_pasien" value="{{ $covid19->lokasi_pasien }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('lokasi_pasien') is-invalid @enderror" id="lokasi_pasien" placeholder="Nama Rumah Sakit/Tempat Pasien dirawat" name="lokasi_pasien" value="{{ $covid19->lokasi_pasien }}">
             @error ('lokasi_pasien') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -90,7 +90,7 @@
         </div>
         <div class="mb-3">
             <label for="monitoring1" class="form-label">Monitoring 1</label>
-            <input type="text" class="form-control @error('monitoring1') is-invalid @enderror" id="monitoring1" placeholder="Kegiatan Monitoring" name="monitoring1" value="{{ $covid19->monitoring1 }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('monitoring1') is-invalid @enderror" id="monitoring1" placeholder="Kegiatan Monitoring" name="monitoring1" value="{{ $covid19->monitoring1 }}">
             @error ('monitoring1') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -101,7 +101,7 @@
         </div>
         <div class="mb-3">
             <label for="monitoring2" class="form-label">Monitoring 2</label>
-            <input type="text" class="form-control @error('monitoring2') is-invalid @enderror" id="monitoring2" placeholder="Kegiatan Monitoring" name="monitoring2" value="{{ $covid19->monitoring2 }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('monitoring2') is-invalid @enderror" id="monitoring2" placeholder="Kegiatan Monitoring" name="monitoring2" value="{{ $covid19->monitoring2 }}">
             @error ('monitoring2') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -112,7 +112,7 @@
         </div>
         <div class="mb-3">
             <label for="monitoring3" class="form-label">Monitoring 3</label>
-            <input type="text" class="form-control @error('monitoring3') is-invalid @enderror" id="monitoring3" placeholder="Kegiatan Monitoring" name="monitoring3" value="{{ $covid19->monitoring3 }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('monitoring3') is-invalid @enderror" id="monitoring3" placeholder="Kegiatan Monitoring" name="monitoring3" value="{{ $covid19->monitoring3 }}">
             @error ('monitoring3') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -141,19 +141,19 @@
 
         <div class="mb-3">
             <label for="tinjut" class="form-label">Tindak Lanjut Kelurahan</label>
-            <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut Kelurahan" name="tinjut" value="{{ $covid19->tinjut }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Tindak Lanjut Kelurahan" name="tinjut" value="{{ $covid19->tinjut }}">
             @error ('tinjut') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="keterangan" class="form-label">Hasil Tindak Lanjut</label>
-            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Hasil Tindak Lanjut" name="keterangan" value="{{ $covid19->keterangan }}">
+            <input type="text"  onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Hasil Tindak Lanjut" name="keterangan" value="{{ $covid19->keterangan }}">
             @error ('keterangan') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
         <div class="mb-3">
             <label for="sumbercovid" class="form-label">Sumber Pasien Terpapar Covid</label>
-            <input type="text" class="form-control @error('sumbercovid') is-invalid @enderror" id="sumbercovid" placeholder="Sumber Pasien Terpapar Covid" name="sumbercovid" value="{{ $covid19->sumbercovid }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('sumbercovid') is-invalid @enderror" id="sumbercovid" placeholder="Sumber Pasien Terpapar Covid" name="sumbercovid" value="{{ $covid19->sumbercovid }}">
             @error ('sumbercovid') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -222,7 +222,7 @@
 
         <div class="box-footer">
             <button type="submit" class="btn btn-success">Update Data</button>
-            <a class="btn btn-default" href="/covid19" role="button">Cancel</a>
+            <a class="btn btn-default" href="/covid19" role="button">Batal</a>
         </div>
         </form>
     </div>

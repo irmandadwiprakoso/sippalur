@@ -15,6 +15,7 @@ use App\Pangkat;
 use App\Golongan;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class AsnController extends Controller
 {
@@ -91,6 +92,7 @@ class AsnController extends Controller
             'npwp' => 'required',
             'email' => 'required',
             'no_HP' => 'required',
+            'foto' => 'required|max:1024',
         ],
         [
             'id.required' => 'Harus di Isi Yaa',
@@ -112,6 +114,7 @@ class AsnController extends Controller
             'npwp.required' => 'Harus di Isi Yaa',
             'email.required' => 'Harus di Isi Yaa',
             'no_HP.required' => 'Harus di Isi Yaa',
+            'foto.required' => 'Upload Foto Pegawai',
         ]
     );
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
@@ -205,6 +208,7 @@ class AsnController extends Controller
             'npwp' => 'required',
             'email' => 'required',
             'no_HP' => 'required',
+            'foto' => 'max:1024',
         ],
         [
             // 'id.required' => 'id Pegawai Negeri Sipil',
@@ -271,11 +275,60 @@ class AsnController extends Controller
      * @param  \App\Asn $asn
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asn $asn)
+    // public function destroy(Asn $asn)
+    // {
+    //     Asn::destroy($asn->id);
+    //     //return redirect('/asn')->with('info', 'Data ASN Berhasil Dihapus!');
+    //     //return redirect('/asn');
+    //     return redirect()->back();
+    // }
+
+    public function hapusasn(Request $request)
     {
-        Asn::destroy($asn->id);
-        //return redirect('/asn')->with('info', 'Data ASN Berhasil Dihapus!');
-        //return redirect('/asn');
+        $id = $request->id;
+        $asn = Asn::find($id);
+        $asn->delete();
         return redirect()->back();
     }
+
+    public function getdataasn()
+    {
+        $asn = Asn::select('asn.*')->orderBy('jabatan_id', 'asc');
+        return DataTables::eloquent($asn)
+        ->addIndexColumn()
+        ->addColumn('pangkat', function($asn){
+            return $asn->pangkat->pangkat;    
+            })
+        ->addColumn('golongan', function($asn){
+            return $asn->golongan->golongan;    
+            })
+        ->addColumn('jabatan', function($asn){
+            return $asn->jabatan->jabatan;    
+            })
+ 
+        ->addColumn('view', function($asn){
+                return '<a href="asn/'.$asn->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($asn){
+                return '<a href="asn/'.$asn->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($asn){
+            if (auth()->user()->username == "superadmin"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$asn->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            }
+            if (auth()->user()->username == "admin_kessos"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$asn->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+        })
+        
+        ->rawColumns(['pangkat','golongan','jabatan','view','edit', 'hapus'])
+        ->toJson();
+        
+        }
 }

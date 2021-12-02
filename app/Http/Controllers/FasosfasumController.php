@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Exports\FasosfasumExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class FasosfasumController extends Controller
 {
@@ -20,11 +21,11 @@ class FasosfasumController extends Controller
     public function index()
     {
         // $fasosfasum = Fasosfasum::all();
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
             $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_permasbang')
+        if(auth()->user()->role == 'admin_permasbang')
         {
             $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
         }
@@ -166,7 +167,7 @@ class FasosfasumController extends Controller
             'pemanfaatan' => 'required',
             // 'nama_pengembang' => 'required',
             // 'nama_perumahan' => 'required',
-            'foto' => 'required',       
+            'foto' => 'required|max:1024',       
         ],
     [
         'nama.required' => 'Harus di Isi Yaa',
@@ -175,7 +176,7 @@ class FasosfasumController extends Controller
         'rw_id.required' => 'Harus di Isi Yaa',
         'luas.required' => 'Harus di Isi Yaa',
         'pemanfaatan.required' => 'Harus di Isi Yaa',
-        'foto.required' => 'Harus di Isi Yaa',
+        'foto.required' => 'diUpload yaa Foto Lokasinya',
     ]);
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
         . '.' . $request->foto->extension();
@@ -243,7 +244,7 @@ class FasosfasumController extends Controller
             'pemanfaatan' => 'required',
             // 'nama_pengembang' => 'required',
             // 'nama_perumahan' => 'required',
-            // 'foto' => 'required',       
+            'foto' => 'max:1024',       
         ]);
 
         Fasosfasum::where('id', $fasosfasum->id)
@@ -273,9 +274,136 @@ class FasosfasumController extends Controller
      * @param  \App\Fasosfasum  $fasosfasum
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fasosfasum $fasosfasum)
+    // public function destroy(Fasosfasum $fasosfasum)
+    // {
+    //     Fasosfasum::destroy($fasosfasum->id);
+    //     return redirect()->back();
+    // }
+
+    public function hapusfasosfasum(Request $request)
     {
-        Fasosfasum::destroy($fasosfasum->id);
+        $id = $request->id;
+        $fasosfasum = Fasosfasum::find($id);
+        $fasosfasum->delete();
         return redirect()->back();
     }
-}
+
+    public function getdatafasosfasum()
+    {
+        ////////////////////////// AKUN ADMIN /////////////////////////////
+        if(auth()->user()->role == 'superadmin'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        ///////////// AKUN PAMOR //////////////////////////////////
+        if (auth()->user()->rw_id == '1'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '2'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '3'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '4'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '5'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '6'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '7'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '8'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '10'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '11'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '12'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '13'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '14'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '15'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '16'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '17'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '18'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '19'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '20'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '21'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '22'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '23'){
+        $fasosfasum = Fasosfasum::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }
+
+        // $fasosfasum = Fasosfasum::select('fasosfasum.*');
+        return DataTables::eloquent($fasosfasum)
+        ->addIndexColumn()
+
+        ->addColumn('rt', function($fasosfasum){
+            return $fasosfasum->rt->rt;    
+            })
+        ->addColumn('rw', function($fasosfasum){
+            return $fasosfasum->rw->rw;    
+            })
+
+        ->addColumn('view', function($fasosfasum){
+                return '<a href="/fasosfasum/'.$fasosfasum->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($fasosfasum){
+                return '<a href="/fasosfasum/'.$fasosfasum->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($fasosfasum){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$fasosfasum->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+        })
+
+        ->rawColumns(['rt','rw','view','edit', 'hapus'])
+        ->toJson();
+        }
+    }

@@ -9,6 +9,7 @@ use App\Statuskawin;
 use App\Rt;
 use App\Rw;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class KtpController extends Controller
 {
@@ -67,8 +68,8 @@ class KtpController extends Controller
             'pekerjaan' => 'required',
         ],
         [
-            'id.required' => 'Di Isi 16 Digit id e-KTP',
-            'id.unique' => 'NIK e-KTP sudah di daftarkan',
+            'id.required' => 'Di Isi 16 Digit NIK e-KTP',
+            'id.unique' => 'NIK e-KTP sudah Terdaftar',
             'KK.required' => 'Di Isi 16 Digit Nomor KK',
             'nama.required' => 'Harus Di Isi Yaa',
             'hub_keluarga.required' => 'Harus Di Isi Yaa',
@@ -151,7 +152,7 @@ class KtpController extends Controller
             'pekerjaan' => 'required',
         ],
         [
-            'id.required' => 'Di Isi 16 Digit id e-KTP',
+            'id.required' => 'Di Isi 16 Digit NIK e-KTP',
             'KK.required' => 'Di Isi 16 Digit Nomor KK',
             'nama.required' => 'Harus Di Isi Yaa',
             'hub_keluarga.required' => 'Harus Di Isi Yaa',
@@ -200,9 +201,69 @@ class KtpController extends Controller
      * @param  \App\Ktp  $ktp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ktp $ktp)
+    // public function destroy(Ktp $ktp)
+    // {
+    //     Ktp::destroy($ktp->id);
+    //     return redirect()->back();
+    // }
+    public function hapusktp(Request $request)
     {
-        Ktp::destroy($ktp->id);
+        $id = $request->id;
+        $ktp = Ktp::find($id);
+        $ktp->delete();
         return redirect()->back();
     }
+
+    public function getdataktp()
+    {     
+        $ktp = Ktp::select('ktp.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        return DataTables::eloquent($ktp)
+        ->addIndexColumn()
+        ->addColumn('rt', function($ktp){
+            return $ktp->rt->rt;    
+            })
+        ->addColumn('rw', function($ktp){
+            return $ktp->rw->rw;    
+            })
+
+        ->addColumn('view', function($ktp){
+                return '<a href="ktp/'.$ktp->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($ktp){
+            if (auth()->user()->role == "superadmin"){
+                return '<a href="ktp/'.$ktp->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+            if (auth()->user()->role == "admin"){
+                return '<a href="ktp/'.$ktp->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+            if (auth()->user()->role == "pemtibum"){
+                return '<a href="ktp/'.$ktp->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+        })
+
+        ->addColumn('hapus', function($ktp){
+            if (auth()->user()->role == "superadmin"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$ktp->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            }
+            if (auth()->user()->role == "pemtibum"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$ktp->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+            if (auth()->user()->role == "admin"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$ktp->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+        })
+        
+        ->rawColumns(['rt','rw','view','edit', 'hapus'])
+        ->toJson();
+        
+        }
+
 }

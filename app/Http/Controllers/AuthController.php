@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\User;
-
+use App\Rw;
+use Yajra\DataTables\Facades\DataTables;
 
 class AuthController extends Controller
 {
@@ -86,10 +87,67 @@ class AuthController extends Controller
         return redirect('/user')->with('success', 'Password User Berhasil Direset!');
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+    public function edituser(User $user)
+    {
+        $rw = Rw::all();
+        return view ('admin.edit', compact('user', 'rw'));
+    }
+
+    public function updateuser(Request $request, User $user)
+    {
+        //($request->all());
+        $request->validate([
+            'rw_id' => 'required',
+        ]);
+
+        User::where('id', $user->id)
+        ->update([
+            'rw_id' => $request->rw_id,
+        ]);
+        return redirect('/user')->with('success', 'RW User Berhasil Dirubah!');
+    }
+
     public function deleteuser(User $user)
     {
         User::destroy($user->id);
         // return redirect('/user')->with('success', 'User Berhasil dihapus!');
         return redirect()->back();
     }
+
+    public function hapususer(Request $request)
+    {
+        $id = $request->id;
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
+
+    public function getdatauser()
+    {
+        $user = User::select('users.*');
+        return DataTables::eloquent($user)
+        ->addIndexColumn()
+        ->addColumn('edituser', function($user){
+                return '<a href="user/'.$user->id.'/edit" class="btn btn-warning" title="Edit RW">
+                <i class="glyphicon glyphicon-user"></i></a>';
+        })
+
+        ->addColumn('edit', function($user){
+                return '<a href="user/'.$user->id.'/changepassword" class="btn btn-warning" title="Reset Password">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($user){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$user->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+        })
+        
+        ->rawColumns(['edituser','edit', 'hapus'])
+        ->toJson();
+        
+        }
+
+
+
 }

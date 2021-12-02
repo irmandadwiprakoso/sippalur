@@ -10,6 +10,7 @@ use App\Exports\ksbrwExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ksbrwController extends Controller
 {
@@ -20,11 +21,11 @@ class ksbrwController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
             $ksbrw = Ksbrw::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_pemtibum')
+        if(auth()->user()->role == 'admin_pemtibum')
         {
             $ksbrw = Ksbrw::orderbyRaw('rw_id', 'DESC')->get();
         }
@@ -260,9 +261,138 @@ return redirect('/ksbrw')->with('success', 'Data RW Berhasil Ditambahkan!');
      * @param  \App\Ksbrw  $ksbrw
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ksbrw $ksbrw)
+    // public function destroy(Ksbrw $ksbrw)
+    // {
+    //     Ksbrw::destroy($ksbrw->id);
+    //     return redirect()->back();
+    // }
+
+    public function hapusksbrw(Request $request)
     {
-        Ksbrw::destroy($ksbrw->id);
+        $id = $request->id;
+        $ksbrw = Ksbrw::find($id);
+        $ksbrw->delete();
         return redirect()->back();
     }
+
+    public function getdataksbrw()
+    {
+        ////////////////////////// AKUN ADMIN /////////////////////////////
+        if(auth()->user()->role == 'superadmin'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }
+        ///////////// AKUN PAMOR //////////////////////////////////
+        if (auth()->user()->rw_id == '1'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '1')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '2'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '2')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '3'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '3')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '4'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '4')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '5'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '5')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '6'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '6')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '7'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '7')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '8'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '9')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '10'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '10')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '11'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '11')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '12'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '12')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '13'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '13')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '14'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '14')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '15'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '15')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '16'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '16')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '17'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '17')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '18'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '18')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '19'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '19')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '20'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '20')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '21'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '21')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '22'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '22')->orderBy('jabatan_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '23'){
+        $ksbrw = Ksbrw::where('rw_id', '=', '23')->orderBy('jabatan_id', 'asc');
+        }
+
+        // $ksbrw = Ksbrw::select('ksbrw.*');
+        return DataTables::eloquent($ksbrw)
+        ->addIndexColumn()
+        ->addColumn('nama', function($ksbrw){
+            return $ksbrw->ktp->nama;    
+            })
+        ->addColumn('jabatan', function($ksbrw){
+            return $ksbrw->jabatan->jabatan;    
+            })
+        ->addColumn('rw', function($ksbrw){
+            return $ksbrw->rw->rw;    
+            })
+
+        ->addColumn('view', function($ksbrw){
+                return '<a href="/ksbrw/'.$ksbrw->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($ksbrw){
+                return '<a href="/ksbrw/'.$ksbrw->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($ksbrw){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$ksbrw->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+        })
+
+        ->rawColumns(['nama','jabatan','rw','view','edit', 'hapus'])
+        ->toJson();
+        }
 }

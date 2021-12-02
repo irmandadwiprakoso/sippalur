@@ -13,14 +13,14 @@
                     <div class="panel-heading">Data Pegawai PNS</div>
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
-                    <a href="/asn/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportasn" class="btn btn-success">Export Data</a>
+                    <a href="/asn/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportasn" class="btn btn-success">Download Data</a>
                     @elseif (auth()->user()->role == "sekret")
-                    <a href="/asn/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportasn" class="btn btn-success">Export Data</a>
+                    <a href="/asn/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportasn" class="btn btn-success">Download Data</a>
                     @elseif (auth()->user()->role == "admin")
-                    <a href="/asn/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exportasn" class="btn btn-success">Export Data</a>
+                    <!-- <a href="/asn/create" class="btn btn-primary my-2">Tambah Data</a> -->
+                    <a href="/exportasn" class="btn btn-success">Download Data</a>
                     @endif
                 <hr>
                 
@@ -36,7 +36,6 @@
             </div>
           </div>
         </div>
-
       </div>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -48,7 +47,7 @@
                             </div>
                         <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
-                    <table id="Datatables" class="table table-bordered table-striped">
+                    <table id="asn" class="table table-bordered table-striped">
                         <thead>
                             <tr>                         
                                 <th>No</th>
@@ -58,71 +57,90 @@
                                 <th>Golongan</th>
                                 <th>Jabatan</th>
                                 <th>View</th>
-                                @if (auth()->user()->role == "superadmin")
                                 <th>Edit</th>
                                 <th>Delete</th>
-                                @elseif (auth()->user()->role == "sekret")
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                @endif
                             </tr>
                         </thead>
-                            <tbody>	
-                            @foreach ($asn as $pns)
-                                    <tr>
-                                        <td class=" ">{{ $loop->iteration}}</td>
-                                        <td class=" ">{{ $pns->id}}</td>
-                                        <td class=" ">{{ $pns->nama}}</td>
-                                        <td class=" ">{{ $pns->pangkat->pangkat}}</td>
-                                        <td class=" ">{{ $pns->golongan->golongan}}</td>
-                                        <td class=" ">{{ $pns->jabatan->jabatan}}</td>
-                                        
-                                        <td class=" ">
-                                            <a href="/asn/{{ $pns->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
-                                                <i class="glyphicon glyphicon-search"></i>
-                                            </a>
-                                        </td>
-                                        
-                                        @if (auth()->user()->role == "superadmin")
-                                        <td class=" ">
-                                            <a href="/asn/{{ $pns->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="glyphicon glyphicon-pencil"></i>
-                                            </a>
-                                        </td>
-                                        @elseif (auth()->user()->role == "sekret")
-                                        <td class=" ">
-                                            <a href="/asn/{{ $pns->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="glyphicon glyphicon-pencil"></i>
-                                            </a>
-                                        </td>
-                                        @endif
-
-                                        @if (auth()->user()->role == "superadmin")
-                                        <td class=" ">
-                                            <a href="#" data-id="{{ $pns->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                                <form action="{{ url('asn', $pns->id) }}" id="delete{{ $pns->id }}" method="post" >
-                                                    @method('delete')
-                                                    @csrf
-                                                </form>
-                                            </a>
-                                        </td>
-                                        @elseif (auth()->user()->role == "sekret")
-                                        <td class=" ">
-                                            <a href="#" data-id="{{ $pns->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                                <form action="{{ url('asn', $pns->id) }}" id="delete{{ $pns->id }}" method="post" >
-                                                    @method('delete')
-                                                    @csrf
-                                                </form>
-                                            </a>
-                                        </td>
-                                        @endif
-                                    </tr>
-                                @endforeach
-                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>	
+<!-- jQuery 3 -->
+<script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#asn').DataTable({
+      processing:true,
+      serverside:true,
+      ajax:"{{route('ajax.get.data.asn')}}",
+    //   order: [[ 5, "asc" ]],
+      columns:[
+        {data:'DT_RowIndex', name:'DT_RowIndex'},
+        {data:'id', name:'id'},
+        {data:'nama', name:'nama'},
+        {data:'pangkat', name:'pangkat'},
+        {data:'golongan', name:'golongan'},
+        {data:'jabatan', name:'jabatan'},
+        {data:'view', name:'view', orderable: false, searchable: false},
+        {data:'edit', name:'edit', orderable: false, searchable: false},
+        {data:'hapus', name:'hapus', orderable: false, searchable: false},
+      ]
+     })
+  })
+
+//HAPUS DATA
+ $(document).on('click', '.hapus', function() {
+      let id = $(this).attr('id')
+        Swal.fire({
+        title: 'Yakin Data Ini Mau Dihapus? ' +id,
+        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Gajadi',
+        confirmButtonText: 'Iyaaa, Hapus Aja'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                  url: "{{ route('hapusasn') }}",
+                  type: 'post',
+                  data: { 
+                      id: id,
+                     _token: "{{ csrf_token() }}"
+                },
+                    success: function (res, status) {
+                    if (status = '200') {
+                      setTimeout(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data Kamu Berhasil Terhapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then((res) => {
+                            $('#asn').DataTable().ajax.reload()
+                          })
+                      });
+                    }
+                  },
+                    error : function (xhr) {
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Terjadi Kesalahan!',
+                      })
+                    }
+                })
+              }
+            })
+       })
+</script>
+
+@include('sweetalert::alert')   
 @endsection

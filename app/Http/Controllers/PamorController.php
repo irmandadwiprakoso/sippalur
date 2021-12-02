@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Exports\PamorExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class PamorController extends Controller
 {
@@ -20,9 +21,8 @@ class PamorController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
-           
             $pamor = Pamor::orderbyRaw('tanggal', 'DESC')->get();
         }
         if(auth()->user()->role == 'admin')
@@ -88,6 +88,7 @@ class PamorController extends Controller
             'bidang' => 'required',
             'keterangan' => 'required',
             'tinjut' => 'required',
+            'foto' => 'required|max:1024',
             'rt_id' => 'required',
             'rw_id' => 'required',      
         ],
@@ -98,6 +99,7 @@ class PamorController extends Controller
             'bidang.required' => 'Harus di Isi',
             'keterangan.required' => 'Harus di Isi',
             'tinjut.required' => 'Harus di Isi',
+            'foto.required' => 'Diupload yaa Foto Kegiatan Kamu',
             'rt_id.required' => 'Harus di Isi',
             'rw_id.required' => 'Harus di Isi',
         ]
@@ -168,7 +170,7 @@ class PamorController extends Controller
             'tinjut' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',         
-            // 'foto' => 'required',         
+            'foto' => 'max:1024',         
         ]);
 
         Pamor::where('id', $pamor->id)
@@ -197,9 +199,75 @@ class PamorController extends Controller
      * @param  \App\Pamor  $pamor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pamor $pamor)
+    // public function destroy(Pamor $pamor)
+    // {
+    //     Pamor::destroy($pamor->id);
+    //     return redirect()->back();
+    // }
+
+
+    public function hapus(Request $request)
     {
-        Pamor::destroy($pamor->id);
+        $id = $request->id;
+        $pamor = pamor::find($id);
+        $pamor->delete();
         return redirect()->back();
+    }
+
+    public function getdatapamor()
+    {
+        // $pamor = Pamor::select('laporanpamor.*');
+
+        if(auth()->user()->role == 'superadmin'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        }
+        if (auth()->user()->role == 'user')
+        {
+            $pamor = Pamor::where('user_id', Auth()->user()->id)->orderBy('tanggal', 'desc')->orderBy('rt_id', 'asc');;
+        }
+        
+        return DataTables::eloquent($pamor)
+        ->addIndexColumn()
+        ->addColumn('name', function($pamor){
+            return $pamor->user['name'];    
+            })
+        ->addColumn('rt', function($pamor){
+            return $pamor->rt->rt;    
+            })
+        ->addColumn('rw', function($pamor){
+            return $pamor->rw->rw;    
+            })
+        ->addColumn('view', function($pamor){
+            return '<a href="/pamor/'.$pamor->id.'" class="btn btn-info" title="View">  
+            <i class="glyphicon glyphicon-search"></i></a>';
+        })
+
+        ->addColumn('edit', function($pamor){
+            return '<a href="/pamor/'.$pamor->id.'/edit" class="btn btn-warning" title="Edit">
+            <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($pamor){
+            $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$pamor->id."' ><i class='fa fa-trash'></i></button>";
+            return $button;
+        })
+
+        ->rawColumns(['name','rt','rw','view','edit', 'hapus'])
+        ->toJson();
     }
 }

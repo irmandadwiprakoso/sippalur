@@ -55,7 +55,7 @@
         
         <div class="box-footer">
             <button type="submit" class="btn btn-success">Update Data</button>
-            <a class="btn btn-default" href="/kependudukan" role="button">Cancel</a>
+            <a class="btn btn-default" href="/kependudukan" role="button">Batal</a>
         </div>
 
 </form>

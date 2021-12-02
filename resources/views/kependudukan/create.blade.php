@@ -52,10 +52,9 @@
             @error ('Perempuan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
-
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Add Data</button>
-            <a class="btn btn-default" href="/kependudukan" role="button">Cancel</a>
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+            <a class="btn btn-default" href="/kependudukan" role="button">Batal</a>
         </div>
     </form>
 </div>

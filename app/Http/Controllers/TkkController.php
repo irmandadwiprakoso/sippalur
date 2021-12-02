@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Exports\TkkExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\Facades\DataTables;
 
 class TkkController extends Controller
 {
@@ -60,16 +61,6 @@ class TkkController extends Controller
      */
     public function store(Request $request)
     {
-        //INSERT TO TABLE USERS
-        $user = new \App\User;
-        $user-> name = $request->nama;
-        $user-> email = $request->email;
-        $user-> username = $request->username;
-        $user-> rw_id = $request->rw_id;
-        $user-> role = 'user';
-        $user-> password = bcrypt('jakasampurna');
-        $user-> remember_token = Str::random(60);
-        $user-> save();
 
         $request->validate([
             'id' => 'required|size:16|unique:tkk,id',
@@ -89,12 +80,13 @@ class TkkController extends Controller
             'npwp' => 'required',
             'email' => 'required',
             'no_HP' => 'required',
-            'username' => 'required',
+            // 'username' => 'required',
             'rw_id' => 'required', 
+            'foto' => 'required|max:1024', 
         ],
         [
             'id.required' => 'Harus di Isi Yaa',
-            'id.unique' => 'NIK Sudah Digunakan Yaa',
+            'id.unique' => 'NIK Sudah Digunakan',
             'KK.required' => 'Harus di Isi Yaa',
             'nama.required' => 'Harus di Isi Yaa',
             'tempat_lahir.required' => 'Harus di Isi Yaa',
@@ -111,13 +103,23 @@ class TkkController extends Controller
             'no_HP.required' => 'Harus di Isi Yaa',
             'npwp.required' => 'Harus di Isi Yaa',
             'email.required' => 'Harus di Isi Yaa',
-            'email.required' => 'Harus di Isi Yaa',
-            'username.required' => 'Harus di Isi Yaa',
+            // 'username.required' => 'Harus di Isi Yaa',
             'rw_id.required' => 'Harus di Isi Yaa',
         ]
     );
+            //INSERT TO TABLE USERS
+            $user = new \App\User;
+            $user-> name = $request->nama;
+            $user-> email = $request->email;
+            $user-> username = $request->id;
+            $user-> rw_id = $request->rw_id;
+            $user-> role = 'user';
+            $user-> password = bcrypt('jakasampurna');
+            $user-> remember_token = Str::random(60);
+            $user-> save();
 
-        $request->request->add ( ['user_id'=> $user->id] );
+            $request->request->add ( ['user_id'=> $user->id] );
+
         // Tkk::create($request->all());
 
         $imgName = $request->foto->getClientOriginalName() . '-' . time() 
@@ -143,7 +145,8 @@ class TkkController extends Controller
             'npwp' => $request->npwp,
             'email' => $request->email,
             'no_HP' => $request->no_HP,
-            'username' => $request->username,
+            // 'username' => $request->username,
+            'username' => $request->id,
             'rw_id' => $request->rw_id,
             'foto' => $imgName,
         ]);
@@ -192,7 +195,6 @@ class TkkController extends Controller
      */
     public function update(Request $request, Tkk $tkk)
     {
-        
         //dd($request->all());
         $request->validate([
             // 'id' => 'required|size:16|unique:tkk,id',
@@ -236,10 +238,7 @@ class TkkController extends Controller
             'email.required' => 'Harus di Isi Yaa', 
             'rw_id.required' => 'Harus di Isi Yaa', 
         ]
-    );
-
-        
-
+    );     
         Tkk::where('id', $tkk->id)
         ->update([
             // 'id' => $request->id,
@@ -260,7 +259,6 @@ class TkkController extends Controller
             'email' => $request->email,
             'no_HP' => $request->no_HP,
             'rw_id' => $request->rw_id,
-            
             // 'foto' => $request->foto
         ]);
         if ($request->hasFile('foto')){
@@ -287,4 +285,52 @@ class TkkController extends Controller
     {
         return view('tkk.profile');
     }
+
+    public function hapustkk(Request $request)
+    {
+        $id = $request->id;
+        $tkk = Tkk::find($id);
+        $tkk->delete();
+        return redirect()->back();
+    }
+
+    public function getdatatkk()
+    {
+        $tkk = Tkk::select('tkk.*')->orderBy('rw_id', 'asc');
+        return DataTables::eloquent($tkk)
+        ->addIndexColumn()
+        ->addColumn('rw', function($tkk){
+            return $tkk->rw->rw;    
+            })
+        ->addColumn('jabatan', function($tkk){
+            return $tkk->jabatan->jabatan;    
+            })
+ 
+        ->addColumn('view', function($tkk){
+                return '<a href="tkk/'.$tkk->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($tkk){
+                return '<a href="tkk/'.$tkk->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($tkk){
+            if (auth()->user()->username == "superadmin"){
+                $button = "<button class='hapus btn btn-danger' id='".$tkk->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            }
+            if (auth()->user()->username == "admin_kessos"){
+                $button = "<button class='hapus btn btn-danger' id='".$tkk->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+        })
+        
+        ->rawColumns(['rw','jabatan','view','edit', 'hapus'])
+        ->toJson();
+        
+        }
+
+
 }

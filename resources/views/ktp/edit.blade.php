@@ -15,7 +15,7 @@
     <div class="box-body">
         <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" name="nama" value="{{ $ktp->nama }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" name="nama" value="{{ $ktp->nama }}">
             @error('nama') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -51,7 +51,7 @@
 
         <div class="mb-3">
             <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-            <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir" value="{{ $ktp->tempat_lahir }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir" value="{{ $ktp->tempat_lahir }}">
             @error ('tempat_lahir') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -63,7 +63,7 @@
 
         <div class="mb-3">
             <label for="alamat_KTP" class="form-label">Alamat KTP</label>
-            <input type="text" class="form-control @error('alamat_KTP') is-invalid @enderror" id="alamat_KTP" placeholder="Alamat" name="alamat_KTP" value="{{ $ktp->alamat_KTP }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat_KTP') is-invalid @enderror" id="alamat_KTP" placeholder="Alamat" name="alamat_KTP" value="{{ $ktp->alamat_KTP }}">
             @error ('alamat_KTP') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -92,25 +92,25 @@
 
         <div class="mb-3">
             <label for="kelurahan" class="form-label">Kelurahan</label>
-            <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" placeholder="Kelurahan" name="kelurahan" value="{{ $ktp->kelurahan }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" placeholder="Kelurahan" name="kelurahan" value="{{ $ktp->kelurahan }}">
             @error ('kelurahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="mb-3">
             <label for="kecamatan" class="form-label">Kecamatan</label>
-            <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" placeholder="Kecamatan" name="kecamatan" value="{{ $ktp->kecamatan }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" placeholder="Kecamatan" name="kecamatan" value="{{ $ktp->kecamatan }}">
             @error ('kecamatan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="mb-3">
             <label for="kota_kab" class="form-label">Kota / Kabupaten</label>
-            <input type="text" class="form-control @error('kota_kab') is-invalid @enderror" id="kota_kab" placeholder="Kota / Kabupaten" name="kota_kab" value="{{ $ktp->kota_kab }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kota_kab') is-invalid @enderror" id="kota_kab" placeholder="Kota / Kabupaten" name="kota_kab" value="{{ $ktp->kota_kab }}">
             @error ('kota_kab') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="mb-3">
             <label for="propinsi" class="form-label">Propinsi</label>
-            <input type="text" class="form-control @error('propinsi') is-invalid @enderror" id="propinsi" placeholder="Propinsi" name="propinsi" value="{{ $ktp->propinsi }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('propinsi') is-invalid @enderror" id="propinsi" placeholder="Propinsi" name="propinsi" value="{{ $ktp->propinsi }}">
             @error ('propinsi') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -149,7 +149,7 @@
 
         <div class="mb-3">
                 <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="Pekerjaan" name="pekerjaan" value="{{ $ktp->pekerjaan }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="Pekerjaan" name="pekerjaan" value="{{ $ktp->pekerjaan }}">
             @error('pekerjaan') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -157,9 +157,7 @@
             <button type="submit" class="btn btn-success">Update Data</button>
             <a class="btn btn-default" href="/ktp" role="button">Close</a>
         </div>
-</form>
+    </form>
         </div>
     </div>
-
-
 @endsection

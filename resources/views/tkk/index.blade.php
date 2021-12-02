@@ -13,18 +13,19 @@
                     <div class="panel-heading">Data Pegawai TKK</div>       
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
-                    <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
+                    <a href="/tkk/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exporttkk" class="btn btn-success">Download Data</a>
                     @elseif (auth()->user()->role == "sekret")
-                    <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
+                    <a href="/tkk/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exporttkk" class="btn btn-success">Download Data</a>
                     @elseif (auth()->user()->role == "admin")
-                    <a href="/tkk/create" class="btn btn-primary my-2">Insert Data</a>
-                    <a href="/exporttkk" class="btn btn-success">Export Data</a>
+                    <!-- <a href="/tkk/create" class="btn btn-primary my-2">Tambah Data</a> -->
+                    <a href="/exporttkk" class="btn btn-success">Download Data</a>
                     @endif
                 <hr>
+
         <div class="row">
-        <div class="col-lg-5 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
               <p>Jumlah TKK</p>
@@ -36,8 +37,7 @@
           </div>
         </div>
 
-        <div class="row">
-        <div class="col-lg-5 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
               <p>Jumlah Pamor</p>
@@ -48,10 +48,7 @@
             </div>
           </div>
         </div>
-
       </div>
-      </div>
-
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -62,7 +59,7 @@
                             </div>
                         <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
-                    <table id="Datatables" class="table table-bordered table-striped">
+                    <table id="tkk" class="table table-bordered table-striped">
                     <thead>
                         <tr>                          
                             <th>No</th>
@@ -71,71 +68,89 @@
                             <th>Jabatan</th>
                             <th>RW</th>
                             <th>View</th>
-                            @if (auth()->user()->role == "superadmin")
                             <th>Edit</th>
                             <th>Delete</th>
-                            @elseif (auth()->user()->role == "sekret")
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            @endif
                         </tr>
                     </thead>
-					<tbody>	
-                        @foreach ($tkk as $nonasn)
-                            <tr>
-                                <td class=" ">{{ $loop->iteration}}</td>
-                                <td class=" ">{{ $nonasn-> id}}</td>
-                                <td class=" ">{{ $nonasn-> nama}}</td>
-                                <td class=" ">{{ $nonasn-> jabatan -> jabatan}}</td>
-                                <td class=" ">{{ $nonasn-> rw -> rw}}</td>
-                                
-                                <td class=" ">
-                                    <a href="/tkk/{{ $nonasn->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </a>
-                                </td>
-                            
-                                @if (auth()->user()->role == "superadmin")
-                                <td class=" ">
-                                    <a href="/tkk/{{ $nonasn->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </a>
-                                </td>
-                                @elseif (auth()->user()->role == "sekret")
-                                <td class=" ">
-                                    <a href="/tkk/{{ $nonasn->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </a>
-                                </td>
-                                @endif
-
-                                @if (auth()->user()->role == "superadmin")                            
-                                <td class=" ">
-                                <a href="#" data-id="{{ $nonasn->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                        <form action="{{ url('tkk', $nonasn->id) }}" id="delete{{ $nonasn->id }}" method="post" >
-                                        @method('delete')
-                                        @csrf
-                                        </form>
-                                    </a>
-                                </td>
-                                @elseif (auth()->user()->role == "sekret")                            
-                                <td class=" ">
-                                <a href="#" data-id="{{ $nonasn->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                        <form action="{{ url('tkk', $nonasn->id) }}" id="delete{{ $nonasn->id }}" method="post" >
-                                        @method('delete')
-                                        @csrf
-                                        </form>
-                                    </a>
-                                </td>
-                                @endif
-                            </tr>
-                        @endforeach
-                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>	
+<!-- jQuery 3 -->
+<script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
+<script>
+  $(document).ready(function () {
+    $('#tkk').DataTable({
+      processing:true,
+      serverside:true,
+      ajax:"{{route('ajax.get.data.tkk')}}",
+    //   order: [[ 5, "asc" ]],
+      columns:[
+        {data:'DT_RowIndex', name:'DT_RowIndex'},
+        {data:'id', name:'id'},
+        {data:'nama', name:'nama'},
+        {data:'jabatan', name:'jabatan'},
+        {data:'rw', name:'rw'},
+        {data:'view', name:'view', orderable: false, searchable: false},
+        {data:'edit', name:'edit', orderable: false, searchable: false},
+        {data:'hapus', name:'hapus', orderable: false, searchable: false},
+      ]
+     })
+  })
+
+//HAPUS DATA
+ $(document).on('click', '.hapus', function() {
+      let id = $(this).attr('id')
+        Swal.fire({
+        title: 'Yakin Data Ini Mau Dihapus? ' +id,
+        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Gajadi',
+        confirmButtonText: 'Iyaaa, Hapus Aja'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                  url: "{{ route('hapustkk') }}",
+                  type: 'post',
+                  data: { 
+                      id: id,
+                     _token: "{{ csrf_token() }}"
+                },
+                    success: function (res, status) {
+                    if (status = '200') {
+                      setTimeout(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data Kamu Berhasil Terhapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then((res) => {
+                            $('#tkk').DataTable().ajax.reload()
+                          })
+                      });
+                    }
+                  },
+                    error : function (xhr) {
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Terjadi Kesalahan!',
+                      })
+                    }
+                })
+              }
+            })
+       })
+</script>
+
+@include('sweetalert::alert')   
 @endsection

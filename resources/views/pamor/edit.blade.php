@@ -21,8 +21,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="kegiatan" class="form-label">Kegiatan</label>
-            <input type="text" class="form-control @error('kegiatan') is-invalid @enderror" id="kegiatan" placeholder="Kegiatan Anda" name="kegiatan" value="{{ $pamor->kegiatan }}">
+            <label for="kegiatan" class="form-label">Kegiatan Pamor</label>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kegiatan') is-invalid @enderror" id="kegiatan" placeholder="Kegiatan Anda" name="kegiatan" value="{{ $pamor->kegiatan }}">
             @error ('kegiatan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -45,13 +45,13 @@
 
         <div class="mb-3">
             <label for="tinjut" class="form-label">Tindak Lanjut</label>
-            <input type="text" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Keterangan Laporan Anda" name="tinjut" value="{{ $pamor->tinjut }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tinjut') is-invalid @enderror" id="tinjut" placeholder="Keterangan Laporan Anda" name="tinjut" value="{{ $pamor->tinjut }}">
             @error ('tinjut') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
-            <label for="keterangan" class="form-label">Keterangan Kegiatan</label>
-            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Keterangan Laporan Anda" name="keterangan" value="{{ $pamor->keterangan }}">
+            <label for="keterangan" class="form-label">Keterangan</label>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Keterangan Laporan Anda" name="keterangan" value="{{ $pamor->keterangan }}">
             @error ('keterangan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 

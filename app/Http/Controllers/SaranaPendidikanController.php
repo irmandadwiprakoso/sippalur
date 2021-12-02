@@ -10,6 +10,7 @@ use App\Tipependidikan;
 use App\Rt;
 use App\Rw;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\Facades\DataTables;
 
 class SaranaPendidikanController extends Controller
 {
@@ -21,11 +22,11 @@ class SaranaPendidikanController extends Controller
     public function index(Request $request)
     {
     
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'lurah')
+        if(auth()->user()->role == 'lurah')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
@@ -33,19 +34,19 @@ class SaranaPendidikanController extends Controller
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_kessos')
+        if(auth()->user()->role == 'admin_kessos')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_permasbang')
+        if(auth()->user()->role == 'admin_permasbang')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_sekret')
+        if(auth()->user()->role == 'admin_sekret')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->username == 'admin_pemtibum')
+        if(auth()->user()->role == 'admin_pemtibum')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
@@ -273,10 +274,133 @@ class SaranaPendidikanController extends Controller
      * @param \App\Pendidikan $pendidikan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pendidikan $pendidikan)
+    // public function destroy(Pendidikan $pendidikan)
+    // {
+    //     Pendidikan::destroy($pendidikan->id);
+    //     //return redirect('/pendidikan')->with('info', 'Data Sarana Pendidikan Berhasil Dihapus!');
+    //     return redirect()->back();
+    // }
+    public function hapuspendidikan(Request $request)
     {
-        Pendidikan::destroy($pendidikan->id);
-        //return redirect('/pendidikan')->with('info', 'Data Sarana Pendidikan Berhasil Dihapus!');
+        $id = $request->id;
+        $pendidikan = Pendidikan::find($id);
+        $pendidikan->delete();
         return redirect()->back();
     }
+
+    public function getdatapendidikan()
+    {
+        ////////////////////////// AKUN ADMIN /////////////////////////////
+        if(auth()->user()->role == 'superadmin'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $pendidikan = Pendidikan::select('sarana_pendidikan.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        ///////////// AKUN PAMOR //////////////////////////////////
+        if (auth()->user()->rw_id == '1'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '2'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '3'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '4'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '5'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '6'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '7'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '8'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '10'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '11'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '12'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '13'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '14'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '15'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '16'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '17'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '18'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '19'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '20'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '21'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '22'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '23'){
+        $pendidikan = Pendidikan::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }
+
+        // $pendidikan = Pendidikan::select('sarana_pendidikan.*');
+        return DataTables::eloquent($pendidikan)
+        ->addIndexColumn()
+        ->addColumn('tipependidikan', function($pendidikan){
+            return $pendidikan->tipependidikan->tipependidikan;    
+            })
+        ->addColumn('rt', function($pendidikan){
+            return $pendidikan->rt->rt;    
+            })
+        ->addColumn('rw', function($pendidikan){
+            return $pendidikan->rw->rw;    
+            })
+        ->addColumn('edit', function($pendidikan){
+                return '<a href="pendidikan/'.$pendidikan->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+        })
+
+        ->addColumn('hapus', function($pendidikan){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$pendidikan->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+        })
+        
+        ->rawColumns(['tipependidikan','rt','rw','edit', 'hapus'])
+        ->toJson();
+        
+        }
 }

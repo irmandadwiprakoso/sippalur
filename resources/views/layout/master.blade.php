@@ -412,13 +412,11 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.1  | HI Tech
+      <b>Version</b> 2.2 | HI x JKSP
     </div>
     <!-- <strong>Copyrigsht &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights -->
     <strong>Copyright &copy; 2021 <a>Kelurahan Jakasampurna</a>.</strong> All rights
   </footer>
-
-<!-- ./wrapper -->
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -434,33 +432,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
-
-
-<script>
-  $(document).ready(function () {
-    $('#Datatables').DataTable();
-    });
-    $('.sidebar-menu').tree();
-      $(".swal-confirm").click(function(e) {
-      id = e.target.dataset.id;
-        Swal.fire({
-        title: 'Yakin Mau Di Hapus?',
-        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Deleted it'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                //window.location = link;
-                Swal.fire('Deleted!','Data Kamu Terhapus.','success');
-                $(`#delete${id}`).submit();
-              }
-            });
-       });
-      
-</script>
 @include('sweetalert::alert')
 @yield('footer')
 </body>

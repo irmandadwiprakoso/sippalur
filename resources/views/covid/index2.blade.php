@@ -206,7 +206,7 @@
                             </td>
                             @elseif (auth()->user()->role == "kessos")                            
                             <td class=" ">
-                            <a href="#" data-id="{{ $covid->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
+                                <a href="#" data-id="{{ $covid->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
                                     <form action="{{ url('covid19', $covid->id) }}" id="delete{{ $covid->id }}" method="post" >
                                     @method('delete')
                                     @csrf

@@ -15,7 +15,7 @@
         <div class="box-body">
                 <div class="form-group">
                 <label for="nama_sarana_kesehatan" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama_sarana_kesehatan') is-invalid @enderror" id="nama_sarana_ibadah" placeholder="Nama Sarana Kesehatan" name="nama_sarana_kesehatan" value="{{ old('nama_sarana_kesehatan') }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_sarana_kesehatan') is-invalid @enderror" id="nama_sarana_ibadah" placeholder="Nama Sarana Kesehatan" name="nama_sarana_kesehatan" value="{{ old('nama_sarana_kesehatan') }}">
             @error('nama_sarana_kesehatan') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -32,7 +32,7 @@
 
         <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ old('alamat') }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ old('alamat') }}">
             @error('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -60,7 +60,7 @@
 
         <div class="mb-3">
             <label for="nama_pimpinan" class="form-label">Nama Pimpinan </label>
-            <input type="text" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Kesehatan" name="nama_pimpinan" value="{{ old('nama_pimpinan') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Kesehatan" name="nama_pimpinan" value="{{ old('nama_pimpinan') }}">
             @error ('nama_pimpinan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
@@ -86,8 +86,8 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Add Data</button>
-            <a class="btn btn-default" href="/kesehatan" role="button">Close</a>
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+            <a class="btn btn-default" href="/kesehatan" role="button">Batal</a>
         </div>
         
 </form>

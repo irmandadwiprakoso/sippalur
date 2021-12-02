@@ -15,7 +15,7 @@
     <div class="box-body">
                 <div class="mb-3">
                 <label for="nama_sarana_pendidikan" class="form-label">Nama</label>
-                <input type="text" class="form-control @error('nama_sarana_pendidikan') is-invalid @enderror" id="nama_sarana_pendidikan" placeholder="Nama Sarana Pendidikan" name="nama_sarana_pendidikan" value="{{ $pendidikan->nama_sarana_pendidikan }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_sarana_pendidikan') is-invalid @enderror" id="nama_sarana_pendidikan" placeholder="Nama Sarana Pendidikan" name="nama_sarana_pendidikan" value="{{ $pendidikan->nama_sarana_pendidikan }}">
             @error('nama_sarana_pendidikan') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -32,7 +32,7 @@
 
         <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ $pendidikan->alamat }}">
+                <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat" name="alamat" value="{{ $pendidikan->alamat }}">
             @error('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror       
         </div>
 
@@ -60,7 +60,7 @@
 
         <div class="mb-3">
             <label for="nama_pimpinan" class="form-label">Nama Pimpinan </label>
-            <input type="text" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Pendidikan" name="nama_pimpinan" value="{{ $pendidikan->nama_pimpinan }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_pimpinan') is-invalid @enderror" id="nama_pimpinan" placeholder="Nama Pimpinan Sarana Pendidikan" name="nama_pimpinan" value="{{ $pendidikan->nama_pimpinan }}">
             @error ('nama_pimpinan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
@@ -87,7 +87,7 @@
 
         <div class="box-footer">
                 <button type="submit" class="btn btn-success">Update Data</button>
-                <a class="btn btn-default" href="/pendidikan" role="button">Close</a>
+                <a class="btn btn-default" href="/pendidikan" role="button">Batal</a>
         </div>
 
             </form>

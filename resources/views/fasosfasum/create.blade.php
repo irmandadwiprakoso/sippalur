@@ -13,19 +13,19 @@
     @csrf 
     <div class="box-body">
         <div class="mb-3">
-            <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama FASOS/FASUM" name="nama" value="{{ old('nama') }}">
+            <label for="nama" class="text-danger">Nama</label>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama FASOS/FASUM" name="nama" value="{{ old('nama') }}">
             @error ('nama') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat FASOS/FASUM" name="alamat" value="{{ old('alamat') }}">
+            <label for="alamat" class="text-danger">Alamat</label>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Alamat FASOS/FASUM" name="alamat" value="{{ old('alamat') }}">
             @error ('alamat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
-            <label for="rt_id" class="form-label">RT</label>
+            <label for="rt_id" class="text-danger">RT</label>
             <select class="form-control @error('rt_id') is-invalid @enderror" id="rt_id" name="rt_id" value="{{ old('rt_id') }}"> 
                 <option selected disabled>- Pilih -</option>
                 @foreach ($rt as $erte)
@@ -36,7 +36,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="rw_id" class="form-label">RW</label>
+            <label for="rw_id" class="text-danger">RW</label>
             <select class="form-control @error('rw_id') is-invalid @enderror" id="rw_id" name="rw_id" value="{{ old('rw_id') }}"> 
                 <option selected disabled>- Pilih -</option>
                 @foreach ($rw as $erwe)
@@ -48,43 +48,43 @@
 
         <div class="mb-3">
             <label for="koordinat" class="form-label">Koordinat Lokasi</label>
-            <input type="text" class="form-control @error('koordinat') is-invalid @enderror" id="koordinat" placeholder="Koordinat Lokasi" name="koordinat" value="{{ old('koordinat') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('koordinat') is-invalid @enderror" id="koordinat" placeholder="Koordinat Lokasi" name="koordinat" value="{{ old('koordinat') }}">
             @error ('koordinat') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
-            <label for="luas" class="form-label">Luas Lokasi</label>
+            <label for="luas" class="text-danger">Luas Lokasi</label>
             <input type="number" class="form-control @error('luas') is-invalid @enderror" id="luas" placeholder="Luas Lokasi" name="luas" value="{{ old('luas') }}">
             @error ('luas') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
-            <label for="pemanfaatan" class="form-label">Pemanfaatan Lokasi</label>
-            <input type="text" class="form-control @error('pemanfaatan') is-invalid @enderror" id="pemanfaatan" placeholder="Pemanfaatan Lokasi" name="pemanfaatan" value="{{ old('pemanfaatan') }}">
+            <label for="pemanfaatan" class="text-danger">Pemanfaatan Lokasi</label>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('pemanfaatan') is-invalid @enderror" id="pemanfaatan" placeholder="Pemanfaatan Lokasi" name="pemanfaatan" value="{{ old('pemanfaatan') }}">
             @error ('pemanfaatan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_pengembang" class="form-label">Nama Pengembang</label>
-            <input type="text" class="form-control @error('nama_pengembang') is-invalid @enderror" id="nama_pengembang" placeholder="Nama Pengembang" name="nama_pengembang" value="{{ old('nama_pengembang') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_pengembang') is-invalid @enderror" id="nama_pengembang" placeholder="Nama Pengembang" name="nama_pengembang" value="{{ old('nama_pengembang') }}">
             @error ('nama_pengembang') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="mb-3">
             <label for="nama_perumahan" class="form-label">Nama Perumahan</label>
-            <input type="text" class="form-control @error('nama_perumahan') is-invalid @enderror" id="nama_perumahan" placeholder="Nama Perumahan" name="nama_perumahan" value="{{ old('nama_perumahan') }}">
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama_perumahan') is-invalid @enderror" id="nama_perumahan" placeholder="Nama Perumahan" name="nama_perumahan" value="{{ old('nama_perumahan') }}">
             @error ('nama_perumahan') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
         
         <div class="input-group mb-3">
-            <label for="foto" value="{{ old('foto') }}">Foto Objek</label>
+            <label for="foto" value="{{ old('foto') }}" class="text-danger">Foto Objek</label>
             <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto">
             @error ('foto') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Add Data</button>
-            <a class="btn btn-default" href="/fasosfasum" role="button">Cancel</a>
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+            <a class="btn btn-default" href="/fasosfasum" role="button">Batal</a>
         </div>
     </form>
         </div>

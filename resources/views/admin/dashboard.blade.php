@@ -14,18 +14,15 @@
               <h2>Selamat Datang 
               <br>{{auth()->user()->name}} 
               <br>di Website Sistem Informasi Pelaporan Pamor Kelurahan
-              <br>(SIP-PALUR)</h2>
+              <br>(SIP-PALUR)
+              </h2>
               </center>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-
-
-
-  
+      </div>
+      </div>
+      </div> 
 </section>
 
 @endsection

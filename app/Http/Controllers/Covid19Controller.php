@@ -22,10 +22,6 @@ class Covid19Controller extends Controller
      */
     public function index()
     {
-       
-        // $covid19 = Covid19::with('warga','rt','rw');
-        // $covid19 = Covid19::all();
-        // return view('covid.index', ['covid19' => $covid19]);
         if(auth()->user()->username == 'superadmin')
         {
             $covid19 = Covid19::all();
@@ -148,7 +144,7 @@ class Covid19Controller extends Controller
             $covid19 = Covid19::where('rw_id', '=', '23')->get();
         }
 
-        return view('covid.index2', ['covid19' => $covid19]);
+        return view('covid.index', ['covid19' => $covid19]);
     }
 
     public function covid19export()
@@ -178,15 +174,15 @@ class Covid19Controller extends Controller
         // dd($request->all());
         $request->validate([
             'ktp_id' => 'required|unique:covid19,ktp_id',
-            'foto_KTP' => 'required',
-            'foto_KK' => 'required',
+            'foto_KTP' => 'required|max:1024',
+            'foto_KK' => 'required|max:1024',
             'domisili' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            'foto_status_pasien' => 'required',
+            'foto_status_pasien' => 'required|max:1024',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
@@ -199,15 +195,15 @@ class Covid19Controller extends Controller
         [
             'ktp_id.required' => 'Pilih Yang Bener ya NIK nya',
             'ktp_id.unique' => 'Sudah Di Pilih NIK ini',
-            'foto_KTP.required' => 'Di Upload Foto KTP nya',
-            'foto_KK.required' => 'Di Upload Foto KK nya',
+            'foto_KTP.required' => 'Upload Foto KTP nya & Max 1 Mb yaa fotonya',
+            'foto_KK.required' => 'Upload Foto KK nya & Max 1 Mb yaa fotonya',
             'domisili.required' => 'Harus Di Isi Yaa',
             'rt_id.required' => 'Harus Di Isi Yaa',
             'rw_id.required' => 'Harus Di Isi Yaa',
             'konfirmasi.required' => 'Harus Di Isi Yaa',
             'status_pasien.required' => 'Harus Di Isi Yaa',
             'lokasi_pasien.required' => 'Harus Di Isi Yaa',
-            'foto_status_pasien.required' => 'Harus Di Isi Yaa',
+            'foto_status_pasien.required' => 'Upload Foto Hasil Test Pasien & Max 1 Mb yaa fotonya',
             'hasil_test.required' => 'Harus Di Isi Yaa',
             'status_akhir.required' => 'Harus Di Isi Yaa',
             'tanggal_status_akhir.required' => 'Harus Di Isi Yaa',
@@ -269,7 +265,7 @@ class Covid19Controller extends Controller
             'monitoring3' => $request->monitoring3,
             // 'fotomonitoring3' => $imgName7,
             'status_akhir' => $request->status_akhir,
-            'tanggal_status_akhir' => $request->tanggal_status_akhir,
+            // 'tanggal_status_akhir' => $request->tanggal_status_akhir,
             // 'foto_status_akhir' => $imgName4,
             'no_hp' => $request->no_hp,
             'tinjut' => $request->tinjut,
@@ -324,11 +320,11 @@ class Covid19Controller extends Controller
             'konfirmasi' => 'required',
             'status_pasien' => 'required',
             'lokasi_pasien' => 'required',
-            // 'foto_status_pasien' => 'required',
+            'foto_status_pasien' => 'max:1024',
             'hasil_test' => 'required',
             'status_akhir' => 'required',
             'tanggal_status_akhir' => 'required',    
-            // 'foto_status_akhir' => 'required',
+            'foto_status_akhir' => 'max:1024',
             'no_hp' => 'required',        
             'tinjut' => 'required',        
             'keterangan' => 'required',        
@@ -368,11 +364,11 @@ class Covid19Controller extends Controller
             'hasil_test' => $request->hasil_test,
 
             'tglmonitoring1' => $request->tglmonitoring1,
-            'monitoring1' => $request->monitoring1,
+            // 'monitoring1' => $request->monitoring1,
             'tglmonitoring2' => $request->tglmonitoring2,
-            'monitoring2' => $request->monitoring2,
+            // 'monitoring2' => $request->monitoring2,
             'tglmonitoring3' => $request->tglmonitoring3,
-            'monitoring3' => $request->monitoring3,
+            // 'monitoring3' => $request->monitoring3,
             
             'status_akhir' => $request->status_akhir,
             'tanggal_status_akhir' => $request->tanggal_status_akhir,
@@ -426,10 +422,160 @@ class Covid19Controller extends Controller
      * @param  \App\Covid19  $covid19
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Covid19 $covid19)
+    
+    // public function destroy(Covid19 $covid19)
+    // {
+    //     Covid19::destroy($covid19->id);
+    //     return redirect()->back();
+    // }
+
+    public function hapus(Request $request)
     {
-        Covid19::destroy($covid19->id);
+        $id = $request->id;
+        $covid19 = covid19::find($id);
+        $covid19->delete();
         return redirect()->back();
     }
 
-}
+    public function getdatacovid19()
+    {
+        ////////////////////////// AKUN ADMIN /////////////////////////////
+        if(auth()->user()->role == 'superadmin'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'admin'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'sekret'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'kessos'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'pemtibum'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        if(auth()->user()->role == 'permasbang'){
+            $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+        }
+        ///////////// AKUN PAMOR //////////////////////////////////
+        if (auth()->user()->rw_id == '1'){
+        $covid19 = Covid19::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '2'){
+        $covid19 = Covid19::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '3'){
+        $covid19 = Covid19::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '4'){
+        $covid19 = Covid19::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '5'){
+        $covid19 = Covid19::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '6'){
+        $covid19 = Covid19::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '7'){
+        $covid19 = Covid19::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '8'){
+        $covid19 = Covid19::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '10'){
+        $covid19 = Covid19::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '11'){
+        $covid19 = Covid19::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '12'){
+        $covid19 = Covid19::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '13'){
+        $covid19 = Covid19::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '14'){
+        $covid19 = Covid19::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '15'){
+        $covid19 = Covid19::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '16'){
+        $covid19 = Covid19::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '17'){
+        $covid19 = Covid19::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '18'){
+        $covid19 = Covid19::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '19'){
+        $covid19 = Covid19::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '20'){
+        $covid19 = Covid19::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '21'){
+        $covid19 = Covid19::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '22'){
+        $covid19 = Covid19::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+        }
+        if (auth()->user()->rw_id == '23'){
+        $covid19 = Covid19::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }
+
+        // $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc');
+        return DataTables::eloquent($covid19)
+        ->addIndexColumn()
+        ->addColumn('nama', function($covid19){
+            return $covid19->ktp->nama;    
+            })
+        ->addColumn('rt', function($covid19){
+            return $covid19->rt->rt;    
+            })
+        ->addColumn('rw', function($covid19){
+            return $covid19->rw->rw;    
+            })
+
+        ->addColumn('view', function($covid19){
+                return '<a href="covid19/'.$covid19->id.'" class="btn btn-info" title="View">  
+                <i class="glyphicon glyphicon-search"></i></a>';           
+        })
+
+        ->addColumn('edit', function($covid19){
+            if (auth()->user()->role == "superadmin"){
+                return '<a href="covid19/'.$covid19->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+            if (auth()->user()->role == "kessos"){
+                return '<a href="covid19/'.$covid19->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+            if (auth()->user()->role == "user"){
+                return '<a href="covid19/'.$covid19->id.'/edit" class="btn btn-warning" title="Edit">
+                <i class="glyphicon glyphicon-pencil"></i></a>';
+            }
+        })
+
+        ->addColumn('hapus', function($covid19){
+            if (auth()->user()->role == "superadmin"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$covid19->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            }
+            if (auth()->user()->role == "kessos"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$covid19->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+            if (auth()->user()->role == "user"){
+                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$covid19->id."' ><i class='fa fa-trash'></i></button>";
+                return $button;  
+            } 
+        })
+        
+        ->rawColumns(['nama','rt','rw','view','edit', 'hapus'])
+        ->toJson();
+        
+        }
+    }

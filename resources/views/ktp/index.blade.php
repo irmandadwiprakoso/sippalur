@@ -3,7 +3,7 @@
 @section('title')
 
 <section class="content-header">
-      <h1>Data Kependudukan <small> Kelurahan Jakasampurna </small></h1>
+      <h1>Data Penduduk <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
 <section class="content">		
@@ -13,69 +13,59 @@
                     <div class="panel-heading">Data Detail Kependudukan</div>       
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin")
-                    <a href="/ktp/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/ktp/create" class="btn btn-primary my-2">Tambah Data</a>
                     @elseif (auth()->user()->role == "user")
-                    <a href="/ktp/create" class="btn btn-primary my-2">Insert Data</a>
+                    <a href="/ktp/create" class="btn btn-primary my-2">Tambah Data</a>
+                    @elseif (auth()->user()->role == "pemtibum")
+                    <a href="/ktp/create" class="btn btn-primary my-2">Tambah Data</a>
                     @endif
                 <hr>
 
-        <div class="row">
+      <div class="row">
         <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <p>Jumlah Data Penduduk</p>
-              <h3>{{$ktp->count()}}</h3>
+            <p>PENDUDUK JAKASAMPURNA</p>
+              <h3> {{ $ktp->count() }}</h3>
             </div>
             <div class="icon">
-              <i class="ion ion-person"></i>
+            <i class="ion ion-person"></i>
             </div>
           </div>
         </div>
 
-        <div class="row">
+        <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <p>Jumlah Penduduk Jakasampurna</p>
-              <h3> {{ $ktp->where('kelurahan', '=', 'Jakasampurna')->count() }}</h3>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-        <div class="col-lg-2 col-xs-6">
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <p>Jumlah Data Laki-laki</p>
-              <h3> {{ $ktp->where('jeniskelamin_id', '=', '1')->count() }}</h3>
+            <p>JUMLAH LAKI-LAKI</p>
+            <h3> {{ $ktp->where('jeniskelamin_id', '=', '1')->count() }}</h3>
             </div>
             <div class="icon">
-              <i class="ion ion-person"></i>
+            <i class="ion ion-person"></i>
             </div>
           </div>
         </div>
-
-        <div class="row">
+        <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <p>Jumlah Data Perempuan</p>
-              <h3> {{ $ktp->where('jeniskelamin_id', '=', '2')->count() }}</h3>
+            <p>JUMLAH PEREMPUAN</p>
+            <h3> {{ $ktp->where('jeniskelamin_id', '=', '2')->count() }}</h3>
             </div>
             <div class="icon">
-              <i class="ion ion-person"></i>
+            <i class="ion ion-person"></i>
             </div>
           </div>
         </div>
+        <!-- ./col -->        
+  
+        <!-- ./col -->
+      </div>
 
-      </div>
-      </div>
-      </div>
-      </div>
-<hr>
                 <div class="table-responsive">
                     <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
@@ -84,96 +74,105 @@
                                     </div>
                                 </div>
                             </div>
-                        <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
-                    <table id="Datatables" class="table table-bordered table-striped">
+                    <table id="ktp" class="table table-bordered table-striped">
                     <thead>
                         <tr>                          
                             <th>No</th>
                             <th>NIK</th>
                             <th>KK</th>
-                            <th>Nama</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
+                            <th>NAMA</th>
+                            <th>TANGGAL LAHIR</th>
+                            <th>ALAMAT</th>
                             <th>RT</th>
                             <th>RW</th>
-                            <th>View</th>
-                            @if (auth()->user()->role == "superadmin")
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            @elseif (auth()->user()->role == "pemtibum")
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            @elseif (auth()->user()->role == "user")
-                            <th>Edit</th>
-                            @endif
+                            <th>VIEW</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
                         </tr>
                     </thead>
-					<tbody>	
-                    @foreach ($ktp as $katepe)
-						<tr>
-                            <td class=" ">{{ $loop->iteration}}</td>
-                            <td class=" ">{{ $katepe-> id}}</td>
-                            <td class=" ">{{ $katepe-> KK}}</td>
-                            <td class=" ">{{ $katepe-> nama}}</td>
-                            <td class=" ">{{ $katepe-> tanggal_lahir}}</td>
-                            <td class=" ">{{ $katepe-> alamat_KTP}}</td>
-                            <td class=" ">{{ $katepe-> rt->rt}}</td>
-                            <td class=" ">{{ $katepe-> rw->rw}}</td>
-                            
-                            <td class=" ">
-                                <a href="/ktp/{{ $katepe->id}}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View">  
-                                    <i class="glyphicon glyphicon-search"></i>
-								</a>
-                            </td>
-                           
-                            @if (auth()->user()->role == "superadmin") 
-                            <td class=" ">
-                                <a href="/ktp/{{ $katepe->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "pemtibum") 
-                            <td class=" ">
-                                <a href="/ktp/{{ $katepe->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "user") 
-                            <td class=" ">
-                                <a href="/ktp/{{ $katepe->id}}/edit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
-								    <i class="glyphicon glyphicon-pencil"></i>
-								</a>
-                            </td>
-                            @endif
-                            
-                            @if (auth()->user()->role == "superadmin")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $katepe->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('ktp', $katepe->id) }}" id="delete{{ $katepe->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @elseif (auth()->user()->role == "pemtibum")                            
-                            <td class=" ">
-                            <a href="#" data-id="{{ $katepe->id }}" class="btn btn-danger swal-confirm"><i class="fa fa-trash"></i>
-                                    <form action="{{ url('ktp', $katepe->id) }}" id="delete{{ $katepe->id }}" method="post" >
-                                    @method('delete')
-                                    @csrf
-                                    </form>
-								</a>
-                            </td>
-                            @endif
-                        </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+  			            </table>
                 </div>
-            </div>
+           </div>
         </div>
-    </div>
-</div>	
+     </div>
+  </div> 
+<!-- jQuery 3 -->
+<script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
+<script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
+<script>
+  $(document).ready(function () {
+    $('#ktp').DataTable({
+      processing:true,
+      serverside:true,
+      ajax:"{{route('ajax.get.data.ktp')}}",
+      columns:[
+        {data:'DT_RowIndex', name:'DT_RowIndex'},
+        {data:'id', name:'id'},
+        {data:'KK', name:'KK'},
+        {data:'nama', name:'nama'},
+        {data:'tanggal_lahir', name:'tanggal_lahir'},
+        {data:'alamat_KTP', name:'alamat_KTP'},
+        {data:'rt', name:'rt'},
+        {data:'rw', name:'rw'},
+        {data:'view', name:'view', orderable: false, searchable: false},
+        {data:'edit', name:'edit', orderable: false, searchable: false},
+        {data:'hapus', name:'hapus', orderable: false, searchable: false},
+      ],
+     })
+  })
+
+//HAPUS DATA
+ $(document).on('click', '.hapus', function() {
+      let id = $(this).attr('id')
+        Swal.fire({
+        title: 'Yakin Data Ini Mau Dihapus? ' +id,
+        text: "Data kamu bakal hilang loh.. Pikir-Pikir lagi yaa :) ",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Gajadi',
+        confirmButtonText: 'Iyaaa, Hapus Aja'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                  url: "{{ route('hapusktp') }}",
+                  type: 'post',
+                  data: { 
+                      id: id,
+                     _token: "{{ csrf_token() }}"
+                },
+                    success: function (res, status) {
+                    if (status = '200') {
+                      setTimeout(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data Kamu Berhasil Terhapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then((res) => {
+                            $('#ktp').DataTable().ajax.reload()
+                          })
+                      });
+                    }
+                  },
+                    error : function (xhr) {
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Terjadi Kesalahan!',
+                      })
+                    }
+                })
+              }
+            })
+       })
+</script>
+
+@include('sweetalert::alert')
 @endsection
