@@ -437,7 +437,7 @@ class Covid19Controller extends Controller
         return redirect()->back();
     }
 
-    public function getdatacovid19()
+    public function getdatacovid19(Request $request)
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
         if(auth()->user()->role == 'superadmin'){
@@ -525,7 +525,274 @@ class Covid19Controller extends Controller
         if (auth()->user()->rw_id == '23'){
         $covid19 = Covid19::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
         }
-
+///////////////////////////FILTER DATA///////////////////////////////////////////////////
+        if(request()->ajax())
+        {
+         if(!empty($request->filter_status_pasien))
+         {
+            if(auth()->user()->role == 'superadmin'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if(auth()->user()->role == 'admin'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if(auth()->user()->role == 'kessos'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if(auth()->user()->role == 'pemtibum'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if(auth()->user()->role == 'permasbang'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if(auth()->user()->role == 'sekret'){
+            $covid19 = Covid19::
+            where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '1'){
+            $covid19 = Covid19::where('rw_id', '=', '1')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '2'){
+            $covid19 = Covid19::where('rw_id', '=', '2')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '3'){
+            $covid19 = Covid19::where('rw_id', '=', '3')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '4'){
+            $covid19 = Covid19::where('rw_id', '=', '4')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '5'){
+            $covid19 = Covid19::where('rw_id', '=', '5')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '6'){
+            $covid19 = Covid19::where('rw_id', '=', '6')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '7'){
+            $covid19 = Covid19::where('rw_id', '=', '7')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '8'){
+            $covid19 = Covid19::where('rw_id', '=', '8')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '9'){
+            $covid19 = Covid19::where('rw_id', '=', '9')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '10'){
+            $covid19 = Covid19::where('rw_id', '=', '10')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '11'){
+            $covid19 = Covid19::where('rw_id', '=', '11')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '12'){
+            $covid19 = Covid19::where('rw_id', '=', '12')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '13'){
+            $covid19 = Covid19::where('rw_id', '=', '13')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '14'){
+            $covid19 = Covid19::where('rw_id', '=', '14')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '15'){
+            $covid19 = Covid19::where('rw_id', '=', '15')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '16'){
+            $covid19 = Covid19::where('rw_id', '=', '16')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '17'){
+            $covid19 = Covid19::where('rw_id', '=', '17')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '18'){
+            $covid19 = Covid19::where('rw_id', '=', '18')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '19'){
+            $covid19 = Covid19::where('rw_id', '=', '19')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '20'){
+            $covid19 = Covid19::where('rw_id', '=', '20')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '21'){
+            $covid19 = Covid19::where('rw_id', '=', '21')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '22'){
+            $covid19 = Covid19::where('rw_id', '=', '22')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+            if (auth()->user()->rw_id == '23'){
+            $covid19 = Covid19::where('rw_id', '=', '23')
+            ->where('status_pasien',  $request->filter_status_pasien)
+            ->where('status_akhir', $request->filter_status_akhir)
+            ->where('rw_id', $request->filter_rw);
+            }
+        }
+        else{
+            // $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            if(auth()->user()->role == 'superadmin'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            if(auth()->user()->role == 'admin'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            if(auth()->user()->role == 'sekret'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            if(auth()->user()->role == 'kessos'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            if(auth()->user()->role == 'pemtibum'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            if(auth()->user()->role == 'permasbang'){
+                $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+            }
+            ///////////// AKUN PAMOR //////////////////////////////////
+            if (auth()->user()->rw_id == '1'){
+            $covid19 = Covid19::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '2'){
+            $covid19 = Covid19::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '3'){
+            $covid19 = Covid19::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '4'){
+            $covid19 = Covid19::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '5'){
+            $covid19 = Covid19::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '6'){
+            $covid19 = Covid19::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '7'){
+            $covid19 = Covid19::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '8'){
+            $covid19 = Covid19::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '10'){
+            $covid19 = Covid19::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '11'){
+            $covid19 = Covid19::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '12'){
+            $covid19 = Covid19::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '13'){
+            $covid19 = Covid19::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '14'){
+            $covid19 = Covid19::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '15'){
+            $covid19 = Covid19::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '16'){
+            $covid19 = Covid19::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '17'){
+            $covid19 = Covid19::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '18'){
+            $covid19 = Covid19::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '19'){
+            $covid19 = Covid19::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '20'){
+            $covid19 = Covid19::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '21'){
+            $covid19 = Covid19::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '22'){
+            $covid19 = Covid19::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+            }
+            if (auth()->user()->rw_id == '23'){
+            $covid19 = Covid19::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+            }
+        }
         // $covid19 = Covid19::select('covid19.*')->orderBy('rw_id', 'asc');
         return DataTables::eloquent($covid19)
         ->addIndexColumn()
@@ -579,3 +846,4 @@ class Covid19Controller extends Controller
         
         }
     }
+}

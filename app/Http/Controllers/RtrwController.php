@@ -156,14 +156,14 @@ class RtrwController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        dd($request->all());
         $request->validate([
             'ktp_id' => 'required|unique:rtrw,ktp_id',
             'jabatan_id' => 'required',
-            // 'rt_id' => 'required',
             'rw_id' => 'required',
             'no_sk' => 'required',
-            'tmt' => 'required',
+            'tmt_mulai' => 'required',
+            'tmt_akhir' => 'required',
             'no_hp' => 'required',
             // 'no_rek' => 'required',    
             // 'npwp' => 'required',        
@@ -174,7 +174,8 @@ class RtrwController extends Controller
             'jabatan_id.required' => 'Harus di Isi Yaa',
             'rw_id.required' => 'Harus di Isi Yaa',
             'no_sk.required' => 'Harus di Isi Yaa',
-            'tmt.required' => 'Harus di Isi Yaa',
+            'tmt_mulai.required' => 'Harus di Isi Yaa',
+            'tmt_akhir.required' => 'Harus di Isi Yaa',
             'no_hp.required' => 'Harus di Isi Yaa',
         ]
     );
@@ -184,7 +185,8 @@ class RtrwController extends Controller
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'no_sk' => $request->no_sk,
-            'tmt' => $request->tmt,
+            'tmt_mulai' => $request->tmt_mulai,
+            'tmt_akhir' => $request->tmt_akhir,
             'no_hp' => $request->no_hp,
             'no_rek' => $request->no_rek,
             'npwp' => $request->npwp,
@@ -233,10 +235,10 @@ class RtrwController extends Controller
         $request->validate([
             // 'ktp_id' => 'required',
             'jabatan_id' => 'required',
-            // 'rt_id' => 'required',
             'rw_id' => 'required',
             'no_sk' => 'required',
-            'tmt' => 'required',
+            'tmt_mulai' => 'required',
+            'tmt_akhir' => 'required',
             'no_hp' => 'required',
             // 'no_rek' => 'required',    
             // 'npwp' => 'required',        
@@ -244,12 +246,13 @@ class RtrwController extends Controller
 
         Rtrw::where('id', $rtrw->id)
         ->update([
-            // 'ktp_id' => $request->ktp_id,
+            'ktp_id' => $request->ktp_id,
             'jabatan_id' => $request->jabatan_id,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'no_sk' => $request->no_sk,
-            'tmt' => $request->tmt,
+            'tmt_mulai' => $request->tmt_mulai,
+            'tmt_akhir' => $request->tmt_akhir,
             'no_hp' => $request->no_hp,
             'no_rek' => $request->no_rek,
             'npwp' => $request->npwp,

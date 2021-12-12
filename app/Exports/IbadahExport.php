@@ -27,6 +27,7 @@ class IbadahExport implements FromCollection, WithMapping, WithHeadings
             $ibadah->rw->rw,
             $ibadah->nama_pimpinan,
             $ibadah->status_lahan,
+            $ibadah->no_hp,
         ];
     }
 
@@ -40,6 +41,7 @@ class IbadahExport implements FromCollection, WithMapping, WithHeadings
             'RW',
             'DKM/Pengurus/Pendeta',
             'Status Lahan',
+            'No HP'
         ];
     }
 }

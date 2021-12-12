@@ -29,22 +29,17 @@
                     @endif
                     <hr>
 
-  <div class="row input-daterange">
-    <div class="col-md-4">
-       <input type="text" name="from_date" id="from_date" class="date form-control" placeholder="From Date"/>
-    </div>
-    <div class="col-md-4">
-        <input type="text" name="to_date" id="to_date" class="date form-control" placeholder="To Date"/>
-    </div>
-    <div class="col-md-4">
-        <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button>
-        <button type="button" name="refresh" id="refresh" class="btn btn-default">Refresh</button>
-    </div>
-    </div>
-    <br/>                   
-      <div class="divider"></div>
-        <div class="table-responsive">
-           <table id="pamor" class="table table-bordered table-striped">
+                <div class="table-responsive">
+                    <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="dataTables_length" id="tabel_length"> 
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
+                    </div>
+                    <table id="pamor" class="table table-bordered table-striped">
                     <thead>
                         <tr>                             
                             <th>NO</th>
@@ -72,22 +67,13 @@
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
 <script>
-$(document).ready(function () {
-  fill_datatable();
-  $('.date').datepicker({  
-    todayBtn:'linked',
-    format:'yyyy-mm-dd',
-    autoclose:true
-});
- function fill_datatable(from_date = '', to_date = '')
- {
-  var dataTable = $('#pamor').DataTable({
+  $(document).ready(function () {
+    $('#pamor').DataTable({
       processing:true,
       serverside:true,
-      ajax: {
-      url:"{{route('ajax.get.data.pamor')}}",
-      data: {from_date:from_date, to_date:to_date}
-    },
+      responsive:true,
+      ajax:"{{route('ajax.get.data.pamor')}}",
+      // "order": [[ 2, "desc" ]],
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'name', name:'name'},
@@ -101,35 +87,7 @@ $(document).ready(function () {
         {data:'hapus', name:'hapus', orderable: false, searchable: false},
       ]
     })
-    }
-})
-
-
-$('#filter').click(function(){
-  var from_date = $('#from_date').val();
-  var to_date = $('#to_date').val();
-  if(from_date != '' &&  to_date != '')
-  {
-   $('#pamor').DataTable().destroy();
-   fill_datatable(from_date, to_date);
-  }
-  else
-  {
-  //  alert('Both Date is required');
-   Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Pilih dulu range tanggal nya',
-            })
-  }
- });
-
- $('#refresh').click(function(){
-  $('#from_date').val('');
-  $('#to_date').val('');
-  $('#pamor').DataTable().destroy();
-  fill_datatable();
- });
+    })
 
 //HAPUS DATA
  $(document).on('click', '.hapus', function() {

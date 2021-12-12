@@ -19,6 +19,9 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="/AdminLTE/dist/css/skins/_all-skins.min.css">
+  <!--DataPicker -->
+  <link rel="stylesheet" href="/AdminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,16 +37,18 @@
   font-size: 1.2rem !important;
 }
 </style>
+
 <style type="text/css">
-  .divider{
-    width: 100%;
-    height: 1px;
-    background: #BBB;
-    margin: 1rem 0;
-  }
-</style>
-
-
+    .divider{
+      width: 100%;
+      height: 1px;
+      background: #BBB;
+      margin: 1rem 0;
+    }
+    .select2-selection.select2-selection--single{
+      height: 40px;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -129,7 +134,7 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">MENU UTAMA</li>
           <li><a href="/dashboard"><i class="fa fa-dashboard"></i><span> Dashboard </a></span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
         </li>
@@ -432,6 +437,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
+  <!--DataPicker -->
+<script src="/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 @include('sweetalert::alert')
 @yield('footer')
 </body>

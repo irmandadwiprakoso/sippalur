@@ -13,16 +13,19 @@
     @method('patch')
     @csrf 
     <div class="box-body">
-    <!-- <div class="mb-3">
-            <label for="ktp_id" class="form-label">NIK</label>
-            <select class="form-control @error('ktp_id') is-invalid @enderror" aria-label="Default select example" id="ktp_id" name="ktp_id"> 
-                <option selected value="{{ $ksbrw->ktp_id }}">{{ $ksbrw->ktp->id}}</option>
+        <!-- <div class="mb-3">
+            <label for="ktp_id" class="form-label">NIK Warga</label>
+            <input class="form-control @error('ktp_id') is-invalid @enderror" placeholder="Ketik NIK/Nama, pilih sesuai yang di inginkan" list="nik_warga" id="ktp_id" name="nik_warga"> 
+                <datalist id="nik_warga">
+                <option selected value="{{$ksbrw->ktp_id}}"> {{$ksbrw->nama}}</option>
                 @foreach ($ktp as $penduduk)
-                <option value="{{$penduduk->id}}">{{$penduduk->id}}</option>
+                    <option value="{{$penduduk->id}}" {{old('ktp_id') == $penduduk->id ? 'selected' : null }}>{{$penduduk->nama}}</option>
                 @endforeach
-            </select>
+                </datalist>
             @error ('ktp_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div> -->
+        <h3 class="profile-username text-center">{{ $ksbrw->ktp->nama}}</h3>
+        <h3 class="profile-username text-center">{{ $ksbrw->ktp->id}}</h3>
 
         <div class="mb-3">
             <label for="jabatan_id" class="form-label">Jabatan</label>

@@ -287,22 +287,22 @@ return redirect('/ksbrt')->with('success', 'Data RT Berhasil Ditambahkan!');
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
         if(auth()->user()->role == 'superadmin'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         if(auth()->user()->role == 'admin'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         if(auth()->user()->role == 'sekret'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         if(auth()->user()->role == 'kessos'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         if(auth()->user()->role == 'pemtibum'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         if(auth()->user()->role == 'permasbang'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
         }
         ///////////// AKUN PAMOR //////////////////////////////////
         if (auth()->user()->rw_id == '1'){

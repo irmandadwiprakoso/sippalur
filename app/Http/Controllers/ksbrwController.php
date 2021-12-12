@@ -162,7 +162,8 @@ class ksbrwController extends Controller
     'jabatan_id' => 'required',
     'rw_id' => 'required',
     'no_sk' => 'required',
-    'tmt_awal' => 'required',
+    'tmt_mulai' => 'required',
+    'tmt_akhir' => 'required',
     'no_hp' => 'required',
     // 'no_rek' => 'required',    
     // 'npwp' => 'required',        
@@ -173,7 +174,8 @@ class ksbrwController extends Controller
     'jabatan_id.required' => 'Harus di Isi Yaa',
     'rw_id.required' => 'Harus di Isi Yaa',
     'no_sk.required' => 'Harus di Isi Yaa',
-    'tmt_awal.required' => 'Harus di Isi Yaa',
+    'tmt_mulai.required' => 'Harus di Isi Yaa',
+    'tmt_akhir.required' => 'Harus di Isi Yaa',
     'no_hp.required' => 'Harus di Isi Yaa',
 ]
 );
@@ -233,6 +235,7 @@ return redirect('/ksbrw')->with('success', 'Data RW Berhasil Ditambahkan!');
             'rw_id' => 'required',
             'no_sk' => 'required',
             'tmt_mulai' => 'required',
+            'tmt_akhir' => 'required',
             'no_hp' => 'required',
             // 'no_rek' => 'required',    
             // 'npwp' => 'required',        

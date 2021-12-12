@@ -115,9 +115,9 @@
                             <th>ALAMAT</th>
                             <th>RT</th>
                             <th>RW</th>
-                            <th>PIMPINAN</th>
+                            <th>PIMPINAN SARANA IBADAH</th>
                             <th>STATUS LAHAN</th>
-                            <th>NO HP</th>
+                            <th>NO HP / TELP PENANGGUNGJAWAB</th>
                             <th>EDIT</th>
                             <th>DELETE</th>
                         </tr>

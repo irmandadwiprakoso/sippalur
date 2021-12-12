@@ -40,8 +40,53 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <p>Jumlah Pamor</p>
+              <p>Pamor</p>
               <h3> {{ $tkk->where('jabatan_id', '=', '11')->count() }}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Staff Sekret</p>
+              <h3> {{ $tkk->where('seksi_id', '=', '1')->count() }}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Staff Kessos</p>
+              <h3> {{ $tkk->where('seksi_id', '=', '2')->count() }}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Staff Pem & Trantibum</p>
+              <h3> {{ $tkk->where('seksi_id', '=', '3')->count() }}</h3>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <p>Staff Permasbang</p>
+              <h3> {{ $tkk->where('seksi_id', '=', '4')->count() }}</h3>
             </div>
             <div class="icon">
               <i class="ion ion-person"></i>
@@ -66,6 +111,7 @@
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
+                            <th>Seksi</th>
                             <th>RW</th>
                             <th>View</th>
                             <th>Edit</th>
@@ -95,6 +141,7 @@
         {data:'id', name:'id'},
         {data:'nama', name:'nama'},
         {data:'jabatan', name:'jabatan'},
+        {data:'seksi', name:'seksi'},
         {data:'rw', name:'rw'},
         {data:'view', name:'view', orderable: false, searchable: false},
         {data:'edit', name:'edit', orderable: false, searchable: false},

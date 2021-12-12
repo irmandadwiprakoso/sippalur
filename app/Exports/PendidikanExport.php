@@ -27,6 +27,7 @@ class PendidikanExport implements FromCollection, WithMapping, WithHeadings
             $pendidikan->rw->rw,
             $pendidikan->nama_pimpinan,
             $pendidikan->status_lahan,
+            $pendidikan->no_hp,
         ];
     }
 
@@ -40,6 +41,7 @@ class PendidikanExport implements FromCollection, WithMapping, WithHeadings
             'RW',
             'Nama Kepala Sekolah/Pimpinan',
             'Status Lahan',
+            'No HP',
         ];
     }
 }

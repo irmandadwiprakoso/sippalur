@@ -27,6 +27,7 @@ class KesehatanExport implements FromCollection, WithMapping, WithHeadings
             $kesehatan->rw->rw,
             $kesehatan->nama_pimpinan,
             $kesehatan->status_lahan,
+            $kesehatan->no_hp,
         ];
     }
 
@@ -40,6 +41,7 @@ class KesehatanExport implements FromCollection, WithMapping, WithHeadings
             'RW',
             'Nama Dokter/Pimpinan',
             'Status Lahan',
+            'No HP',
         ];
     }
 

@@ -28,7 +28,7 @@
                     @endif
                     <hr>
 
-      <div class="row">
+     <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
@@ -83,7 +83,7 @@
         <!-- ./col -->
       </div>
 
-      <!-- <div class="table-responsive">
+      <div class="table-responsive">
          <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
             <div class="row">
               <div class="col-sm-6">
@@ -91,98 +91,32 @@
                 </div>
                 </div>
               </div>
-         <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
-         </div> -->
-
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Filter Data Covid-19</h3>
-  </div>
-      <div class="row">
-          <div class="col-md-4"></div>
-              <div class="col-md-4">
-                    <div class="form-group">
-                        <select name="filter_status_pasien" id="filter_status_pasien" class="form-control" required>
-                          <option value="">--STATUS PASIEN--</option>
-                          <option value="Isoman">ISOLASI MANDIRI</option>
-                          <option value="Perawatan">DIRAWAT</option>
-                        </select>   
-                    </div>
-                    <div class="form-group">
-                        <select name="filter_status_akhir" id="filter_status_akhir" class="form-control" required>
-                          <option value="">--STATUS AKHIR--</option>
-                            <option value="Positif">POSITIF</option>
-                            <option value="Negatif">NEGATIF</option>
-                            <option value="Meninggal">MENINGGAL</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="filter_rw" id="filter_rw" class="form-control" required>
-                          <option value="">--RW--</option>
-                          <option value="1">001</option>
-                          <option value="2">002</option>
-                          <option value="3">003</option>
-                          <option value="4">004</option>
-                          <option value="5">005</option>
-                          <option value="6">06A</option>
-                          <option value="7">06B</option>
-                          <option value="8">007</option>
-                          <option value="9">008</option>
-                          <option value="10">009</option>
-                          <option value="11">010</option>
-                          <option value="12">011</option>
-                          <option value="13">012</option>
-                          <option value="14">013</option>
-                          <option value="15">014</option>
-                          <option value="16">015</option>
-                          <option value="17">016</option>
-                          <option value="18">017</option>
-                          <option value="19">018</option>
-                          <option value="20">019</option>
-                          <option value="21">020</option>
-                          <option value="22">021</option>
-                          <option value="23">022</option>
-                          <option value="24">000</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group" align="center">
-                        <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
-                        <button type="button" name="reset" id="reset" class="btn btn-default">Reset</button>
-                    </div>
+         <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
+         </div>
+                    <table id="covid" class="table table-bordered table-striped">
+                          <thead>
+                              <tr>                          
+                                  <th>NO</th>
+                                  <th>NIK</th>
+                                  <th>NAMA</th>
+                                  <th>RT</th>
+                                  <th>RW</th>
+                                  <th>TANGGAL KONFIRMASI</th>
+                                  <th>STATUS PASIEN</th>
+                                  <th>HASIL TEST </th>
+                                  <th>STATUS AKHIR </th>
+                                  <th>TANGGAL STATUS AKHIR</th>
+                                  <th>VIEW</th>
+                                  <th>EDIT</th>
+                                  <th>HAPUS</th>
+                              </tr>
+                          </thead>
+				            </table>
                 </div>
-                <div class="col-md-4"></div>
-            </div>
-
-      </div>              
-      <div class="divider"></div>
-      <div class="table-responsive">
-        <table id="covid" class="table table-bordered table-striped">
-          <thead>
-            <tr>                          
-              <th>NO</th>
-              <th>NIK</th>
-              <th>NAMA</th>
-              <th>RT</th>
-              <th>RW</th>
-              <th>TANGGAL KONFIRMASI</th>
-              <th>STATUS PASIEN</th>
-              <th>HASIL TEST </th>
-              <th>STATUS AKHIR </th>
-              <th>TANGGAL STATUS AKHIR</th>
-              <th>VIEW</th>
-              <th>EDIT</th>
-              <th>HAPUS</th>
-             </tr>
-          </thead>
-				</table>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-   
-  
+           </div>
+        </div>
+     </div>
+  </div>   
 
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
@@ -191,17 +125,11 @@
 
 <script>
   $(document).ready(function () {
-    fill_datatable();
-
-    function fill_datatable(filter_status_pasien = '', filter_status_akhir = '', filter_rw = '')
-    {
-    var dataTable = $('#covid').DataTable({
+    $('#covid').DataTable({
       processing:true,
       serverside:true,
-      ajax: {
-        url: "{{ route('ajax.get.data.covid19') }}",
-        data: {filter_status_pasien:filter_status_pasien, filter_status_akhir:filter_status_akhir, filter_rw:filter_rw}
-        },  
+      ajax:"{{route('ajax.get.data.covid19')}}",
+      // order: [[ 4, "asc" ]],
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'ktp_id', name:'ktp_id'},
@@ -231,40 +159,9 @@
           // $(row).addClass("warning");
         }
       }
-     });
-    }
-  
+     })
+  })
 
-  $('#filter').click(function(){
-        var filter_status_pasien = $('#filter_status_pasien').val();
-        var filter_status_akhir = $('#filter_status_akhir').val();
-        var filter_rw = $('#filter_rw').val();
-
-        if(filter_status_pasien != '' &&  filter_status_pasien != '' && filter_rw != '')
-        {
-            $('#covid').DataTable().destroy();
-            fill_datatable(filter_status_pasien, filter_status_akhir, filter_rw);
-        }
-        else
-        {
-            // alert('Select Both filter option');
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Pilih dulu yoo mau filter apa',
-            })
-        }
-
-    });
-
-    $('#reset').click(function(){
-        $('#filter_status_pasien').val('');
-        $('#filter_status_akhir').val('');
-        $('#filter_rw').val('');
-        $('#covid').DataTable().destroy();
-        fill_datatable();
-    });
-  });
 //HAPUS DATA
  $(document).on('click', '.hapus', function() {
       let id = $(this).attr('id')

@@ -305,14 +305,17 @@ class TkkController extends Controller
         ->addColumn('jabatan', function($tkk){
             return $tkk->jabatan->jabatan;    
             })
+        ->addColumn('seksi', function($tkk){
+            return $tkk->seksi->seksi;    
+            })
  
         ->addColumn('view', function($tkk){
-                return '<a href="tkk/'.$tkk->id.'" class="btn btn-info" title="View">  
+                return '<a href="'.$tkk->id.'" class="btn btn-info" title="View">  
                 <i class="glyphicon glyphicon-search"></i></a>';           
         })
 
         ->addColumn('edit', function($tkk){
-                return '<a href="tkk/'.$tkk->id.'/edit" class="btn btn-warning" title="Edit">
+                return '<a href="'.$tkk->id.'/edit" class="btn btn-warning" title="Edit">
                 <i class="glyphicon glyphicon-pencil"></i></a>';
         })
 
@@ -327,7 +330,7 @@ class TkkController extends Controller
             } 
         })
         
-        ->rawColumns(['rw','jabatan','view','edit', 'hapus'])
+        ->rawColumns(['rw','jabatan','seksi','view','edit', 'hapus'])
         ->toJson();
         
         }

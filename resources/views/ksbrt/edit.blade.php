@@ -23,7 +23,9 @@
             </select>
             @error ('ktp_id') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div> -->
-
+        <h3 class="profile-username text-center">{{ $ksbrt->ktp->nama}}</h3>
+        <h3 class="profile-username text-center">{{ $ksbrt->ktp->id}}</h3>
+   
         <div class="mb-3">
             <label for="jabatan_id" class="form-label">Jabatan</label>
             <select class="form-control @error('jabatan_id') is-invalid @enderror" aria-label="Default select example" id="jabatan_id" name="jabatan_id"> 
