@@ -239,17 +239,17 @@ class PamorController extends Controller
             $pamor = Pamor::where('user_id', Auth()->user()->id)->orderBy('tanggal', 'desc')->orderBy('rt_id', 'asc');
         }
 
-        if(request()->ajax())
-        {
-         if(!empty($request->from_date))
-         {
-            $pamor = Pamor::whereBetween('tanggal', array($request->from_date, $request->to_date));
-         }
-         else
-         {
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-         }
-        }
+        // if(request()->ajax())
+        // {
+        //  if(!empty($request->from_date))
+        //  {
+        //     $pamor = Pamor::whereBetween('tanggal', array($request->from_date, $request->to_date));
+        //  }
+        //  else
+        //  {
+        //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        //  }
+        // }
 
         return DataTables::eloquent($pamor)
         ->addIndexColumn()

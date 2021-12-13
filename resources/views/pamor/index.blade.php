@@ -73,21 +73,24 @@
 
 <script>
 $(document).ready(function () {
-  fill_datatable();
-  $('.date').datepicker({  
-    todayBtn:'linked',
-    format:'yyyy-mm-dd',
-    autoclose:true
-});
- function fill_datatable(from_date = '', to_date = '')
- {
-  var dataTable = $('#pamor').DataTable({
+//   fill_datatable();
+//   $('.date').datepicker({  
+//     todayBtn:'linked',
+//     format:'yyyy-mm-dd',
+//     autoclose:true
+// });
+//  function fill_datatable(from_date = '', to_date = '')
+//  {
+//   var dataTable = 
+
+  $('#pamor').DataTable({
       processing:true,
       serverside:true,
-      ajax: {
-      url:"{{route('ajax.get.data.pamor')}}",
-      data: {from_date:from_date, to_date:to_date}
-    },
+      ajax: "{{route('ajax.get.data.pamor')}}",
+    //   {
+    //   url:"{{route('ajax.get.data.pamor')}}",
+    //   data: {from_date:from_date, to_date:to_date}
+    // },
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'name', name:'name'},
@@ -101,35 +104,35 @@ $(document).ready(function () {
         {data:'hapus', name:'hapus', orderable: false, searchable: false},
       ]
     })
-    }
-})
+    })
+// })
 
 
-$('#filter').click(function(){
-  var from_date = $('#from_date').val();
-  var to_date = $('#to_date').val();
-  if(from_date != '' &&  to_date != '')
-  {
-   $('#pamor').DataTable().destroy();
-   fill_datatable(from_date, to_date);
-  }
-  else
-  {
-  //  alert('Both Date is required');
-   Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Pilih dulu range tanggal nya',
-            })
-  }
- });
+// $('#filter').click(function(){
+//   var from_date = $('#from_date').val();
+//   var to_date = $('#to_date').val();
+//   if(from_date != '' &&  to_date != '')
+//   {
+//    $('#pamor').DataTable().destroy();
+//    fill_datatable(from_date, to_date);
+//   }
+//   else
+//   {
+//   //  alert('Both Date is required');
+//    Swal.fire({
+//               icon: 'error',
+//               title: 'Oops...',
+//               text: 'Pilih dulu range tanggal nya',
+//             })
+//   }
+//  });
 
- $('#refresh').click(function(){
-  $('#from_date').val('');
-  $('#to_date').val('');
-  $('#pamor').DataTable().destroy();
-  fill_datatable();
- });
+//  $('#refresh').click(function(){
+//   $('#from_date').val('');
+//   $('#to_date').val('');
+//   $('#pamor').DataTable().destroy();
+//   fill_datatable();
+//  });
 
 //HAPUS DATA
  $(document).on('click', '.hapus', function() {
