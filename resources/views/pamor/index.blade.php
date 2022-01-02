@@ -6,8 +6,48 @@
       <h1>Laporan Kegiatan Harian Satgas Pamor <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
-<section class="content">		
+<section class="content">	
 		<div class="row">
+     <div class="col-md-12">
+				<div class="panel panel-white">
+					<div class="panel-body">
+						<div class="row">
+							<input type="hidden" name="cari" value="1">
+
+							<div class="row">
+								<label class="col-sm-2 control-label">Bulan</label>
+								<div class="col-xs-4">
+									<select class="form-control filter" name="filter-bulan" id="filter-bulan">
+										<option value="01">Januari</option>
+										<option value="02">Februari</option>
+										<option value="03">Maret</option>
+										<option value="04">April</option>
+										<option value="05">Mei</option>
+										<option value="06">Juni</option>
+										<option value="07">Juli</option>
+										<option value="08">Agustus</option>
+										<option value="09">September</option>
+										<option value="10">Oktober</option>
+										<option value="11">Nopember</option>
+										<option value="12">Desember</option>
+									</select>
+								</div>
+                </div>
+
+                <div class="row">
+								  <label class="col-sm-2 control-label">Tahun</label>
+								  <div class="col-xs-4">
+									<input class="form-control filter" id="filter-tahun" type="text" name="filter-tahun" value="{{ date('Y') }}">
+								</div>
+							</div>
+
+							<br>
+							</form>					
+						</div>										
+					</div>
+				</div>
+			</div>
+
             <div class="col-xs-12">
                 <div class="panel panel-success">
                     <div class="panel-heading">Laporan Kegiatan Harian Satgas Pamor</div>
@@ -18,31 +58,18 @@
 
                     @elseif (auth()->user()->role == "user") 
                     <a href="/pamor/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportpamor" class="btn btn-success">Download Data</a>
 
                     @elseif (auth()->user()->role == "sekret") 
                     <a href="/pamor/create" class="btn btn-primary my-2">Tambah Data</a>
                     <a href="/exportpamor" class="btn btn-success">Download Data</a>
-
+                    
                     @elseif (auth()->user()->role == "admin") 
                     <!-- <a href="/pamor/create" class="btn btn-primary my-2">Tambah Data</a> -->
                     <a href="/exportpamor" class="btn btn-success">Download Data</a>
                     @endif
                     <hr>
 
-  <div class="row input-daterange">
-    <div class="col-md-4">
-       <input type="text" name="from_date" id="from_date" class="date form-control" placeholder="From Date"/>
-    </div>
-    <div class="col-md-4">
-        <input type="text" name="to_date" id="to_date" class="date form-control" placeholder="To Date"/>
-    </div>
-    <div class="col-md-4">
-        <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button>
-        <button type="button" name="refresh" id="refresh" class="btn btn-default">Refresh</button>
-    </div>
-    </div>
-    <br/>                   
-      <div class="divider"></div>
         <div class="table-responsive">
            <table id="pamor" class="table table-bordered table-striped">
                     <thead>
@@ -64,33 +91,30 @@
 		</div>
 	</div>
 </div>
-</div>	
+</div>
+
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- DataTables -->
 <script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
-<script>
-$(document).ready(function () {
-//   fill_datatable();
-//   $('.date').datepicker({  
-//     todayBtn:'linked',
-//     format:'yyyy-mm-dd',
-//     autoclose:true
-// });
-//  function fill_datatable(from_date = '', to_date = '')
-//  {
-//   var dataTable = 
+<script type="text/javascript">
+    let bulan  = $("#filter-bulan").val()
+    ,tahun = $("#filter-tahun").val()
 
-  $('#pamor').DataTable({
+$(document).ready(function () {
+  var table =  $('#pamor').DataTable({
       processing:true,
       serverside:true,
-      ajax: "{{route('ajax.get.data.pamor')}}",
-    //   {
-    //   url:"{{route('ajax.get.data.pamor')}}",
-    //   data: {from_date:from_date, to_date:to_date}
-    // },
+      ajax: {
+        url : "{{route('ajax.get.data.pamor')}}",
+        data:function(d){
+          d.bulan = bulan;
+          d.tahun = tahun;
+          return d
+      }
+    },
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'name', name:'name'},
@@ -104,36 +128,15 @@ $(document).ready(function () {
         {data:'hapus', name:'hapus', orderable: false, searchable: false},
       ]
     })
-    })
-// })
+  
 
 
-// $('#filter').click(function(){
-//   var from_date = $('#from_date').val();
-//   var to_date = $('#to_date').val();
-//   if(from_date != '' &&  to_date != '')
-//   {
-//    $('#pamor').DataTable().destroy();
-//    fill_datatable(from_date, to_date);
-//   }
-//   else
-//   {
-//   //  alert('Both Date is required');
-//    Swal.fire({
-//               icon: 'error',
-//               title: 'Oops...',
-//               text: 'Pilih dulu range tanggal nya',
-//             })
-//   }
-//  });
-
-//  $('#refresh').click(function(){
-//   $('#from_date').val('');
-//   $('#to_date').val('');
-//   $('#pamor').DataTable().destroy();
-//   fill_datatable();
-//  });
-
+  $(".filter").on('change', function(){
+    bulan  = $("#filter-bulan").val()
+    tahun = $("#filter-tahun").val()
+    table.ajax.reload(null, false);
+  })
+})
 //HAPUS DATA
  $(document).on('click', '.hapus', function() {
       let id = $(this).attr('id')

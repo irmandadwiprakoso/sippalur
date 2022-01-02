@@ -36,6 +36,7 @@
             <label for="bidang" class="form-label">Bidang Kegiatan</label>
             <select class="form-control @error('bidang') is-invalid @enderror" aria-label="Default select example" id="bidang" name="bidang" value="{{ $pamor->bidang }}"> 
                 <option selected value="{{ $pamor->bidang }}">{{ $pamor->bidang}}</option>
+                <option value="Sekretariat">Sekret</option>
                 <option value="Kessos">Kessos</option>
                 <option value="Permasbang">Permasbang</option>
                 <option value="Pem & Trantibum">Pem & Trantibum</option>

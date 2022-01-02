@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,sekret,ke
     // Route::post('/importwarga', 'WargaController@importwarga');
 
     Route::resource('pamor', 'PamorController'); //LAPORAN HARIAN PAMOR
+
     Route::get('/exportpamor', 'PamorController@exportpamor');
     Route::get('getdatapamor', [
         'uses' => 'PamorController@getdatapamor',

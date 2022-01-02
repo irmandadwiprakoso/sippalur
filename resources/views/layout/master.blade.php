@@ -334,6 +334,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
+            <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -346,6 +347,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
+          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -358,6 +360,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
+          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "permasbang")
@@ -370,6 +373,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
+          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @endif

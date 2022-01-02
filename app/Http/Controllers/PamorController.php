@@ -11,6 +11,8 @@ use App\Exports\PamorExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class PamorController extends Controller
 {
@@ -214,43 +216,68 @@ class PamorController extends Controller
         return redirect()->back();
     }
 
+
     public function getdatapamor(Request $request)
     {
-        // $pamor = Pamor::select('laporanpamor.*');
-        if(auth()->user()->role == 'superadmin'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if(auth()->user()->role == 'admin'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if(auth()->user()->role == 'sekret'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if(auth()->user()->role == 'kessos'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if(auth()->user()->role == 'pemtibum'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if(auth()->user()->role == 'permasbang'){
-            $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        }
-        if (auth()->user()->role == 'user'){
-            $pamor = Pamor::where('user_id', Auth()->user()->id)->orderBy('tanggal', 'desc')->orderBy('rt_id', 'asc');
-        }
-
-        // if(request()->ajax())
-        // {
-        //  if(!empty($request->from_date))
-        //  {
-        //     $pamor = Pamor::whereBetween('tanggal', array($request->from_date, $request->to_date));
-        //  }
-        //  else
-        //  {
+        
+        // if(auth()->user()->role == 'superadmin'){
+        //     $pamor = Pamor::select('laporanpamor.*')
+        //     ->orderBy('tanggal', 'desc')
+        //     ->orderBy('rw_id', 'asc');    
+        // }
+        // if(auth()->user()->role == 'admin'){
         //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
-        //  }
+        // }
+        // if(auth()->user()->role == 'sekret'){
+        //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        // }
+        // if(auth()->user()->role == 'kessos'){
+        //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        // }
+        // if(auth()->user()->role == 'pemtibum'){
+        //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        // }
+        // if(auth()->user()->role == 'permasbang'){
+        //     $pamor = Pamor::select('laporanpamor.*')->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+        // }
+        // if (auth()->user()->role == 'user'){
+        //     $pamor = Pamor::where('user_id', Auth()->user()->id)
+        //     ->orderBy('tanggal', 'desc')
+        //     ->orderBy('rt_id', 'asc');
         // }
 
+        if($request->input('bulan')!=null && ('tahun')!=null){
+            if(auth()->user()->role == 'superadmin'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+                }
+            if(auth()->user()->role == 'admin'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc');
+                }
+            if(auth()->user()->role == 'sekret'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc')->where('bidang', '=', 'Sekretariat');
+                }
+            if(auth()->user()->role == 'kessos'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc')->where('bidang', '=', 'Kessos');
+                }
+            if(auth()->user()->role == 'pemtibum'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc')->where('bidang', '=', 'Pem & Trantibum');
+                }
+            if(auth()->user()->role == 'permasbang'){
+                $pamor = Pamor::whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rw_id', 'asc')->where('bidang', '=', 'Permasbang');
+                }
+
+            if (auth()->user()->role == 'user'){
+                $pamor = Pamor::where('user_id', Auth()->user()->id)
+                ->whereMonth('tanggal', $request->bulan)->whereYear('tanggal', $request->tahun)
+                ->orderBy('tanggal', 'desc')->orderBy('rt_id', 'asc');
+                }
+    }
         return DataTables::eloquent($pamor)
         ->addIndexColumn()
         

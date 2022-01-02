@@ -49,8 +49,6 @@
                   <img src="{{asset('images/LaporanHarian/'. $pamor->foto)}}" height="50%" width="50%"></img></a>
                 </li>
               </ul>
-
-
                   <a href="/pamor/" class="btn btn-default">Close</a>
             </div>
       </div>

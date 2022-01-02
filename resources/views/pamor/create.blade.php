@@ -35,6 +35,7 @@
             <select class="form-control @error('bidang') is-invalid @enderror" id="bidang" name="bidang" value="{{ old('bidang') }}"> 
                 <!-- <option selected disabled>- Pilih -</option> -->
                 <option selected>{{ old('bidang') }}</option>
+                <option value="Sekretariat">Sekret</option>
                 <option value="Kessos">Kessos</option>
                 <option value="Permasbang">Permasbang</option>
                 <option value="Pem & Trantibum">Pem & Trantibum</option>
