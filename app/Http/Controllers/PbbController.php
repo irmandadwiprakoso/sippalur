@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\pbb;
+use App\Pbb;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Rt;
@@ -19,93 +19,93 @@ class PbbController extends Controller
     {
 
         if(auth()->user()->role == 'superadmin'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
         if(auth()->user()->role == 'admin'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
         if(auth()->user()->role == 'sekret'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
         if(auth()->user()->role == 'kessos'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
         if(auth()->user()->role == 'pemtibum'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
         if(auth()->user()->role == 'permasbang'){
-            $pbb = pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
+            $pbb = Pbb::orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->get();
         }
 
     ///////////// AKUN pbb //////////////////////////////////
         if (auth()->user()->rw_id == '1'){
-        $pbb = pbb::where('rw_id', '=', '1')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '1')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '2'){
-        $pbb = pbb::where('rw_id', '=', '2')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '2')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '3'){
-        $pbb = pbb::where('rw_id', '=', '3')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '3')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '4'){
-        $pbb = pbb::where('rw_id', '=', '4')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '4')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '5'){
-        $pbb = pbb::where('rw_id', '=', '5')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '5')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '6'){
-        $pbb = pbb::where('rw_id', '=', '6')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '6')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '7'){
-        $pbb = pbb::where('rw_id', '=', '7')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '7')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '8'){
-        $pbb = pbb::where('rw_id', '=', '8')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '8')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '9'){
-        $pbb = pbb::where('rw_id', '=', '9')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '9')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '10'){
-        $pbb = pbb::where('rw_id', '=', '10')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '10')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '11'){
-        $pbb = pbb::where('rw_id', '=', '11')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '11')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '12'){
-        $pbb = pbb::where('rw_id', '=', '12')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '12')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '13'){
-        $pbb = pbb::where('rw_id', '=', '13')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '13')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '14'){
-        $pbb = pbb::where('rw_id', '=', '14')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '14')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '15'){
-        $pbb = pbb::where('rw_id', '=', '15')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '15')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '16'){
-        $pbb = pbb::where('rw_id', '=', '16')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '16')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '17'){
-        $pbb = pbb::where('rw_id', '=', '17')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '17')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '18'){
-        $pbb = pbb::where('rw_id', '=', '18')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '18')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '19'){
-        $pbb = pbb::where('rw_id', '=', '19')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '19')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '20'){
-        $pbb = pbb::where('rw_id', '=', '20')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '20')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '21'){
-        $pbb = pbb::where('rw_id', '=', '21')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '21')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '22'){
-        $pbb = pbb::where('rw_id', '=', '22')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '22')->orderBy('rt_id', 'asc')->get();
         }
         if (auth()->user()->rw_id == '23'){
-        $pbb = pbb::where('rw_id', '=', '23')->orderBy('rt_id', 'asc')->get();
+        $pbb = Pbb::where('rw_id', '=', '23')->orderBy('rt_id', 'asc')->get();
         }
         return view('pbb.index', ['pbb' => $pbb]);
     }
@@ -183,19 +183,19 @@ class PbbController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\pbb  $pbb
+     * @param  \App\Pbb  $pbb
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $pbb = pbb::find($id);
+        $pbb = Pbb::find($id);
         return view('pbb.show', ['pbb' => $pbb]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\pbb  $pbb
+     * @param  \App\Pbb  $pbb
      * @return \Illuminate\Http\Response
      */
     public function edit(pbb $pbb)
@@ -209,7 +209,7 @@ class PbbController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\pbb  $pbb
+     * @param  \App\Pbb  $pbb
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, pbb $pbb)
@@ -233,7 +233,7 @@ class PbbController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\pbb  $pbb
+     * @param  \App\Pbb  $pbb
      * @return \Illuminate\Http\Response
      */
     public function destroy(pbb $pbb)
@@ -244,7 +244,7 @@ class PbbController extends Controller
     public function hapuspbb(Request $request)
     {
         $id = $request->id;
-        $pbb = pbb::find($id);
+        $pbb = Pbb::find($id);
         $pbb->delete();
         return redirect()->back();
     }
@@ -253,93 +253,93 @@ class PbbController extends Controller
     {
         if($request->input('tahun')!=null){
             if(auth()->user()->role == 'superadmin'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
             if(auth()->user()->role == 'admin'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
             if(auth()->user()->role == 'sekret'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
             if(auth()->user()->role == 'kessos'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
             if(auth()->user()->role == 'pemtibum'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
             if(auth()->user()->role == 'permasbang'){
-                $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
+                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
  
         ///////////// AKUN pbb //////////////////////////////////
             if (auth()->user()->rw_id == '1'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '2'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '3'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '4'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '5'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '6'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '7'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '8'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '8')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '8')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '9'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '10'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '11'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '12'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '13'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '14'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '15'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '16'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '17'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '18'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '19'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '20'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '21'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '22'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
             }
             if (auth()->user()->rw_id == '23'){
-            $pbb = pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+            $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
             }
         }
         return DataTables::eloquent($pbb)
