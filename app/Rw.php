@@ -70,4 +70,8 @@ class Rw extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function pbb()
+    {
+        return $this->hasMany(Pbb::class);
+    }
 }

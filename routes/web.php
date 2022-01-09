@@ -163,6 +163,14 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,permasban
         ]);
     Route::post('fasosfasum.hapusfasosfasum', 'FasosFasumController@hapusfasosfasum')->name('hapusfasosfasum');
     Route::get('/exportfasosfasum', 'FasosfasumController@fasosfasumexport');
+
+    Route::resource('pbb','PbbController');
+    Route::get('getdatapbb', [
+        'uses' => 'PbbController@getdatapbb',
+        'as' => 'ajax.get.data.pbb',
+        ]);
+    Route::post('pbb.hapuspbb', 'PbbController@hapuspbb')->name('hapuspbb');
+    Route::get('/exportpbb', 'PbbController@pbbexport');
 });
 
 // Auth::routes();

@@ -334,7 +334,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-            <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
+            <li><a href="/pbb"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "user")
@@ -347,7 +347,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
+          <li><a href="/pbb"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "admin")
@@ -360,7 +360,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
+          <li><a href="/pbb"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @elseif (auth()->user()->role == "permasbang")
@@ -373,7 +373,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="/fasosfasum"><i class="fa  fa-table"></i> Fasos/Fasum </a></li>
-          <li><a href="#"><i class="fa  fa-table"></i> PBB </a></li>
+          <li><a href="/pbb"><i class="fa  fa-table"></i> PBB </a></li>
           </ul>
         </li>
         @endif
@@ -430,6 +430,8 @@
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- <script src="/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+
 <!-- SlimScroll -->
 <script src="/AdminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->

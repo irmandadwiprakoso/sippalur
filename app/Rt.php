@@ -59,4 +59,8 @@ class Rt extends Model
     {
         return $this->hasMany(Pamor::class);
     }
+    public function pbb()
+    {
+        return $this->hasMany(Pbb::class);
+    }
 }
