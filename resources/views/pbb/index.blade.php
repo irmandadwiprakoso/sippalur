@@ -75,7 +75,7 @@
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <p>WP DOUBLE</p>
-                  <h3> {{ $pbb->where('KETERANGAN', '=', 'DOUBLE')->count() }}</h3>
+                  <h3> {{ $pbb->where('KETERANGAN', '=', 'WP DOUBLE')->count() }}</h3>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
