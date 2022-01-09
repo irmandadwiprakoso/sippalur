@@ -8,7 +8,7 @@
 </section>
 
 <section class="content">	
-		<div class="row">
+<div class="row">
 
     <div class="col-md-12">
 				<div class="panel panel-white">
@@ -161,6 +161,7 @@
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
 
 <script>
     let tahun = $("#filter-tahun").val()
@@ -244,6 +245,8 @@ $(document).ready(function () {
               }
             })
        })
+
+
 </script>
 
 @include('sweetalert::alert')

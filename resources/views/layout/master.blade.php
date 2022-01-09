@@ -446,6 +446,8 @@
   <!--DataPicker -->
 <script src="/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
 @include('sweetalert::alert')
 @yield('footer')
 </body>

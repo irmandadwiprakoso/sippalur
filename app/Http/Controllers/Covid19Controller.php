@@ -22,27 +22,23 @@ class Covid19Controller extends Controller
      */
     public function index()
     {
-        if(auth()->user()->username == 'superadmin')
+        if(auth()->user()->role == 'superadmin')
         {
             $covid19 = Covid19::all();
         }
-        if(auth()->user()->username == 'admin_kessos')
+        if(auth()->user()->role == 'kessos')
         {
             $covid19 = Covid19::all();
         }
-        if(auth()->user()->username == 'admin_permasbang')
+        if(auth()->user()->role == 'permasbang')
         {
             $covid19 = Covid19::all();
         }
-        if(auth()->user()->username == 'admin_pemtibum')
+        if(auth()->user()->role == 'pemtibum')
         {
             $covid19 = Covid19::all();
         }
-        if(auth()->user()->username == 'admin_sekret')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->username == 'lurah')
+        if(auth()->user()->role == 'sekret')
         {
             $covid19 = Covid19::all();
         }
