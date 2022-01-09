@@ -47,7 +47,7 @@
                     <hr>
 
         <div class="row">
-            <div class="col-lg-6 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <p>JUMLAH SPPT PBB</p>
@@ -59,7 +59,7 @@
               </div>
             </div>
 
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
               <div class="small-box bg-green">
                 <div class="inner">
                   <p>WP TIDAK DIKETAHUI</p>
@@ -71,7 +71,7 @@
               </div>
             </div>
 
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <p>WP DOUBLE</p>
@@ -83,7 +83,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-xs-6">
+            <div class="col-lg-2 col-xs-6">
               <div class="small-box bg-red">
                 <div class="inner">
                   <p>WP TERHUTANG</p>
@@ -95,7 +95,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-xs-6">
+            <div class="col-lg-5 col-xs-6">
               <div class="small-box bg-red">
                 <div class="inner">
                   <p>TOTAL PBB TERHUTANG</p>
@@ -107,7 +107,16 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-xs-6">
+            <div class="col-lg-5 col-xs-6">
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <p>PERSENTASE PBB TERHUTANG</p>
+                  <h3> {{ ($pbb->where('KETERANGAN', '=', 'TERHUTANG')->count() / $pbb->where('TAHUN_SPPT', '=', date('Y'))->count()) * 100 }} %</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-xs-6">
               <div class="small-box bg-blue">
                 <div class="inner">
                   <p>WP LUNAS</p>
@@ -119,7 +128,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-xs-6">
+            <div class="col-lg-5 col-xs-6">
               <div class="small-box bg-blue">
                 <div class="inner">
                   <p>TOTAL PBB LUNAS</p>
@@ -127,6 +136,15 @@
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5 col-xs-6">
+              <div class="small-box bg-blue">
+                <div class="inner">
+                  <p>PERSENTASE PBB LUNAS</p>
+                  <h3> {{ ($pbb->where('KETERANGAN', '=', 'LUNAS')->count() / $pbb->where('TAHUN_SPPT', '=', date('Y'))->count()) * 100 }} %</h3>
                 </div>
               </div>
             </div>

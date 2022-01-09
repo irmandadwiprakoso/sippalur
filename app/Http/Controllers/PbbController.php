@@ -359,8 +359,14 @@ class PbbController extends Controller
              <i class="glyphicon glyphicon-pencil"></i></a>';
             })
         ->addColumn('hapus', function($pbb){
+            if (auth()->user()->role == 'superadmin'){
             $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$pbb->id."' ><i class='fa fa-trash'></i></button>";
             return $button;
+            }
+            if (auth()->user()->role == 'permasbang'){
+            $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$pbb->id."' ><i class='fa fa-trash'></i></button>";
+            return $button;
+            }
         })
         ->rawColumns(['rt','rw','view','edit', 'hapus'])
         ->toJson();
