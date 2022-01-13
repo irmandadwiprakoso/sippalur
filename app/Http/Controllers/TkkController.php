@@ -310,12 +310,12 @@ class TkkController extends Controller
             })
  
         ->addColumn('view', function($tkk){
-                return '<a href="'.$tkk->id.'" class="btn btn-info" title="View">  
+                return '<a href="tkk/'.$tkk->id.'" class="btn btn-info" title="View">  
                 <i class="glyphicon glyphicon-search"></i></a>';           
         })
 
         ->addColumn('edit', function($tkk){
-                return '<a href="'.$tkk->id.'/edit" class="btn btn-warning" title="Edit">
+                return '<a href="tkk/'.$tkk->id.'/edit" class="btn btn-warning" title="Edit">
                 <i class="glyphicon glyphicon-pencil"></i></a>';
         })
 
