@@ -215,6 +215,7 @@ class PbbController extends Controller
     public function update(Request $request, pbb $pbb)
     {
         $request->validate([
+            'ALM_OP' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',          
             'KETERANGAN' => 'required',        
@@ -222,6 +223,7 @@ class PbbController extends Controller
 
         pbb::where('id', $pbb->id)
         ->update([
+            'ALM_OP' => $request->ALM_OP,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
             'KETERANGAN' => $request->KETERANGAN,
@@ -251,26 +253,28 @@ class PbbController extends Controller
 
     public function getdatapbb(Request $request)
     {
-        if($request->input('tahun')!=null){
-            if(auth()->user()->role == 'superadmin'){
+        if(auth()->user()->role == 'superadmin'){
+            if($request->input('rw')!=null){
+                $pbb = Pbb::where('rw_id', $request->rw)->orderBy('rt_id', 'asc');
+            }else if($request->input('tahun')!=null){
                 $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
-            if(auth()->user()->role == 'admin'){
+        }
+        if(auth()->user()->role == 'admin'){
+            if($request->input('rw')!=null){
+                $pbb = Pbb::where('rw_id', $request->rw)->orderBy('rt_id', 'asc');
+            }else if($request->input('tahun')!=null){
                 $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
-            if(auth()->user()->role == 'sekret'){
+        }
+        if(auth()->user()->role == 'permasbang'){
+            if($request->input('rw')!=null){
+                $pbb = Pbb::where('rw_id', $request->rw)->orderBy('rt_id', 'asc');
+            }else if($request->input('tahun')!=null){
                 $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }
-            if(auth()->user()->role == 'kessos'){
-                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-            }
-            if(auth()->user()->role == 'pemtibum'){
-                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-            }
-            if(auth()->user()->role == 'permasbang'){
-                $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-            }
- 
+        }
+            
         ///////////// AKUN pbb //////////////////////////////////
             if (auth()->user()->rw_id == '1'){
             $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
@@ -341,7 +345,7 @@ class PbbController extends Controller
             if (auth()->user()->rw_id == '23'){
             $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
             }
-        }
+        
         return DataTables::eloquent($pbb)
         ->addIndexColumn()
         ->addColumn('rt', function($pbb){

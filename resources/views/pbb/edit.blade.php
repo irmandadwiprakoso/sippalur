@@ -51,7 +51,7 @@
 
         <div class="mb-3">
             <label for="ALM_OP" class="text-danger">ALAMAT OP*</label>
-            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('ALM_OP') is-invalid @enderror" id="ALM_OP" placeholder="ALAMAT OBJEK PAJAK" name="ALM_OP" value="{{ $pbb->ALM_OP}}" disabled>
+            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('ALM_OP') is-invalid @enderror" id="ALM_OP" placeholder="ALAMAT OBJEK PAJAK" name="ALM_OP" value="{{ $pbb->ALM_OP}}">
             @error ('ALM_OP') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
 

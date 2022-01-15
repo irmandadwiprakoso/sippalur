@@ -14,6 +14,37 @@
 				<div class="panel panel-white">
 					<div class="panel-body">
                 <div class="row">
+								<label class="col-sm-2 control-label">RW</label>
+								<div class="col-xs-4">
+								  <select class="form-control filter" name="filter-rw" id="filter-rw">
+										<option value="">--Pilih RW--</option>
+										<option value="1">RW 001</option>
+										<option value="2">RW 002</option>
+										<option value="3">RW 003</option>
+										<option value="4">RW 004</option>
+										<option value="5">RW 005</option>
+										<option value="6">RW 06A</option>
+										<option value="7">RW 06B</option>
+										<option value="8">RW 007</option>
+										<option value="9">RW 008</option>
+										<option value="10">RW 009</option>
+										<option value="11">RW 010</option>
+										<option value="12">RW 011</option>
+										<option value="13">RW 012</option>
+										<option value="14">RW 013</option>
+										<option value="15">RW 014</option>
+										<option value="16">RW 015</option>
+										<option value="17">RW 016</option>
+										<option value="18">RW 017</option>
+										<option value="19">RW 018</option>
+										<option value="20">RW 019</option>
+										<option value="21">RW 020</option>
+										<option value="22">RW 021</option>
+										<option value="23">RW 022</option>
+									</select>
+								</div>
+              </div>
+              <div class="row">
 								  <label class="col-sm-2 control-label">Tahun</label>
 								  <div class="col-xs-4">
 									<input class="form-control filter" id="filter-tahun" type="text" name="filter-tahun" value="{{ date('Y') }}">
@@ -33,7 +64,6 @@
                     <a href="#" class="btn btn-success">Download Data</a>
 
                     @elseif (auth()->user()->role == "user") 
-                    <!-- <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a> -->
                     <a href="#" class="btn btn-success">Download Data</a>
 
                     @elseif (auth()->user()->role == "permasbang") 
@@ -41,8 +71,7 @@
                     <a href="#" class="btn btn-success">Download Data</a>
                     
                     @elseif (auth()->user()->role == "admin") 
-                    <!-- <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a> -->
-                    <!-- <a href="#" class="btn btn-success">Download Data</a> -->
+                    <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a>
                     @endif
                     <hr>
 
@@ -170,10 +199,10 @@
               </thead>
 				    </table>
           </div>
-  </div>
-  </div>
-  </div>
-  </div>
+        </div>
+      </div>
+      </div>
+      </div>
 
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
@@ -183,6 +212,7 @@
 
 <script>
     let tahun = $("#filter-tahun").val()
+    ,rw = $("#filter-rw").val()
 
 $(document).ready(function () {
   var table =  $('#pbb').DataTable({
@@ -192,6 +222,7 @@ $(document).ready(function () {
         url : "{{ route('ajax.get.data.pbb') }}",
         data:function(d){
           d.tahun = tahun;
+          d.rw = rw;
           return d
         }
     },
@@ -212,6 +243,7 @@ $(document).ready(function () {
     })
         $(".filter").on('change', function(){
           tahun = $("#filter-tahun").val()
+          rw = $("#filter-rw").val()
           table.ajax.reload(null, false);
         })
 })
