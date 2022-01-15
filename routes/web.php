@@ -25,12 +25,17 @@ Route::group(['middleware' => ['auth','checkrole:superadmin']],function(){
     Route::get('/register', 'AuthController@register');
     Route::post('/saveregister', 'AuthController@saveregister');
     Route::get('/user', 'AuthController@user');
+
+    Route::delete('/user/{user}', 'AuthController@deleteuser');
+
     Route::get('/user/{user}/changepassword', 'AuthController@changepassword');
     Route::patch('/user/{user}', 'AuthController@updatepassword');
-    Route::delete('/user/{user}', 'AuthController@deleteuser');
 
     Route::get('/user/{user}/edit', 'AuthController@edituser');
     Route::patch('/user/{user}/updateuser', 'AuthController@updateuser');
+
+    Route::get('/user/{user}/editusername', 'AuthController@editusername');
+    Route::patch('/user/{user}/updateusername', 'AuthController@updateusername');
 
     Route::get('getdatauser', [
         'uses' => 'AuthController@getdatauser',

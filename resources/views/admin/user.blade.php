@@ -14,13 +14,13 @@
                     <div class="panel-body">
                 <!-- <hr> -->
                 <div class="table-responsive">
-                    <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <!-- <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="dataTables_length" id="tabel_length"> 
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
                     </div>
                     <table id="users" class="table table-bordered table-striped">
@@ -32,7 +32,8 @@
                             <th>Role</th>
                             <th>RW</th>
                             <th>Edit RW</th>
-                            <th>Reset</th>
+                            <th>Edit Username</th>
+                            <th>Reset Pass</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -41,7 +42,7 @@
             </div>
         </div>
     </div>
-</div>	
+
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
@@ -53,7 +54,6 @@
       processing:true,
       serverside:true,
       ajax:"{{route('ajax.get.data.user')}}",
-    //   order: [[ 4, "asc" ]],
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'name', name:'name'},
@@ -61,6 +61,7 @@
         {data:'role', name:'role'},
         {data:'rw_id', name:'rw_id'},
         {data:'edituser', name:'edituser', orderable: false, searchable: false},
+        {data:'editusername', name:'editusername', orderable: false, searchable: false},
         {data:'edit', name:'edit', orderable: false, searchable: false},
         {data:'hapus', name:'hapus', orderable: false, searchable: false},
       ]

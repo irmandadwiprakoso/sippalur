@@ -108,6 +108,25 @@ class AuthController extends Controller
         return redirect('/user')->with('success', 'RW User Berhasil Dirubah!');
     }
 
+    public function editusername(User $user)
+    {
+        $rw = Rw::all();
+        return view ('admin.editusername', compact('user', 'rw'));
+    }
+
+    public function updateusername(Request $request, User $user)
+    {
+        $request->validate([
+            'username' => 'required',
+        ]);
+
+        User::where('id', $user->id)
+        ->update([
+            'username' => $request->username,
+        ]);
+        return redirect('/user')->with('success', 'Username Berhasil Dirubah!');
+    }
+
     public function deleteuser(User $user)
     {
         User::destroy($user->id);
@@ -133,6 +152,11 @@ class AuthController extends Controller
                 <i class="glyphicon glyphicon-user"></i></a>';
         })
 
+        ->addColumn('editusername', function($user){
+                return '<a href="user/'.$user->id.'/editusername" class="btn btn-warning" title="Edit Username">
+                <i class="glyphicon glyphicon-user"></i></a>';
+        })
+
         ->addColumn('edit', function($user){
                 return '<a href="user/'.$user->id.'/changepassword" class="btn btn-warning" title="Reset Password">
                 <i class="glyphicon glyphicon-pencil"></i></a>';
@@ -143,11 +167,8 @@ class AuthController extends Controller
                 return $button;  
         })
         
-        ->rawColumns(['edituser','edit', 'hapus'])
+        ->rawColumns(['editusername','edituser','edit', 'hapus'])
         ->toJson();
         
         }
-
-
-
 }
