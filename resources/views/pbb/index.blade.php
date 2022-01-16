@@ -61,17 +61,18 @@
                     <div class="panel-body">
                     @if (auth()->user()->role == "superadmin") 
                     <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a>
-                    <a href="#" class="btn btn-success">Download Data</a>
+                    <a href="/exportpbb" class="btn btn-success">Download Data</a>
 
                     @elseif (auth()->user()->role == "user") 
-                    <a href="#" class="btn btn-success">Download Data</a>
+                    <a href="/exportpbb" class="btn btn-success">Download Data</a>
 
                     @elseif (auth()->user()->role == "permasbang") 
                     <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a>
-                    <a href="#" class="btn btn-success">Download Data</a>
+                    <a href="/exportpbb" class="btn btn-success">Download Data</a>
                     
                     @elseif (auth()->user()->role == "admin") 
                     <a href="/pbb/create" class="btn btn-primary my-2">Tambah Data</a>
+                    <a href="/exportpbb" class="btn btn-success">Download Data</a>
                     @endif
                     <hr>
 

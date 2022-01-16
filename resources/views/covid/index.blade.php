@@ -141,55 +141,6 @@
             </div>
           </div>
         </div>
-      
-        <!-- <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-            <p> TERKONFIRMASI</p>
-              <h3> {{ $covid19->where('konfirmasi', date('Y') )->count() }}</h3>
-            </div>
-            <div class="icon">
-            <i class="ion ion-person"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-yellow">
-            <div class="inner">
-            <p> POSITIF</p>
-            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->count() }}</h3>
-            </div>
-               <div class="icon">
-               <i class="ion ion-person-add"></i>
-             </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
-            <div class="inner">
-            <p> NEGATIF</p>
-            <h3> {{ $covid19->where('status_akhir', '=', 'Negatif')->count() }}</h3>
-            </div>
-            <div class="icon">
-            <i class="ion ion-person"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
-            <p> MENINGGAL</p>
-            <h3> {{ $covid19->where('status_akhir', '=', 'Meninggal')->count() }}</h3>
-            </div>
-            <div class="icon">
-            <i class="ion ion-person"></i>
-            </div>
-          </div>
-        </div> -->
-
       </div>
 
       <div class="table-responsive">
@@ -214,14 +165,22 @@
 				</table>
       </div>
     </div>
-  </div>
 </div>
+</div>
+
+      <!-- <div class="col-md-12">
+				<div class="panel panel-white">
+          <div id="chartCovid19"></div>
+				</div>
+		  </div> -->
+
 </div>
 
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/AdminLTE/plugins/DataTables/DataTables/js/jquery.dataTables.min.js"></script>
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
 
 <script>
     let rw  = $("#filter-rw").val()
@@ -327,6 +286,77 @@
               }
             })
        })
+
+///////////////// CHART PBB ////////////////////
+
+// Highcharts.chart('chartCovid19', {
+//     chart: {
+//         type: 'column'
+//     },
+//     title: {
+//         text: 'Laporan Data Covid-19'
+//     },
+//     subtitle: {
+//         text: 'Sumber: Dinas Kesehatan dan Pamor Kelurahan Jakasampurna'
+//     },
+//     xAxis: {
+//         categories: [
+//             'RW 001',
+//             'RW 002',
+//             'RW 003',
+//             'RW 004',
+//             'RW 005',
+//             'RW 06A',
+//             'RW 06B',
+//             'RW 007',
+//             'RW 008',
+//             'RW 009',
+//             'RW 010',
+//             'RW 011',
+//             'RW 012',
+//             'RW 013',
+//             'RW 014',
+//             'RW 015',
+//             'RW 016',
+//             'RW 017',
+//             'RW 018',
+//             'RW 019',
+//             'RW 020',
+//             'RW 021',
+//             'RW 022',
+//         ],
+//         crosshair: true
+//     },
+//     yAxis: {
+//         min: 0,
+//         title: {
+//             text: 'Jumlah Pasien Covid-19'
+//         }
+//     },
+//     tooltip: {
+//         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+//         footerFormat: '</table>',
+//         shared: true,
+//         useHTML: true
+//     },
+//     plotOptions: {
+//         column: {
+//             pointPadding: 0.2,
+//             borderWidth: 0
+//         }
+//     },
+//     series: [{
+//         name: 'POSITIF',
+//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+//     }, {
+//         name: 'NEGATIF',
+//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+//     }, {
+//         name: 'MENINGGAL',
+//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+//     }]
+// });
+
 </script>
 
 @include('sweetalert::alert')

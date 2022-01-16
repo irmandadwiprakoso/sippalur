@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Rt;
 use App\Rw;
+use App\Exports\PbbExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PbbController extends Controller
 {
@@ -110,6 +112,10 @@ class PbbController extends Controller
         return view('pbb.index', ['pbb' => $pbb]);
     }
 
+    public function pbbexport()
+    {
+        return Excel::download(new PbbExport,'sppt-pbb-master.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *

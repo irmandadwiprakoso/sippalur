@@ -140,6 +140,12 @@ class Covid19Controller extends Controller
             $covid19 = Covid19::where('rw_id', '=', '23')->get();
         }
 
+        // Data Untuk Chart //
+        //  $covid19 = Covid19::where('rw_id', '=', '1')->where('status_akhir', '=', 'Positif')->count();
+        
+
+        // dd($data);
+
         return view('covid.index', ['covid19' => $covid19]);
     }
 
