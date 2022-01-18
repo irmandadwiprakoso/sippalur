@@ -63,6 +63,7 @@
 									</select>
 								</div>
                 
+                <div class="row">
 								  <label class="col-sm-2 control-label">Tahun</label>
 								    <div class="col-xs-4">
 									    <input class="form-control filter" id="filter-tahun" type="text" name="filter-tahun" value="{{ date('Y') }}">
@@ -71,6 +72,7 @@
 							<br>
 			  	</div>										
 			  </div>
+		  </div>
 		  </div>
       
               <div class="col-xs-12">
@@ -134,6 +136,57 @@
           <div class="small-box bg-red">
             <div class="inner">
             <p>TOTAL MENINGGAL</p>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Meninggal')->count() }}</h3>
+            </div>
+            <div class="icon">
+            <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAHUN BERJALAN -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+            <p>TERKONFIRMASI</p>
+              <h3> {{ $covid19->count() }}</h3>
+            </div>
+            <div class="icon">
+            <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+            <p>POSITIF</p>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->whereYear('konfirmasi', date('Y'))->count() }}</h3>
+            </div>
+               <div class="icon">
+               <i class="ion ion-person-add"></i>
+             </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+            <p>NEGATIF</p>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Negatif')->where('konfirmasi', '=', now())->count() }}</h3>
+            </div>
+            <div class="icon">
+            <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner">
+            <p>MENINGGAL</p>
             <h3> {{ $covid19->where('status_akhir', '=', 'Meninggal')->count() }}</h3>
             </div>
             <div class="icon">

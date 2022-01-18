@@ -78,7 +78,7 @@
 
         <div class="row">
             <div class="col-lg-4 col-xs-6">
-              <div class="small-box bg-yellow">
+              <div class="small-box bg-orange">
                 <div class="inner">
                   <p>JUMLAH SPPT PBB</p>
                   <h3> {{ $pbb->where('TAHUN_SPPT', '=', date('Y'))->count() }}</h3>
@@ -89,11 +89,11 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-2 col-xs-6">
               <div class="small-box bg-green">
                 <div class="inner">
-                  <p>WP TIDAK DIKETAHUI</p>
-                  <h3> {{ $pbb->where('KETERANGAN', '=', 'TIDAK DIKETAHUI')->count() }}</h3>
+                  <p>TIDAK DIKETAHUI</p>
+                  <h3> {{ $pbb->where('KETERANGAN', '=', 'OP TIDAK DIKETAHUI')->count() }}</h3>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -101,11 +101,35 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-2 col-xs-6">
+              <div class="small-box bg-black">
+                <div class="inner">
+                  <p>TIDAK ADA FISIK</p>
+                  <h3> {{ $pbb->where('KETERANGAN', '=', 'OP TIDAK ADA FISIK')->count() }}</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-xs-6">
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <p>WP DOUBLE</p>
+                  <p>DOUBLE</p>
                   <h3> {{ $pbb->where('KETERANGAN', '=', 'WP DOUBLE')->count() }}</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-xs-6">
+              <div class="small-box bg-maroon">
+                <div class="inner">
+                  <p>5 TAHUN</p>
+                  <h3> {{ $pbb->where('KETERANGAN', '=', '5 TAHUN')->count() }}</h3>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -143,6 +167,9 @@
                   <p>PERSENTASE PBB TERHUTANG</p>
                   <h3> {{ ($pbb->where('KETERANGAN', '=', 'TERHUTANG')->count() / $pbb->where('TAHUN_SPPT', '=', date('Y'))->count()) * 100 }} %</h3>
                 </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
               </div>
             </div>
 
@@ -175,6 +202,9 @@
                 <div class="inner">
                   <p>PERSENTASE PBB LUNAS</p>
                   <h3> {{ ($pbb->where('KETERANGAN', '=', 'LUNAS')->count() / $pbb->where('TAHUN_SPPT', '=', date('Y'))->count()) * 100 }} %</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
                 </div>
               </div>
             </div>

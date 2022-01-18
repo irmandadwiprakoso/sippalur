@@ -101,7 +101,9 @@
                 <option value="TERHUTANG">TERHUTANG</option>
                 <option value="LUNAS">LUNAS</option>
                 <option value="WP DOUBLE">WP DOUBLE</option>
-                <option value="TIDAK DIKETAHUI">TIDAK DIKETAHUI</option>
+                <option value="OP TIDAK DIKETAHUI">OP TIDAK DIKETAHUI</option>
+                <option value="OP TIDAK ADA FISIK">TIDAK ADA FISIK</option>
+                <option value="5 TAHUN">5 TAHUN TIDAK PEMBAYARAN</option>
             </select>
             @error ('KETERANGAN') <div class="alert alert-danger">{{ $message }} </div>@enderror 
         </div>
