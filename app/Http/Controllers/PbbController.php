@@ -20,9 +20,9 @@ class PbbController extends Controller
     public function index()
     {
         if (auth()->user()->role != 'user') {
-            $pbb = Pbb::where('TAHUN_SPPT', '=', date('Y'))->get();
+            $pbb = Pbb::where('TAHUN_SPPT', '=', date('Y'))->where('rw_id', 'asc')->where('rt_id', 'asc')->get();
         } else {
-            $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', '=', date('Y'))->get();
+            $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', '=', date('Y'))->where('rw_id', 'asc')->where('rt_id', 'asc')->get();
         }
         return view('pbb.index', ['pbb' => $pbb]);
     }
@@ -179,7 +179,7 @@ class PbbController extends Controller
                 $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
             }if($request->input('rw')!=null){
                 $pbb = Pbb::where('rw_id', $request->rw)->where('TAHUN_SPPT', $request->tahun)->orderBy('rt_id', 'asc');
-            }if($request->input('rt')!=null && ('rw')!=null){
+            }if($request->input('rt')!=null){
                 $pbb = Pbb::where('rw_id', $request->rw)->where('rt_id', $request->rt)->where('TAHUN_SPPT', $request->tahun)->orderBy('rt_id', 'asc');
             }
         }else
