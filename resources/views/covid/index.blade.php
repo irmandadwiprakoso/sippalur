@@ -82,7 +82,6 @@
                     @if (auth()->user()->role == "superadmin")
                     <a href="/covid19/create" class="btn btn-primary my-2">Tambah Data</a>
                     <a href="/exportcovid19" class="btn btn-success">Download Data</a>
-                    <a href="/chartcovid19" class="btn btn-success">Chart Data</a>
 
                     @elseif (auth()->user()->role == "user")
                     <a href="/covid19/create" class="btn btn-primary my-2">Tambah Data</a>
@@ -294,73 +293,73 @@
 
 ///////////////// CHART PBB ////////////////////
 
-// Highcharts.chart('chartCovid19', {
-//     chart: {
-//         type: 'column'
-//     },
-//     title: {
-//         text: 'Laporan Data Covid-19'
-//     },
-//     subtitle: {
-//         text: 'Sumber: Dinas Kesehatan dan Pamor Kelurahan Jakasampurna'
-//     },
-//     xAxis: {
-//         categories: [
-//             'RW 001',
-//             'RW 002',
-//             'RW 003',
-//             'RW 004',
-//             'RW 005',
-//             'RW 06A',
-//             'RW 06B',
-//             'RW 007',
-//             'RW 008',
-//             'RW 009',
-//             'RW 010',
-//             'RW 011',
-//             'RW 012',
-//             'RW 013',
-//             'RW 014',
-//             'RW 015',
-//             'RW 016',
-//             'RW 017',
-//             'RW 018',
-//             'RW 019',
-//             'RW 020',
-//             'RW 021',
-//             'RW 022',
-//         ],
-//         crosshair: true
-//     },
-//     yAxis: {
-//         min: 0,
-//         title: {
-//             text: 'Jumlah Pasien Covid-19'
-//         }
-//     },
-//     tooltip: {
-//         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-//         footerFormat: '</table>',
-//         shared: true,
-//         useHTML: true
-//     },
-//     plotOptions: {
-//         column: {
-//             pointPadding: 0.2,
-//             borderWidth: 0
-//         }
-//     },
-//     series: [{
-//         name: 'POSITIF',
-//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
-//     }, {
-//         name: 'NEGATIF',
-//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
-//     }, {
-//         name: 'MENINGGAL',
-//         data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
-//     }]
-// });
+Highcharts.chart('chartCovid19', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Laporan Data Covid-19'
+    },
+    subtitle: {
+        text: 'Sumber: Dinas Kesehatan dan Pamor Kelurahan Jakasampurna'
+    },
+    xAxis: {
+        categories: [
+            'RW 001',
+            'RW 002',
+            'RW 003',
+            'RW 004',
+            'RW 005',
+            'RW 06A',
+            'RW 06B',
+            'RW 007',
+            'RW 008',
+            'RW 009',
+            'RW 010',
+            'RW 011',
+            'RW 012',
+            'RW 013',
+            'RW 014',
+            'RW 015',
+            'RW 016',
+            'RW 017',
+            'RW 018',
+            'RW 019',
+            'RW 020',
+            'RW 021',
+            'RW 022',
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Jumlah Pasien Covid-19'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'POSITIF',
+        data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+    }, {
+        name: 'NEGATIF',
+        data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+    }, {
+        name: 'MENINGGAL',
+        data: [1,1,2,4,1,2,1,1,1,4,1,1,1,1,0,1,1,1,2,1,1,1,1,1,]
+    }]
+});
 
 </script>
 

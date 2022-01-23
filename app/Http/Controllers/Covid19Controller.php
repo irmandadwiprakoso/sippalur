@@ -21,35 +21,16 @@ class Covid19Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         if (auth()->user()->role != 'user') {
-            $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
+            $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->orderby('rw_id', 'asc')->orderby('rt_id', 'asc')->get();
 
         } else {
-            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
+            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->orderby('rw_id', 'asc')->orderby('rt_id', 'asc')->get();
         }
         return view('covid.index', ['covid19' => $covid19]);
     }
-
-    // public function chart(){
-    //     if (auth()->user()->role != 'user') {
-    //         $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
-
-    //     } else {
-    //         $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
-        
-    //     // $positif = Covid19::where('status_akhir', '=', 'Positif')->count();
-    //     // $months = Covid19::whereYear('konfirmasi', date('Y'))->count();
-
-    //     // $datas = array (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-    //     // foreach($months as $chart) 
-    //     // {
-    //     //     $datas[$months] = $positif[$chart];
-    //     // }
-    //     return view('covid.chartcovid19', ['covid19' => $covid19]);
-    //     // return view('chartcovid19', compact ('datas') );
-    // }}
 
     public function covid19export()
     {
