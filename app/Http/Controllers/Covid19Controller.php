@@ -15,144 +15,47 @@ use Yajra\DataTables\Facades\DataTables;
 
 class Covid19Controller extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        if(auth()->user()->role == 'superadmin')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->role == 'kessos')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->role == 'permasbang')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->role == 'pemtibum')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->role == 'sekret')
-        {
-            $covid19 = Covid19::all();
-        }
-        if(auth()->user()->role == 'admin')
-        {
-            $covid19 = Covid19::all();
-        }
+        if (auth()->user()->role != 'user') {
+            $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
 
-        if (auth()->user()->rw_id == '1')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '1')->get();
+        } else {
+            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
         }
-        if (auth()->user()->rw_id == '2')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->rw_id == '3')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->rw_id == '4')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->rw_id == '5')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->rw_id == '6')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->rw_id == '7')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->rw_id == '8')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->rw_id == '9')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->rw_id == '10')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->rw_id == '11')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->rw_id == '12')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->rw_id == '13')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->rw_id == '14')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->rw_id == '15')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->rw_id == '16')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->rw_id == '17')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->rw_id == '18')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->rw_id == '19')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->rw_id == '20')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->rw_id == '21')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->rw_id == '22')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->rw_id == '23')
-        {
-            $covid19 = Covid19::where('rw_id', '=', '23')->get();
-        }
-
-        // Data Untuk Chart //
-        //  $covid19 = Covid19::where('rw_id', '=', '1')->where('status_akhir', '=', 'Positif')->count();
-        
-
-        // dd($data);
-
         return view('covid.index', ['covid19' => $covid19]);
     }
+
+    // public function chart(){
+    //     if (auth()->user()->role != 'user') {
+    //         $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
+
+    //     } else {
+    //         $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
+        
+    //     // $positif = Covid19::where('status_akhir', '=', 'Positif')->count();
+    //     // $months = Covid19::whereYear('konfirmasi', date('Y'))->count();
+
+    //     // $datas = array (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    //     // foreach($months as $chart) 
+    //     // {
+    //     //     $datas[$months] = $positif[$chart];
+    //     // }
+    //     return view('covid.chartcovid19', ['covid19' => $covid19]);
+    //     // return view('chartcovid19', compact ('datas') );
+    // }}
 
     public function covid19export()
     {
         return Excel::download(new Covid19Export,'covid19-jakasampurna.csv');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -441,7 +344,7 @@ class Covid19Controller extends Controller
 
     public function getdatacovid19(Request $request)
     {
-        if(auth()->user()->role == 'superadmin'){          
+        if(auth()->user()->role != 'user'){          
             if($request->input('tahun')!=null){
                 $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
             }
@@ -456,277 +359,13 @@ class Covid19Controller extends Controller
             }else if($request->input('rw')!=null){
                 $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
             }
-        }
-
-        if(auth()->user()->role == 'admin'){          
+        }else 
             if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
+                $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
             }
             if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-            if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-        }
-
-        if(auth()->user()->role == 'kessos'){          
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-            if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-        }
-
-        if(auth()->user()->role == 'permasbang'){          
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-            if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-        }
-
-        if(auth()->user()->role == 'pemtibum'){          
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-            if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-        }
-        
-        if(auth()->user()->role == 'sekret'){          
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-            if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
-            }
-        }
-
-        if (auth()->user()->rw_id == '1'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '1')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '1')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '2'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '2')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '2')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '3'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '3')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '3')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '4'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '4')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '4')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '5'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '5')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '5')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '6'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '6')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '6')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '7'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '7')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '7')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '8'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '8')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '8')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '9'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '9')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '9')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '10'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '10')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '10')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '11'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '11')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '11')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '12'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '12')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '12')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '13'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '13')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '13')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '14'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '14')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '14')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '15'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '15')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '15')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '16'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '16')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '16')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '17'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '17')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '17')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '18'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '18')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '18')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '19'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '19')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '19')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '20'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '20')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '20')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '21'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '21')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '21')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '22'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '22')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '22')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
-        if (auth()->user()->rw_id == '23'){         
-            if($request->input('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '23')->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-            if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::where('rw_id', '=', '23')->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
-            }
-        }
+                $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
+    }
 
         return DataTables::eloquent($covid19)
         ->addIndexColumn()

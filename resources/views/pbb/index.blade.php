@@ -13,7 +13,7 @@
     <div class="col-md-12">
 				<div class="panel panel-white">
 					<div class="panel-body">
-                <div class="row">
+              <div class="row">
 								<label class="col-sm-2 control-label">RW</label>
 								<div class="col-xs-4">
 								  <select class="form-control filter" name="filter-rw" id="filter-rw">
@@ -44,6 +44,30 @@
 									</select>
 								</div>
               </div>
+
+              <div class="row">
+								<label class="col-sm-2 control-label">RT</label>
+								<div class="col-xs-4">
+								  <select class="form-control filter" name="filter-rt" id="filter-rt">
+										<option value="">--Pilih RT--</option>
+										<option value="1">RT 001</option>
+										<option value="2">RT 002</option>
+										<option value="3">RT 003</option>
+										<option value="4">RT 004</option>
+										<option value="5">RT 005</option>
+										<option value="6">RT 006</option>
+										<option value="7">RT 007</option>
+										<option value="8">RT 008</option>
+										<option value="9">RT 009</option>
+										<option value="10">RT 010</option>
+										<option value="11">RT 011</option>
+										<option value="12">RT 012</option>
+										<option value="13">RT 013</option>
+										<option value="14">RT 000</option>
+									</select>
+								</div>
+								</div>
+              
               <div class="row">
 								  <label class="col-sm-2 control-label">Tahun</label>
 								  <div class="col-xs-4">
@@ -53,9 +77,10 @@
 							<br>
 					</div>										
 				</div>
-		</div>
+			</div>
+	
 
-            <div class="col-xs-12">
+              <div class="col-xs-12">
                 <div class="panel panel-success">
                     <div class="panel-heading">SPPT PBB</div>
                     <div class="panel-body">
@@ -81,7 +106,7 @@
               <div class="small-box bg-orange">
                 <div class="inner">
                   <p>JUMLAH SPPT PBB</p>
-                  <h3> {{ $pbb->where('TAHUN_SPPT', '=', date('Y'))->count() }}</h3>
+                  <h3> {{ $pbb->count() }}</h3>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -161,7 +186,7 @@
               </div>
             </div>
 
-            <div class="col-lg-5 col-xs-6">
+	            <div class="col-lg-5 col-xs-6">
               <div class="small-box bg-red">
                 <div class="inner">
                   <p>PERSENTASE PBB TERHUTANG</p>
@@ -208,6 +233,7 @@
                 </div>
               </div>
             </div>
+
       </div>
 
           <div class="table-responsive">
@@ -233,7 +259,7 @@
         </div>
       </div>
       </div>
-      </div>
+      </div> 
 
 <!-- jQuery 3 -->
 <script src="/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
@@ -244,6 +270,7 @@
 <script>
     let tahun = $("#filter-tahun").val()
     ,rw = $("#filter-rw").val()
+    ,rt = $("#filter-rt").val()
 
 $(document).ready(function () {
   var table =  $('#pbb').DataTable({
@@ -253,6 +280,7 @@ $(document).ready(function () {
         url : "{{ route('ajax.get.data.pbb') }}",
         data:function(d){
           d.tahun = tahun;
+          d.rt = rt;
           d.rw = rw;
           return d
         }
@@ -275,6 +303,7 @@ $(document).ready(function () {
         $(".filter").on('change', function(){
           tahun = $("#filter-tahun").val()
           rw = $("#filter-rw").val()
+          rt = $("#filter-rt").val()
           table.ajax.reload(null, false);
         })
 })
@@ -326,8 +355,6 @@ $(document).ready(function () {
               }
             })
        })
-
-
 </script>
 
 @include('sweetalert::alert')
