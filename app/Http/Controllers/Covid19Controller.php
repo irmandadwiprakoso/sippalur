@@ -24,10 +24,10 @@ class Covid19Controller extends Controller
     public function index()
     {
         if (auth()->user()->role != 'user') {
-            $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->orderby('rw_id', 'asc')->orderby('rt_id', 'asc')->get();
+            $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
 
         } else {
-            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->orderby('rw_id', 'asc')->orderby('rt_id', 'asc')->get();
+            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
         }
         return view('covid.index', ['covid19' => $covid19]);
     }
