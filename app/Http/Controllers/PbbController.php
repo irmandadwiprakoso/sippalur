@@ -20,9 +20,9 @@ class PbbController extends Controller
     public function index()
     {
         if (auth()->user()->role != 'user') {
-            $pbb = Pbb::where('TAHUN_SPPT', '=', date('Y'))->where('rw_id', 'asc')->where('rt_id', 'asc')->get();
+            $pbb = Pbb::where('TAHUN_SPPT', '=', date('Y'))->get();
         } else {
-            $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', '=', date('Y'))->where('rw_id', 'asc')->where('rt_id', 'asc')->get();
+            $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', '=', date('Y'))->get();
         }
         return view('pbb.index', ['pbb' => $pbb]);
     }
