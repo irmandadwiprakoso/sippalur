@@ -21,110 +21,11 @@ class ksbrwController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->role == 'superadmin')
+        if(auth()->user()->role != 'user')
         {
-            $ksbrw = Ksbrw::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'admin_pemtibum')
-        {
-            $ksbrw = Ksbrw::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'admin')
-        {
-            $ksbrw = Ksbrw::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-        if (auth()->user()->rw_id == '1')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->rw_id == '2')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->rw_id == '3')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->rw_id == '4')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->rw_id == '5')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->rw_id == '6')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->rw_id == '7')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->rw_id == '8')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->rw_id == '9')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->rw_id == '10')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->rw_id == '11')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->rw_id == '12')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->rw_id == '13')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->rw_id == '14')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->rw_id == '15')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->rw_id == '16')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->rw_id == '17')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->rw_id == '18')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->rw_id == '19')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->rw_id == '20')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->rw_id == '21')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->rw_id == '22')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->rw_id == '23')
-        {
-            $ksbrw = Ksbrw::where('rw_id', '=', '23')->get();
+            $ksbrw = Ksbrw::orderby('rw_id', 'asc')->get();
+        }else {
+            $ksbrw = Ksbrw::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
 
         return view('ksbrw.index', ['ksbrw' => $ksbrw]);
@@ -281,92 +182,12 @@ return redirect('/ksbrw')->with('success', 'Data RW Berhasil Ditambahkan!');
     public function getdataksbrw()
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role == 'superadmin'){
+        if(auth()->user()->role != 'user'){
             $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }else {
+            $ksbrw = Ksbrw::where('rw_id', '=', auth()->user()->rw_id)->orderBy('jabatan_id', 'asc');
         }
-        if(auth()->user()->role == 'admin'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'sekret'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'kessos'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'pemtibum'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'permasbang'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        ///////////// AKUN PAMOR //////////////////////////////////
-        if (auth()->user()->rw_id == '1'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '1')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '2'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '2')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '3'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '3')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '4'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '4')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '5'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '5')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '6'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '6')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '7'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '7')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '8'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '9')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '10'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '10')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '11'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '11')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '12'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '12')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '13'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '13')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '14'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '14')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '15'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '15')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '16'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '16')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '17'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '17')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '18'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '18')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '19'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '19')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '20'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '20')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '21'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '21')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '22'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '22')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '23'){
-        $ksbrw = Ksbrw::where('rw_id', '=', '23')->orderBy('jabatan_id', 'asc');
-        }
-
+        
         // $ksbrw = Ksbrw::select('ksbrw.*');
         return DataTables::eloquent($ksbrw)
         ->addIndexColumn()
