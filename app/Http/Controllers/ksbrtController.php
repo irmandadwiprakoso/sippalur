@@ -22,110 +22,11 @@ class ksbrtController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->role == 'superadmin')
+        if(auth()->user()->role != 'user')
         {
-            $ksbrt = Ksbrt::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'admin_pemtibum')
-        {
-            $ksbrt = Ksbrt::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'admin')
-        {
-            $ksbrt = Ksbrt::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-        if (auth()->user()->rw_id == '1')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->rw_id == '2')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->rw_id == '3')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->rw_id == '4')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->rw_id == '5')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->rw_id == '6')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->rw_id == '7')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->rw_id == '8')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->rw_id == '9')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->rw_id == '10')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->rw_id == '11')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->rw_id == '12')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->rw_id == '13')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->rw_id == '14')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->rw_id == '15')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->rw_id == '16')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->rw_id == '17')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->rw_id == '18')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->rw_id == '19')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->rw_id == '20')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->rw_id == '21')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->rw_id == '22')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->rw_id == '23')
-        {
-            $ksbrt = Ksbrt::where('rw_id', '=', '23')->get();
+            $ksbrt = Ksbrt::orderby('rw_id', 'asc')->orderby('rt_id', 'asc')->get();
+        }else {
+            $ksbrt = Ksbrt::where('rw_id', '=', auth()->user()->rw_id)->orderby('rt_id', 'asc')->get();
         }
 
         return view('ksbrt.index', ['ksbrt' => $ksbrt]);
@@ -286,93 +187,12 @@ return redirect('/ksbrt')->with('success', 'Data RT Berhasil Ditambahkan!');
     public function getdataksbrt()
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role == 'superadmin'){
+        if(auth()->user()->role != 'user'){
             $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'admin'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'sekret'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'kessos'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'pemtibum'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if(auth()->user()->role == 'permasbang'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        ///////////// AKUN PAMOR //////////////////////////////////
-        if (auth()->user()->rw_id == '1'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '1')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '2'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '2')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '3'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '3')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '4'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '4')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '5'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '5')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '6'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '6')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '7'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '7')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '8'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '9')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '10'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '10')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '11'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '11')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '12'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '12')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '13'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '13')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '14'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '14')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '15'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '15')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '16'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '16')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '17'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '17')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '18'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '18')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '19'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '19')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '20'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '20')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '21'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '21')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '22'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '22')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '23'){
-        $ksbrt = Ksbrt::where('rw_id', '=', '23')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
+        }else {
+            $ksbrt = Ksbrt::where('rw_id', '=', auth()->user()->rw_id)->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');            
         }
 
-        // $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('jabatan_id', 'asc');
         return DataTables::eloquent($ksbrt)
         ->addIndexColumn()
         ->addColumn('nama', function($ksbrt){
