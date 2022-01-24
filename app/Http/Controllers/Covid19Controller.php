@@ -25,7 +25,6 @@ class Covid19Controller extends Controller
     {
         if (auth()->user()->role != 'user') {
             $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
-
         } else {
             $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
         }
@@ -327,16 +326,15 @@ class Covid19Controller extends Controller
     {
         if(auth()->user()->role != 'user'){          
             if($request->input('tahun')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
+                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->orderby('rw_id', 'asc')->orderby('rt_id', 'asc');
             }
             if($request->input('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rt_id', 'asc');
+                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->orderby('rw_id', 'asc')->orderby('rt_id', 'asc');
             }else if($request->input('rw')!=null){
-                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
+                $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rw_id', 'asc')->orderby('rt_id', 'asc');
             }
             if($request->input('rw')!=null && ('bulan')!=null && ('tahun')!=null){
-                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->
-                where('rw_id', $request->rw)->orderby('rt_id', 'asc');
+                $covid19 = Covid19::whereMonth('konfirmasi', $request->bulan)->whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
             }else if($request->input('rw')!=null){
                 $covid19 = Covid19::whereYear('konfirmasi', $request->tahun)->where('rw_id', $request->rw)->orderby('rt_id', 'asc');
             }
