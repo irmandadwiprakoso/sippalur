@@ -21,112 +21,12 @@ class FasosfasumController extends Controller
     public function index()
     {
         // $fasosfasum = Fasosfasum::all();
-        if(auth()->user()->role == 'superadmin')
+        if(auth()->user()->role != 'user')
         {
-            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
+            $fasosfasum = Fasosfasum::orderby('rw_id', 'asc')->get();
+        }else {
+            $fasosfasum = Fasosfasum::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
-        if(auth()->user()->role == 'admin_permasbang')
-        {
-            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'admin')
-        {
-            $fasosfasum = Fasosfasum::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-        if (auth()->user()->rw_id == '1')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->rw_id == '2')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->rw_id == '3')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->rw_id == '4')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->rw_id == '5')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->rw_id == '6')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->rw_id == '7')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->rw_id == '8')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->rw_id == '9')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->rw_id == '10')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->rw_id == '11')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->rw_id == '12')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->rw_id == '13')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->rw_id == '14')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->rw_id == '15')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->rw_id == '16')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->rw_id == '17')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->rw_id == '18')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->rw_id == '19')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->rw_id == '20')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->rw_id == '21')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->rw_id == '22')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->rw_id == '23')
-        {
-            $fasosfasum = Fasosfasum::where('rw_id', '=', '23')->get();
-        }
-
         return view('fasosfasum.index', ['fasosfasum' => $fasosfasum]);
     }
 
@@ -291,90 +191,10 @@ class FasosfasumController extends Controller
     public function getdatafasosfasum()
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role == 'superadmin'){
+        if(auth()->user()->role != 'user'){
             $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'admin'){
-            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'sekret'){
-            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'kessos'){
-            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'pemtibum'){
-            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'permasbang'){
-            $fasosfasum = Fasosfasum::select('fasosfasum.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        ///////////// AKUN PAMOR //////////////////////////////////
-        if (auth()->user()->rw_id == '1'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '2'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '3'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '4'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '5'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '6'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '7'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '8'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '10'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '11'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '12'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '13'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '14'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '15'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '16'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '17'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '18'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '19'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '20'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '21'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '22'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '23'){
-        $fasosfasum = Fasosfasum::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }else {
+            $fasosfasum = Fasosfasum::where('rw_id', '=', auth()->user()->rw_id)->orderBy('rt_id', 'asc');
         }
 
         // $fasosfasum = Fasosfasum::select('fasosfasum.*');
