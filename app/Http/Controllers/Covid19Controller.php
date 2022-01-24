@@ -27,7 +27,7 @@ class Covid19Controller extends Controller
             $covid19 = Covid19::whereYear('konfirmasi', '=', date('Y'))->get();
 
         } else {
-            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->where('konfirmasi', '=', date('Y'))->get();
+            $covid19 = Covid19::where('rw_id', '=', auth()->user()->rw_id)->whereYear('konfirmasi', '=', date('Y'))->get();
         }
         return view('covid.index', ['covid19' => $covid19]);
     }
