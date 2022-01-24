@@ -21,132 +21,12 @@ class RumahIbadahController extends Controller
      */
     public function index(Request $request)
     { 
-        if(auth()->user()->role == 'superadmin')
+        if(auth()->user()->role != 'user')
         {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
+            $ibadah = Ibadah::orderby('rw_id', 'DESC')->get();
+        }else {
+            $ibadah = Ibadah::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
-        if(auth()->user()->role == 'admin')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-        if(auth()->user()->role == 'sekel')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-        if(auth()->user()->role == 'kessos')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'permasbang')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'pemtibum')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-        if(auth()->user()->role == 'sekret')
-        {
-            $ibadah = Ibadah::orderbyRaw('rw_id', 'DESC')->get();
-        }
-
-
-        if (auth()->user()->rw_id == '1')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '1')->get();
-        }
-        if (auth()->user()->rw_id == '2')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '2')->get();
-        }
-        if (auth()->user()->rw_id == '3')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '3')->get();
-        }
-        if (auth()->user()->rw_id == '4')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '4')->get();
-        }
-        if (auth()->user()->rw_id == '5')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '5')->get();
-        }
-        if (auth()->user()->rw_id == '6')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '6')->get();
-        }
-        if (auth()->user()->rw_id == '7')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '7')->get();
-        }
-        if (auth()->user()->rw_id == '8')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '8')->get();
-        }
-        if (auth()->user()->rw_id == '9')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '9')->get();
-        }
-        if (auth()->user()->rw_id == '10')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '10')->get();
-        }
-        if (auth()->user()->rw_id == '11')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '11')->get();
-        }
-        if (auth()->user()->rw_id == '12')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '12')->get();
-        }
-        if (auth()->user()->rw_id == '13')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '13')->get();
-        }
-        if (auth()->user()->rw_id == '14')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '14')->get();
-        }
-        if (auth()->user()->rw_id == '15')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '15')->get();
-        }
-        if (auth()->user()->rw_id == '16')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '16')->get();
-        }
-        if (auth()->user()->rw_id == '17')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '17')->get();
-        }
-        if (auth()->user()->rw_id == '18')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '18')->get();
-        }
-        if (auth()->user()->rw_id == '19')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '19')->get();
-        }
-        if (auth()->user()->rw_id == '20')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '20')->get();
-        }
-        if (auth()->user()->rw_id == '21')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '21')->get();
-        }
-        if (auth()->user()->rw_id == '22')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '22')->get();
-        }
-        if (auth()->user()->rw_id == '23')
-        {
-            $ibadah = Ibadah::where('rw_id', '=', '23')->get();
-        }
-
-        //$ibadah = Ibadah::all();
         return view('saranaibadah.index', ['sarana_ibadah' => $ibadah]);
     }
 
@@ -300,90 +180,10 @@ class RumahIbadahController extends Controller
     public function getdataibadah()
     {
         ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role == 'superadmin'){
+        if(auth()->user()->role != 'user'){
             $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'admin'){
-            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'sekret'){
-            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'kessos'){
-            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'pemtibum'){
-            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        if(auth()->user()->role == 'permasbang'){
-            $ibadah = Ibadah::select('sarana_ibadah.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-        }
-        ///////////// AKUN PAMOR //////////////////////////////////
-        if (auth()->user()->rw_id == '1'){
-        $ibadah = Ibadah::where('rw_id', '=', '1')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '2'){
-        $ibadah = Ibadah::where('rw_id', '=', '2')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '3'){
-        $ibadah = Ibadah::where('rw_id', '=', '3')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '4'){
-        $ibadah = Ibadah::where('rw_id', '=', '4')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '5'){
-        $ibadah = Ibadah::where('rw_id', '=', '5')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '6'){
-        $ibadah = Ibadah::where('rw_id', '=', '6')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '7'){
-        $ibadah = Ibadah::where('rw_id', '=', '7')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '8'){
-        $ibadah = Ibadah::where('rw_id', '=', '9')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '10'){
-        $ibadah = Ibadah::where('rw_id', '=', '10')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '11'){
-        $ibadah = Ibadah::where('rw_id', '=', '11')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '12'){
-        $ibadah = Ibadah::where('rw_id', '=', '12')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '13'){
-        $ibadah = Ibadah::where('rw_id', '=', '13')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '14'){
-        $ibadah = Ibadah::where('rw_id', '=', '14')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '15'){
-        $ibadah = Ibadah::where('rw_id', '=', '15')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '16'){
-        $ibadah = Ibadah::where('rw_id', '=', '16')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '17'){
-        $ibadah = Ibadah::where('rw_id', '=', '17')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '18'){
-        $ibadah = Ibadah::where('rw_id', '=', '18')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '19'){
-        $ibadah = Ibadah::where('rw_id', '=', '19')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '20'){
-        $ibadah = Ibadah::where('rw_id', '=', '20')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '21'){
-        $ibadah = Ibadah::where('rw_id', '=', '21')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '22'){
-        $ibadah = Ibadah::where('rw_id', '=', '22')->orderBy('rt_id', 'asc');
-        }
-        if (auth()->user()->rw_id == '23'){
-        $ibadah = Ibadah::where('rw_id', '=', '23')->orderBy('rt_id', 'asc');
+        }else {
+            $ibadah = Ibadah::where('rw_id', '=', auth()->user()->rw_id)->orderBy('rt_id', 'asc');
         }
 
         // $ibadah = Ibadah::select('sarana_ibadah.*');
