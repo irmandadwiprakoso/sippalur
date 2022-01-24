@@ -34,19 +34,19 @@ class SaranaKesehatanController extends Controller
         {
             $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_kessos')
+        if(auth()->user()->role == 'kessos')
         {
             $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_permasbang')
+        if(auth()->user()->role == 'permasbang')
         {
             $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_pemtibum')
+        if(auth()->user()->role == 'pemtibum')
         {
             $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_sekret')
+        if(auth()->user()->role == 'sekret')
         {
             $kesehatan = Kesehatan::orderbyRaw('rw_id', 'DESC')->get();
         }
