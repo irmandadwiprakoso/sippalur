@@ -34,19 +34,19 @@ class SaranaPendidikanController extends Controller
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_kessos')
+        if(auth()->user()->role == 'kessos')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_permasbang')
+        if(auth()->user()->role == 'permasbang')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_sekret')
+        if(auth()->user()->role == 'sekret')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
-        if(auth()->user()->role == 'admin_pemtibum')
+        if(auth()->user()->role == 'pemtibum')
         {
             $pendidikan = Pendidikan::orderbyRaw('rw_id', 'DESC')->get();
         }
