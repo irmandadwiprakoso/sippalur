@@ -102,10 +102,10 @@
                     <hr>
 
         <div class="row">
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-6 col-xs-6">
               <div class="small-box bg-orange">
                 <div class="inner">
-                  <p>JUMLAH SPPT PBB</p>
+                  <p>JUMLAH SPPT</p>
                   <h3> {{ $pbb->count() }}</h3>
                 </div>
                 <div class="icon">
@@ -114,7 +114,19 @@
               </div>
             </div>
 
-            <div class="col-lg-2 col-xs-6">
+            <div class="col-lg-6 col-xs-6">
+              <div class="small-box bg-grey">
+                <div class="inner">
+                  <p>TARGET BAPENDA</p>
+                  <h3> Rp. {{ number_format ($pbb->sum('PBB_TERHUTANG_SPPT') ) }}</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-green">
                 <div class="inner">
                   <p>TIDAK DIKETAHUI</p>
@@ -126,7 +138,7 @@
               </div>
             </div>
 
-            <div class="col-lg-2 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-black">
                 <div class="inner">
                   <p>TIDAK ADA FISIK</p>
@@ -138,7 +150,7 @@
               </div>
             </div>
 
-            <div class="col-lg-2 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <p>DOUBLE</p>
@@ -150,7 +162,7 @@
               </div>
             </div>
 
-            <div class="col-lg-2 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-maroon">
                 <div class="inner">
                   <p>5 TAHUN</p>
