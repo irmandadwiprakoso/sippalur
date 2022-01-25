@@ -90,7 +90,7 @@ class PamorController extends Controller
             'bidang' => 'required',
             'keterangan' => 'required',
             'tinjut' => 'required',
-            'foto' => 'required|max:1024',
+            'foto' => 'required|max:10240',
             'rt_id' => 'required',
             'rw_id' => 'required',      
         ],
@@ -172,7 +172,7 @@ class PamorController extends Controller
             'tinjut' => 'required',
             'rt_id' => 'required',
             'rw_id' => 'required',         
-            'foto' => 'max:1024',         
+            'foto' => 'max:10240',         
         ]);
 
         Pamor::where('id', $pamor->id)

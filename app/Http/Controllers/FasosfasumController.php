@@ -67,7 +67,7 @@ class FasosfasumController extends Controller
             'pemanfaatan' => 'required',
             // 'nama_pengembang' => 'required',
             // 'nama_perumahan' => 'required',
-            'foto' => 'required|max:1024',       
+            'foto' => 'required|max:10240',       
         ],
     [
         'nama.required' => 'Harus di Isi Yaa',
@@ -144,7 +144,7 @@ class FasosfasumController extends Controller
             'pemanfaatan' => 'required',
             // 'nama_pengembang' => 'required',
             // 'nama_perumahan' => 'required',
-            'foto' => 'max:1024',       
+            'foto' => 'max:10240',       
         ]);
 
         Fasosfasum::where('id', $fasosfasum->id)
