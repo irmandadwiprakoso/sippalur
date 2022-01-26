@@ -152,6 +152,8 @@
               <th>NO</th>
               <th>NIK</th>
               <th>NAMA</th>
+              <th>UMUR</th>
+              <th>JENIS KELAMIN</th>
               <th>RT</th>
               <th>RW</th>
               <th>TANGGAL KONFIRMASI</th>
@@ -206,6 +208,8 @@
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'ktp_id', name:'ktp_id'},
         {data:'nama', name:'nama'},
+        {data:'umur', name:'umur'},
+        {data:'jeniskelamin', name:'jeniskelamin'},
         {data:'rt', name:'rt'},
         {data:'rw', name:'rw'},
         {data:'konfirmasi', name:'konfirmasi'},
@@ -232,8 +236,6 @@
         }
       }
      })
-
-     
 
     $(".filter").on('change', function(){
       rw  = $("#filter-rw").val()

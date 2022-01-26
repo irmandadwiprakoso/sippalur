@@ -17,6 +17,7 @@
             <div class="box-body box-profile">
               <h1 class="profile-username text-center">{{ $covid19->ktp->nama}}</h3>
               <h3 class="profile-username text-center">{{ $covid19->ktp->id}}</h3>
+              <h3 class="profile-username text-center">{{ $covid19->ktp->jeniskelamin->jeniskelamin}}</h3>
               <p class="text-muted text-center">{{ $covid19->ktp->tempat_lahir}} - {{ $covid19->ktp->tanggal_lahir}}</p>
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">

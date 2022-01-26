@@ -351,6 +351,13 @@ class Covid19Controller extends Controller
         ->addColumn('nama', function($covid19){
             return $covid19->ktp->nama;    
             })
+        ->addColumn('umur', function($covid19){
+            return $covid19->ktp->tanggal_lahir;    
+            })
+
+        ->addColumn('jeniskelamin', function($covid19){
+            return $covid19->ktp->jeniskelamin->jeniskelamin;    
+            })
         ->addColumn('rt', function($covid19){
             return $covid19->rt->rt;    
             })
