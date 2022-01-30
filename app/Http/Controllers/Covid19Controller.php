@@ -58,7 +58,7 @@ class Covid19Controller extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'ktp_id' => 'required|unique:covid19,ktp_id',
+            'ktp_id' => 'required',
             'foto_KTP' => 'required|max:10240',
             'foto_KK' => 'required|max:10240',
             'domisili' => 'required',
@@ -79,7 +79,6 @@ class Covid19Controller extends Controller
         ],
         [
             'ktp_id.required' => 'Pilih Yang Bener ya NIK nya',
-            'ktp_id.unique' => 'Sudah Di Pilih NIK ini',
             'foto_KTP.required' => 'Upload Foto KTP nya & Max 1 Mb yaa fotonya',
             'foto_KK.required' => 'Upload Foto KK nya & Max 1 Mb yaa fotonya',
             'domisili.required' => 'Harus Di Isi Yaa',
