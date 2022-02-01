@@ -43,7 +43,7 @@
 								</div>
               </div>
 
-							<div class="row">
+							<!-- <div class="row">
 								<label class="col-sm-2 control-label">Bulan</label>
 								<div class="col-xs-4">
 									<select class="form-control filter" name="filter-bulan" id="filter-bulan">
@@ -61,7 +61,7 @@
 										<option value="11">Nopember</option>
 										<option value="12">Desember</option>
 									</select>
-								</div>
+								</div> -->
                 
                 <div class="row">
 								  <label class="col-sm-2 control-label">Tahun</label>
@@ -73,7 +73,7 @@
 			  	</div>										
 			  </div>
 		  </div>
-		  </div>
+		  <!-- </div> -->
       
               <div class="col-xs-12">
                 <div class="panel panel-success">
@@ -143,6 +143,31 @@
             </div>
           </div>
         </div>
+
+        <div class="col-lg-6 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+            <p>ISOMAN</p>
+            <h3> {{ $covid19->where('status_pasien', '=', 'Isoman')->count() }}</h3>
+            </div>
+            <div class="icon">
+            <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+            <p>RS</p>
+            <h3> {{ $covid19->where('status_pasien', '=', 'Perawatan')->count() }}</h3>
+            </div>
+            <div class="icon">
+            <i class="ion ion-person"></i>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="table-responsive">
