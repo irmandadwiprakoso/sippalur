@@ -96,7 +96,7 @@
                     <hr>
 
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
             <p>TOTAL TERKONFIRMASI</p>
@@ -108,19 +108,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-yellow">
-            <div class="inner">
-            <p>TOTAL POSITIF</p>
-            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->count() }}</h3>
-            </div>
-               <div class="icon">
-               <i class="ion ion-person-add"></i>
-             </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
             <p>TOTAL NEGATIF</p>
@@ -132,7 +120,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
             <p>TOTAL MENINGGAL</p>
@@ -144,11 +132,23 @@
           </div>
         </div>
 
-        <div class="col-lg-6 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+            <p>TOTAL POSITIF</p>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->count() }}</h3>
+            </div>
+               <div class="icon">
+               <i class="ion ion-person-add"></i>
+             </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
             <p>ISOMAN</p>
-            <h3> {{ $covid19->where('status_pasien', '=', 'Isoman')->count() }}</h3>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->where('status_pasien', '=', 'Isoman')->count() }}</h3>
             </div>
             <div class="icon">
             <i class="ion ion-person"></i>
@@ -156,11 +156,11 @@
           </div>
         </div>
 
-        <div class="col-lg-6 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
             <p>RS</p>
-            <h3> {{ $covid19->where('status_pasien', '=', 'Perawatan')->count() }}</h3>
+            <h3> {{ $covid19->where('status_akhir', '=', 'Positif')->where('status_pasien', '=', 'Perawatan')->count() }}</h3>
             </div>
             <div class="icon">
             <i class="ion ion-person"></i>

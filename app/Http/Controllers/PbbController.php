@@ -175,20 +175,20 @@ class PbbController extends Controller
     public function getdatapbb(Request $request)
     {
         if(auth()->user()->role != 'user'){
-            if($request->input('tahun')!=null){
+            if($request->input('rw')!=null){
+                $pbb = Pbb::where('rw_id', $request->rw)->where('TAHUN_SPPT', $request->tahun)->orderby('rt_id', 'asc');
+            }else if($request->input('rt')!=null){
+                $pbb = Pbb::where('rt_id', $request->rt)->where('rw_id', $request->rw)->where('TAHUN_SPPT', $request->tahun);
+            }else {
                 $pbb = Pbb::where('TAHUN_SPPT', $request->tahun)->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc');
-            }if($request->input('rw')!=null){
-                $pbb = Pbb::where('rw_id', $request->rw)->where('TAHUN_SPPT', $request->tahun)->orderBy('rt_id', 'asc');
-            }if($request->input('rt')!=null){
-                $pbb = Pbb::where('rw_id', $request->rw)->where('rt_id', $request->rt)->where('TAHUN_SPPT', $request->tahun)->orderBy('rt_id', 'asc');
             }
         }else
-            if($request->input('tahun')!=null){
-                $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', $request->tahun)->orderby('rt_id', 'asc');
-            }if($request->input('rt')!=null){
+            if($request->input('rt')!=null){
                 $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('rt_id', $request->rt)->where('TAHUN_SPPT', $request->tahun)->orderBy('rt_id', 'asc');
-        }
-
+            }else{
+                $pbb = Pbb::where('rw_id', '=', auth()->user()->rw_id)->where('TAHUN_SPPT', $request->tahun)->orderby('rt_id', 'asc');
+            }
+          
         return DataTables::eloquent($pbb)
         ->addIndexColumn()
         ->addColumn('rt', function($pbb){
