@@ -36,6 +36,11 @@ class Covid19Controller extends Controller
         return Excel::download(new Covid19Export,'covid19-jakasampurna.csv');
     }
 
+    public function covid19chart()
+    {
+        return view('covid.chart');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

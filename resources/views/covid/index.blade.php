@@ -82,6 +82,7 @@
                     @if (auth()->user()->role == "superadmin")
                     <a href="/covid19/create" class="btn btn-primary my-2">Tambah Data</a>
                     <a href="/exportcovid19" class="btn btn-success">Download Data</a>
+                    <a href="/chartcovid19" class="btn btn-red">Grapik Covid-19</a>
 
                     @elseif (auth()->user()->role == "user")
                     <a href="/covid19/create" class="btn btn-primary my-2">Tambah Data</a>

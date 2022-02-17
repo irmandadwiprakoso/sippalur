@@ -121,6 +121,7 @@ Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,kessos,pe
         ]);
     Route::post('covid19.hapus', 'Covid19Controller@hapus')->name('hapus');
     Route::get('/exportcovid19', 'Covid19Controller@covid19export');
+    Route::get('/chartcovid19', 'Covid19Controller@covid19chart');
 });
 
 Route::group(['middleware' => ['auth','checkrole:superadmin,admin,user,pemtibum']],function(){
