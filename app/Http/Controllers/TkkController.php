@@ -29,7 +29,7 @@ class TkkController extends Controller
     public function index()
     {
         // $tkk = Tkk::all();
-        $tkk = Tkk::orderbyRaw('rw_id', 'DESC')->get();
+        $tkk = Tkk::orderbyRaw('rw_id', 'asc')->get();
         return view('tkk.index', ['tkk' => $tkk]);
     }
     public function exporttkk() 
@@ -320,14 +320,8 @@ class TkkController extends Controller
         })
 
         ->addColumn('hapus', function($tkk){
-            if (auth()->user()->username == "superadmin"){
                 $button = "<button class='hapus btn btn-danger' id='".$tkk->id."' ><i class='fa fa-trash'></i></button>";
                 return $button;  
-            }
-            if (auth()->user()->username == "admin_kessos"){
-                $button = "<button class='hapus btn btn-danger' id='".$tkk->id."' ><i class='fa fa-trash'></i></button>";
-                return $button;  
-            } 
         })
         
         ->rawColumns(['rw','jabatan','seksi','view','edit', 'hapus'])
