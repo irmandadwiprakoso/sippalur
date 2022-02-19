@@ -12,21 +12,8 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">Data Sarana Ibadah</div>
                     <div class="panel-body">
-                    @if (auth()->user()->role == "superadmin") 
                     <a href="/ibadah/create" class="btn btn-primary my-2">Tambah Data</a>
                     <a href="/exportibadah" class="btn btn-success">Download Data</a>
-
-                    @elseif (auth()->user()->role == "user") 
-                    <a href="/ibadah/create" class="btn btn-primary my-2">Tambah Data</a>
-                    
-                    @elseif (auth()->user()->role == "kessos") 
-                    <a href="/ibadah/create" class="btn btn-primary my-2">Tambah Data</a>
-                    <a href="/exportibadah" class="btn btn-success">Download Data</a>
-
-                    @elseif (auth()->user()->role == "admin") 
-                    <!-- <a href="/ibadah/create" class="btn btn-primary my-2">Tambah Data</a> -->
-                    <a href="/exportibadah" class="btn btn-success">Download Data</a>
-                    @endif
                     <hr>
 
    <div class="row">
@@ -97,15 +84,15 @@
         </div>
       </div>     
                 <div class="table-responsive">
-                    <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <!-- <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="dataTables_length" id="tabel_length"> 
                                     </div>
                                 </div>
                             </div>
-                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
-                    </div>
+                        <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+                    </div> -->
                     <table id="ibadah" class="table table-bordered table-striped">
                     <thead>
                         <tr>                             
@@ -139,7 +126,6 @@
       processing:true,
       serverside:true,
       ajax:"{{route('ajax.get.data.ibadah')}}",
-      // order: [[ 5, "asc" ]],
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'nama_sarana_ibadah', name:'nama_sarana_ibadah'},

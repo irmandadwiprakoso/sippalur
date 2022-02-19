@@ -23,7 +23,7 @@ class RumahIbadahController extends Controller
     { 
         if(auth()->user()->role != 'user')
         {
-            $ibadah = Ibadah::orderby('rw_id', 'DESC')->get();
+            $ibadah = Ibadah::orderby('rw_id', 'asc')->get();
         }else {
             $ibadah = Ibadah::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
@@ -163,12 +163,7 @@ class RumahIbadahController extends Controller
     //     return redirect('/ibadah');
     //     //return "delete";
     // }
-    // public function destroy(Ibadah $ibadah)
-    // {
-    //     Ibadah::destroy($ibadah->id);
-    //     //return redirect('/ibadah')->with('info', 'Data Sarana Ibadah Berhasil Dihapus!');
-    //     return redirect()->back();
-    // }
+
     public function hapusibadah(Request $request)
     {
         $id = $request->id;
