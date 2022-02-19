@@ -26,20 +26,7 @@ class AsnController extends Controller
      */
     public function index(Request $request)
     {
-
-        // if ($request->has('search')){
-        //     $asn = Asn::where('nama', 'LIKE', '%'.$request->search.'%')->get();
-        // }else{
-            // menampilkan semua data
-            // $asn = Asn::all();
-            $asn = Asn::orderbyRaw('jabatan_id', 'DESC')->get();
-            // menampilkan semua data termasuk deleted at ter isi di table
-            // $asn = Asn::withTrashed()->get();
-            // menampilkan data yang deleted at ter isi saja
-            // $asn = Asn::onlyTrashed()->get();
-        // }
-        //$asn = Asn::all();
-        // $asn = Asn::all()->count();
+        $asn = Asn::orderby('jabatan_id', 'asc')->get();
         return view('asn.index', ['asn' => $asn]);
     }
 
@@ -263,8 +250,6 @@ class AsnController extends Controller
         // if ($request->user()->foto) {
         //     Storage::delete($request->user()->foto);
         // }
-
-        
         return redirect('/asn')->with('success', 'Data PNS Berhasil Di Update!');
     }
 
@@ -317,14 +302,8 @@ class AsnController extends Controller
         })
 
         ->addColumn('hapus', function($asn){
-            if (auth()->user()->username == "superadmin"){
                 $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$asn->id."' ><i class='fa fa-trash'></i></button>";
                 return $button;  
-            }
-            if (auth()->user()->username == "admin_kessos"){
-                $button = "<button class='hapus btn btn-danger' title='Hapus' id='".$asn->id."' ><i class='fa fa-trash'></i></button>";
-                return $button;  
-            } 
         })
         
         ->rawColumns(['pangkat','golongan','jabatan','view','edit', 'hapus'])

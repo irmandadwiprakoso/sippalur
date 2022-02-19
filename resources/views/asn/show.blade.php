@@ -1,10 +1,8 @@
 @extends('layout.master')
 
 @section('title')
-
-
 <section class="content-header">
-      <h1>Data Pegawai PNS <small> Kelurahan Jakasampurna </small></h1>
+  <h1>Data Pegawai PNS <small> Kelurahan Jakasampurna </small></h1>
 </section>
 
 <section class="content">		
