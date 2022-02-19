@@ -10,7 +10,7 @@
           <div class="content">
           <div class="title m-b-md"> 
               <center>
-              <img src="/images/iconsippalur.png"  height="100px">
+              <img src="/images/iconsippalur.png" height="100px">
               <h2>Selamat Datang 
               <br>{{auth()->user()->name}} 
               <br>di Website Sistem Informasi Pelaporan Pamor Kelurahan
