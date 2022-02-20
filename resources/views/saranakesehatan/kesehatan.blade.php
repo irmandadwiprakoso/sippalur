@@ -71,15 +71,15 @@
       </div>
  
                 <div class="table-responsive">
-                    <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <!-- <div id="tabel_wrapper" class="dataTables_wrapper form-inline" role="grid">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="dataTables_length" id="tabel_length"> 
                                     </div>
                                 </div>
                             </div>
-                        <!-- <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div> -->
-                    </div>
+                        <div id="tabel_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div>
+                    </div> -->
                     <table id="kesehatan" class="table table-bordered table-striped">
                     <thead>
                         <tr>                           
@@ -113,7 +113,6 @@
       processing:true,
       serverside:true,
       ajax:"{{route('ajax.get.data.kesehatan')}}",
-      // order: [[ 5, "asc" ]],
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'nama_sarana_kesehatan', name:'nama_sarana_kesehatan'},

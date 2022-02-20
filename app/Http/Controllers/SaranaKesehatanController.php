@@ -24,7 +24,7 @@ class SaranaKesehatanController extends Controller
 
         if(auth()->user()->role != 'user')
         {
-            $kesehatan = Kesehatan::orderby('rw_id', 'DESC')->get();
+            $kesehatan = Kesehatan::orderby('rw_id', 'asc')->get();
         } else {
             $kesehatan = Kesehatan::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
