@@ -24,7 +24,7 @@ class SaranaPendidikanController extends Controller
     
         if(auth()->user()->role != 'user')
         {
-            $pendidikan = Pendidikan::orderby('rw_id', 'DESC')->get();
+            $pendidikan = Pendidikan::orderby('rw_id', 'asc')->get();
         }else {
             $pendidikan = Pendidikan::where('rw_id', '=', auth()->user()->rw_id)->get();
         }
