@@ -179,14 +179,16 @@ return redirect('/ksbrw')->with('success', 'Data RW Berhasil Ditambahkan!');
         return redirect()->back();
     }
 
-    public function getdataksbrw()
+    public function getdataksbrw(Request $request)
     {
-        ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role != 'user'){
-            $ksbrw = Ksbrw::select('ksbrw.*')->orderBy('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }else {
+        if(auth()->user()->role != 'user'){          
+            if($request->input('rw')!=null){
+                $ksbrw = Ksbrw::where('rw_id', $request->rw)->orderBy('jabatan_id', 'asc');
+            }else {
+                $ksbrw = Ksbrw::orderby('rw_id', 'asc')->orderBy('jabatan_id', 'asc');
+            }
+        }else 
             $ksbrw = Ksbrw::where('rw_id', '=', auth()->user()->rw_id)->orderBy('jabatan_id', 'asc');
-        }
         
         // $ksbrw = Ksbrw::select('ksbrw.*');
         return DataTables::eloquent($ksbrw)
