@@ -7,7 +7,48 @@
 </section>
 
 <section class="content">		
-		<div class="row">
+	<div class="row">
+
+    <div class="col-md-12">
+				<div class="panel panel-white">
+					<div class="panel-body">
+							<div class="row">
+								<label class="col-sm-2 control-label">RW</label>
+								<div class="col-xs-4">
+								  <select class="form-control filter" name="filter-rw" id="filter-rw">
+										<option value="">--Pilih RW--</option>
+										<option value="1">RW 001</option>
+										<option value="2">RW 002</option>
+										<option value="3">RW 003</option>
+										<option value="4">RW 004</option>
+										<option value="5">RW 005</option>
+										<option value="6">RW 06A</option>
+										<option value="7">RW 06B</option>
+										<option value="8">RW 007</option>
+										<option value="9">RW 008</option>
+										<option value="10">RW 009</option>
+										<option value="11">RW 010</option>
+										<option value="12">RW 011</option>
+										<option value="13">RW 012</option>
+										<option value="14">RW 013</option>
+										<option value="15">RW 014</option>
+										<option value="16">RW 015</option>
+										<option value="17">RW 016</option>
+										<option value="18">RW 017</option>
+										<option value="19">RW 018</option>
+										<option value="20">RW 019</option>
+										<option value="21">RW 020</option>
+										<option value="22">RW 021</option>
+										<option value="23">RW 022</option>
+									</select>
+								</div>
+              </div>
+							<br>
+			  	</div>										
+			  </div>
+		  </div>
+		  <!-- </div> -->
+
             <div class="col-xs-12">
                 <div class="panel panel-success">
                     <div class="panel-heading">Data RT</div>       
@@ -106,12 +147,19 @@
 <script src="/AdminLTE/plugins/sweetalert/sweetalert2@11.js"></script>
 
 <script>
+ let rw  = $("#filter-rw").val()
+
   $(document).ready(function () {
-    $('#ksbrt').DataTable({
+    var table = $('#ksbrt').DataTable({
       processing:true,
       serverside:true,
-      ajax:"{{route('ajax.get.data.ksbrt')}}",
-      // order: [[ 5, "asc" ]],
+      ajax:{
+      url: "{{route('ajax.get.data.ksbrt')}}",
+      data:function(d){
+          d.rw = rw;
+          return d
+        }
+      },
       columns:[
         {data:'DT_RowIndex', name:'DT_RowIndex'},
         {data:'ktp_id', name:'ktp_id'},
@@ -125,6 +173,10 @@
         {data:'edit', name:'edit', orderable: false, searchable: false},
         {data:'hapus', name:'hapus', orderable: false, searchable: false},
       ]
+    })
+        $(".filter").on('change', function(){
+        rw  = $("#filter-rw").val()
+        table.ajax.reload(null, false);
      })
   })
 

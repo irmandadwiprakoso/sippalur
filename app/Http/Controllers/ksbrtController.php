@@ -8,6 +8,7 @@ use App\Rt;
 use App\Rw;
 use App\Jabatan;
 use App\Exports\ksbrtExport;
+use App\Ksbrw;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -184,14 +185,16 @@ return redirect('/ksbrt')->with('success', 'Data RT Berhasil Ditambahkan!');
         return redirect()->back();
     }
 
-    public function getdataksbrt()
+    public function getdataksbrt(Request $request)
     {
-        ////////////////////////// AKUN ADMIN /////////////////////////////
-        if(auth()->user()->role != 'user'){
-            $ksbrt = Ksbrt::select('ksbrt.*')->orderBy('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
-        }else {
-            $ksbrt = Ksbrt::where('rw_id', '=', auth()->user()->rw_id)->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');            
-        }
+        if(auth()->user()->role != 'user'){          
+            if($request->input('rw')!=null){
+                $ksbrt = Ksbrt::where('rw_id', $request->rw)->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
+            }else {
+                $ksbrt = Ksbrt::orderby('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
+            }
+        }else 
+            $ksbrt = Ksbrt::where('rw_id', '=', auth()->user()->rw_id)->orderby('rw_id', 'asc')->orderBy('rt_id', 'asc')->orderBy('jabatan_id', 'asc');
 
         return DataTables::eloquent($ksbrt)
         ->addIndexColumn()
