@@ -90,7 +90,7 @@ class PamorController extends Controller
             'bidang' => 'required',
             'keterangan' => 'required',
             'tinjut' => 'required',
-            // 'foto' => 'required|max:10240',
+            'foto' => 'required|max:10240',
             'rt_id' => 'required',
             'rw_id' => 'required',      
         ],
@@ -101,14 +101,14 @@ class PamorController extends Controller
             'bidang.required' => 'Harus di Isi',
             'keterangan.required' => 'Harus di Isi',
             'tinjut.required' => 'Harus di Isi',
-            // 'foto.required' => 'Diupload yaa Foto Kegiatan Kamu',
+            'foto.required' => 'Diupload yaa Foto Kegiatan Kamu',
             'rt_id.required' => 'Harus di Isi',
             'rw_id.required' => 'Harus di Isi',
         ]
     );
-        // $imgName = $request->foto->getClientOriginalName() . '-' . time() 
-        // . '.' . $request->foto->extension();
-        // $request->foto->move('images/LaporanHarian/',$imgName);
+        $imgName = $request->foto->getClientOriginalName() . '-' . time() 
+        . '.' . $request->foto->extension();
+        $request->foto->move('images/LaporanHarian/',$imgName);
         
         //Pamor::create($request->all());
         Pamor::create([
@@ -120,7 +120,7 @@ class PamorController extends Controller
             'tinjut' => $request->tinjut,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            // 'foto' => $imgName,
+            'foto' => $imgName,
             'user_id' => Auth::user()->id,
         ]);
 
