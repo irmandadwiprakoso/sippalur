@@ -106,9 +106,9 @@ class PamorController extends Controller
             'rw_id.required' => 'Harus di Isi',
         ]
     );
-        $imgName = $request->foto->getClientOriginalName() . '-' . time() 
-        . '.' . $request->foto->extension();
-        $request->foto->move('images/LaporanHarian/',$imgName);
+        // $imgName = $request->foto->getClientOriginalName() . '-' . time() 
+        // . '.' . $request->foto->extension();
+        // $request->foto->move('images/LaporanHarian/',$imgName);
         
         //Pamor::create($request->all());
         Pamor::create([
@@ -120,7 +120,7 @@ class PamorController extends Controller
             'tinjut' => $request->tinjut,
             'rt_id' => $request->rt_id,
             'rw_id' => $request->rw_id,
-            'foto' => $imgName,
+            // 'foto' => $imgName,
             'user_id' => Auth::user()->id,
         ]);
 
